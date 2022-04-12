@@ -1,7 +1,5 @@
-## ❗️master 分支暂停更新，内容将陆续迁移到 gitbook 分支。
-
 studies
----
+===
 
 ![python-version](https://img.shields.io/badge/python-3.8+-green)
 ![pytorch-version](https://img.shields.io/badge/pytorch-1.8+-green)
@@ -847,14 +845,12 @@ Notes
     - [样本不平衡](notes/机器学习/样本不平衡)
 - 深度学习
     - 基础知识
+        - 正则化
+            - [过拟合与欠拟合](notes/深度学习/基础知识/-正则化/过拟合与欠拟合)
         - [Attention](notes/深度学习/基础知识/Attention)
         - [CNN](notes/深度学习/基础知识/CNN)
-        - [RNN](notes/深度学习/基础知识/RNN)
         - [损失函数](notes/深度学习/基础知识/损失函数)
-        - [正则化](notes/深度学习/基础知识/正则化)
-            - [过拟合与欠拟合](notes/深度学习/基础知识/正则化/过拟合与欠拟合)
         - [激活函数](notes/深度学习/基础知识/激活函数)
-    - [Transformer](notes/深度学习/Transformer)
     - [对比学习](notes/深度学习/对比学习)
 - 自然语言处理
     - [预训练语言模型](notes/自然语言处理/预训练语言模型)
