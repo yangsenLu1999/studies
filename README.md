@@ -1,5 +1,7 @@
+## ❗️master 分支暂停更新，内容将陆续迁移到 gitbook 分支。
+
 studies
-===
+---
 
 ![python-version](https://img.shields.io/badge/python-3.8+-green)
 ![pytorch-version](https://img.shields.io/badge/pytorch-1.8+-green)
