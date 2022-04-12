@@ -11,11 +11,31 @@ Subject:
 import doctest
 
 import torch.nn as nn
+import torch.nn.functional as F  # noqa
 
 from huaytools.pytorch.loss import RDropLoss
 
 
 class RDrop(nn.Module):
+
+    def __init__(self, encoder, kl_alpha=1.0):
+        super().__init__()
+
+        self.encoder = encoder
+        self.kl_alpha = kl_alpha
+        self.ce = nn.CrossEntropyLoss()
+        self.kl = nn.KLDivLoss()
+
+    def forward(self, x, labels):
+        logits1 = self.encoder(x)
+        logits2 = self.encoder(x)
+        ce_loss = (self.ce(logits1, labels) + self.ce(logits2, labels)) / 2
+        kl_loss1 = self.kl(F.log_softmax(logits1, dim=-1), F.softmax(logits2, dim=-1))
+        kl_loss2 = self.kl(F.log_softmax(logits2, dim=-1), F.softmax(logits1, dim=-1))
+        return ce_loss + self.kl_alpha * (kl_loss1 + kl_loss2) / 2
+
+
+class RDrop_(nn.Module):
     """"""
 
     def __init__(self, encoder, **loss_kwargs):
