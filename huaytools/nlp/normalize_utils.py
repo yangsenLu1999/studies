@@ -26,12 +26,13 @@ class NormalizeUtils:
     RE_EMOJI: ClassVar[re.Pattern] = None
 
     @staticmethod
-    def remove_emojis(seq: str) -> str:
+    def remove_emojis(seq: str, repl=' ') -> str:
         """
         Remove emojis from a text sequence.
 
         Args:
             seq:
+            repl: replace emoji by `repl`, default one space
 
         Examples:
             >>> txt = r'A text with some emojis: 😉, 😂, 😊.'
@@ -42,7 +43,7 @@ class NormalizeUtils:
             from huaytools.utils.regex_helper import RegexEmoji
             NormalizeUtils.RE_EMOJI = RegexEmoji.get_default_regex()
 
-        seq = NormalizeUtils.RE_EMOJI.sub(' ', seq)
+        seq = NormalizeUtils.RE_EMOJI.sub(repl, seq)
         return seq
 
     @staticmethod
@@ -52,7 +53,8 @@ class NormalizeUtils:
 
         Args:
             seq:
-            form: 'NFD' or 'NFKD', suggest 'NFD'
+            form: 'NFD' or 'NFKD', suggest 'NFD';
+                'NFD' just remove the accents, 'NFKD' may change the char ('ﬁ' -> 'fi')
 
         Examples:
             >>> _s = 'âbĉ'
