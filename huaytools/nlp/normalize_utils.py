@@ -26,6 +26,25 @@ class NormalizeUtils:
     RE_EMOJI: ClassVar[re.Pattern] = None
 
     @staticmethod
+    def untie_ligatures(seq: str):
+        """
+        Untie ligatures.
+        Note not all ligatures can be untied, such as "ꜳ, æ, ..."
+
+        Args:
+            seq:
+
+        Examples:
+            >>> txt = 'Ligature examples: ﬁ, ﬀ, ﬃ.ꜳ'
+            >>> NormalizeUtils.untie_ligatures(txt)
+            'Ligature examples: fi, ff, ffi.'
+
+        References:
+            https://en.wikipedia.org/wiki/Ligature_(writing)
+        """
+        return unicodedata.normalize('NFKD', seq)
+
+    @staticmethod
     def remove_emojis(seq: str, repl=' ') -> str:
         """
         Remove emojis from a text sequence.
