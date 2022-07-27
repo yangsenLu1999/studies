@@ -1,0 +1,37 @@
+# python>=3.8
+beautifulsoup4
+tqdm
+regex
+markdown
+# ipykernel
+# packaging
+python-levenshtein
+pyyaml
+requests
+sortedcollections
+sortedcontainers
+
+# machine learning
+scikit-learn
+
+# nlp
+jieba
+hanlp
+gensim
+opencc
+
+# huggingface
+transformers
+datasets
+evaluate
+
+# pytorch
+accelerate
+
+# tensorflow
+# tensorflow-macos
+# tensorflow-metal
+keras
+# bert4keras --no-deps
+
+# pyspark
