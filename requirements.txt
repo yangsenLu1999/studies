@@ -1,15 +1,11 @@
 # python>=3.8
-beautifulsoup4
 tqdm
 regex
+beautifulsoup4
 markdown
-# ipykernel
-# packaging
 python-levenshtein
 pyyaml
 requests
-sortedcollections
-sortedcontainers
 
 # machine learning
 scikit-learn
@@ -18,20 +14,18 @@ scikit-learn
 jieba
 hanlp
 gensim
-opencc
+autophrasex
 
 # huggingface
+accelerate
 transformers
 datasets
 evaluate
 
-# pytorch
-accelerate
-
+# keras
 # tensorflow
 # tensorflow-macos
 # tensorflow-metal
-keras
 # bert4keras --no-deps
 
 # pyspark
