@@ -8,6 +8,7 @@ Author:
 Subject:
     PySpark Utils
 """
+import os
 import logging
 from typing import *
 from pathlib import Path
@@ -20,6 +21,10 @@ from pyspark.sql.types import *
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
                     datefmt='%Y.%m.%d %H:%M:%S',
                     level=logging.WARNING)
+
+__all__ = [
+    'SparkUtils'
+]
 
 
 class SparkUtils:
@@ -172,8 +177,8 @@ class SparkUtils:
                     save_dir: str,
                     mode: str = 'overwrite',
                     save_to_one_file: bool = False,
-                    delete_src: bool = True,
-                    header: bool = True,
+                    delete_src: bool = False,  # Enabled if `save_to_one_file` is True
+                    header: bool = False,  # If True, each part file will have a header
                     sep: str = ',',
                     quote: str = '"',
                     quote_all: bool = True,
@@ -222,8 +227,7 @@ class SparkUtils:
 
         """
         if SparkUtils.get_spark_submit_deploy_mode(spark) == 'client':  # 测试环境
-            import os
-            os.system(f'cat {src_dir}/{src_prefix}* > {save_path}')
+            os.system(f'cat {src_dir}/{src_prefix}* > {Path(src_dir).parent}/{save_path}')
             if delete_src:
                 os.system(f'rm -rf {src_dir}')
         else:  # 生产环境（'cluster' 模式）
