@@ -1,9 +1,7 @@
 Wiki
 ===
 - [D](#d)
-    - [DCL](#dcl)
-    - [DDL](#ddl)
-    - [DML](#dml)
+    - [Docker](#docker)
 - [G](#g)
     - [git](#git)
     - [GitBook (1)](#gitbook-1)
@@ -23,26 +21,13 @@ Wiki
     - [Obsidian](#obsidian)
 - [S](#s)
     - [Scheduler (Spark)](#scheduler-spark)
-- [T](#t)
-    - [TCL](#tcl)
 
 
 ## D
 
-### DCL
-> 另见：DDL，DML，TCL
-- Data Control Language，数据库控制语言；
-- 基本命令：`GRANT, REVOKE` 等；
-
-### DDL
-> 另见：DCL，DML，TCL
-- Data Definition Language，数据库定义语言，SQL 语言的四大功能之一；
-- 基本命令：`CREATE, ALTER, DROP` 等；
-
-### DML
-> 另见：DCL，DDL，TCL
-- Data Manipulation Language，数据操纵语言
-- 基本命令：`SELECT, INSERT, UPDATE, DELETE` 等；
+### Docker
+> 一个开源的应用容器引擎，让开发者可以打包他们的应用及依赖到一个可移植的镜像中；
+- [Docker 学习笔记](./_archives/2022/08/Docker学习笔记.md)
 
 
 ## G
@@ -122,11 +107,3 @@ Wiki
 
 ### Scheduler (Spark)
 - 调度器，用于控制例行化调度、依赖检测等功能；
-
-
-## T
-
-### TCL
-> 另见：DCL，DDL，DML
-- Transaction Control Language，事务控制语言；
-- 基本命令：`SAVEPOINT, ROLLBACK` 等；

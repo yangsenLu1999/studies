@@ -42,39 +42,45 @@ PyCharm 常用配置
 Time:
     ${YEAR}-${MONTH}-${DAY} ${TIME}
 Author:
-    HuaYang(imhuay@163.com)
+    HuaYang (imhuay@163.com)
 Subject:
     TODO
 """
 import os
 import sys
 import json
+import time
 
 from typing import *
 from pathlib import Path
 from collections import defaultdict
 
 
-class __DoctestWrapper:
+class __RunWrapper:
     """"""
 
     def __init__(self):
         """"""
+        for k, v in self.__class__.__dict__.items():
+            if k.startswith('demo') and isinstance(v, Callable):
+                print(f'=== Start "{k}" {{')
+                start = time.time()
+                v(self)
+                print(f'}} End "{k}" - Spend {time.time() - start:5f}s===\n')
+
+    def demo_doctest(self):  # noqa
+        """"""
         import doctest
         doctest.testmod()
 
-        for k, v in self.__class__.__dict__.items():
-            if k.startswith('demo') and isinstance(v, Callable):
-                v(self)
-
-    def demo_base(self):  # noqa
+    def demo_xxx(self):  # noqa
         """"""
         pass
 
 
 if __name__ == '__main__':
     """"""
-    __DoctestWrapper()
+    __RunWrapper()
 ```
 
 ### Python Console
