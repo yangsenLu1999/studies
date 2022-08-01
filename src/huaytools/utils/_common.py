@@ -24,9 +24,12 @@ from typing import *
 from datetime import datetime
 from pathlib import Path
 
-logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
+logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s@%(lineno)sL : %(message)s',
                     datefmt='%Y.%m.%d %H:%M:%S',
                     level=logging.INFO)
+"""
+References: https://docs.python.org/zh-cn/3/library/logging.html#logrecord-attributes
+"""
 
 if sys.version_info >= (3, 7):
     import importlib.resources as importlib_resources
@@ -219,8 +222,8 @@ def get_caller_name(num_back=2) -> str:
     co_name = frame.f_code.co_name
 
     if co_name == '<module>':  # 当调用方是一个模块，此时返回模块的文件名
-        filename, _ = os.path.splitext(os.path.basename(frame.f_code.co_filename))
-        return filename
+        # filename, _ = os.path.splitext(os.path.basename(frame.f_code.co_filename))
+        return os.path.basename(frame.f_code.co_filename)
 
     return co_name
 
