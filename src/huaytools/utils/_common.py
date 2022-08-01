@@ -448,11 +448,11 @@ def get_resource(relative_res_path):
     return pkgutil.get_data('huaytools', os.path.join("_resources", relative_res_path))
 
 
-def function_test_dn(func):
+def function_timer(func):
     """@Python Utils
     函数测试装饰器
     Examples:
-        >>> @function_test_dn
+        >>> @function_timer
         ... def _test_func(x=1):
         ...     print(x)
         >>> _test_func()
@@ -465,15 +465,10 @@ def function_test_dn(func):
     @functools.wraps(func)
     def inner(*args, **kwargs):
         """"""
-        print('Start running `%s` {' % func.__name__)
-
+        print(f'Start `{func.__name__}` {{')
         start = time.time()
-
         func(*args, **kwargs)
-
-        end = time.time()
-
-        print('} End, spend %s s.\n' % round(end - start))
+        print(f'}} End - Spend {time.time() - start:5f} s.\n')
 
     return inner
 
