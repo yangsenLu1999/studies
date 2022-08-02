@@ -66,7 +66,7 @@ class __RunWrapper:
                 print(f'=== Start "{k}" {{')
                 start = time.time()
                 v(self)
-                print(f'}} End "{k}" - Spend {time.time() - start:5f}s===\n')
+                print(f'}} End "{k}" - Spend {time.time() - start:f}s===\n')
 
     def demo_doctest(self):  # noqa
         """"""
