@@ -57,30 +57,29 @@ class classproperty(property):  # noqa
         return classmethod(self.fget).__get__(None, owner)()
 
 
-def is_simple_type(obj, simple_type=(int, str, float)):
+def is_specific_type(obj, specific_type=(int, str, float)) -> bool:
     """
-    判断是否复杂类型
-        黑名单机制，不是 simple_type 的都是复杂类型
+    递归判断是否都是特定类型
+        黑名单机制，不在 specific_type 的都是复杂类型；
+        递归的意思是会嵌套判断 list、tuple、set、dict 中的内容；
 
     Args:
         obj:
-        simple_type:
-
-    Returns: bool
+        specific_type:
 
     Examples:
-        >>> is_simple_type(is_simple_type)
+        >>> is_specific_type(is_specific_type)
         False
-        >>> its = (1, 1.0, 's', [1,2,'1'], {'1':[1,'c']})
-        >>> all(is_simple_type(it) for it in its)  # noqa
+        >>> its = [1, 1.0, 's', [1,2,'1'], {'1':[1,'c']}, {'1',2}]
+        >>> all(is_specific_type(it) for it in its)  # noqa
         True
     """
-    if isinstance(obj, simple_type):
+    if isinstance(obj, specific_type):
         return True
-    elif isinstance(obj, (list, tuple)):
-        return all(is_simple_type(it) for it in obj)
+    elif isinstance(obj, (list, tuple, set)):
+        return all(is_specific_type(it) for it in obj)
     elif isinstance(obj, dict):
-        return all(is_simple_type(k) and is_simple_type(v) for k, v in obj.items())
+        return all(is_specific_type(k) and is_specific_type(v) for k, v in obj.items())
     else:
         return False
 
