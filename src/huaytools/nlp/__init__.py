@@ -8,3 +8,5 @@ Author:
 Subject:
     Utils for NLP
 """
+
+from .normalize_utils import NormalizeUtils

@@ -4,7 +4,7 @@
 Time:
     2022-07-27 15:46
 Author:
-    HuaYang(imhuay@163.com)
+    HuaYang (imhuay@163.com)
 Subject:
     Normalize Utils for NLP
 """
@@ -12,7 +12,7 @@ import os
 import re
 import sys
 import json
-import doctest
+import time
 import unicodedata
 
 from typing import *
@@ -29,15 +29,15 @@ class NormalizeUtils:
     def untie_ligatures(seq: str):
         """
         Untie ligatures.
-        Note not all ligatures can be untied, such as "ꜳ, æ, ..."
+        Note that not all ligatures can be untied, such as "ꜳ, æ, ..."
 
         Args:
             seq:
 
         Examples:
-            >>> txt = 'Ligature examples: ﬁ, ﬀ, ﬃ.ꜳ'
+            >>> txt = 'Ligature examples: ﬁ, ﬀ, ﬃ, ꜳ'
             >>> NormalizeUtils.untie_ligatures(txt)
-            'Ligature examples: fi, ff, ffi.'
+            'Ligature examples: fi, ff, ffi, ꜳ'
 
         References:
             https://en.wikipedia.org/wiki/Ligature_(writing)
@@ -89,22 +89,28 @@ class NormalizeUtils:
         return ''.join(output)
 
 
-class __DoctestWrapper:
+class __Test:
     """"""
 
     def __init__(self):
         """"""
+        for k, v in self.__class__.__dict__.items():
+            if k.startswith('_test') and isinstance(v, Callable):
+                print(f'=== Start "{k}" {{')
+                start = time.time()
+                v(self)
+                print(f'}} End "{k}" - Spend {time.time() - start:f}s===\n')
+
+    def _test_doctest(self):  # noqa
+        """"""
+        import doctest
         doctest.testmod()
 
-        for k, v in self.__class__.__dict__.items():
-            if k.startswith('demo') and isinstance(v, Callable):
-                v(self)
-
-    def demo_base(self):  # noqa
+    def _test_xxx(self):  # noqa
         """"""
         pass
 
 
 if __name__ == '__main__':
     """"""
-    __DoctestWrapper()
+    __Test()
