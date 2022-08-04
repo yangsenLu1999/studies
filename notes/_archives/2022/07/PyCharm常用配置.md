@@ -35,16 +35,19 @@ PyCharm 常用配置
 ### Python
 > Preferences | Editor | File and Code Templates -> Python Script
 
+- 更多内置变量详见：[File template variables | PyCharm](https://www.jetbrains.com/help/pycharm/file-template-variables.html)
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
+#set( $author = "huayang" )
+#set( $email = "imhuay@163.com" )
 Time:
     ${YEAR}-${MONTH}-${DAY} ${TIME}
 Author:
-    HuaYang (imhuay@163.com)
+    $author ($email)
 Subject:
-    TODO
+    ${NAME}
 """
 import os
 import sys
@@ -63,10 +66,10 @@ class __Test:
         """"""
         for k, v in self.__class__.__dict__.items():
             if k.startswith('_test') and isinstance(v, Callable):
-                print(f'\x1b[31m=== Start "{k}" {{\x1b[0m')
+                print(f'\x1b[32m=== Start "{k}" {{\x1b[0m')
                 start = time.time()
                 v(self)
-                print(f'\x1b[31m}} End "{k}" - Spend {time.time() - start:3f}s===\x1b[0m\n')
+                print(f'\x1b[32m}} End "{k}" - Spend {time.time() - start:3f}s===\x1b[0m\n')
 
     def _test_doctest(self):  # noqa
         """"""
