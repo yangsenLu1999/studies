@@ -63,10 +63,10 @@ class __Test:
         """"""
         for k, v in self.__class__.__dict__.items():
             if k.startswith('_test') and isinstance(v, Callable):
-                print(f'=== Start "{k}" {{')
+                print(f'\x1b[31m=== Start "{k}" {{\x1b[0m')
                 start = time.time()
                 v(self)
-                print(f'}} End "{k}" - Spend {time.time() - start:f}s===\n')
+                print(f'\x1b[31m}} End "{k}" - Spend {time.time() - start:3f}s===\x1b[0m\n')
 
     def _test_doctest(self):  # noqa
         """"""
