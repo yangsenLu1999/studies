@@ -56,31 +56,31 @@ from pathlib import Path
 from collections import defaultdict
 
 
-class __RunWrapper:
+class __Test:
     """"""
 
     def __init__(self):
         """"""
         for k, v in self.__class__.__dict__.items():
-            if k.startswith('demo') and isinstance(v, Callable):
+            if k.startswith('_test') and isinstance(v, Callable):
                 print(f'=== Start "{k}" {{')
                 start = time.time()
                 v(self)
                 print(f'}} End "{k}" - Spend {time.time() - start:f}s===\n')
 
-    def demo_doctest(self):  # noqa
+    def _test_doctest(self):  # noqa
         """"""
         import doctest
         doctest.testmod()
 
-    def demo_xxx(self):  # noqa
+    def _test_xxx(self):  # noqa
         """"""
         pass
 
 
 if __name__ == '__main__':
     """"""
-    __RunWrapper()
+    __Test()
 ```
 
 ### Python Console
