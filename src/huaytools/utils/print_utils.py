@@ -26,9 +26,9 @@ COLOR_MAPPING = {
     'yellow': 33,
     'blue': 34,
     'white': 37,
-    'gray': 90
+    'gray': 90,
 }
-MODE = Literal['normal', 'bold', 'light', 'italic', 'underline']
+MODE = Literal['normal', 'bold', 'light', 'italic', 'underline', 'reverse', 'deleted', 'bold_underline']
 # https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters
 BACKCOLOR_MAPPING = {
     'black': 40,
@@ -37,13 +37,19 @@ BACKCOLOR_MAPPING = {
     'yellow': 43,
     'blue': 44,
     'white': 47,
-    'gray': 100
+    'gray': 100,
 }
 MODE_MAPPING = {
     'normal': 0,
     'bold': 1,
+    'light': 2,
+    'italic': 3,
+    'underline': 4,
+    'reverse': 7,
+    'deleted': 9,
+    'bold_underline': 21,
 }
-SUFFIX = '\033[0m'
+SUFFIX = '\x1b[0m'  # \033[0m
 
 
 class PrintUtils:
@@ -51,27 +57,30 @@ class PrintUtils:
 
     @staticmethod
     def cprint(*args,
+               mode: Union[int, MODE] = 'normal',
                color: Union[int, COLOR] = 'red',
                backcolor: Union[int, BACKCOLOR] = None,
-               mode: Union[int, MODE] = 'normal',
                **kwargs):
         """
-        基本格式：{\033[显示方式;前景色;背景色m}text{\033[0m}
+        彩色打印
+            基本格式：\x1b[显示模式;前景色;背景色m{text}\x1b[0m
+            示例：print("\x1b[1;31;47m{}\x1b[0m".format(123))  # 加粗，红字，白底
+            更多显示模式和颜色 ID 见：
+                - https://en.wikipedia.org/wiki/ANSI_escape_code#SGR_(Select_Graphic_Rendition)_parameters
+                - https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
 
         Args:
             *args:
+            mode: 显式模式
             color: 前景色
             backcolor: 背景色
-            mode: 显式模式
             **kwargs:
 
         References:
             - [Python：print显示颜色 - 博客园](https://www.cnblogs.com/hanfe1/p/10664942.html)
             - https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal
-            - https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
-
         """
-        prefix = '\033['
+        prefix = '\x1b['  # \033[
         if isinstance(color, str):
             color = COLOR_MAPPING[color]
         if mode is not None:
@@ -121,6 +130,10 @@ class __RunWrapper:
         cprint(1, '2', [3, 4], color='blue')
         cprint(1, '2', [3, 4], color='white')
         cprint(1, '2', [3, 4], color='gray')
+        cprint(1, '2', [3, 4], mode=7)
+        cprint(1, '2', [3, 4], mode=9)
+        cprint(1, '2', [3, 4], mode=4)
+        cprint(1, '2', [3, 4], mode='bold_underline')
 
 
 if __name__ == '__main__':
