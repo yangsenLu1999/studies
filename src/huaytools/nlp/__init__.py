@@ -10,3 +10,4 @@ Subject:
 """
 
 from .normalize_utils import NormalizeUtils
+from .tire_tree import TireNode, TireTree
