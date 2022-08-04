@@ -80,6 +80,16 @@ class PrintUtils:
             - [Python：print显示颜色 - 博客园](https://www.cnblogs.com/hanfe1/p/10664942.html)
             - https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal
         """
+        prefix = PrintUtils._get_prefix(mode, color, backcolor)
+
+        if len(args) == 1:
+            args = (f'{prefix}{args[0]}{SUFFIX}',)
+        else:
+            args = (f'{prefix}{args[0]}',) + args[1:-1] + (f'{args[-1]}{SUFFIX}',)
+        print(*args, **kwargs)
+
+    @staticmethod
+    def _get_prefix(mode, color, backcolor):
         prefix = '\x1b['  # \033[
         if isinstance(color, str):
             color = COLOR_MAPPING[color]
@@ -93,35 +103,62 @@ class PrintUtils:
                 backcolor = BACKCOLOR_MAPPING[backcolor]
             prefix += f';{backcolor}'
         prefix += 'm'
+        return prefix
 
-        if len(args) == 1:
-            args = (f'{prefix}{args[0]}{SUFFIX}',)
-        else:
-            args = (f'{prefix}{args[0]}',) + args[1:-1] + (f'{args[-1]}{SUFFIX}',)
-        print(*args, **kwargs)
+    @staticmethod
+    def color(src, *,
+              mode: Union[int, MODE] = 'normal',
+              color: Union[int, COLOR] = 'red',
+              backcolor: Union[int, BACKCOLOR] = None):
+        prefix = PrintUtils._get_prefix(mode, color, backcolor)
+        return f'{prefix}{src}{SUFFIX}'
+
+    @staticmethod
+    def red(src):
+        return PrintUtils.color(src, color='red')
+
+    @staticmethod
+    def yellow(src):
+        return PrintUtils.color(src, color='yellow')
+
+    @staticmethod
+    def green(src):
+        return PrintUtils.color(src, color='green')
+
+    @staticmethod
+    def blue(src):
+        return PrintUtils.color(src, color='blue')
+
+    @staticmethod
+    def black(src):
+        return PrintUtils.color(src, color='black')
+
+    @staticmethod
+    def white(src):
+        return PrintUtils.color(src, color='white')
 
 
 cprint = PrintUtils.cprint
 
 
-class __RunWrapper:
+class __TestWrapper:
     """"""
 
     def __init__(self):
         """"""
         for k, v in self.__class__.__dict__.items():
-            if k.startswith('demo') and isinstance(v, Callable):
+            if k.startswith('_test') and isinstance(v, Callable):
                 print(f'=== Start "{k}" {{')
                 start = time.time()
                 v(self)
                 print(f'}} End "{k}" - Spend {time.time() - start:f}s===\n')
 
-    def demo_doctest(self):  # noqa
+    def _test_doctest(self):  # noqa
         """"""
         import doctest
         doctest.testmod()
 
-    def demo_xxx(self):  # noqa
+    def _test_base(self):  # noqa
         """"""
         cprint(1, '2', [3, 4], color='black', backcolor='white')
         cprint(1, '2', [3, 4])  # default red
@@ -135,7 +172,10 @@ class __RunWrapper:
         cprint(1, '2', [3, 4], mode=4)
         cprint(1, '2', [3, 4], mode='bold_underline')
 
+    def _test_color(self):  # noqa
+        print(f'Test {PrintUtils.red("test")} {PrintUtils.color("test", color="yellow")}')
+
 
 if __name__ == '__main__':
     """"""
-    __RunWrapper()
+    __TestWrapper()
