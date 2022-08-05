@@ -28,3 +28,4 @@ from .git_utils import GitUtils
 from .bs4_utils import BS4Utils
 from .csv_utils import CSVUtils
 from .print_utils import PrintUtils, cprint
+from .singleton import singleton
