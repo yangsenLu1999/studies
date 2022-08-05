@@ -6,7 +6,9 @@ Time:
 Author:
     HuaYang (imhuay@163.com)
 Subject:
-    A simple implementation of a tire tree
+    A simple implementation of TireTree (字典树、前缀树)
+References:
+    [字典树的Python实现 - 知乎](https://zhuanlan.zhihu.com/p/335793141)
 """
 import os
 import sys
@@ -36,6 +38,7 @@ class TireNode:
 
 
 class TireTree(TireNode):
+    """"""
     # info field name
     _F_SEQ = 'seq'  # 至当前节点的序列，下简称序列
     _F_IS_END = 'is_end'  # 序列是否是一个完整的序列
@@ -54,11 +57,15 @@ class TireTree(TireNode):
     # 遍历结果
     _traversal: List = None
 
+    # 更新状态
+    _updated: bool = False
+
     def __init__(self):
         super().__init__(value=None)
 
     def insert(self, seq: Sequence):
         """"""
+        self._updated = True
         cur = self
         for it in seq:
             if not cur.nodes.get(it, None):
@@ -98,7 +105,7 @@ class TireTree(TireNode):
     @property
     def traversal(self) -> List[Dict]:
         """遍历所有节点，记录相关信息"""
-        if self._traversal is None:
+        if self._traversal is None or self._updated:
             self._traversal = self._traverse()
         return self._traversal
 
@@ -154,10 +161,10 @@ class __Test:
 
         for k, v in self.__class__.__dict__.items():
             if k.startswith('_test') and isinstance(v, Callable):
-                print(f'\x1b[31m=== Start "{k}" {{\x1b[0m')
+                print(f'\x1b[32m=== Start "{k}" {{\x1b[0m')
                 start = time.time()
                 v(self)
-                print(f'\x1b[31m}} End "{k}" - Spend {time.time() - start:f}s===\x1b[0m\n')
+                print(f'\x1b[32m}} End "{k}" - Spend {time.time() - start:f}s===\x1b[0m\n')
 
     def _test_doctest(self):  # noqa
         """"""
