@@ -21,8 +21,7 @@ from typing import *
 from pathlib import Path
 from collections import defaultdict
 
-from huaytools.utils import get_logger
-from huaytools.utils.singleton import singleton
+from huaytools.utils import get_logger, TypeUtils
 
 _logger = get_logger()
 
@@ -44,7 +43,8 @@ CN: Chinese
 JA: Japanese
 """
 LIB_PATH = None
-_TokenizeMode = Literal['train', 'test', 'translate']
+_TokenizeMode = Literal['train', 'test', 'direct_test', 'translate', 'segmentation']
+_Path = TypeUtils.FilePath
 
 
 # @singleton
@@ -55,10 +55,10 @@ class AutoPhrase:
 
     def __init__(self,
                  model_dir,
-                 fp_train_data=None,
-                 fp_stopwords=None,
-                 fp_seed_words=None,
-                 fp_quality_seed_words=None,
+                 fp_train_data: _Path = None,
+                 fp_stopwords: _Path = None,
+                 fp_seed_words: _Path = None,
+                 fp_quality_seed_words: _Path = None,
                  language: Language = 'CN',
                  enable_postag: bool = False,
                  highlight_multi: float = 0.5,
@@ -75,20 +75,22 @@ class AutoPhrase:
         self._fp_seed_words = fp_seed_words
         self._fp_quality_seed_words = fp_quality_seed_words
         self._language = language
-        self._lowercase = lowercase
+        self._enable_postag = enable_postag
+        self._case_sensitive = 'N' if lowercase else 'Y'
         self._thread = thread
 
         self._check_args()
 
         if self._language == LanguageArabic:
-            self.tagger_model = self.lib_path + "/tools/models/arabic.tagger"
+            self._tagger_model = self.lib_path / "tools/models/arabic.tagger"
 
+        self._fp_model = self._model_dir / 'segmentation.model'
         self._fp_tmp = self._model_dir / 'tmp'
         self._fp_tokenized_train = self._fp_tmp / 'tokenized_train.txt'
         self._fp_tokenized_stopwords = self._fp_tmp / 'tokenized_stopwords.txt'
         self._fp_tokenized_seed_words = self._fp_tmp / 'tokenized_seed_words.txt'
         self._fp_tokenized_quality_seed_words = self._fp_tmp / 'tokenized_quality_seed_words.txt'
-        self._fp_token_mapping = self._fp_tmp / 'token_mapping.txt'
+        self._fp_token_mapping = self._model_dir / 'token_mapping.txt'
 
     def _check_args(self):
         assert self._fp_train_data is not None or self._model_dir.exists()
@@ -104,17 +106,90 @@ class AutoPhrase:
         self._tokenize_stopwords()
         self._tokenize_seed_words()
         self._tokenize_quality_seed_words()
-        # TODO: continue
+        self._pos_tagging_train()
+        self._core_training()
+
+    def extract(self, fp_input: _Path, fp_save: _Path = None,
+                highlight_multi: float = 0,
+                highlight_single: float = 0):
+        """"""
+
+        # 1. tokenize
+        fp_input = Path(fp_input)
+        if fp_save is None:
+            fp_save = fp_input.parent / r'ret_segmentation.txt'  # f'{fp_input.stem}_tokenized_id{fp_input.suffix}'
+        else:
+            fp_save = Path(fp_save)
+
+        fp_tokenized_id = fp_save.parent / f'{fp_input.stem}_tokenized_id{fp_input.suffix}'
+        fp_tokenized_raw = fp_save.parent / f'raw_{fp_tokenized_id.name}'  # default
+        command = self._get_tokenize_command(fp_input, fp_tokenized_id, 'direct_test')
+        self._run_command(command)
+        assert fp_tokenized_raw.exists()
+        fp_tokenized_raw.rename(fp_save.parent / f'{fp_input.stem}_tokenized_raw{fp_save.suffix}')
+
+        # 2. postag
+        if self._enable_postag:
+            pass
+
+        # 3. segment
+        fp_segmented = fp_save.parent / f'{fp_input.stem}_segmented{fp_input.suffix}'
+        if self._enable_postag:
+            pass
+        else:
+            command = f'{self.lib_path / "bin/segphrase_segment"}' \
+                      f' --thread {self._thread}' \
+                      f' --model {self._fp_model}' \
+                      f' --text_to_seg_file {fp_tokenized_id}' \
+                      f' --output_tokenized_degmented_sentences {fp_segmented}' \
+                      f' --highlight-multi {highlight_multi}' \
+                      f' --highlight-single {highlight_single}'
+        self._run_command(command)
+
+        # 4. output
+        command = self._get_tokenize_command(fp_input, fp_save, mode='segmentation',
+                                             segmented=fp_segmented,
+                                             tokenized_id=fp_tokenized_id,
+                                             tokenized_raw=fp_tokenized_raw)
+        self._run_command(command)
+
+    # def tokenize(self, fp_input: _Path, fp_save: _Path = None) -> Path:
+    #     """"""
+    #     fp_input = Path(fp_input)
+    #     if fp_save is None:
+    #         fp_save = fp_input.parent / f'{fp_input.stem}_tokenized_id{fp_input.suffix}'
+    #     else:
+    #         fp_save = Path(fp_save)
+    #
+    #     fp_save_raw = fp_save.parent / f'raw_{fp_save.name}'  # default
+    #     command = self._get_tokenize_command(fp_input, fp_save, 'direct_test')
+    #     self._run_command(command)
+    #     assert fp_save_raw.exists()
+    #     fp_save_raw.rename(fp_save.parent / f'{fp_save.stem}_tokenized_raw{fp_save.suffix}')
+    #     return fp_save
+
+    def postag(self):
+        """TODO"""
+        pass
+
+    def _core_training(self):
+        """"""
+        if self._enable_postag:
+            command = f'{self.lib_path / "/bin/segphrase_train"}' \
+                      f' --pos_tag' \
+                      f' --train_file {self._fp_tokenized_train}' \
+                      f' --'
+
+    def _pos_tagging_train(self):
+        """TODO"""
+        pass
 
     def _tokenize_train_data(self):
         """"""
         _logger.info(AutoPhrase._get_start_log())
         command = self._get_tokenize_command(self._fp_train_data,
                                              self._fp_tokenized_train,
-                                             self._fp_token_mapping,
-                                             mode='train',
-                                             lowercase=self._lowercase,
-                                             language=self._language)
+                                             mode='train')
         self._run_command(command)
 
     def _tokenize_stopwords(self):
@@ -122,10 +197,7 @@ class AutoPhrase:
         _logger.info(AutoPhrase._get_start_log())
         command = self._get_tokenize_command(self._fp_stopwords,
                                              self._fp_tokenized_stopwords,
-                                             self._fp_token_mapping,
-                                             mode='test',
-                                             lowercase=self._lowercase,
-                                             language=self._language)
+                                             mode='test')
         self._run_command(command)
 
     def _tokenize_seed_words(self):
@@ -133,20 +205,14 @@ class AutoPhrase:
         _logger.info(AutoPhrase._get_start_log())
         command = self._get_tokenize_command(self._fp_seed_words,
                                              self._fp_tokenized_seed_words,
-                                             self._fp_token_mapping,
-                                             mode='test',
-                                             lowercase=self._lowercase,
-                                             language=self._language)
+                                             mode='test')
         self._run_command(command)
 
     def _tokenize_quality_seed_words(self):
         """"""
         command = self._get_tokenize_command(self._fp_quality_seed_words,
                                              self._fp_tokenized_quality_seed_words,
-                                             self._fp_token_mapping,
-                                             mode='test',
-                                             lowercase=self._lowercase,
-                                             language=self._language)
+                                             mode='test')
         self._run_command(command)
 
     @classmethod
@@ -156,22 +222,28 @@ class AutoPhrase:
     def _get_tokenize_command(self,
                               input_file,
                               output_file,
-                              mapping_file,
                               mode: _TokenizeMode,
-                              lowercase: bool = True,
-                              language: Language = None):
+                              segmented=None,
+                              tokenized_id=None,
+                              tokenized_raw=None):
         """"""
-        case_sensitive = 'N' if lowercase else 'Y'
         command = f'java {self.tokenizer}' \
                   f' -m {mode}' \
                   f' -i {input_file}' \
                   f' -o {output_file}' \
-                  f' -t {mapping_file}' \
-                  f' -c {case_sensitive}' \
+                  f' -t {self._fp_token_mapping}' \
+                  f' -c {self._case_sensitive}' \
                   f' -thread {self._thread}'
 
-        if language == LanguageArabic:
-            command = f'{command} -tagger_model {self.tagger_model}'
+        if self._language == LanguageArabic:
+            command = f'{command} -tagger_model {self._tagger_model}'
+
+        if segmented is not None:
+            assert tokenized_raw is not None and tokenized_raw is not None
+            command = f'{command}' \
+                      f' -segmented {segmented}' \
+                      f' -tokenized_id {tokenized_id}' \
+                      f' -tokenized_raw {tokenized_raw}'
 
         return command
 
@@ -179,14 +251,14 @@ class AutoPhrase:
     def _run_command(command):
         return os.system(command)
 
-    def tokenize(self,
-                 input_file,
-                 output_file,
-                 mapping_file,
-                 mode: _TokenizeMode,
-                 language: Language = 'CN',
-                 lowercase: bool = True,
-                 thread: int = 10):
+    def _tokenize(self,
+                  input_file,
+                  output_file,
+                  mapping_file,
+                  mode: _TokenizeMode,
+                  language: Language = 'CN',
+                  lowercase: bool = True,
+                  thread: int = 10):
         """"""
         case_sensitive = 'N' if lowercase else 'Y'
         command = f'java {self.tokenizer}' \
@@ -198,10 +270,10 @@ class AutoPhrase:
                   f' -thread {thread}'
 
         if language == LanguageArabic:
-            command = f'{command} -tagger_model {self.tagger_model}'
+            command = f'{command} -tagger_model {self._tagger_model}'
 
     @property
-    def lib_path(self):
+    def lib_path(self) -> Path:
         if self._lib_path is None:
             self._lib_path = AutoPhrase.find_lib_path()
         return self._lib_path
@@ -245,42 +317,34 @@ class AutoPhrase:
         return f'=== Start {get_caller_name()} ==='
 
 
-class __RunWrapper:
+class __Test:
     """"""
 
     def __init__(self):
         """"""
+        self.model_path = Path(r'/Users/huay/tmp/autophrase_model_test')
+        self.model = AutoPhrase(self.model_path)
+
         for k, v in self.__class__.__dict__.items():
-            if k.startswith('demo') and isinstance(v, Callable):
-                print(f'=== Start "{k}" {{')
+            if k.startswith('_test') and isinstance(v, Callable):
+                print(f'\x1b[32m=== Start "{k}" {{\x1b[0m')
                 start = time.time()
                 v(self)
-                print(f'}} End "{k}" - Spend {time.time() - start:5f}s===\n')
+                print(f'\x1b[32m}} End "{k}" - Spend {time.time() - start:3f}s===\x1b[0m\n')
 
-    def demo_doctest(self):  # noqa
+    def _test_doctest(self):  # noqa
         """"""
         import doctest
         doctest.testmod()
 
-    def _demo_AutoPhrase(self):  # noqa
+    def _test_tokenize(self):  # noqa
         """"""
-        # import autophrase
-        # p = Path(autophrase.__file__)
-        # print(p.parent)
-        a = AutoPhrase('', language='c')
-
-    def _demo_download(self):  # noqa
-        """"""
-        from huaytools.utils import cprint
-        cprint('Downloading pretrained model ...')
-        import urllib
-        DBLP_MODEL = 'https://github.com/CS512-Autophrase-Demo/AutoPhrase/blob/master/models/DBLP/segmentation.model?raw=true'
-        segmentation_model = Path('./tmp/segmentation.model')
-        segmentation_model.parent.mkdir(exist_ok=True)
-        urllib.request.urlretrieve(DBLP_MODEL, segmentation_model)
+        model = self.model
+        fp_input = self.model_path / r'dish_name_20220801_demo_100.txt'
+        model.extract(fp_input)
 
 
 if __name__ == '__main__':
     """"""
-    __RunWrapper()
+    __Test()
     # print(os.environ['AUTOPHRASE'])
