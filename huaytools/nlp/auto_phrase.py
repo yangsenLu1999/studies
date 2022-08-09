@@ -68,7 +68,7 @@ class AutoPhrase:
                  min_sup: int = 10,
                  lib_path: Union[str, Path] = None):
         """"""
-        self._lib_path = lib_path
+        self._lib_path = lib_path or Path(lib_path)
         self._model_dir = Path(model_dir)
         self._fp_train_data = fp_train_data
         self._fp_stopwords = fp_stopwords
@@ -118,7 +118,7 @@ class AutoPhrase:
         print("===Tokenization===")
         fp_input = Path(fp_input)
         if fp_save is None:
-            fp_save = fp_input.parent / r'ret_segmentation.txt'  # f'{fp_input.stem}_tokenized_id{fp_input.suffix}'
+            fp_save = fp_input.parent / r'ret.txt'
         else:
             fp_save = Path(fp_save)
 
