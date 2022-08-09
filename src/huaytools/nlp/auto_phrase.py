@@ -115,6 +115,7 @@ class AutoPhrase:
         """"""
 
         # 1. tokenize
+        print("===Tokenization===")
         fp_input = Path(fp_input)
         if fp_save is None:
             fp_save = fp_input.parent / r'ret_segmentation.txt'  # f'{fp_input.stem}_tokenized_id{fp_input.suffix}'
@@ -133,6 +134,7 @@ class AutoPhrase:
             pass
 
         # 3. segment
+        print("===Phrasal Segmentation===")
         fp_segmented = fp_save.parent / f'{fp_input.stem}_segmented{fp_input.suffix}'
         if self._enable_postag:
             pass
@@ -147,6 +149,7 @@ class AutoPhrase:
         self._run_command(command)
 
         # 4. output
+        print("===Generating Output===")
         command = self._get_tokenize_command(fp_input, fp_save, mode='segmentation',
                                              segmented=fp_segmented,
                                              tokenized_id=fp_tokenized_id,
