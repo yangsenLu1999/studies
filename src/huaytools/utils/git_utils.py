@@ -133,6 +133,18 @@ class GitSubtreeUtils:
                                     option_dict=option_dict, **options)
 
     @staticmethod
+    def force_push(repo_url_or_name: str, repo_branch: str, prefix: str, local_branch: str,
+                   *, rejoin: bool = True, assert_not_rejoin: bool = False, squash: bool = None):
+        """"""
+        code, data = GitSubtreeUtils.split(prefix, local_branch,
+                                           rejoin=rejoin, assert_not_rejoin=assert_not_rejoin, squash=squash)
+        if code == 0:
+            command = f'git push --force {repo_url_or_name} {data}:{repo_branch}'
+            return GitUtils.run(command)
+        else:
+            _logger.warning(data)
+
+    @staticmethod
     def split(prefix: str, branch: str,
               *, rejoin: bool = True, assert_not_rejoin: bool = False, squash: bool = None,
               option_dict: Dict[str, str] = None, **options: str):

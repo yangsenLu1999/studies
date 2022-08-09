@@ -28,6 +28,7 @@ try:
             p = p.parent
         return p
 
+
     src_path = get_repo_top() / 'src'
     sys.path.append(str(src_path))
 except:  # noqa
@@ -35,6 +36,7 @@ except:  # noqa
 else:
     from huaytools.utils.git_utils import GitUtils, GitSubtreeUtils
     from huaytools.utils import get_logger, get_caller_name
+    from huaytools.utils import PrintUtils
 
 
 class GitHelper:
@@ -49,36 +51,50 @@ class GitHelper:
 
     def __init__(self):
         """"""
-        self.push_main()
-        self.push_sub_src()
+        code = self.push_main()
+        if code == 0:
+            self.push_sub_src()
 
     def push_main(self):
         """主仓库推送"""
-        self._logger.info(f'Start push main repo.')
+        self._logger.info(PrintUtils.green(f'Start push main repo.'))
         code, data = GitUtils.push()
         if code == 0:
-            self._logger.info(f'Push main repo Success.')
+            self._logger.info(PrintUtils.green(f'Push main repo Success. '
+                                               f'{{\n{data}\n}}'))
         else:
-            self._logger.info(f'Some error when push main repo. '
-                              f'{{\n{data}\n}}')
+            self._logger.info(PrintUtils.red(f'Some error when push main repo. '
+                                             f'{{\n{data}\n}}'))
+
+        return code
 
     def push_sub_src(self):
         """子仓库 src 推送"""
-        self._logger.info(f'Start push sub repo "{self.src_prefix}".')
+        self._logger.info(PrintUtils.green(f'Start push sub repo "{self.src_prefix}".'))
         try:
             code, data = GitSubtreeUtils.push(self.src_repo_url, self.src_repo_branch, self.src_prefix)
             if code != 0:
-                self._logger.warning(f'Try `git subtree push --rejoin` failed, remove `--rejoin` and retry.')
+                self._logger.warning(PrintUtils.red(f'Try `git subtree push --rejoin` failed, '
+                                                    f'remove `--rejoin` and retry.'))
                 raise RuntimeError
         except RuntimeError:
             code, data = GitSubtreeUtils.push(self.src_repo_url, self.src_repo_branch, self.src_prefix,
                                               assert_not_rejoin=True)
 
         if code == 0:
-            self._logger.info(f'Push sub repo "{self.src_prefix}" Success.')
+            self._logger.info(PrintUtils.green(f'Push sub repo "{self.src_prefix}" Success. '
+                                               f'{{\n{data}\n}}'))
         else:
-            self._logger.warning(f'Some error when push sub repo "{self.src_prefix}". '
-                                 f'{{\n{data}\n}}')
+            self._logger.warning(PrintUtils.red(f'Some error when push sub repo "{self.src_prefix}". '
+                                                f'{{\n{data}\n}}'))
+
+            PrintUtils.cprint(f'Force push? (Y/n)')
+            if (i := input().lower()) != 'y':
+                print(i)
+                exit(1)
+            else:
+                code, data = GitSubtreeUtils.force_push(self.src_repo_url, self.src_repo_branch, self.src_prefix, self.src_branch)
+                print(code, data)
 
 
 class __DoctestWrapper:
