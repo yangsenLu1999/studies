@@ -24,9 +24,12 @@ from typing import *
 from datetime import datetime
 from pathlib import Path
 
-logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
+logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s@%(lineno)sL : %(message)s',
                     datefmt='%Y.%m.%d %H:%M:%S',
                     level=logging.INFO)
+"""
+References: https://docs.python.org/zh-cn/3/library/logging.html#logrecord-attributes
+"""
 
 if sys.version_info >= (3, 7):
     import importlib.resources as importlib_resources
@@ -54,30 +57,29 @@ class classproperty(property):  # noqa
         return classmethod(self.fget).__get__(None, owner)()
 
 
-def is_simple_type(obj, simple_type=(int, str, float)):
+def is_specific_type(obj, specific_type=(int, str, float)) -> bool:
     """
-    判断是否复杂类型
-        黑名单机制，不是 simple_type 的都是复杂类型
+    递归判断是否都是特定类型
+        黑名单机制，不在 specific_type 的都是复杂类型；
+        递归的意思是会嵌套判断 list、tuple、set、dict 中的内容；
 
     Args:
         obj:
-        simple_type:
-
-    Returns: bool
+        specific_type:
 
     Examples:
-        >>> is_simple_type(is_simple_type)
+        >>> is_specific_type(is_specific_type)
         False
-        >>> its = (1, 1.0, 's', [1,2,'1'], {'1':[1,'c']})
-        >>> all(is_simple_type(it) for it in its)  # noqa
+        >>> its = [1, 1.0, 's', [1,2,'1'], {'1':[1,'c']}, {'1',2}]
+        >>> all(is_specific_type(it) for it in its)  # noqa
         True
     """
-    if isinstance(obj, simple_type):
+    if isinstance(obj, specific_type):
         return True
-    elif isinstance(obj, (list, tuple)):
-        return all(is_simple_type(it) for it in obj)
+    elif isinstance(obj, (list, tuple, set)):
+        return all(is_specific_type(it) for it in obj)
     elif isinstance(obj, dict):
-        return all(is_simple_type(k) and is_simple_type(v) for k, v in obj.items())
+        return all(is_specific_type(k) and is_specific_type(v) for k, v in obj.items())
     else:
         return False
 
@@ -219,8 +221,8 @@ def get_caller_name(num_back=2) -> str:
     co_name = frame.f_code.co_name
 
     if co_name == '<module>':  # 当调用方是一个模块，此时返回模块的文件名
-        filename, _ = os.path.splitext(os.path.basename(frame.f_code.co_filename))
-        return filename
+        # filename, _ = os.path.splitext(os.path.basename(frame.f_code.co_filename))
+        return os.path.basename(frame.f_code.co_filename)
 
     return co_name
 
@@ -445,11 +447,11 @@ def get_resource(relative_res_path):
     return pkgutil.get_data('huaytools', os.path.join("_resources", relative_res_path))
 
 
-def function_test_dn(func):
+def function_timer(func):
     """@Python Utils
     函数测试装饰器
     Examples:
-        >>> @function_test_dn
+        >>> @function_timer
         ... def _test_func(x=1):
         ...     print(x)
         >>> _test_func()
@@ -462,15 +464,10 @@ def function_test_dn(func):
     @functools.wraps(func)
     def inner(*args, **kwargs):
         """"""
-        print('Start running `%s` {' % func.__name__)
-
+        print(f'Start `{func.__name__}` {{')
         start = time.time()
-
         func(*args, **kwargs)
-
-        end = time.time()
-
-        print('} End, spend %s s.\n' % round(end - start))
+        print(f'}} End - Spend {time.time() - start:5f} s.\n')
 
     return inner
 

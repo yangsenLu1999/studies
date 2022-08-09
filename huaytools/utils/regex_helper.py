@@ -238,10 +238,10 @@ class __DoctestWrapper:
         """"""
         pass
 
-    from huaytools.utils import function_test_dn
+    from huaytools.utils import function_timer
 
-    @function_test_dn
-    def _demo_RegexEmoji(self):  # noqa
+    @function_timer
+    def demo_RegexEmoji(self):  # noqa
         """"""
         i = 0
         i += 1
@@ -251,7 +251,8 @@ class __DoctestWrapper:
 
         i += 1
         print(f'--- Test {i} ---')  # noqa
-        r = RegexEmoji(emoji_file_path=r'/Users/huay/Workspace/studies/src/huaytools/_resources/emojis/13.1.txt')
+        emoji_fp = r'/Users/huay/Workspace/my/studies/src/huaytools/_resources/emojis/13.1.txt'
+        r = RegexEmoji(emoji_file_path=emoji_fp)
         print(list(r.emojis.items())[:3])
 
         i += 1

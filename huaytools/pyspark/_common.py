@@ -8,6 +8,7 @@ Author:
 Subject:
     PySpark Utils
 """
+import os
 import logging
 from typing import *
 from pathlib import Path
@@ -20,6 +21,10 @@ from pyspark.sql.types import *
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
                     datefmt='%Y.%m.%d %H:%M:%S',
                     level=logging.WARNING)
+
+__all__ = [
+    'SparkUtils'
+]
 
 
 class SparkUtils:
@@ -153,27 +158,55 @@ class SparkUtils:
         return df
 
     @staticmethod
-    def save(rdd: RDD,
-             save_path: str,
-             save_format: str = 'csv',
-             mode: str = 'overwrite',
-             partition: Union[str, List[str]] = None,
-             spark: SparkSession = None,
-             schema: Union[StructType, str] = None,
-             **format_options):
+    def _save(rdd: RDD,
+              dst: str,
+              save_as_table: bool = True,
+              save_format: str = 'text',
+              mode: str = 'overwrite',
+              partition: Union[str, List[str]] = None,
+              spark: SparkSession = None,
+              schema: Union[StructType, str] = None,
+              **format_options):
         """"""
         spark = SparkUtils.get_spark(spark)
         df = spark.createDataFrame(rdd, schema=schema)
         writer = df.write.format(save_format).options(**format_options)
-        writer.save(save_path, mode=mode, partitionBy=partition)
+        if save_as_table:
+            writer.saveAsTable(dst, mode=mode, partitionBy=partition)
+        else:
+            writer.save(dst, mode=mode, partitionBy=partition)
+
+    @staticmethod
+    def save_to_file(rdd: RDD,
+                     save_path: str,
+                     save_format: str = 'text',
+                     mode: str = 'overwrite',
+                     partition: Union[str, List[str]] = None,
+                     spark: SparkSession = None,
+                     schema: Union[StructType, str] = None,
+                     **format_options):
+        """"""
+        SparkUtils._save(rdd, save_path, False, save_format, mode, partition, spark, schema, **format_options)
+
+    @staticmethod
+    def save_as_table(rdd: RDD,
+                      table_name: str,
+                      save_format: str = 'text',
+                      mode: str = 'overwrite',
+                      partition: Union[str, List[str]] = None,
+                      spark: SparkSession = None,
+                      schema: Union[StructType, str] = None,
+                      **format_options):
+        """"""
+        SparkUtils._save(rdd, table_name, True, save_format, mode, partition, spark, schema, **format_options)
 
     @staticmethod
     def save_to_csv(rdd: RDD,
                     save_dir: str,
                     mode: str = 'overwrite',
                     save_to_one_file: bool = False,
-                    delete_src: bool = True,
-                    header: bool = True,
+                    delete_src: bool = False,  # Enabled if `save_to_one_file` is True
+                    header: bool = False,  # If True, each part file will have a header
                     sep: str = ',',
                     quote: str = '"',
                     quote_all: bool = True,
@@ -187,7 +220,7 @@ class SparkUtils:
                      header=header, sep=sep, quote=quote, quoteAll=quote_all, **options)
         if save_to_one_file:
             save_path = rf'{save_dir}.csv'
-            SparkUtils.save_to_one_file(save_dir, save_path, delete_src=delete_src)
+            SparkUtils._save_to_one_file(save_dir, save_path, delete_src=delete_src)
 
     @staticmethod
     def save_to_txt(rdd: RDD,
@@ -203,11 +236,11 @@ class SparkUtils:
         df.write.text(save_dir, lineSep=line_sep, compression=compression)
         if save_to_one_file:
             save_path = rf'{save_dir}.txt'
-            SparkUtils.save_to_one_file(save_dir, save_path, delete_src=delete_src)
+            SparkUtils._save_to_one_file(save_dir, save_path, delete_src=delete_src)
 
     @staticmethod
-    def save_to_one_file(src_dir, save_path, delete_src,
-                         src_prefix='part', spark: SparkSession = None):
+    def _save_to_one_file(src_dir, save_path, delete_src,
+                          src_prefix='part', spark: SparkSession = None):
         """
         利用系统命令把 spark 保存的文件合并到一个文件中
 
@@ -222,8 +255,7 @@ class SparkUtils:
 
         """
         if SparkUtils.get_spark_submit_deploy_mode(spark) == 'client':  # 测试环境
-            import os
-            os.system(f'cat {src_dir}/{src_prefix}* > {save_path}')
+            os.system(f'cat {src_dir}/{src_prefix}* > {Path(src_dir).parent}/{save_path}')
             if delete_src:
                 os.system(f'rm -rf {src_dir}')
         else:  # 生产环境（'cluster' 模式）

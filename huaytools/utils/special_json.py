@@ -102,11 +102,11 @@ class AnyJSONEncoder(json.JSONEncoder):
     FLAG = '__@AnyEncoder@__'
 
     def default(self, o):
-        from huaytools.utils.serialize_helper import obj_to_str
+        from huaytools.utils.serialize_utils import obj_to_str
 
         try:
             return super(AnyJSONEncoder, self).default(o)
-        except:
+        except:  # noqa
             return repr(o) + AnyJSONEncoder.FLAG + obj_to_str(o)
 
 
@@ -116,7 +116,7 @@ class AnyJSONDecoder(json.JSONDecoder):
     @staticmethod
     def scan(o):
         """ 递归遍历 o 中的对象，如果发现 AnyEncoder 标志，则对其还原 """
-        from huaytools.utils.serialize_helper import str_to_obj
+        from huaytools.utils.serialize_utils import str_to_obj
 
         if isinstance(o, str):
             if o.find(AnyJSONEncoder.FLAG) != -1:  # 如果字符串中存在 AnyEncoder 标识符，说明是个特殊对象
