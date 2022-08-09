@@ -29,3 +29,5 @@ from .bs4_utils import BS4Utils
 from .csv_utils import CSVUtils
 from .print_utils import PrintUtils, cprint
 from .singleton import singleton
+from .str_utils import StrUtils
+from .type_utils import TypeUtils
