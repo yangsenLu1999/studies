@@ -143,7 +143,7 @@ class AutoPhrase:
                       f' --thread {self._thread}' \
                       f' --model {self._fp_model}' \
                       f' --text_to_seg_file {fp_tokenized_id}' \
-                      f' --output_tokenized_degmented_sentences {fp_segmented}' \
+                      f' --output_tokenized_segmented_sentences {fp_segmented}' \
                       f' --highlight-multi {highlight_multi}' \
                       f' --highlight-single {highlight_single}'
         self._run_command(command)
