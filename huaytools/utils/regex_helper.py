@@ -23,7 +23,6 @@ from collections import defaultdict
 # third
 import regex
 import requests
-import demoji
 
 # inner
 from huaytools.utils._common import get_logger, get_cache_dir, get_resources_dir
