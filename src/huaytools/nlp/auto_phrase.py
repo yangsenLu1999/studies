@@ -68,7 +68,7 @@ class AutoPhrase:
                  min_sup: int = 10,
                  lib_path: Union[str, Path] = None):
         """"""
-        self._lib_path = lib_path or Path(lib_path)
+        self._lib_path = Path(lib_path) if lib_path is not None else lib_path
         self._model_dir = Path(model_dir)
         self._fp_train_data = fp_train_data
         self._fp_stopwords = fp_stopwords
