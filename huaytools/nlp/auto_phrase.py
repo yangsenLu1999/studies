@@ -169,7 +169,7 @@ class AutoPhrase:
         else:
             command = f'{self.lib_path / "bin/segphrase_segment"}' \
                       f' --thread {self._thread}' \
-                      f' --model {self._model_path}' \
+                      f' --model {self._fp_segmentation}' \
                       f' --highlight-multi {highlight_multi}' \
                       f' --highlight-single {highlight_single}'
             # f' --text_to_seg_file {fp_tokenized}' \
