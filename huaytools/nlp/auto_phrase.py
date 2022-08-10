@@ -136,12 +136,12 @@ class AutoPhrase:
         self._pos_tagging_train()
         self._core_training()
 
-    def extract(self, fp_input: _Path,
+    def extract(self,
+                fp_input: _Path,
                 fp_save: _Path = None,
                 highlight_multi: float = 0,
                 highlight_single: float = 0):
         """"""
-
         # 1. tokenize
         print("===Tokenization===")
         fp_input = Path(fp_input)
@@ -184,21 +184,6 @@ class AutoPhrase:
                                              tokenized_id=fp_tokenized,
                                              tokenized_raw=fp_tokenized_raw)
         self._run_command(command)
-
-    # def tokenize(self, fp_input: _Path, fp_save: _Path = None) -> Path:
-    #     """"""
-    #     fp_input = Path(fp_input)
-    #     if fp_save is None:
-    #         fp_save = fp_input.parent / f'{fp_input.stem}_tokenized_id{fp_input.suffix}'
-    #     else:
-    #         fp_save = Path(fp_save)
-    #
-    #     fp_save_raw = fp_save.parent / f'raw_{fp_save.name}'  # default
-    #     command = self._get_tokenize_command(fp_input, fp_save, 'direct_test')
-    #     self._run_command(command)
-    #     assert fp_save_raw.exists()
-    #     fp_save_raw.rename(fp_save.parent / f'{fp_save.stem}_tokenized_raw{fp_save.suffix}')
-    #     return fp_save
 
     def postag(self):
         """TODO"""
