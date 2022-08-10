@@ -54,7 +54,8 @@ class AutoPhrase:
     _tokenizer: ClassVar[str] = None
 
     def __init__(self,
-                 model_dir,
+                 model_path: _Path,
+                 lib_path: _Path = None,
                  fp_train_data: _Path = None,
                  fp_stopwords: _Path = None,
                  fp_seed_words: _Path = None,
@@ -65,11 +66,32 @@ class AutoPhrase:
                  highlight_single: float = 0.8,
                  lowercase: bool = True,
                  thread: int = 10,
-                 min_sup: int = 10,
-                 lib_path: Union[str, Path] = None):
-        """"""
-        self._lib_path = Path(lib_path) if lib_path is not None else lib_path
-        self._model_dir = Path(model_dir)
+                 min_sup: int = 10):
+        """
+
+        Args:
+            model_path:
+                ├── model/
+                │   ├── segmentation.model
+                │   ├── token_mapping.txt
+                │   └── ...  # some outputs
+                └── tmp/
+                    └── ...  # some tmp files
+            lib_path:
+            fp_train_data:
+            fp_stopwords:
+            fp_seed_words:
+            fp_quality_seed_words:
+            language:
+            enable_postag:
+            highlight_multi:
+            highlight_single:
+            lowercase:
+            thread:
+            min_sup:
+        """
+        self._model_path = Path(model_path)
+        self._lib_path = Path(lib_path)
         self._fp_train_data = fp_train_data
         self._fp_stopwords = fp_stopwords
         self._fp_seed_words = fp_seed_words
@@ -84,18 +106,23 @@ class AutoPhrase:
         if self._language == LanguageArabic:
             self._tagger_model = self.lib_path / "tools/models/arabic.tagger"
 
-        self._fp_model = self._model_dir / 'segmentation.model'
-        self._fp_tmp = self._model_dir / 'tmp'
+        self._fp_model = self._model_path / 'model'
+        self._fp_tmp = self._model_path / 'tmp'
+
+        # model/*
+        self._fp_token_mapping = self._fp_model / 'token_mapping.txt'
+        self._fp_segmentation = self._fp_model / 'segmentation.model'
+
+        # tmp/*
         self._fp_tokenized_train = self._fp_tmp / 'tokenized_train.txt'
         self._fp_tokenized_stopwords = self._fp_tmp / 'tokenized_stopwords.txt'
-        self._fp_tokenized_seed_words = self._fp_tmp / 'tokenized_seed_words.txt'
-        self._fp_tokenized_quality_seed_words = self._fp_tmp / 'tokenized_quality_seed_words.txt'
-        self._fp_token_mapping = self._model_dir / 'token_mapping.txt'
+        self._fp_tokenized_all = self._fp_tmp / 'tokenized_all.txt'
+        self._fp_tokenized_quality = self._fp_tmp / 'tokenized_quality.txt'
 
     def _check_args(self):
-        assert self._fp_train_data is not None or self._model_dir.exists()
-        if self._model_dir.exists():
-            assert self._model_dir.is_dir()
+        assert self._fp_train_data is not None or self._model_path.exists()
+        if self._model_path.exists():
+            assert self._model_path.is_dir()
         if self._language not in _Official_Language:
             _logger.warning(f'{self._language} is not official supported language')
         assert self._thread > 0
@@ -109,7 +136,8 @@ class AutoPhrase:
         self._pos_tagging_train()
         self._core_training()
 
-    def extract(self, fp_input: _Path, fp_save: _Path = None,
+    def extract(self, fp_input: _Path,
+                fp_save: _Path = None,
                 highlight_multi: float = 0,
                 highlight_single: float = 0):
         """"""
@@ -122,12 +150,12 @@ class AutoPhrase:
         else:
             fp_save = Path(fp_save)
 
-        fp_tokenized_id = fp_save.parent / f'{fp_input.stem}_tokenized_id{fp_input.suffix}'
-        fp_tokenized_raw = fp_save.parent / f'raw_{fp_tokenized_id.name}'  # default
-        command = self._get_tokenize_command(fp_input, fp_tokenized_id, 'direct_test')
+        fp_tokenized = self._fp_tmp / 'tokenized_text_to_seg.txt'
+        fp_tokenized_raw = self._fp_tmp / 'raw_tokenized_text_to_seg.txt'
+        command = self._get_tokenize_command(fp_input, fp_tokenized, 'direct_test')
         self._run_command(command)
+        assert fp_tokenized.exists()
         assert fp_tokenized_raw.exists()
-        fp_tokenized_raw.rename(fp_save.parent / f'{fp_input.stem}_tokenized_raw{fp_save.suffix}')
 
         # 2. postag
         if self._enable_postag:
@@ -135,14 +163,14 @@ class AutoPhrase:
 
         # 3. segment
         print("===Phrasal Segmentation===")
-        fp_segmented = fp_save.parent / f'{fp_input.stem}_segmented{fp_input.suffix}'
+        fp_segmented = self._fp_tmp / 'tokenized_segmented_sentences.txt'
         if self._enable_postag:
             pass
         else:
             command = f'{self.lib_path / "bin/segphrase_segment"}' \
                       f' --thread {self._thread}' \
                       f' --model {self._fp_model}' \
-                      f' --text_to_seg_file {fp_tokenized_id}' \
+                      f' --text_to_seg_file {fp_tokenized}' \
                       f' --output_tokenized_degmented_sentences {fp_segmented}' \
                       f' --highlight-multi {highlight_multi}' \
                       f' --highlight-single {highlight_single}'
@@ -152,7 +180,7 @@ class AutoPhrase:
         print("===Generating Output===")
         command = self._get_tokenize_command(fp_input, fp_save, mode='segmentation',
                                              segmented=fp_segmented,
-                                             tokenized_id=fp_tokenized_id,
+                                             tokenized_id=fp_tokenized,
                                              tokenized_raw=fp_tokenized_raw)
         self._run_command(command)
 
@@ -207,14 +235,14 @@ class AutoPhrase:
         """"""
         _logger.info(AutoPhrase._get_start_log())
         command = self._get_tokenize_command(self._fp_seed_words,
-                                             self._fp_tokenized_seed_words,
+                                             self._fp_tokenized_all,
                                              mode='test')
         self._run_command(command)
 
     def _tokenize_quality_seed_words(self):
         """"""
         command = self._get_tokenize_command(self._fp_quality_seed_words,
-                                             self._fp_tokenized_quality_seed_words,
+                                             self._fp_tokenized_quality,
                                              mode='test')
         self._run_command(command)
 
@@ -293,7 +321,11 @@ class AutoPhrase:
 
     @staticmethod
     def find_lib_path() -> Path:
-        """"""
+        """
+        TODO:
+            - `pip install autophrase` 安装的 autophrase 有问题
+            - 修改为 从 github 下载
+        """
 
         def try_import():
             try:
