@@ -106,12 +106,12 @@ class AutoPhrase:
         if self._language == LanguageArabic:
             self._tagger_model = self.lib_path / "tools/models/arabic.tagger"
 
-        self._fp_model = self._model_path / 'model'
-        self._fp_tmp = self._model_path / 'tmp'
+        # self._fp_model = self._model_path / 'model'
+        self._fp_tmp = Path('tmp')  # self._model_path / 'tmp'
 
         # model/*
-        self._fp_token_mapping = self._fp_model / 'token_mapping.txt'
-        self._fp_segmentation = self._fp_model / 'segmentation.model'
+        self._fp_token_mapping = self._model_path / 'token_mapping.txt'
+        self._fp_segmentation = self._model_path / 'segmentation.model'
 
         # tmp/*
         self._fp_tokenized_train = self._fp_tmp / 'tokenized_train.txt'
