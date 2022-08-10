@@ -171,10 +171,11 @@ class AutoPhrase:
                       f' --thread {self._thread}' \
                       f' --model {self._fp_segmentation}' \
                       f' --highlight-multi {highlight_multi}' \
-                      f' --highlight-single {highlight_single}'
-            # f' --text_to_seg_file {fp_tokenized}' \
-            # f' --output_tokenized_degmented_sentences {fp_segmented}' \
+                      f' --highlight-single {highlight_single}' \
+                      f' --text_to_seg_file {fp_tokenized}' \
+                      f' --output_tokenized_degmented_sentences {fp_segmented}'
         self._run_command(command)
+        assert fp_segmented.exists()
 
         # 4. output
         print("===Generating Output===")
