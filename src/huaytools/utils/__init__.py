@@ -13,7 +13,7 @@ from huaytools.utils.regex_helper import RegexLib, RegexUtils, RegexEmoji
 from huaytools.utils.xls_helper import XLSHelper
 from huaytools.utils.find_best_threshold import find_best_threshold_binary
 from huaytools.utils.special_json import (
-    CustomIndentJSONEncoder,
+    NoIndentJSONEncoder,
     AnyJSONEncoder,
     AnyJSONDecoder
 )

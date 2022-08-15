@@ -16,7 +16,7 @@ from typing import Iterator
 from _ctypes import PyObj_FromPtr
 
 
-class CustomIndentJSONEncoder(json.JSONEncoder):
+class NoIndentJSONEncoder(json.JSONEncoder):
     """
     对指定的对象不应用缩进
 
@@ -25,8 +25,8 @@ class CustomIndentJSONEncoder(json.JSONEncoder):
     注意：如果需要保存到文件，不能直接使用 json.dump，而需要使用 json.dumps + fw.write
 
     Examples:
-        >>> o = dict(a=1, b=CustomIndentJSONEncoder.wrap([1, 2, 3]))
-        >>> s = json.dumps(o, cls=CustomIndentJSONEncoder, indent=4)
+        >>> o = dict(a=1, b=NoIndentJSONEncoder.wrap([1, 2, 3]))
+        >>> s = json.dumps(o, cls=NoIndentJSONEncoder, indent=4)
         >>> print(s)  # 注意 "b" 的 列表没有展开缩进
         {
             "a": 1,
@@ -46,23 +46,23 @@ class CustomIndentJSONEncoder(json.JSONEncoder):
             self.value = value
 
     def __init__(self, *args, **kwargs):
-        super(CustomIndentJSONEncoder, self).__init__(*args, **kwargs)
+        super(NoIndentJSONEncoder, self).__init__(*args, **kwargs)
         self.kwargs = kwargs
         del self.kwargs['indent']
         # self._replacement_map = {}  # 缓存 id(obj) -> obj
         self._no_indent_obj_ids = set()  # 使用 PyObj_FromPtr，保存 id(obj) 即可
 
     def default(self, o):
-        if isinstance(o, CustomIndentJSONEncoder.Value):
+        if isinstance(o, NoIndentJSONEncoder.Value):
             # self._replacement_map[id(o)] = json.dumps(o.value, **self.kwargs)
             self._no_indent_obj_ids.add(id(o))
             return self.FORMAT_SPEC.format(id(o))
         else:
-            return super(CustomIndentJSONEncoder, self).default(o)
+            return super(NoIndentJSONEncoder, self).default(o)
 
     def encode(self, o) -> str:
         """for json.dumps"""
-        result = super(CustomIndentJSONEncoder, self).encode(o)
+        result = super(NoIndentJSONEncoder, self).encode(o)
         return self.replace(result)
 
     def iterencode(self, o, _one_shot=False) -> Iterator[str]:
@@ -80,7 +80,7 @@ class CustomIndentJSONEncoder(json.JSONEncoder):
 
     @staticmethod
     def wrap(v):
-        return CustomIndentJSONEncoder.Value(v)
+        return NoIndentJSONEncoder.Value(v)
 
 
 class AnyJSONEncoder(json.JSONEncoder):
