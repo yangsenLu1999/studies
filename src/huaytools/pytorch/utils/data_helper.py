@@ -11,12 +11,9 @@ Subject:
 import os
 import time
 
-# from itertools import islice
-# from collections import defaultdict
-
-# from tqdm import tqdm
-from collections import defaultdict
 from typing import *
+from itertools import islice
+from collections import defaultdict
 
 import torch
 from torch import Tensor
@@ -188,7 +185,38 @@ class SequenceDataset(Dataset):
     def __init__(self,
                  data: Union[Sequence, Dict[str, Sequence]],
                  map_fn: Callable = _identity):
-        """"""
+        """
+        Args:
+            data:
+            map_fn:
+
+        Examples:
+            >>> d = ['1', '2', '3']
+            >>> ds = SequenceDataset(d)
+            >>> ds[1]
+            '2'
+            >>> ds = SequenceDataset(d, map_fn=lambda x: float(x))
+            >>> for it in islice(ds, 2):
+            ...     print(it)
+            1.0
+            2.0
+
+            # dict data
+            >>> d = {'a': range(10), 'b': range(10, 20)}
+            >>> ds = SequenceDataset(d)
+            >>> for it in islice(ds, 2):
+            ...     print(it)
+            {'a': 0, 'b': 10}
+            {'a': 1, 'b': 11}
+
+            # list dict (same as above)
+            >>> d = [{'a': a, 'b': b} for a, b in zip(range(10), range(10, 20))]  # noqa
+            >>> ds = SequenceDataset(d)
+            >>> for it in islice(ds, 2):
+            ...     print(it)
+            {'a': 0, 'b': 10}
+            {'a': 1, 'b': 11}
+        """
         self.data = data
         self.map_fn = map_fn
 
@@ -219,7 +247,28 @@ class IterDataset(IterableDataset):
     """"""
 
     def __init__(self, data: Union[Iterable, Dict[str, Iterable]], map_fn: Callable = _identity):
-        """"""
+        """
+        Args:
+            data:
+            map_fn:
+
+        Examples:
+            >>> d = iter(range(100))
+            >>> ds = IterDataset(d, map_fn=lambda x: x + 1.)
+            >>> for it in islice(ds, 2):
+            ...     print(it)
+            1.0
+            2.0
+
+            # dict data
+            >>> d = {'a': iter(range(10)), 'b': iter(range(10, 200))}
+            >>> ds = IterDataset(d, map_fn=lambda x: {'a': x['a'] + 1., 'b': x['b'] * 2.})
+            >>> for it in islice(ds, 2, 4):
+            ...     print(it)
+            {'a': 3.0, 'b': 24.0}
+            {'a': 4.0, 'b': 26.0}
+
+        """
         self.data = data
         self.map_fn = map_fn
 
@@ -235,9 +284,12 @@ class IterDataset(IterableDataset):
         yield from self._iter()
 
     def _iter_dict(self):
-        keys = self.data.keys()
-        for values in zip(*map(self.data.get, keys)):
-            yield self.map_fn(dict(zip(keys, values)))
+        # keys = self.data.keys()
+        # for values in zip(*map(self.data.get, keys)):
+        #     yield self.map_fn(dict(zip(keys, values)))
+        ks, vs = zip(*self.data.items())
+        for v in zip(*vs):
+            yield self.map_fn(dict(zip(ks, v)))
 
     def _iter_default(self):
         for it in self.data:
@@ -248,13 +300,16 @@ DataContainer = Union[Sequence, Iterable, Dict[str, Union[Sequence, Iterable]]]
 
 
 def get_dataset(data: DataContainer,
-                map_fn: Callable = _identity) -> Dataset:  # noqa
+                map_fn: Callable = None) -> Dataset:  # noqa
     """"""
 
     def _is_sequence():
         f1 = isinstance(data, Sequence)
         f2 = isinstance(data, dict) and all(isinstance(v, Sequence) for v in data.values())
         return f1 or f2
+
+    if map_fn is None:
+        map_fn = _identity
 
     if _is_sequence():
         return SequenceDataset(data, map_fn)
@@ -268,12 +323,69 @@ class ToyDataLoader(DataLoader):
 
     def __init__(self, dataset: Union[Dataset, DataContainer],
                  batch_size: int = 8,
-                 map_fn=None,  # convert each sample
-                 collate_fn=None,  # convert batch samples
-                 shuffle=True,
-                 device=None,
+                 map_fn: Callable = None,  # convert each sample
+                 collate_fn: Callable = None,  # convert batch samples
+                 shuffle: bool = True,
+                 device: str = None,
                  **kwargs):
-        """"""
+        """
+        Args:
+            dataset:
+            batch_size:
+            map_fn:
+            collate_fn:
+            shuffle:
+            device:
+            **kwargs: kwargs of DataLoader
+
+        Examples:
+            # sequence
+            >>> d = ['1', '2', '3']
+            >>> ds = SequenceDataset(d, map_fn=lambda x: int(x))
+            >>> dl = ToyDataLoader(ds, batch_size=2, shuffle=False)
+            >>> next(iter(dl))
+            tensor([1, 2])
+            >>> dl = ToyDataLoader(d, batch_size=2, shuffle=False,
+            ...                    map_fn=lambda x: torch.as_tensor(int(x)).to(torch.float))
+            >>> for it in islice(dl, 2):
+            ...     print(it)
+            tensor([1., 2.])
+            tensor([3.])
+
+            # sequence of dict
+            >>> d = [{'a': a, 'b': b} for a, b in zip(range(10), range(10, 20))]  # noqa
+            >>> dl = ToyDataLoader(d, batch_size=3, shuffle=False,
+            ...                    map_fn=lambda x: {k: v + 1 for k, v in x.items()})  # noqa
+            >>> for it in islice(dl, 2):
+            ...     print(it)
+            {'a': tensor([1, 2, 3]), 'b': tensor([11, 12, 13])}
+            {'a': tensor([4, 5, 6]), 'b': tensor([14, 15, 16])}
+
+            # dict (same as above)
+            >>> d = {'a': range(10), 'b': range(10, 20)}
+            >>> dl = ToyDataLoader(d, batch_size=3, shuffle=False,
+            ...                    map_fn=lambda x: {k: v + 1 for k, v in x.items()})  # noqa
+            >>> for it in islice(dl, 2):
+            ...     print(it)
+            {'a': tensor([1, 2, 3]), 'b': tensor([11, 12, 13])}
+            {'a': tensor([4, 5, 6]), 'b': tensor([14, 15, 16])}
+
+            # iter
+            >>> d = iter(range(100))
+            >>> dl = ToyDataLoader(d, batch_size=4, shuffle=False)
+            >>> for it in islice(dl, 2):
+            ...     print(it)
+            tensor([0, 1, 2, 3])
+            tensor([4, 5, 6, 7])
+
+            # iter of dict
+            >>> d = {'a': (i for i in range(10)), 'b': (i for i in range(10, 200))}  # noqa
+            >>> dl = ToyDataLoader(d, batch_size=3, shuffle=False)
+            >>> for dl in islice(dl, 2):
+            ...     print(dl)
+            {'a': tensor([0, 1, 2]), 'b': tensor([10, 11, 12])}
+            {'a': tensor([3, 4, 5]), 'b': tensor([13, 14, 15])}
+        """
         self.device = device
         if not isinstance(dataset, Dataset):
             dataset = get_dataset(dataset, map_fn=map_fn)
@@ -313,59 +425,59 @@ class __Test:
         import doctest
         doctest.testmod()
 
-    def _test_SequenceDataset(self):  # noqa
-        """"""
-        data = ['1', '2', '3']
-        ds = SequenceDataset(data)
-        for i in ds:
-            print(i)
+    # def _test_SequenceDataset(self):  # noqa
+    #     """"""
+    #     data = ['1', '2', '3']
+    #     ds = SequenceDataset(data)
+    #     for i in ds:
+    #         print(i)
+    #
+    #     ds = SequenceDataset(data, map_fn=lambda x: float(x))
+    #     for i in ds:
+    #         print(i)
 
-        ds = SequenceDataset(data, map_fn=lambda x: float(x))
-        for i in ds:
-            print(i)
+    # def _test_IterDataset(self):  # noqa
+    #     """"""
+    #     data = {'a': (i for i in range(10)), 'b': (i for i in range(10, 20))}
+    #     ds = IterDataset(data, map_fn=lambda x: {k: v + 1 for k, v in x.items()})
+    #     for i in ds:
+    #         print(i)
 
-    def _test_IterDataset(self):  # noqa
-        """"""
-        data = {'a': (i for i in range(10)), 'b': (i for i in range(10, 20))}
-        ds = IterDataset(data, map_fn=lambda x: {k: v + 1 for k, v in x.items()})
-        for i in ds:
-            print(i)
-
-    def _test_ToyDataLoader(self):  # noqa
-        """"""
-        data = ['1', '2', '3']
-
-        # data -> dataset -> dataloader
-        ds = SequenceDataset(data, map_fn=lambda x: float(x))
-        dl = ToyDataLoader(ds, batch_size=2, shuffle=False)
-        for it in dl:
-            print(it)
-
-        print()
-        # data -> dataloader
-        dl = ToyDataLoader(data, batch_size=2, shuffle=False,
-                           map_fn=lambda x: int(x),
-                           collate_fn=lambda b: torch.as_tensor(b).to(torch.float))
-        for it in dl:
-            print(it)
-
-        print()
-        # dict -> dataloader
-        # 注意：dict 的 value 最好已经处理成 tensor 或 float，
-        # 如果要自己写 collate_fn 的话，需要注意传入的 batch 是 list[dict[str, sample]], 而不是 dict[str, samples]，
-        # 示例：[{'f1': 1, 'f2': 2}, ...]，而不是 {'f1': [1,...], 'f2': [2,...]}
-        data = {'feature1': ['1', '2', '3', '4', '5'], 'feature2': [4, 5, 6, 7, 8]}
-        dl = ToyDataLoader(data, batch_size=3, shuffle=False,
-                           map_fn=lambda x: {'f1': int(x['feature1']) + 1., 'f2': x['feature2'] * 2.})
-        for it in dl:
-            print(it)
-
-        print()
-        # dict iter -> dataloader
-        data = {'a': (i for i in range(10)), 'b': (i for i in range(10, 200))}
-        dl = ToyDataLoader(data, batch_size=3, shuffle=False, map_fn=lambda x: {k: v + 1. for k, v in x.items()})
-        for it in dl:
-            print(it)
+    # def _test_ToyDataLoader(self):  # noqa
+    #     """"""
+    #     data = ['1', '2', '3']
+    #
+    #     # data -> dataset -> dataloader
+    #     ds = SequenceDataset(data, map_fn=lambda x: float(x))
+    #     dl = ToyDataLoader(ds, batch_size=2, shuffle=False)
+    #     for it in dl:
+    #         print(it)
+    #
+    #     print()
+    #     # data -> dataloader
+    #     dl = ToyDataLoader(data, batch_size=2, shuffle=False,
+    #                        map_fn=lambda x: int(x),
+    #                        collate_fn=lambda b: torch.as_tensor(b).to(torch.float))
+    #     for it in dl:
+    #         print(it)
+    #
+    #     print()
+    #     # dict -> dataloader
+    #     # 注意：dict 的 value 最好已经处理成 tensor 或 float，
+    #     # 如果要自己写 collate_fn 的话，需要注意传入的 batch 是 list[dict[str, sample]], 而不是 dict[str, samples]，
+    #     # 示例：[{'f1': 1, 'f2': 2}, ...]，而不是 {'f1': [1,...], 'f2': [2,...]}
+    #     data = {'feature1': ['1', '2', '3', '4', '5'], 'feature2': [4, 5, 6, 7, 8]}
+    #     dl = ToyDataLoader(data, batch_size=3, shuffle=False,
+    #                        map_fn=lambda x: {'f1': int(x['feature1']) + 1., 'f2': x['feature2'] * 2.})
+    #     for it in dl:
+    #         print(it)
+    #
+    #     print()
+    #     # dict iter -> dataloader
+    #     data = {'a': (i for i in range(10)), 'b': (i for i in range(10, 200))}
+    #     dl = ToyDataLoader(data, batch_size=3, shuffle=False, map_fn=lambda x: {k: v + 1. for k, v in x.items()})
+    #     for it in dl:
+    #         print(it)
 
 
 if __name__ == '__main__':
