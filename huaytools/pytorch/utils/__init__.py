@@ -29,8 +29,9 @@ from torch import Tensor
 from huaytools.utils import get_logger
 
 from huaytools.pytorch.utils.data_helper import (
-    AnyDataset,
-    AnyDataLoader
+    SequenceDataset,
+    ToyDataLoader,
+    get_dataset
 )
 
 

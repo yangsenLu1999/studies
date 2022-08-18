@@ -40,18 +40,18 @@ class TireNode:
 class TireTree(TireNode):
     """"""
     # info field name
-    _F_SEQ = 'seq'  # 至当前节点的序列，下简称序列
-    _F_IS_END = 'is_end'  # 序列是否是一个完整的序列
-    _F_COUNT = 'count'  # 序列在语料中出现的计数
-    _F_SUB_NODE_COUNT = 'sub_node_count'  # 直接子节点的计数
-    _F_ALL_SUB_NODE_COUNT = 'all_sub_node_count'  # 全部子节点的计数
+    F_SEQ = 'seq'  # 至当前节点的序列，下简称序列
+    F_IS_END = 'is_end'  # 序列是否是一个完整的序列
+    F_COUNT = 'count'  # 序列在语料中出现的计数
+    F_SUB_NODE_COUNT = 'sub_node_count'  # 直接子节点的计数
+    F_ALL_SUB_NODE_COUNT = 'all_sub_node_count'  # 全部子节点的计数
 
     _default_info = {
-        _F_SEQ: tuple(),
-        _F_IS_END: False,
-        _F_COUNT: 0,
-        _F_SUB_NODE_COUNT: 0,
-        _F_ALL_SUB_NODE_COUNT: 0,
+        F_SEQ: tuple(),
+        F_IS_END: False,
+        F_COUNT: 0,
+        F_SUB_NODE_COUNT: 0,
+        F_ALL_SUB_NODE_COUNT: 0,
     }
 
     # 遍历结果
@@ -84,7 +84,7 @@ class TireTree(TireNode):
                 return False
         return cur.is_end
 
-    def find_all_subseq(self, seq: Sequence) -> List[List]:
+    def find_all_subseq(self, seq: Sequence, flatten=True) -> List[List]:
         """找出所有完整的子串"""
         ret = []
         for start_idx in range(len(seq)):
@@ -100,6 +100,13 @@ class TireTree(TireNode):
 
             if sub_ret:
                 ret.append(sub_ret)
+
+        if flatten:
+            new_ret = []
+            for sub_ret in ret:
+                new_ret += sub_ret
+            ret = sorted(set(new_ret), key=new_ret.index)
+
         return ret
 
     @property
@@ -119,16 +126,16 @@ class TireTree(TireNode):
             info = self._default_info.copy()
             _traversal.append(info)
 
-            info[TireTree._F_COUNT] = node.count
-            info[TireTree._F_IS_END] = node.is_end
-            info[TireTree._F_SUB_NODE_COUNT] = len(node.nodes)
-            info[TireTree._F_ALL_SUB_NODE_COUNT] = len(node.nodes)
+            info[TireTree.F_COUNT] = node.count
+            info[TireTree.F_IS_END] = node.is_end
+            info[TireTree.F_SUB_NODE_COUNT] = len(node.nodes)
+            info[TireTree.F_ALL_SUB_NODE_COUNT] = len(node.nodes)
 
             for k, v in node.nodes.items():
                 seq.append(v.value)
                 sub_info = dfs(v, seq)
-                sub_info[TireTree._F_SEQ] = tuple(seq)
-                info[TireTree._F_ALL_SUB_NODE_COUNT] += sub_info[TireTree._F_ALL_SUB_NODE_COUNT]
+                sub_info[TireTree.F_SEQ] = tuple(seq)
+                info[TireTree.F_ALL_SUB_NODE_COUNT] += sub_info[TireTree.F_ALL_SUB_NODE_COUNT]
                 seq.pop()
 
             return info

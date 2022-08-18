@@ -22,7 +22,7 @@ import doctest  # noqa
 import torch
 import torch.nn as nn
 
-from huaytools.pytorch.utils import AnyDataLoader, AnyDataset
+from huaytools.pytorch.utils import ToyDataLoader
 
 
 def demo_map_one():
@@ -34,7 +34,7 @@ def demo_map_one():
     def map_one(one):
         return torch.as_tensor(one).to(torch.float)  # 把每条数据转换成 torch 张量
 
-    dl = AnyDataLoader(data, batch_size=2, map_one_fn=map_one)
+    dl = ToyDataLoader(data, batch_size=2, map_one_fn=map_one)
 
     for b in dl:
         print(b)
@@ -52,7 +52,7 @@ def demo_map_batch():
         batch = tokenizer(batch, padding=True, truncation=True, return_tensors='pt')
         return batch
 
-    dl = AnyDataLoader(ss, batch_size=2, map_batch_fn=map_batch)
+    dl = ToyDataLoader(ss, batch_size=2, collate_fn=map_batch)
 
     for b in dl:
         print(b)
@@ -72,12 +72,12 @@ def demo_iter():
 
     # ds = AnyDataset(it(), map_fn=map_one)
 
-    dl = AnyDataLoader(list(it()), batch_size=4, map_one_fn=map_one)
+    dl = ToyDataLoader(list(it()), batch_size=4, map_fn=map_one)
 
     for b in dl:
         print(b)
 
-    dl = AnyDataLoader(it(), batch_size=4, map_one_fn=map_one, shuffle=False)
+    dl = ToyDataLoader(it(), batch_size=4, map_fn=map_one, shuffle=False)
 
     for b in dl:
         print(b)
@@ -90,4 +90,3 @@ if __name__ == '__main__':
     # demo_map_one()
     # demo_map_batch()
     demo_iter()
-
