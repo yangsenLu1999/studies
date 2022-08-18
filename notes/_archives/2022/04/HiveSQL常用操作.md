@@ -2,15 +2,10 @@ Hive SQL 常用操作
 ===
 
 - [正则](#正则)
-    - [转义问题](#转义问题)
     - [常用正则](#常用正则)
-    - [正则抽取](#正则抽取)
 - [常用参数](#常用参数)
-- [字符串截取](#字符串截取)
 - [窗口函数-排序](#窗口函数-排序)
 - [分段采样](#分段采样)
-- [获取星期](#获取星期)
-- [行转列、侧视图](#行转列侧视图)
 - [`case when` 基本用法](#case-when-基本用法)
 - [加载自定义 UDF](#加载自定义-udf)
 - [加载 transform](#加载-transform)
@@ -24,25 +19,11 @@ Hive SQL 常用操作
 ## 正则
 > Java 正则表达式 | 菜鸟教程 | https://www.runoob.com/java/java-regular-expressions.html
 
-### 转义问题
-- 转义要双斜杠 `\\`（XT平台 SPARK 模式下）
-    - 一个斜杠的转义是给 SQL 看的，比如 `\;`，两个斜杠才是给匹配方法看的 `\\"`
-```sql
--- 示例内容：'{\"cityId\":1}' -> '{"cityId":1}'
-regexp_replace(txt, '\\\\"', '"')  -- 这里要用4个`\`，`\\`匹配`\`，`\\"`匹配`"`（sql里面`"`也需要转义）
-```
-
 ### 常用正则
 ```
 中文：[\\u4E00-\\u9FA5]
 2字以上中文： '^[\\u4E00-\\u9FA5]{2,}$'
-非（ASC可见字符&中文）：[^\\x21-\\x7e\\u4E00-\\u9FA5]
-```
-
-### 正则抽取
-```sql
-regexp_extract(mention, '(.*?)-(.*?)', 1)  -- 抽取第一组
-regexp_extract(mention, '(.*?)-(.*?)', 2)  -- 抽取第二组
+ASCII 可见字符 & 标准中文字符集：[\\x21-\\x7e\\u4E00-\\u9FA5]
 ```
 
 
@@ -60,20 +41,6 @@ SET mapreduce.reduce.memory.mb=8192;
 SET spark.executor.memory=10G;
 ```
 
-
-## 字符串截取
-```sql
--- 截取子串
-substr(s, start, length) -- 从 start 截取 length 长度的子串，start 从 1 开始
-substr(s, start)  -- 从 start 到末尾，start 可以为负数
-
--- 示例
-substr('abcde', 1, 3)  -- abc
-substr('abcde', 2, 3)  -- bc
-substr('abcde', 2)  -- bcde
-substr('abcde', -2)  -- de
-substr('abcde', -3, 2)  -- cd
-```
 
 ## 窗口函数-排序
 > HIVE SQL奇技淫巧 - 知乎 | https://zhuanlan.zhihu.com/p/80887746
@@ -126,10 +93,10 @@ WHERE row_num <= 300  -- 每堆采样 300 条
 ```
 
 
-## 获取星期
+<!-- ## 获取星期
 ```sql
 pmod(datediff('#data#', '2012-01-01'), 7)  -- 返回 0-6 表示 星期日-星期六
-```
+``` -->
 
 
 ## 行转列、侧视图
