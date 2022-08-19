@@ -37,6 +37,23 @@ else:
     import importlib_resources  # noqa
 
 
+class PythonUtils:
+    """"""
+
+    @staticmethod
+    def get_cls_annotations(cls: type):
+        """
+        Examples:
+            >>> class F:
+            ...     a: int
+            ...     b = 'B'
+            ...     c: str = 'C'
+            >>> PythonUtils.get_cls_annotations(F)
+            {'a': <class 'int'>, 'c': <class 'str'>}
+        """
+        return cls.__dict__.get('__annotations__', {})
+
+
 class classproperty(property):  # noqa
     """
     References:
