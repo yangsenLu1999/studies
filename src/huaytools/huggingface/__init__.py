@@ -10,4 +10,5 @@ Subject:
 """
 
 from ._common import HFUtils
-from .tokenizer_wrap import TokenizerWrap
+from .tokenizer_utils import TokenizerWrap
+from .train_utils import TrainPipe
