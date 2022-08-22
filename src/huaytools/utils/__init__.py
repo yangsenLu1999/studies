@@ -33,3 +33,7 @@ from .singleton import singleton
 from .str_utils import StrUtils
 from .type_utils import TypeUtils
 from .iter_utils import IterUtils
+from .special_dict import (
+    FieldDict,
+    BunchDict
+)

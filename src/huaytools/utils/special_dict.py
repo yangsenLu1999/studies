@@ -14,15 +14,105 @@ import json
 import doctest
 
 from typing import *
-from dataclasses import dataclass, fields
+from dataclasses import dataclass, fields, field
 from collections import OrderedDict
 
-__all__ = [
-    'ArrayDict',
-    'ValueArrayDict',
-    'BunchDict',
-    'FieldBunchDict',
-]
+import bunch
+
+
+@dataclass
+class FieldDict(dict):
+    """
+    兼顾 dataclass 和 dict 的功能；
+    主要为了代替以下场景：
+        ```python
+        from copy import deepcopy
+        default_info = {
+            'f1': 1,
+            'f2': '2',
+            'f3': set()
+        }
+
+        one_info = deepcopy(default_info)
+        one_info['f1'] = ...
+        one_info['f2'] = ...
+        one_info['f3'] = ...
+
+        infos = [one_info, ...]
+        json.dumps(infos)
+
+        # 使用 FixedFieldDict 代替上述流程
+        @dataclass
+        class DefaultInfo(FixedFieldDict):
+            f1: int = 1
+            f2: str = '2'
+            f3: set = field(default_factory=set)
+
+        one_info = DefaultInfo()
+        one_info.f1 = ...
+        one_info.f2 = ...
+        one_info.f3 = ...
+
+        infos = [one_info, ...]
+        json.dumps(infos)
+        ```
+
+    Notes:
+        - 可以为动态地为 FieldDict 添加新的 attr，但是这些 attr 不会作为新的 field；
+            也不会保存到 dict 中，详见 `__setattr__` 和 `__setitem__`
+
+    Examples:
+        >>> @dataclass
+        ... class Features(FieldDict):
+        ...     a: int = 1
+        ...     b: str = 'B'
+        ...     c: list = field(default_factory=list)
+        ...     d = Any  # d 因为没有注释，所以不会被 fields 捕获
+        >>> f = Features()
+        >>> print(f)
+        Features(a=1, b='B', c=[])
+        >>> list(f.items())
+        [('a', 1), ('b', 'B'), ('c', [])]
+        >>> f.a = 2
+        >>> f['a'] = 3
+        >>> f.d = 'D'  # ok, d is attr, not field
+        >>> getattr(f, 'd')
+        'D'
+        >>> 'd' not in f.field_names
+        True
+        >>> f['d'] = 'D'  # err
+        Traceback (most recent call last):
+            ...
+        KeyError: 'd not in fields'
+        >>> 'd' not in f and 'd' not in f.field_names
+        True
+        >>> json.dumps(f)  # 可以直接当做 dict 处理
+        '{"a": 3, "b": "B", "c": []}'
+    """
+
+    def __post_init__(self):
+        """"""
+        # 把 field 依次添加到 dict 中
+        for f in fields(self):
+            self[f.name] = getattr(self, f.name)
+
+    def __setattr__(self, key, value):
+        """"""
+        super().__setattr__(key, value)
+        if key in self.field_names:
+            super().__setitem__(key, value)
+
+    def __setitem__(self, key, value):
+        """"""
+        if key not in self.field_names:
+            raise KeyError(f'{key} not in fields')
+        else:
+            super().__setattr__(key, value)
+            super().__setitem__(key, value)
+
+    @property
+    def field_names(self) -> list[str]:
+        return [f.name for f in fields(self)]
 
 
 # class DefaultOrderedDict(defaultdict, OrderedDict):
@@ -161,346 +251,404 @@ class ValueArrayDict(ArrayDict):
         return iter(self.tuple)
 
 
-class BunchDict(Dict):
+class BunchDict(dict):
     """@Python 自定义数据结构
     基于 dict 实现 Bunch 模式
 
+    实现方法：
+        - 通过重写 __getattr__、__setattr__、__delattr__ 同步 o.x 和 o['x'] 的行为
+        - 为了防止与内部成员冲突，比如 __dict__，会预先调用 __getattribute__（优先级高于 __getattr__）
+
+    Notes:
+        - 如果直接向 __dict__ 添加属性，且存在同名 key，将导致 o.x 和 o['x'] 不一致；
+          目前暂不约束这种行为；
+            ```python
+            o = BunchDict(a=1, b=2)
+            o.__dict__['a'] = 10
+            print(o.a, o['a'])  # 10, 1
+            ```
+
     Examples:
-        # 直接使用
-        >>> d = BunchDict(a=1, b=2)
-        >>> d
+        # 示例 1
+        >>> x = BunchDict(a=1, b=2)
+        >>> x
         {'a': 1, 'b': 2}
-        >>> d.c = 3
-        >>> assert 'c' in d and d.c == 3
-        >>> dir(d)
-        ['a', 'b', 'c']
-        >>> assert 'a' in d
-        >>> del d.a
-        >>> assert 'a' not in d
-        >>> d.dict
-        {'b': 2, 'c': 3}
-
-        # 批量导入新配置
-        >>> kwargs = {'d': 4, 'e': 5}
-        >>> d.update(kwargs)
-        >>> d.dict
-        {'b': 2, 'c': 3, 'd': 4, 'e': 5}
-        >>> d.e
-        5
-
-        # 从字典加载
-        >>> x = {'d': 4, 'e': {'a': 1, 'b': 2, 'c': 3}}
-        >>> y = BunchDict.from_dict(x)
-        >>> y
-        {'d': 4, 'e': {'a': 1, 'b': 2, 'c': 3}}
-
-        # 预定义配置
-        >>> class Config(BunchDict):
-        ...     def __init__(self, **config_items):
-        ...         from datetime import datetime
-        ...         self.a = 1
-        ...         self.b = 2
-        ...         self.c = datetime(2012, 1, 1)  # 注意是一个特殊对象，默认 json 是不支持的
-        ...         super().__init__(**config_items)
-        >>> args = Config(b=20)
-        >>> args.a = 10
-        >>> args
-        {'a': 10, 'b': 20, 'c': datetime.datetime(2012, 1, 1, 0, 0)}
-        >>> args == args.dict
+        >>> x.c = 3  # x['c'] = 3
+        >>> 'c' in x
         True
-        >>> # 添加默认中不存的配置项
-        >>> args.d = 40
-        >>> print(args.get_pretty_dict())  # 注意 'c' 保存成了特殊形式
-        {
-            "a": 10,
-            "b": 20,
-            "c": "datetime.datetime(2012, 1, 1, 0, 0)__@AnyEncoder@__gASVKgAAAAAAAACMCGRhdGV0aW1llIwIZGF0ZXRpbWWUk5...",
-            "d": 40
-        }
+        >>> x['c']
+        3
+        >>> x['d'] = {'bar': 6}  # x.d = {'bar': 6}
+        >>> hasattr(x, 'd')
+        True
+        >>> x.d.bar
+        6
+        >>> dir(x)
+        ['a', 'b', 'c', 'd']
+        >>> del x.a
+        >>> 'a' not in x
+        True
 
-        # 保存/加载
-        >>> fp = r'./-test/test_save_config.json'
-        >>> os.makedirs(os.path.dirname(fp), exist_ok=True)
-        >>> args.save(fp)  # 保存
-        >>> x = Config.load(fp)  # 重新加载
-        >>> assert x == args.dict
-        >>> _ = os.system('rm -rf ./-test')
+        # 特殊情况
+        >>> x.__dict__ = {'a': 123}
+        >>> x.__dict__
+        {'a': 123}
+        >>> x.a
+        123
+        >>> x.a = 456
+        >>> x
+        {'b': 2, 'c': 3, 'd': {'bar': 6}}
+        >>> 'a' not in x
+        True
+        >>> hasattr(x, 'a')
+        True
+
+        # 示例 2
+        >>> y = {'foo': {'a': 1, 'bar': {'c': 'C'}}, 'b': 2}
+        >>> y == BunchDict.from_dict(y) == BunchDict(y)
+        True
+        >>> x = BunchDict(y, d={'z': 26})
+        >>> x.foo
+        {'a': 1, 'bar': {'c': 'C'}}
+        >>> x.foo.bar
+        {'c': 'C'}
+        >>> all(type(it) == BunchDict for it in [x.foo, x.foo.bar, x.d])  # noqa
+        True
 
     References:
         - bunch（pip install bunch）
     """
 
-    # 最简单实现 Bunch 模式的方法，可以不用重写 __setattr__ 等方法
-    # def __init__(self, *args, **kwargs):
-    #     super(BunchDict, self).__init__(*args, **kwargs)
-    #     self.__dict__ = self
+    def __init__(self, seq: Union[Mapping, Iterable] = None, /, **kwargs):
+        super().__init__()
+        if seq is not None:
+            if isinstance(seq, Mapping):
+                seq = seq.items()
+            for k, v in seq:
+                self[k] = bunching(v)
+
+        for k, v in kwargs.items():
+            self[k] = bunching(v)
 
     def __dir__(self):
         """ 屏蔽其他属性或方法 """
         return self.keys()
 
-    def __getattr__(self, key):
+    def __getattr__(self, name: str):
         """ 使 o.key 等价于 o[key] """
         try:
-            return object.__getattribute__(self, key)
+            # Throws exception if not in prototype chain
+            return super().__getattribute__(name)
         except AttributeError:
             try:
-                return self[key]
+                return self[name]
             except KeyError:
-                raise AttributeError(key)
+                raise AttributeError(name)
 
-    def __setattr__(self, name, value):
+    def __setattr__(self, name: str, value):
         """ 使 o.name = value 等价于 o[name] = value """
         try:
             # Throws exception if not in prototype chain
-            object.__getattribute__(self, name)
+            super().__getattribute__(name)
         except AttributeError:
             self[name] = value
         else:
             object.__setattr__(self, name, value)
 
-    def __delattr__(self, key):
+    def __delattr__(self, name: str):
         """ 支持 del x.y """
         try:
             # Throws exception if not in prototype chain
-            object.__getattribute__(self, key)
+            super().__getattribute__(name)
         except AttributeError:
             try:
-                del self[key]
+                del self[name]
             except KeyError:
-                raise AttributeError(key)
+                raise AttributeError(name)
         else:
-            object.__delattr__(self, key)
+            super().__delattr__(name)
+
+    def __setitem__(self, key: str, value):
+        """"""
+        super().__setitem__(key, bunching(value))
 
     @classmethod
-    def from_dict(cls, d: dict):
-        return _bunch(d, cls)
-
-    @property
-    def dict(self):
-        """"""
-        return dict(self)
-
-    def get_pretty_dict(self, sort_keys=True, print_cls_name=False):
-        """"""
-        from huaytools.utils import AnyJSONEncoder
-        pretty_dict = json.dumps(self.dict, cls=AnyJSONEncoder, indent=4, ensure_ascii=False, sort_keys=sort_keys)
-        if print_cls_name:
-            pretty_dict = f'{self.__class__.__name__}: {pretty_dict}'
-
-        return pretty_dict
-
-    # def __str__(self):
-    #     """"""
-    #     return str(self.dict)
-
-    def save(self, fp: str, sort_keys=True):
-        """ 保存配置到文件 """
-        with open(fp, 'w', encoding='utf8') as fw:
-            fw.write(self.get_pretty_dict(sort_keys=sort_keys))
-
-    @classmethod
-    def load(cls, fp: str):
-        """"""
-        from huaytools.utils import AnyJSONDecoder
-        config_items = json.load(open(fp, encoding='utf8'), cls=AnyJSONDecoder)
-        return cls(**config_items)
+    def from_dict(cls, d: dict) -> 'BunchDict':
+        return bunching(d)
 
 
-@dataclass()
-class FieldBunchDict(BunchDict):
-    """@Python 自定义数据结构
-    基于 dataclass 的 BunchDict
-
-    原来预定义的参数，需要写在 __init__ 中：
-        ```
-        class Args(BunchDict):
-            def __init__(self):
-                a = 1
-                b = 2
-        ```
-    现在可以直接当作 dataclass 来写：
-        ```
-        @dataclass()
-        class Args(BunchDict):
-            a: int = 1
-            b: int = 2
-        ```
-
-    Examples:
-        # 预定义配置
-        >>> @dataclass()
-        ... class Config(FieldBunchDict):
-        ...     from datetime import datetime
-        ...     a: int = 1
-        ...     b: int = 2
-        ...     c: Any = datetime(2012, 1, 1)  # 注意是一个特殊对象，默认 json 是不支持的
-        >>> args = Config(b=20)
-        >>> args.a = 10
-        >>> args
-        Config(a=10, b=20, c=datetime.datetime(2012, 1, 1, 0, 0))
-        >>> args.dict
-        {'a': 1, 'b': 20, 'c': datetime.datetime(2012, 1, 1, 0, 0)}
-        >>> args.d = 40  # 默认中没有的配置项（不推荐，建议都定义在继承类中，并设置默认值）
-        Traceback (most recent call last):
-            ...
-        KeyError: '`d` not in fields. If it has to add new field, recommend to use `BunchDict`'
-
-        # 保存/加载
-        >>> fp = r'./-test/test_save_config.json'
-        >>> os.makedirs(os.path.dirname(fp), exist_ok=True)
-        >>> args.save(fp)  # 保存
-        >>> x = Config.load(fp)  # 重新加载
-        >>> assert x == args.dict
-        >>> _ = os.system('rm -rf ./-test')
-
-    """
-
-    def __post_init__(self):
-        """"""
-        # 获取所有 field
-        class_fields = fields(self)
-        # 依次添加到 dict 中
-        for f in class_fields:
-            self[f.name] = getattr(self, f.name)
-
-    def __setattr__(self, key, value):
-        field_set = set(f.name for f in fields(self))
-        if key not in field_set:
-            raise KeyError(
-                f'`{key}` not in fields. If it has to add new field, recommend to use `{BunchDict.__name__}`')
-        else:
-            super().__setattr__(key, value)
-
-
-class BunchArrayDict(ArrayDict, BunchDict):
-    """ 
-    
-    Examples:
-        >>> d = BunchArrayDict(a=1, b=2)
-        >>> isinstance(d, dict)
-        True
-        >>> print(d, d.a, d[1])
-        BunchArrayDict([('a', 1), ('b', 2)]) 1 BunchArrayDict([('b', 2)])
-        >>> d.a, d.b, d.c = 10, 20, 30
-        >>> print(d, d[1:])
-        BunchArrayDict([('a', 10), ('b', 20), ('c', 30)]) BunchArrayDict([('b', 20), ('c', 30)])
-        >>> print(*d)
-        a b c
-        >>> dir(d)
-        ['a', 'b', 'c']
-        >>> assert 'a' in d
-        >>> del d.a
-        >>> assert 'a' not in d
-        >>> getattr(d, 'a', 100)
-        100
-
-        # 测试嵌套
-        >>> x = BunchArrayDict(d=40, e=d)
-        >>> x
-        BunchArrayDict([('d', 40), ('e', BunchArrayDict([('b', 20), ('c', 30)]))])
-        >>> print(x.d, x.e.b)
-        40 20
-
-        >>> z = {'d': 4, 'e': {'a': 1, 'b': 2, 'c': 3}}
-        >>> y = BunchArrayDict.from_dict(z)
-        >>> y
-        BunchArrayDict([('d', 4), ('e', BunchArrayDict([('a', 1), ('b', 2), ('c', 3)]))])
-        >>> y.e.c
-        3
-
-    """
+# class ConfigDict(BunchDict):
+#     """
+#     Examples:
+#         # 从字典加载
+#         >>> x = {'d': 4, 'e': {'a': 1, 'b': 2, 'c': 3}}
+#         >>> y = BunchDict.from_dict(x)
+#         >>> y
+#         {'d': 4, 'e': {'a': 1, 'b': 2, 'c': 3}}
+#
+#         # 预定义配置
+#         >>> class Config(BunchDict):
+#         ...     def __init__(self, **config_items):
+#         ...         from datetime import datetime
+#         ...         self.a = 1
+#         ...         self.b = 2
+#         ...         self.c = datetime(2012, 1, 1)  # 注意是一个特殊对象，默认 json 是不支持的
+#         ...         super().__init__(**config_items)
+#         >>> args = Config(b=20)
+#         >>> args.a = 10
+#         >>> args
+#         {'a': 10, 'b': 20, 'c': datetime.datetime(2012, 1, 1, 0, 0)}
+#         >>> args == args.dict
+#         True
+#         >>> # 添加默认中不存的配置项
+#         >>> args.d = 40
+#         >>> print(args.get_pretty_dict())  # 注意 'c' 保存成了特殊形式
+#         {
+#             "a": 10,
+#             "b": 20,
+#             "c": "datetime.datetime(2012, 1, 1, 0, 0)__@AnyEncoder@__gASVKgAAAAAAAACMCGRhdGV0aW1llI...",
+#             "d": 40
+#         }
+#
+#         # 保存/加载
+#         # >>> fp = r'./-test/test_save_config.json'
+#         # >>> os.makedirs(os.path.dirname(fp), exist_ok=True)
+#         # >>> args.save(fp)  # 保存
+#         # >>> x = Config.load(fp)  # 重新加载
+#         # >>> assert x == args.dict
+#         # >>> _ = os.system('rm -rf ./-test')
+#
+#     """
+#
+#     @classmethod
+#     def from_dict(cls, d: dict):
+#         return _bunch(d, cls)
+#
+#     @property
+#     def dict(self):
+#         """"""
+#         return dict(self)
+#
+#     def get_pretty_dict(self, sort_keys=True, print_cls_name=False):
+#         """"""
+#         from huaytools.utils import AnyJSONEncoder
+#         pretty_dict = json.dumps(self.dict, cls=AnyJSONEncoder, indent=4, ensure_ascii=False, sort_keys=sort_keys)
+#         if print_cls_name:
+#             pretty_dict = f'{self.__class__.__name__}: {pretty_dict}'
+#
+#         return pretty_dict
+#
+#     # def __str__(self):
+#     #     """"""
+#     #     return str(self.dict)
+#
+#     def save(self, fp: str, sort_keys=True):
+#         """ 保存配置到文件 """
+#         with open(fp, 'w', encoding='utf8') as fw:
+#             fw.write(self.get_pretty_dict(sort_keys=sort_keys))
+#
+#     @classmethod
+#     def load(cls, fp: str):
+#         """"""
+#         from huaytools.utils import AnyJSONDecoder
+#         config_items = json.load(open(fp, encoding='utf8'), cls=AnyJSONDecoder)
+#         return cls(**config_items)
 
 
-class BunchValueArrayDict(ValueArrayDict, BunchDict):
-    """
-
-    Examples:
-        >>> d = BunchValueArrayDict(a=1, b=2)
-        >>> isinstance(d, dict)
-        True
-        >>> print(d, d.a, d[1])
-        BunchValueArrayDict([('a', 1), ('b', 2)]) 1 2
-        >>> d.a, d.b, d.c = 10, 20, 30
-        >>> print(d, d[2], d[1:])
-        BunchValueArrayDict([('a', 10), ('b', 20), ('c', 30)]) 30 (20, 30)
-        >>> print(*d)
-        10 20 30
-        >>> dir(d)
-        ['a', 'b', 'c']
-        >>> assert 'a' in d
-        >>> del d.a
-        >>> assert 'a' not in d
-        >>> getattr(d, 'a', 100)
-        100
-
-        # 测试嵌套
-        >>> x = BunchValueArrayDict(d=40, e=d)
-        >>> x
-        BunchValueArrayDict([('d', 40), ('e', BunchValueArrayDict([('b', 20), ('c', 30)]))])
-        >>> print(x.d, x.e.b)
-        40 20
-
-        >>> z = {'d': 4, 'e': {'a': 1, 'b': 2, 'c': 3}}
-        >>> y = BunchValueArrayDict.from_dict(z)
-        >>> y
-        BunchValueArrayDict([('d', 4), ('e', BunchValueArrayDict([('a', 1), ('b', 2), ('c', 3)]))])
-        >>> y.e.c
-        3
-
-    """
-
-
-@dataclass()
-class ArrayFields(FieldBunchDict, BunchValueArrayDict):
-    """
-    References:
-        transformers.file_utils.ModelOutput
-
-    Examples:
-        >>> @dataclass()
-        ... class Test(ArrayFields):
-        ...     c1: str = 'c1'
-        ...     c2: int = 0
-        ...     c3: list = None
-
-        >>> r = Test()
-        >>> r
-        Test(c1='c1', c2=0, c3=None)
-        >>> r.tuple
-        ('c1', 0, None)
-        >>> r.c1  # r[0]
-        'c1'
-        >>> r[1]  # r.c2
-        0
-        >>> r[1:]
-        (0, None)
-
-        >>> r = Test(c1='a', c3=[1,2,3])
-        >>> r.c1
-        'a'
-        >>> r[-1]
-        [1, 2, 3]
-        >>> for it in r:
-        ...     print(it)
-        a
-        0
-        [1, 2, 3]
-
-    """
+# @dataclass()
+# class FieldBunchDict(BunchDict):
+#     """@Python 自定义数据结构
+#     基于 dataclass 的 BunchDict
+#
+#     原来预定义的参数，需要写在 __init__ 中：
+#         ```
+#         class Args(BunchDict):
+#             def __init__(self):
+#                 a = 1
+#                 b = 2
+#         ```
+#     现在可以直接当作 dataclass 来写：
+#         ```
+#         @dataclass()
+#         class Args(BunchDict):
+#             a: int = 1
+#             b: int = 2
+#         ```
+#
+#     Examples:
+#         # 预定义配置
+#         >>> @dataclass()
+#         ... class Config(FieldBunchDict):
+#         ...     from datetime import datetime
+#         ...     a: int = 1
+#         ...     b: int = 2
+#         ...     c: Any = datetime(2012, 1, 1)  # 注意是一个特殊对象，默认 json 是不支持的
+#         >>> args = Config(b=20)
+#         >>> args.a = 10
+#         >>> args
+#         Config(a=10, b=20, c=datetime.datetime(2012, 1, 1, 0, 0))
+#         >>> args.dict
+#         {'a': 1, 'b': 20, 'c': datetime.datetime(2012, 1, 1, 0, 0)}
+#         >>> args.d = 40  # 默认中没有的配置项（不推荐，建议都定义在继承类中，并设置默认值）
+#         Traceback (most recent call last):
+#             ...
+#         KeyError: '`d` not in fields. If it has to add new field, recommend to use `BunchDict`'
+#
+#         # 保存/加载
+#         >>> fp = r'./-test/test_save_config.json'
+#         >>> os.makedirs(os.path.dirname(fp), exist_ok=True)
+#         >>> args.save(fp)  # 保存
+#         >>> x = Config.load(fp)  # 重新加载
+#         >>> assert x == args.dict
+#         >>> _ = os.system('rm -rf ./-test')
+#
+#     """
+#
+#     def __post_init__(self):
+#         """"""
+#         # 获取所有 field
+#         class_fields = fields(self)
+#         # 依次添加到 dict 中
+#         for f in class_fields:
+#             self[f.name] = getattr(self, f.name)
+#
+#     def __setattr__(self, key, value):
+#         field_set = set(f.name for f in fields(self))
+#         if key not in field_set:
+#             raise KeyError(
+#                 f'`{key}` not in fields. If it has to add new field, recommend to use `{BunchDict.__name__}`')
+#         else:
+#             super().__setattr__(key, value)
 
 
-def _bunch(x, cls):
+# class BunchArrayDict(ArrayDict, BunchDict):
+#     """
+#
+#     Examples:
+#         >>> d = BunchArrayDict(a=1, b=2)
+#         >>> isinstance(d, dict)
+#         True
+#         >>> print(d, d.a, d[1])
+#         BunchArrayDict([('a', 1), ('b', 2)]) 1 BunchArrayDict([('b', 2)])
+#         >>> d.a, d.b, d.c = 10, 20, 30
+#         >>> print(d, d[1:])
+#         BunchArrayDict([('a', 10), ('b', 20), ('c', 30)]) BunchArrayDict([('b', 20), ('c', 30)])
+#         >>> print(*d)
+#         a b c
+#         >>> dir(d)
+#         ['a', 'b', 'c']
+#         >>> assert 'a' in d
+#         >>> del d.a
+#         >>> assert 'a' not in d
+#         >>> getattr(d, 'a', 100)
+#         100
+#
+#         # 测试嵌套
+#         >>> x = BunchArrayDict(d=40, e=d)
+#         >>> x
+#         BunchArrayDict([('d', 40), ('e', BunchArrayDict([('b', 20), ('c', 30)]))])
+#         >>> print(x.d, x.e.b)
+#         40 20
+#
+#         >>> z = {'d': 4, 'e': {'a': 1, 'b': 2, 'c': 3}}
+#         >>> y = BunchArrayDict.from_dict(z)
+#         >>> y
+#         BunchArrayDict([('d', 4), ('e', BunchArrayDict([('a', 1), ('b', 2), ('c', 3)]))])
+#         >>> y.e.c
+#         3
+#
+#     """
+
+
+# class BunchValueArrayDict(ValueArrayDict, BunchDict):
+#     """
+#
+#     Examples:
+#         >>> d = BunchValueArrayDict(a=1, b=2)
+#         >>> isinstance(d, dict)
+#         True
+#         >>> print(d, d.a, d[1])
+#         BunchValueArrayDict([('a', 1), ('b', 2)]) 1 2
+#         >>> d.a, d.b, d.c = 10, 20, 30
+#         >>> print(d, d[2], d[1:])
+#         BunchValueArrayDict([('a', 10), ('b', 20), ('c', 30)]) 30 (20, 30)
+#         >>> print(*d)
+#         10 20 30
+#         >>> dir(d)
+#         ['a', 'b', 'c']
+#         >>> assert 'a' in d
+#         >>> del d.a
+#         >>> assert 'a' not in d
+#         >>> getattr(d, 'a', 100)
+#         100
+#
+#         # 测试嵌套
+#         >>> x = BunchValueArrayDict(d=40, e=d)
+#         >>> x
+#         BunchValueArrayDict([('d', 40), ('e', BunchValueArrayDict([('b', 20), ('c', 30)]))])
+#         >>> print(x.d, x.e.b)
+#         40 20
+#
+#         >>> z = {'d': 4, 'e': {'a': 1, 'b': 2, 'c': 3}}
+#         >>> y = BunchValueArrayDict.from_dict(z)
+#         >>> y
+#         BunchValueArrayDict([('d', 4), ('e', BunchValueArrayDict([('a', 1), ('b', 2), ('c', 3)]))])
+#         >>> y.e.c
+#         3
+#
+#     """
+
+
+# @dataclass()
+# class ArrayFields(FieldBunchDict, BunchValueArrayDict):
+#     """
+#     References:
+#         transformers.file_utils.ModelOutput
+#
+#     Examples:
+#         >>> @dataclass()
+#         ... class Test(ArrayFields):
+#         ...     c1: str = 'c1'
+#         ...     c2: int = 0
+#         ...     c3: list = None
+#
+#         >>> r = Test()
+#         >>> r
+#         Test(c1='c1', c2=0, c3=None)
+#         >>> r.tuple
+#         ('c1', 0, None)
+#         >>> r.c1  # r[0]
+#         'c1'
+#         >>> r[1]  # r.c2
+#         0
+#         >>> r[1:]
+#         (0, None)
+#
+#         >>> r = Test(c1='a', c3=[1,2,3])
+#         >>> r.c1
+#         'a'
+#         >>> r[-1]
+#         [1, 2, 3]
+#         >>> for it in r:
+#         ...     print(it)
+#         a
+#         0
+#         [1, 2, 3]
+#
+#     """
+
+
+def bunching(x) -> BunchDict:
     """ Recursively transforms a dictionary into a Bunch via copy.
 
-        >>> b = _bunch({'urmom': {'sez': {'what': 'what'}}}, BunchDict)
+        >>> b = bunching({'urmom': {'sez': {'what': 'what'}}})
         >>> b.urmom.sez.what
         'what'
 
         bunchify can handle intermediary dicts, lists and tuples (as well as
         their subclasses), but ymmv on custom datatypes.
 
-        >>> b = _bunch({ 'lol': ('cats', {'hah':'i win'}), 'hello': [{'french':'salut', 'german':'hallo'}]}, BunchDict)
+        >>> b = bunching({ 'lol': ('cats', {'hah':'i win'}), 'hello': [{'french':'salut', 'german':'hallo'}]})
         >>> b.hello[0].french
         'salut'
         >>> b.lol[1].hah
@@ -508,15 +656,15 @@ def _bunch(x, cls):
 
         nb. As dicts are not hashable, they cannot be nested in sets/frozensets.
     """
-    if isinstance(x, dict):
-        return cls((k, _bunch(v, cls)) for k, v in x.items())
+    if isinstance(x, Mapping):
+        return BunchDict((k, bunching(v)) for k, v in x.items())
     elif isinstance(x, (list, tuple)):
-        return type(x)(_bunch(v, cls) for v in x)
+        return type(x)(bunching(v) for v in x)
     else:
         return x
 
 
-def _unbunch(x):  # noqa
+def _unbunch(x: BunchDict) -> dict:  # noqa
     """ Recursively converts a Bunch into a dictionary.
 
         >>> b = BunchDict(foo=BunchDict(lol=True), hello=42, ponies='are pretty!')
@@ -540,43 +688,34 @@ def _unbunch(x):  # noqa
         return x
 
 
-def _test_Fields():  # noqa
+class __Test:
     """"""
-    from datetime import datetime
 
-    @dataclass()
-    class Args(FieldBunchDict):
+    def __init__(self):
         """"""
-        a: int = 100
-        b: float = a * 0.1
-        c: Any = datetime.now()
+        import time
+        for k, v in self.__class__.__dict__.items():
+            if k.startswith('_test') and isinstance(v, Callable):
+                print(f'\x1b[32m=== Start "{k}" {{\x1b[0m')
+                start = time.time()
+                v(self)
+                print(f'\x1b[32m}} End "{k}" - Spend {time.time() - start:3f}s===\x1b[0m\n')
 
-        if b > 10:
-            d = a * 20
-        else:
-            d = a
+    def _test_doctest(self):  # noqa
+        """"""
+        import doctest
+        doctest.testmod(optionflags=doctest.ELLIPSIS)
 
-    args = Args()
-    print(args)
-    for k, v in args.items():
-        print(k, v)
+    def _test_FixedFieldDict(self):  # noqa
+        """"""
 
-    print(args.dict)
-    print(args.get_pretty_dict())
-    print(args.b)
-    print(args.c)
-    print(args.d)
-    fp = r'./test.json'
-    args.save(fp)
-
-    del args
-
-    args = Args.load(fp)
-    print(args.b)
-    print(args.c)
-    print(args.d)
+    def _test_BunchDict(self):  # noqa
+        """"""
+        o = BunchDict(a=1, b=2)
+        o.__dict__['a'] = 10
+        print(f'o.a={o.a}, o["a"]={o["a"]}')  # 10, 1
 
 
 if __name__ == '__main__':
     """"""
-    doctest.testmod(optionflags=doctest.ELLIPSIS)
+    __Test()
