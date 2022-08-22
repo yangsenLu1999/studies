@@ -9,5 +9,5 @@ Subject:
     Utils for HuggingFace Tools
 """
 
-from ._common import *
+from ._common import HFUtils
 from .tokenizer_wrap import TokenizerWrap

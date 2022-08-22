@@ -4,13 +4,14 @@
 Time:
     2022-07-21 11:53
 Author:
-    HuaYang(imhuay@163.com)
+    huayang (imhuay@163.com)
 Subject:
-    TODO
+    tokenizer_wrap
 """
 import os
 import sys
 import json
+import time
 import doctest
 
 from typing import *
@@ -142,18 +143,24 @@ class TokenizerWrap:
         return self.vocab[tokens[0]]
 
 
-class __DoctestWrapper:
+class __Test:
     """"""
 
     def __init__(self):
         """"""
+        for k, v in self.__class__.__dict__.items():
+            if k.startswith('_test') and isinstance(v, Callable):
+                print(f'\x1b[32m=== Start "{k}" {{\x1b[0m')
+                start = time.time()
+                v(self)
+                print(f'\x1b[32m}} End "{k}" - Spend {time.time() - start:3f}s===\x1b[0m\n')
+
+    def _test_doctest(self):  # noqa
+        """"""
+        import doctest
         doctest.testmod()
 
-        for k, v in self.__class__.__dict__.items():
-            if k.startswith('demo') and isinstance(v, Callable):
-                v(self)
-
-    def demo_base(self):  # noqa
+    def _test_base(self):  # noqa
         """"""
         from transformers.models.xlm_roberta.tokenization_xlm_roberta_fast import XLMRobertaTokenizerFast
         tokenizer: XLMRobertaTokenizerFast = XLMRobertaTokenizerFast.from_pretrained('xlm-roberta-large')
@@ -163,4 +170,4 @@ class __DoctestWrapper:
 
 if __name__ == '__main__':
     """"""
-    __DoctestWrapper()
+    __Test()

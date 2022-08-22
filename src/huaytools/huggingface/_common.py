@@ -20,30 +20,36 @@ import doctest  # noqa
 
 from transformers import AutoConfig, AutoTokenizer, AutoModel
 
-
-def set_offline():
-    """"""
-    os.environ['TRANSFORMERS_OFFLINE'] = '1'  # 模型
-    os.environ['HF_DATASETS_OFFLINE'] = '1'  # 数据
+TRANSFORMERS_OFFLINE = 'TRANSFORMERS_OFFLINE'
+HF_DATASETS_OFFLINE = 'HF_DATASETS_OFFLINE'
 
 
-def download_model(model_name: str, save_dir: str,
-                   complete_path=True,
-                   model_type=AutoModel,
-                   config_type=AutoConfig,
-                   tokenizer_type=AutoTokenizer):
-    """"""
-    if complete_path and not save_dir.endswith(model_name):
-        save_dir = os.path.join(save_dir, model_name)
+class HFUtils:
 
-    model = model_type.from_pretrained(model_name)
-    config = config_type.from_pretrained(model_name)
-    tokenizer = tokenizer_type.from_pretrained(model_name)
+    @staticmethod
+    def set_offline():
+        """"""
+        os.environ[TRANSFORMERS_OFFLINE] = '1'  # 模型
+        os.environ[HF_DATASETS_OFFLINE] = '1'  # 数据
 
-    model.save_pretrained(save_dir)
-    config.save_pretrained(save_dir)
-    tokenizer.save_pretrained(save_dir)
-    return save_dir
+    @staticmethod
+    def download_model(model_name: str, save_dir: str,
+                       complete_path=True,
+                       model_type=AutoModel,
+                       config_type=AutoConfig,
+                       tokenizer_type=AutoTokenizer):
+        """"""
+        if complete_path and not save_dir.endswith(model_name):
+            save_dir = os.path.join(save_dir, model_name)
+
+        model = model_type.from_pretrained(model_name)
+        config = config_type.from_pretrained(model_name)
+        tokenizer = tokenizer_type.from_pretrained(model_name)
+
+        model.save_pretrained(save_dir)
+        config.save_pretrained(save_dir)
+        tokenizer.save_pretrained(save_dir)
+        return save_dir
 
 
 if __name__ == '__main__':
