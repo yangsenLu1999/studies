@@ -31,8 +31,8 @@ from accelerate import Accelerator
 
 from huaytools.utils import BunchDict
 from huaytools.utils import get_logger, get_time_string, get_attr, set_attr, get_caller_name
-from huaytools.pytorch.utils import set_seed
 
+from huaytools.pytorch.utils import TorchUtils
 
 _ARGS = 'args'
 
@@ -235,7 +235,7 @@ class Trainer:
 
     def on_before_train(self):
         """"""
-        set_seed(self.random_seed)
+        TorchUtils.set_seed(self.random_seed)
         self.init_accelerator()
         self.init_model()
         self.init_dataset(self.batch_size)
