@@ -19,18 +19,22 @@ from typing import *
 from pathlib import Path
 from collections import defaultdict
 
-NodeValue = TypeVar(Any)
+T = TypeVar('T')
 
 
 class TireNode:
     """"""
+    value: T
+    nodes: Dict[T, 'TireNode']
+    is_end: bool
+    count: int
 
-    def __init__(self, value):
+    def __init__(self, value: T):
         """"""
-        self.value: NodeValue = value
-        self.nodes: Dict[NodeValue, 'TireNode'] = dict()
-        self.is_end: bool = False
-        self.count: int = 0
+        self.value = value
+        self.nodes = dict()
+        self.is_end = False
+        self.count = 0
 
     @property
     def nodes_count(self) -> int:
