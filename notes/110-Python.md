@@ -1,15 +1,35 @@
 Python
 ===
 
+<!-- TOC -->
+- [Python 标准库](#python-标准库)
+    - [容器的抽象基类（`collections.abc`）](#容器的抽象基类collectionsabc)
+    - [装饰器](#装饰器)
+    - [备忘*](#备忘)
+- [工具](#工具)
+    - [Pycharm](#pycharm)
+    - [conda](#conda)
+- [参考资料](#参考资料)
+<!-- TOC -->
 
-## Python 指引
-- [容器基类的使用](./_archives/2022/08/Python容器基类的使用.md)
+## Python 标准库
+> [Python 标准库 — Python 文档](https://docs.python.org/zh-cn/3/library/index.html)
+
+### 容器的抽象基类（`collections.abc`）
+> [容器的抽象基类 — Python 文档](https://docs.python.org/zh-cn/3/library/collections.abc.html#collections-abstract-base-classes)  
+
+- 快速查询容器之间的继承关系，以及包含的抽象方法；
+- **使用场景**：type hints、`isinstance()`、`issubclass()` 等；
+    > 详见：[容器基类的使用](./_archives/2022/08/Python容器基类的使用.md)
+
+### 装饰器
 - [装饰器的本质](./_archives/2022/05/python装饰器的本质.md)
+
+### 备忘*
 - [class method 中 `self` 的含义](./_archives/2022/06/python类方法中self的含义.md)
 - [Python 函数声明中单独的正斜杠（/）和星号（*）是什么作用](./_archives/2022/07/python函数声明中单独的正斜杠和星号是什么意思.md)
-
-## 最佳实践
 - [类变量、成员变量，与注解](./_archives/2022/07/python类变量和成员变量的最佳实践)
+
 
 ## 工具
 
