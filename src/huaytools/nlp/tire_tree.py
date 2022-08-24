@@ -19,18 +19,21 @@ from typing import *
 from pathlib import Path
 from collections import defaultdict
 
-T = TypeVar('T')
+_KT = TypeVar('KT')
+_VT = TypeVar('VT')
 
 
 class TireNode:
     """"""
-    value: T
-    nodes: Dict[T, 'TireNode']
+    key: _KT
+    value: _VT
+    nodes: Dict[_KT, 'TireNode']
     is_end: bool
     count: int
 
-    def __init__(self, value: T):
+    def __init__(self, key: _KT, value: _VT = None):
         """"""
+        self.key = key
         self.value = value
         self.nodes = dict()
         self.is_end = False
@@ -65,7 +68,7 @@ class TireTree(TireNode):
     _updated: bool = False
 
     def __init__(self):
-        super().__init__(value=None)
+        super().__init__(key=None)
 
     def insert(self, seq: Sequence):
         """"""
@@ -136,7 +139,7 @@ class TireTree(TireNode):
             info[TireTree.F_ALL_SUB_NODE_COUNT] = len(node.nodes)
 
             for k, v in node.nodes.items():
-                seq.append(v.value)
+                seq.append(v.key)
                 sub_info = dfs(v, seq)
                 sub_info[TireTree.F_SEQ] = tuple(seq)
                 info[TireTree.F_ALL_SUB_NODE_COUNT] += sub_info[TireTree.F_ALL_SUB_NODE_COUNT]
