@@ -21,6 +21,7 @@ import time
 import requests
 
 from typing import *
+from types import *
 from datetime import datetime
 from pathlib import Path
 
@@ -41,6 +42,50 @@ class PythonUtils:
     """"""
 
     @staticmethod
+    def get_attrs(obj, filter_fn: Callable[[str, Any], bool] = None) -> dict:
+        """
+        Examples:
+            >>> def foo(): pass
+            >>> class O:
+            ...     A = 10  # ok
+            ...     B = 'B'  # ok
+            ...     F = foo  # ok
+            ...     def __init__(self):  # no
+            ...         self.a = 1
+            ...         self.b = 'b'
+            ...     def foo(self):  # no
+            ...         pass
+            >>> o = O()
+            >>> PythonUtils.get_attrs(o)
+            {'a': 1, 'b': 'b'}
+            >>> PythonUtils.get_attrs(O)
+            {'A': 10, 'B': 'B', 'F': <function foo at ...>}
+
+        Args:
+            obj:
+            filter_fn:
+
+        Returns:
+
+        """
+        if filter_fn is None:
+            if isinstance(obj, type):
+                def _default_filter_fn(_n: str, _v: FunctionType):
+                    return _n.startswith('__') or (
+                        _v.__qualname__.startswith(obj.__name__) if hasattr(_v, '__qualname__') else False
+                    )
+            else:
+                def _default_filter_fn(_n: str, _v):
+                    return False
+            filter_fn = _default_filter_fn
+
+        attrs = dict()
+        for name, value in vars(obj).items():
+            if not filter_fn(name, value):
+                attrs[name] = value
+        return attrs
+
+    @staticmethod
     def get_cls_annotations(cls: type):
         """
         Examples:
@@ -51,7 +96,7 @@ class PythonUtils:
             >>> PythonUtils.get_cls_annotations(F)
             {'a': <class 'int'>, 'c': <class 'str'>}
         """
-        return cls.__dict__.get('__annotations__', {})
+        return vars(cls).get('__annotations__', {})
 
 
 class classproperty(property):  # noqa
@@ -468,14 +513,9 @@ def function_timer(func):
     """@Python Utils
     函数测试装饰器
     Examples:
-        >>> @function_timer
-        ... def _test_func(x=1):
-        ...     print(x)
-        >>> _test_func()
-        Start running `_test_func` {
-        1
-        } End, spend 0 s.
-        <BLANKLINE>
+        @function_timer
+        def _test_func(x=1):
+            print(x)
     """
 
     @functools.wraps(func)
@@ -489,32 +529,27 @@ def function_timer(func):
     return inner
 
 
-class __DoctestWrapper:
+class __Test:
     """"""
 
     def __init__(self):
         """"""
-        doctest.testmod()
-
         for k, v in self.__class__.__dict__.items():
-            if k.startswith('demo') and isinstance(v, Callable):
+            if k.startswith('_test') and isinstance(v, Callable):
+                print(f'\x1b[32m=== Start "{k}" {{\x1b[0m')
+                start = time.time()
                 v(self)
+                print(f'\x1b[32m}} End "{k}" - Spend {time.time() - start:3f}s===\x1b[0m\n')
 
-    def demo_classproperty(self):  # noqa
+    def _test_doctest(self):  # noqa
         """"""
+        import doctest
+        doctest.testmod(optionflags=doctest.ELLIPSIS)
 
-        class T:
-            _t: list
-
-            @classproperty
-            def t(cls):
-                if '_t' not in T.__dict__:
-                    T._t = list()
-                return T._t
-
-        print(T.t)
+    def _test_xxx(self):  # noqa
+        """"""
 
 
 if __name__ == '__main__':
     """"""
-    __DoctestWrapper()
+    __Test()
