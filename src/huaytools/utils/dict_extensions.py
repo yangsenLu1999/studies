@@ -319,10 +319,8 @@ class BunchDict(dict):
 
     # __slots__ = ()
 
-    @property
-    def __dict__(self):
-        """ 禁止直接修改 __dict__ """
-        return self
+    __dict__ = property(lambda self: self)
+    """ 禁止直接修改 __dict__ """
 
     def __dir__(self):
         """ 屏蔽其他属性或方法 """
@@ -344,7 +342,7 @@ class BunchDict(dict):
             self[k] = BunchDict.bunching(v)
 
     def __getattr__(self, name: str):
-        """ 使 o.key 等价于 o[key] """
+        """ make `o.name` equivalent to `o[name]` """
         try:
             # Throws exception if not in prototype chain
             return super().__getattribute__(name)
@@ -355,7 +353,7 @@ class BunchDict(dict):
                 raise AttributeError(name)
 
     def __setattr__(self, name: str, value):
-        """ 使 o.name = value 等价于 o[name] = value """
+        """ make `o.name = value` equivalent to `o[name] = value` """
         try:
             # Throws exception if not in prototype chain
             super().__getattribute__(name)
@@ -365,7 +363,7 @@ class BunchDict(dict):
             object.__setattr__(self, name, value)
 
     def __delattr__(self, name: str):
-        """ 支持 del x.y """
+        """ make `del o.name` equivalent to `del o[name]` """
         try:
             # Throws exception if not in prototype chain
             super().__getattribute__(name)
@@ -378,23 +376,25 @@ class BunchDict(dict):
             super().__delattr__(name)
 
     def __setitem__(self, key: str, value):
-        """"""
-        super().__setitem__(key, _bunching(value))
+        """ make behavior consistent with `__init__` """
+        super().__setitem__(key, BunchDict.bunching(value))
 
     @classmethod
-    def from_dict(cls, d: dict):
+    def from_dict(cls, d: dict) -> 'BunchDict':
+        """ create from dict """
         return cls.bunching(d)
 
     @classmethod
-    def bunching(cls, x: Union[Mapping, Sequence]):
+    def bunching(cls, x: Union[Mapping, Any]) -> Union['BunchDict', Any]:
         return _bunching(x)
 
 
-def _bunching(x) -> BunchDict:
+def _bunching(x) -> Union[BunchDict, Any]:
     """
     Recursively transforms a dictionary into a Bunch.
+
     Bunchify can handle intermediary dicts, lists and tuples (
-        as well as their subclasses), but ymmv on custom datatypes.
+    as well as their subclasses), but ymmv on custom datatypes.
 
     Examples:
         >>> b = _bunching({'urmom': {'sez': {'what': 'what'}}})
