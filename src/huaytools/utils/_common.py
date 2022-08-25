@@ -296,7 +296,7 @@ def set_stdout_null():
 
 def get_print_json(obj, **json_kwargs):
     """ 生成 printable json"""
-    from huaytools.utils.special_json import AnyJSONEncoder
+    from huaytools.utils.json_extensions import AnyJSONEncoder
     obj = obj if isinstance(obj, dict) else obj.__dict__
 
     json_kwargs.setdefault('cls', AnyJSONEncoder)

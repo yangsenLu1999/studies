@@ -12,11 +12,6 @@ from huaytools.utils._common import *
 from huaytools.utils.regex_helper import RegexLib, RegexUtils, RegexEmoji
 from huaytools.utils.xls_helper import XLSHelper
 from huaytools.utils.find_best_threshold import find_best_threshold_binary
-from huaytools.utils.special_json import (
-    NoIndentJSONEncoder,
-    AnyJSONEncoder,
-    AnyJSONDecoder
-)
 from huaytools.utils.simple_argparse import simple_argparse
 from huaytools.utils.file_helper import list_dir_recur
 from huaytools.utils.multi_thread_helper import multi_thread_run
@@ -35,4 +30,9 @@ from .iter_utils import IterUtils
 from .dict_extensions import (
     FieldDict,
     BunchDict
+)
+from .json_extensions import (
+    NoIndentJSONEncoder,
+    AnyJSONEncoder,
+    AnyJSONDecoder
 )

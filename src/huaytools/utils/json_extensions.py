@@ -20,21 +20,18 @@ class NoIndentJSONEncoder(json.JSONEncoder):
     """
     对指定的对象不应用缩进
 
-    使用方法：将不想缩进的对象用 `CustomIndentJSONEncoder.wrap` 包裹；
-
-    注意：如果需要保存到文件，不能直接使用 json.dump，而需要使用 json.dumps + fw.write
+    注意：
+        使用该 Json 解释器会显著降低写入速度，因此只限于小文件的写入；读取速度不受影响
 
     Examples:
+        # 使用方法：将不想缩进的对象用 `NoIndentJSONEncoder.wrap` 包裹；
         >>> o = dict(a=1, b=NoIndentJSONEncoder.wrap([1, 2, 3]))
-        >>> s = json.dumps(o, cls=NoIndentJSONEncoder, indent=4)
+        >>> s = json.dumps(o, indent=4, cls=NoIndentJSONEncoder)
         >>> print(s)  # 注意 "b" 的 列表没有展开缩进
         {
             "a": 1,
             "b": [1, 2, 3]
         }
-
-        # >>> fw = open(r'./_out/_test_NoIndentEncoder.json', 'w', encoding='utf8')
-        # >>> _ = fw.write(s)  # 写入文件
     """
 
     FORMAT_SPEC = '@@{}@@'
@@ -63,15 +60,15 @@ class NoIndentJSONEncoder(json.JSONEncoder):
     def encode(self, o) -> str:
         """for json.dumps"""
         result = super(NoIndentJSONEncoder, self).encode(o)
-        return self.replace(result)
+        return self._replace(result)
 
     def iterencode(self, o, _one_shot=False) -> Iterator[str]:
         """for json.dump"""
         iterator = super().iterencode(o, _one_shot)
         for it in iterator:
-            yield self.replace(it)
+            yield self._replace(it)
 
-    def replace(self, s):
+    def _replace(self, s):
         """"""
         for oid in self._no_indent_obj_ids:
             tmp_str = json.dumps(PyObj_FromPtr(oid).value, **self.kwargs)
