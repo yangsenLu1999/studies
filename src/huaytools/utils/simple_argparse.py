@@ -21,7 +21,7 @@ __all__ = [
     'simple_argparse',
 ]
 
-from huaytools.utils.special_dict import BunchDict
+from huaytools.utils.dict_extensions import BunchDict
 
 
 def simple_argparse(args=None):

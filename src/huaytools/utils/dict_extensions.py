@@ -17,8 +17,6 @@ from typing import *
 from dataclasses import dataclass, fields, field
 from collections import OrderedDict
 
-import bunch
-
 
 @dataclass
 class FieldDict(dict):
@@ -260,13 +258,13 @@ class BunchDict(dict):
         - 为了防止与内部成员冲突，比如 __dict__，会预先调用 __getattribute__（优先级高于 __getattr__）
 
     Notes:
-        - 如果直接向 __dict__ 添加属性，且存在同名 key，将导致 o.x 和 o['x'] 不一致；
-          目前暂不约束这种行为；
-            ```python
-            o = BunchDict(a=1, b=2)
-            o.__dict__['a'] = 10
-            print(o.a, o['a'])  # 10, 1
-            ```
+        - [2022.08.25] 通过将 __dict__ property 化限制了以下行为：
+            - 如果直接向 __dict__ 添加属性，且存在同名 key，将导致 o.x 和 o['x'] 不一致；
+                ```python
+                o = BunchDict(a=1, b=2)
+                o.__dict__['a'] = 10
+                print(o.a, o['a'])  # 10, 1
+                ```
 
     Examples:
         # 示例 1
@@ -285,20 +283,20 @@ class BunchDict(dict):
         6
         >>> dir(x)
         ['a', 'b', 'c', 'd']
+        >>> vars(x)
+        {'a': 1, 'b': 2, 'c': 3, 'd': {'bar': 6}}
         >>> del x.a
-        >>> 'a' not in x
-        True
-
-        # 特殊情况
-        >>> x.__dict__ = {'a': 123}
-        >>> x.__dict__
-        {'a': 123}
         >>> x.a
-        123
+        Traceback (most recent call last):
+            ...
+        AttributeError: a
+        >>> # x.__dict__ = {'a': 123}  # err
+        >>> x.__dict__
+        {'b': 2, 'c': 3, 'd': {'bar': 6}}
         >>> x.a = 456
         >>> x
-        {'b': 2, 'c': 3, 'd': {'bar': 6}}
-        >>> 'a' not in x
+        {'b': 2, 'c': 3, 'd': {'bar': 6}, 'a': 456}
+        >>> 'a' in x
         True
         >>> hasattr(x, 'a')
         True
@@ -319,20 +317,31 @@ class BunchDict(dict):
         - bunch（pip install bunch）
     """
 
-    def __init__(self, seq: Union[Mapping, Iterable] = None, /, **kwargs):
-        super().__init__()
-        if seq is not None:
-            if isinstance(seq, Mapping):
-                seq = seq.items()
-            for k, v in seq:
-                self[k] = bunching(v)
+    # __slots__ = ()
 
-        for k, v in kwargs.items():
-            self[k] = bunching(v)
+    @property
+    def __dict__(self):
+        """ 禁止直接修改 __dict__ """
+        return self
 
     def __dir__(self):
         """ 屏蔽其他属性或方法 """
         return self.keys()
+
+    def __init__(self, seq: Union[Mapping, Iterable] = None, /, **kwargs):
+        # 初始化 self 为一个空 dict
+        super().__init__()
+
+        # 模拟向 dict 中添加元素的过程：https://docs.python.org/zh-cn/3/library/stdtypes.html#mapping-types-dict
+        #   通过手动添加元素，确保每个类型为 dict 的值会被初始化为 BunchDict
+        if seq is not None:
+            if isinstance(seq, Mapping):
+                seq = seq.items()
+            for k, v in seq:
+                self[k] = BunchDict.bunching(v)  # 如果 v 的类型为 dict，将被修改为 BunchDict
+
+        for k, v in kwargs.items():
+            self[k] = BunchDict.bunching(v)
 
     def __getattr__(self, name: str):
         """ 使 o.key 等价于 o[key] """
@@ -370,11 +379,39 @@ class BunchDict(dict):
 
     def __setitem__(self, key: str, value):
         """"""
-        super().__setitem__(key, bunching(value))
+        super().__setitem__(key, _bunching(value))
 
     @classmethod
-    def from_dict(cls, d: dict) -> 'BunchDict':
-        return bunching(d)
+    def from_dict(cls, d: dict):
+        return cls.bunching(d)
+
+    @classmethod
+    def bunching(cls, x: Union[Mapping, Sequence]):
+        return _bunching(x)
+
+
+def _bunching(x) -> BunchDict:
+    """
+    Recursively transforms a dictionary into a Bunch.
+    Bunchify can handle intermediary dicts, lists and tuples (
+        as well as their subclasses), but ymmv on custom datatypes.
+
+    Examples:
+        >>> b = _bunching({'urmom': {'sez': {'what': 'what'}}})
+        >>> b.urmom.sez.what
+        'what'
+        >>> b = _bunching({ 'lol': ('cats', {'hah':'i win'}), 'hello': [{'french':'salut', 'german':'hallo'}]})
+        >>> b.hello[0].french
+        'salut'
+        >>> b.lol[1].hah
+        'i win'
+    """
+    if isinstance(x, Mapping):
+        return BunchDict((k, _bunching(v)) for k, v in x.items())
+    elif isinstance(x, (list, tuple)):
+        return type(x)(_bunching(v) for v in x)
+    else:
+        return x
 
 
 # class ConfigDict(BunchDict):
@@ -638,32 +675,6 @@ class BunchDict(dict):
 #     """
 
 
-def bunching(x) -> BunchDict:
-    """ Recursively transforms a dictionary into a Bunch via copy.
-
-        >>> b = bunching({'urmom': {'sez': {'what': 'what'}}})
-        >>> b.urmom.sez.what
-        'what'
-
-        bunchify can handle intermediary dicts, lists and tuples (as well as
-        their subclasses), but ymmv on custom datatypes.
-
-        >>> b = bunching({ 'lol': ('cats', {'hah':'i win'}), 'hello': [{'french':'salut', 'german':'hallo'}]})
-        >>> b.hello[0].french
-        'salut'
-        >>> b.lol[1].hah
-        'i win'
-
-        nb. As dicts are not hashable, they cannot be nested in sets/frozensets.
-    """
-    if isinstance(x, Mapping):
-        return BunchDict((k, bunching(v)) for k, v in x.items())
-    elif isinstance(x, (list, tuple)):
-        return type(x)(bunching(v) for v in x)
-    else:
-        return x
-
-
 def _unbunch(x: BunchDict) -> dict:  # noqa
     """ Recursively converts a Bunch into a dictionary.
 
@@ -712,7 +723,8 @@ class __Test:
     def _test_BunchDict(self):  # noqa
         """"""
         o = BunchDict(a=1, b=2)
-        o.__dict__['a'] = 10
+        # o.__dict__['a'] = 10
+        print(vars(o))
         print(f'o.a={o.a}, o["a"]={o["a"]}')  # 10, 1
 
 

@@ -18,7 +18,6 @@ from huaytools.utils.special_json import (
     AnyJSONDecoder
 )
 from huaytools.utils.simple_argparse import simple_argparse
-from huaytools.utils.special_dict import BunchDict
 from huaytools.utils.file_helper import list_dir_recur
 from huaytools.utils.multi_thread_helper import multi_thread_run
 from huaytools.utils.config_loader import load_config, load_config_file
@@ -33,7 +32,7 @@ from .singleton import singleton
 from .str_utils import StrUtils
 from .type_utils import TypeUtils
 from .iter_utils import IterUtils
-from .special_dict import (
+from .dict_extensions import (
     FieldDict,
     BunchDict
 )

@@ -25,7 +25,7 @@ import sys
 import json
 import functools
 
-from huaytools.utils.special_dict import BunchDict
+from huaytools.utils.dict_extensions import BunchDict
 from huaytools.utils._common import get_logger
 
 _logger = get_logger()
