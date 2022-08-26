@@ -70,16 +70,22 @@ class TireTree(TireNode):
     def __init__(self):
         super().__init__(key=None)
 
-    def insert(self, seq: Sequence):
+    def insert(self, seq: Sequence[_KT], value: _VT = None):
         """"""
+        if not seq:
+            return
+
         self._updated = True
+
         cur = self
         for it in seq:
             if not cur.nodes.get(it, None):
                 node = TireNode(it)
                 cur.nodes[it] = node
             cur = cur.nodes[it]
+
         cur.is_end = True
+        cur.value = value
         cur.count += 1
 
     def search(self, seq: Sequence):
@@ -121,6 +127,7 @@ class TireTree(TireNode):
         """遍历所有节点，记录相关信息"""
         if self._traversal is None or self._updated:
             self._traversal = self._traverse()
+        self._updated = False
         return self._traversal
 
     def _traverse(self):
