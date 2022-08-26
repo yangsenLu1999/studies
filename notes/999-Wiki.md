@@ -1,11 +1,14 @@
 Wiki
 ===
+
+<!-- TOC -->
 - [D](#d)
     - [Docker](#docker)
 - [G](#g)
     - [git](#git)
     - [GitBook (1)](#gitbook-1)
-    - [GitBook (2)](#gitbook-2)
+    - [gitbook (2)](#gitbook-2)
+    - [Github Action](#github-action)
 - [H](#h)
     - [Hive](#hive)
 - [K](#k)
@@ -21,6 +24,7 @@ Wiki
     - [Obsidian](#obsidian)
 - [S](#s)
     - [Scheduler (Spark)](#scheduler-spark)
+<!-- TOC -->
 
 
 ## D
@@ -43,12 +47,17 @@ Wiki
 - 本项目的 GitBook 地址：[studies-gitbook](https://imhuay.gitbook.io/studies)
 
 
-### GitBook (2)
+### gitbook (2)
 > 一个基于 Node.js 的命令行工具，使用 Markdown 快速构建文档或书籍；  
 > 目前团队已不再维护，转向 [GitBook 在线平台](#gitbook-1)
 - 官方 GitHub 地址（已不再维护）：[GitbookIO/gitbook](https://github.com/GitbookIO/gitbook)
 - [GitBook 使用记录](./_archives/2022/04/Gitbook.md)
     > 对 markdown 和 html 混写支持不佳，已不再使用
+
+
+### Github Action
+> Github Action 是一个由 Github 提供的自动化工具。具体的执行的操作由仓库中的 YAML 文件定义（位于 `.github/workflows` 目录下），并在相应事件触发时运行，也可以手动触发，或按定义的时间表触发。
+- [Github Action 指南](./_archives/2022/08/GithubAction指南.md)
 
 
 ## H
