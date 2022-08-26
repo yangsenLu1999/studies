@@ -9,6 +9,7 @@ Wiki
     - [GitBook (1)](#gitbook-1)
     - [gitbook (2)](#gitbook-2)
     - [Github Action](#github-action)
+    - [glob](#glob)
 - [H](#h)
     - [Hive](#hive)
 - [K](#k)
@@ -58,6 +59,10 @@ Wiki
 ### Github Action
 > Github Action 是一个由 Github 提供的自动化工具。具体的执行的操作由仓库中的 YAML 文件定义（位于 `.github/workflows` 目录下），并在相应事件触发时运行，也可以手动触发，或按定义的时间表触发。
 - [Github Action 指南](./_archives/2022/08/GithubAction指南.md)
+
+### glob
+> 一种在 shell 中使用的简化版正则表达式
+- [glob 语法备忘](./_archives/2022/08/glob语法备忘.md)
 
 
 ## H
