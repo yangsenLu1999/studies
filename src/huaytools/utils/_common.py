@@ -177,13 +177,13 @@ def list_split(ls, per_size=None, n_chunk=None):
     return ret
 
 
-def list_flatten(lss):
-    """ [[0, 1], [2, 3], [4, 5], [6]] -> [0, 1, 2, 3, 4, 5, 6] """
-    ret = []
-    for it in lss:
-        ret.extend(it)
-
-    return ret
+# def list_flatten(lss):
+#     """ [[0, 1], [2, 3], [4, 5], [6]] -> [0, 1, 2, 3, 4, 5, 6] """
+#     ret = []
+#     for it in lss:
+#         ret.extend(it)
+#
+#     return ret
 
 
 def remove_duplicates(src: Sequence, ordered=True) -> List:
