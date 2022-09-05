@@ -5,6 +5,7 @@ PyCharm 常用配置
     - [禁止 import 折叠](#禁止-import-折叠)
     - [修改 Docstring 风格](#修改-docstring-风格)
     - [快捷键修改](#快捷键修改)
+    - [启用代码兼容性检查](#启用代码兼容性检查)
 - [代码模板](#代码模板)
     - [Python](#python)
     - [Python Console](#python-console)
@@ -29,6 +30,9 @@ PyCharm 常用配置
 - 安装插件：Plugins -> Marketplace -> Eclipse Keymap
 - [常用快捷键](./快捷键记录.md#pycharm)
 
+### 启用代码兼容性检查
+> Preferences | Editor | Inspections -> Code is incompatible with specific Python versions
+
 
 ## 代码模板
 
@@ -49,21 +53,23 @@ Author:
 Subject:
     ${NAME}
 """
-import os
-import sys
-import json
-import time
+from __future__ import annotations  # to support py3.6
 
-from typing import *
-from pathlib import Path
-from collections import defaultdict
+# import os
+# import sys
+# import json
+
+# from typing import *
+# from pathlib import Path
+# from collections import defaultdict
 
 
 class __Test:
-    """"""
 
     def __init__(self):
-        """"""
+        import time
+        from typing import Callable
+        
         for k, v in self.__class__.__dict__.items():
             if k.startswith('_test') and isinstance(v, Callable):
                 print(f'\x1b[32m=== Start "{k}" {{\x1b[0m')
@@ -72,12 +78,10 @@ class __Test:
                 print(f'\x1b[32m}} End "{k}" - Spend {time.time() - start:3f}s===\x1b[0m\n')
 
     def _test_doctest(self):  # noqa
-        """"""
         import doctest
         doctest.testmod()
 
     def _test_xxx(self):  # noqa
-        """"""
         pass
 
 
@@ -89,7 +93,7 @@ if __name__ == '__main__':
 ### Python Console
 > Python Console
 
-```python
+```shell
 %load_ext autoreload
 %autoreload 2
 
