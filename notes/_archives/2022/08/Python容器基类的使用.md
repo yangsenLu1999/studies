@@ -6,6 +6,14 @@ Python 容器基类的使用
 
 ## 使用场景
 
+### Type Hints
+
+```python
+# def foo(ls: Union[List, Tuple]):
+def foo(ls: Sequence):
+    ...
+```
+
 ### 判断一个具体类或实例是否具有某一特定的接口
 
 ```python
@@ -17,6 +25,6 @@ isinstance(obj, Sized)
 # 判断能否 obj[index]
 isinstance(obj, Sequence)
 
-# 判断是否可哈希
+# 判断某个类是否可以哈希
 issubclass(cls, Hashable)
 ```

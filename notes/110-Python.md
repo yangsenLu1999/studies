@@ -15,7 +15,7 @@ Python
 ## Python 标准库
 > [Python 标准库 — Python 文档](https://docs.python.org/zh-cn/3/library/index.html)
 
-### 容器的抽象基类（`collections.abc`）
+### 容器的抽象基类 (`collections.abc`)
 > [容器的抽象基类 — Python 文档](https://docs.python.org/zh-cn/3/library/collections.abc.html#collections-abstract-base-classes)  
 
 - 快速查询容器之间的继承关系，以及包含的抽象方法；
