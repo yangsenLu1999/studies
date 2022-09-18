@@ -25,6 +25,8 @@ Wiki
     - [Obsidian](#obsidian)
 - [S](#s)
     - [Scheduler (Spark)](#scheduler-spark)
+- [Y](#y)
+    - [yaml](#yaml)
 <!-- TOC -->
 
 
@@ -58,7 +60,7 @@ Wiki
 
 ### Github Action
 > Github Action 是一个由 Github 提供的自动化工具。具体的执行的操作由仓库中的 YAML 文件定义（位于 `.github/workflows` 目录下），并在相应事件触发时运行，也可以手动触发，或按定义的时间表触发。
-- [Github Action 指南](./_archives/2022/08/GithubAction指南.md)
+- [Github Action 使用备忘](./_archives/2022/08/GithubAction备忘.md)
 
 ### glob
 > 一种在 shell 中使用的简化版正则表达式
@@ -121,3 +123,10 @@ Wiki
 
 ### Scheduler (Spark)
 - 调度器，用于控制例行化调度、依赖检测等功能；
+
+
+## Y
+
+### yaml
+> 一个可读性高，用来表达序列化数据的标记语言
+- [YAML 入门教程 | 菜鸟教程](https://www.runoob.com/w3cnote/yaml-intro.html)
