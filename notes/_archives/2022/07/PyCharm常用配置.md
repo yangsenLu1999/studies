@@ -53,11 +53,12 @@ Author:
 Subject:
     ${NAME}
 """
-from __future__ import annotations  # to support py3.6
+from __future__ import annotations
 
 # import os
 # import sys
 # import json
+# import unittest
 
 # from typing import *
 # from pathlib import Path
