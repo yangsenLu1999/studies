@@ -29,6 +29,7 @@ Python
 - [class method 中 `self` 的含义](./_archives/2022/06/python类方法中self的含义.md)
 - [Python 函数声明中单独的正斜杠（/）和星号（*）是什么作用](./_archives/2022/07/python函数声明中单独的正斜杠和星号是什么意思.md)
 - [类变量、成员变量，与注解](./_archives/2022/07/python类变量和成员变量的最佳实践)
+- [requirements.txt 语法备忘](./_archives/2022/09/python-requirements语法.md)
 
 
 ## 工具
