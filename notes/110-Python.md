@@ -3,7 +3,8 @@ Python
 
 <!-- TOC -->
 - [Python 标准库](#python-标准库)
-    - [容器的抽象基类（`collections.abc`）](#容器的抽象基类collectionsabc)
+    - [容器的抽象基类 (`collections.abc`)](#容器的抽象基类-collectionsabc)
+    - [数据类 (`dataclass`)](#数据类-dataclass)
     - [装饰器](#装饰器)
     - [备忘*](#备忘)
 - [工具](#工具)
@@ -21,6 +22,9 @@ Python
 - 快速查询容器之间的继承关系，以及包含的抽象方法；
 - **使用场景**：type hints、`isinstance()`、`issubclass()` 等；
     > 详见：[容器基类的使用](./_archives/2022/08/Python容器基类的使用.md)
+
+### 数据类 (`dataclass`)
+- [dataclass 使用记录](./_archives/2022/09/python-dataclass使用记录.md)
 
 ### 装饰器
 - [装饰器的本质](./_archives/2022/05/python装饰器的本质.md)
