@@ -2,9 +2,11 @@ PyCharm 常用配置
 ===
 
 - [常用配置](#常用配置)
+    - [显示空白符](#显示空白符)
+    - [移除行末空格/末尾空行](#移除行末空格末尾空行)
     - [禁止 import 折叠](#禁止-import-折叠)
     - [修改 Docstring 风格](#修改-docstring-风格)
-    - [快捷键修改](#快捷键修改)
+    - [修改快捷键](#修改快捷键)
     - [启用代码兼容性检查](#启用代码兼容性检查)
 - [代码模板](#代码模板)
     - [Python](#python)
@@ -20,24 +22,46 @@ PyCharm 常用配置
 
 ## 常用配置
 
+### 显示空白符
+> Editor | General | Appearance -> Show whitespaces
+
+### 移除行末空格/末尾空行
+> Editor | General -> On Save -> 全部勾选
+
 ### 禁止 import 折叠
-> Code Folding -> Imports
+> Editor | General | Code Folding -> Imports
 
 ### 修改 Docstring 风格
-> Docstring format -> Google
+> Tools | Python Integrated Tools -> Docstring format -> Google
 
-### 快捷键修改
+### 修改快捷键
+> Keymap
 - 安装插件：Plugins -> Marketplace -> Eclipse Keymap
-- [常用快捷键](./快捷键记录.md#pycharm)
+
+**常用快捷键**
+
+操作 | Keyword | 快捷键（Mac） | 快捷键（Win）
+------|----------|----------|------------ 
+重命名 | Main Menu/Refactor/Rename... | `option + command + R` | `Alt + Shift + R`
+复制行 | Editor Actions/Duplicate Entire Lines | `control + command + down` | `Ctrl + Alt + ↓`
+删除行 | Editor Actions/Delete Line | `command + D` | `Ctrl + D`
+行上移 | Main Menu/Code/Move Line Up | `command + up` | `Alt + ↑`
+行下移 | Main Menu/Code/Move Line Down | `command + down` | `Alt + ↓`
+跳转定义 | Main Menu/Navigate/Go to Declaration or Usages | `command + click` | `Ctrl + Click`
+跳转到源代码 | Main Menu/View/Jump to Source | `command + click` | `Ctrl + Click`
+大小写互转 | Editor Actions/Toggle Case | `shift + command + U` | `Ctrl + Shift + U`
+代码格式化 | Main Menu/Code/Reformat Code | `shift + command + F` | `Alt + Shift + F`
+全局查找 | Main Menu/Edit/Find/Find in Files... | `control + F` | `Ctrl + Shift + F`
+运行 | Main Menu/Run/Run | `shift + control + R` | `Shift + Ctrl + R`
 
 ### 启用代码兼容性检查
-> Preferences | Editor | Inspections -> Code is incompatible with specific Python versions
+> Editor | Inspections -> Code is incompatible with specific Python versions
 
 
 ## 代码模板
 
 ### Python
-> Preferences | Editor | File and Code Templates -> Python Script
+> Editor | File and Code Templates -> Python Script
 
 - 更多内置变量详见：[File template variables | PyCharm](https://www.jetbrains.com/help/pycharm/file-template-variables.html)
 ```python
@@ -65,34 +89,34 @@ from __future__ import annotations
 # from collections import defaultdict
 
 
-class __Test:
+# class __Test:
 
-    def __init__(self):
-        import time
-        from typing import Callable
+#     def __init__(self):
+#         import time
+#         from typing import Callable
         
-        for k, v in self.__class__.__dict__.items():
-            if k.startswith('_test') and isinstance(v, Callable):
-                print(f'\x1b[32m=== Start "{k}" {{\x1b[0m')
-                start = time.time()
-                v(self)
-                print(f'\x1b[32m}} End "{k}" - Spend {time.time() - start:3f}s===\x1b[0m\n')
+#         for k, v in self.__class__.__dict__.items():
+#             if k.startswith('_test') and isinstance(v, Callable):
+#                 print(f'\x1b[32m=== Start "{k}" {{\x1b[0m')
+#                 start = time.time()
+#                 v(self)
+#                 print(f'\x1b[32m}} End "{k}" - Spend {time.time() - start:3f}s===\x1b[0m\n')
 
-    def _test_doctest(self):  # noqa
-        import doctest
-        doctest.testmod()
+#     def _test_doctest(self):  # noqa
+#         import doctest
+#         doctest.testmod()
 
-    def _test_xxx(self):  # noqa
-        pass
+#     def _test_xxx(self):  # noqa
+#         pass
 
 
-if __name__ == '__main__':
-    """"""
-    __Test()
+# if __name__ == '__main__':
+#     """"""
+#     __Test()
 ```
 
 ### Python Console
-> Python Console
+> Build, Execution, Deployment | Console | Python Console
 
 ```shell
 %load_ext autoreload
@@ -112,7 +136,7 @@ sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])
 ```
 
 ### 自动补全（Live Templates）
-> Preferences | Editor | Live Templates -> Python
+> Editor | Live Templates -> Python
 
 - 将 `super()` 的自动补全修改为 Python3 模式
     ```python
