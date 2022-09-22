@@ -9,8 +9,10 @@ Python
     - [备忘*](#备忘)
 - [工具](#工具)
     - [Pycharm](#pycharm)
-    - [conda](#conda)
-- [参考资料](#参考资料)
+- [常见问题](#常见问题)
+    - [更换国内镜像](#更换国内镜像)
+    - [Solving environment: failed](#solving-environment-failed)
+- [学习资料](#学习资料)
 <!-- TOC -->
 
 ## Python 标准库
@@ -42,9 +44,18 @@ Python
 - [Pycharm 常用配置](./_archives/2022/07/PyCharm常用配置.md)
     - [常用插件列表](./_archives/2022/07/PyCharm常用配置.md#常用插件)
 
-### conda
-- [国内镜像源](./_archives/2022/06/python国内镜像源.md)
+
+## 常见问题
+
+### 更换国内镜像
+- [pip & conda 国内镜像源](./_archives/2022/06/python国内镜像源.md)
+
+### Solving environment: failed
+```shell
+$ conda config --set channel_priority flexible
+```
 
 
-## 参考资料
+## 学习资料
+- [Python 的好习惯与最佳实践 - 肥清哥哥的个人空间_bilibili](https://space.bilibili.com/374243420/channel/collectiondetail?sid=422655)
 - [不基础的python基础 - 码农高天的个人空间_bilibili](https://space.bilibili.com/245645656/channel/collectiondetail?sid=346060)
