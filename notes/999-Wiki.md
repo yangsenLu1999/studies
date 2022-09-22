@@ -25,6 +25,8 @@ Wiki
     - [Obsidian](#obsidian)
 - [S](#s)
     - [Scheduler (Spark)](#scheduler-spark)
+- [W](#w)
+    - [WSL](#wsl)
 - [Y](#y)
     - [yaml](#yaml)
 <!-- TOC -->
@@ -124,6 +126,13 @@ Wiki
 ### Scheduler (Spark)
 - 调度器，用于控制例行化调度、依赖检测等功能；
 
+
+## W
+
+### WSL
+> Windows Subsystem for Linux, WSL
+
+- [WSL 使用记录](./_archives/2022/09/WSL使用记录.md)
 
 ## Y
 
