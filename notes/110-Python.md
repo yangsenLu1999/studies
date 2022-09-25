@@ -10,6 +10,7 @@ Python
 - [工具](#工具)
     - [Pycharm](#pycharm)
 - [常见问题](#常见问题)
+    - [Python 项目构建](#python-项目构建)
     - [更换国内镜像](#更换国内镜像)
     - [Solving environment: failed](#solving-environment-failed)
 - [学习资料](#学习资料)
@@ -46,6 +47,9 @@ Python
 
 
 ## 常见问题
+
+### Python 项目构建
+- 
 
 ### 更换国内镜像
 - [pip & conda 国内镜像源](./_archives/2022/06/python国内镜像源.md)
