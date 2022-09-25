@@ -3,9 +3,11 @@ WSL 使用记录
 
 <!-- TOC -->
 - [备忘](#备忘)
-- [配置 Python 开发环境](#配置-python-开发环境)
-    - [[Linux] 安装 anaconda](#linux-安装-anaconda)
-    - [Pycharm 安装](#pycharm-安装)
+- [环境配置](#环境配置)
+    - [安装 zsh](#安装-zsh)
+    - [Python 环境](#python-环境)
+        - [[Linux] 安装 anaconda](#linux-安装-anaconda)
+        - [安装 Pycharm 专业版](#安装-pycharm-专业版)
 - [参考文档](#参考文档)
 - [FAQ](#faq)
     - [fatal: unable to access 'https://github.com/xxx.git'](#fatal-unable-to-access-httpsgithubcomxxxgit)
@@ -15,12 +17,53 @@ WSL 使用记录
 ## 备忘
 - 从 Linux 访问 Windows 路径：`ls /mnt/d/path`（`d` 为盘符）；
 - 从 Windows 访问 Linux 路径：`ls \\wsl$\Ubuntu-20.04\path` 或 `ls \\wsl.localhost\Ubuntu-20.04\path`
-- 
 
 
-## 配置 Python 开发环境
+## 环境配置
 
-### [Linux] 安装 anaconda
+### 安装 zsh
+> [Installing ZSH · ohmyzsh/ohmyzsh Wiki](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH) 
+```shell
+$ sudo apt install zsh  # install
+$ zsh --version  # 
+$ chsh -s $(which zsh)  # set default
+$ echo $SHELL
+```
+- 配置 conda 环境变量
+    ```shell
+    # vim ~/.zshrc
+    export PATH="/home/huay/anaconda3/bin:$PATH"
+    conda activate
+    ```
+    或者
+    ```shell
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/home/huay/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/home/huay/anaconda3/etc/profile.d/conda.sh" ]; then
+            . "/home/huay/anaconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/home/huay/anaconda3/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+    # <<< conda initialize <<<
+    ```
+- 修改主题
+    ```shell
+    vim ~/.zshrc # 修改 ZSH_THEME="robbyrussell"
+    ```
+- 推荐主题
+    > [Themes · ohmyzsh/ohmyzsh Wiki](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
+    - [candy](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#candy)
+
+
+### Python 环境
+
+#### [Linux] 安装 anaconda
 > https://repo.anaconda.com/archive
 ```shell
 $ wget https://repo.anaconda.com/archive/Anaconda3-20xx.xx-Linux-x86_64.sh
@@ -92,9 +135,12 @@ Thank you for installing Anaconda3!
 
 </details>
 
-### Pycharm 安装
-- 社区版无法调用 WSL 上的解释器，只能使用 Windows 上的；可能会降低性能；
-- 专业版参考：[PyCharm WSL2 下开发调试_wslynn的博客](https://blog.csdn.net/qq_38992249/article/details/122387097)
+
+#### 安装 Pycharm 专业版
+- PyCharm 本身是安装在 Windows 环境，这里的目的是通过 Pycharm 在 WSL 上开发；
+- 社区版无法调用 WSL 上的解释器，可以使用 Windows 端的解释器，但是会降低性能；
+- 专业版调用 WSL：[PyCharm WSL2 下开发调试_wslynn的博客](https://blog.csdn.net/qq_38992249/article/details/122387097)
+- 破解版安装：[PyCharm 2022.2.2 激活破解码_安装教程 (持续更新~) - 异常教程](https://www.exception.site/essay/how-to-free-use-pycharm-2020)
 
 
 ## 参考文档
