@@ -2,7 +2,7 @@ WSL 使用记录
 ===
 
 <!-- TOC -->
-- [备忘](#备忘)
+- [常用操作](#常用操作)
 - [环境配置](#环境配置)
     - [安装 zsh](#安装-zsh)
     - [Python 环境](#python-环境)
@@ -14,9 +14,20 @@ WSL 使用记录
 <!-- TOC -->
 
 
-## 备忘
-- 从 Linux 访问 Windows 路径：`ls /mnt/d/path`（`d` 为盘符）；
-- 从 Windows 访问 Linux 路径：`ls \\wsl$\Ubuntu-20.04\path` 或 `ls \\wsl.localhost\Ubuntu-20.04\path`
+## 常用操作
+
+- Windows 在 WSL 中的路径：`/mnt/d/<win_path>`（`d` 为盘符）
+- WSL 在 Windows 中的路径：`\\wsl$\Ubuntu-20.04\<wsl_path>`
+- 在 VSCode 中打开
+    ```bash
+    cd <wsl_path>
+    code .
+    ```
+- 在 Windows 打开
+    ```bash
+    cd <wsl_path>
+    explorer.exe .
+    ``` 
 
 
 ## 环境配置
