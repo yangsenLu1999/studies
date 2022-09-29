@@ -14,7 +14,7 @@ Subject:
 
 # from collections import defaultdict
 
-from huaytools.pyspark import *
+from huaytools_local.pyspark import *
 
 
 class SparkTaskTemplate:

@@ -22,7 +22,7 @@ import doctest  # noqa
 import torch
 import torch.nn as nn
 
-from huaytools.pytorch.utils import ToyDataLoader
+from huaytools_local.pytorch.utils import ToyDataLoader
 
 
 def demo_map_one():

@@ -19,7 +19,7 @@ import doctest  # noqa
 # from tqdm import tqdm
 
 
-from huaytools.huggingface import set_offline, download_model
+from huaytools_local.huggingface import set_offline, download_model
 
 from transformers import AutoModelForSequenceClassification, AutoConfig, AutoTokenizer
 

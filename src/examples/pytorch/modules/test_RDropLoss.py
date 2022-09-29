@@ -22,7 +22,7 @@ import doctest  # noqa
 import torch
 import torch.nn.functional as F
 
-from huaytools.pytorch._todo.modules import RDropLoss
+from huaytools_local.pytorch._todo.modules import RDropLoss
 
 
 def rdrop_loss_official(logits, logits2, label, alpha=1.0):

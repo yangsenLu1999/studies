@@ -27,7 +27,7 @@ from torch.utils.data import DataLoader
 from datasets import load_dataset
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
-from huaytools.pytorch.train.trainer import Trainer
+from huaytools_local.pytorch.train.trainer import Trainer
 
 
 def get_sst2_dataloader(model_name='roberta-base', batch_size=32):

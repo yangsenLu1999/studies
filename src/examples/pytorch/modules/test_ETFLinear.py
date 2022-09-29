@@ -23,7 +23,7 @@ import doctest  # noqa
 def test_ETFLinear():  # noqa
     import torch
     import torch.nn as nn
-    from huaytools.pytorch._todo.modules import ETFLinear
+    from huaytools_local.pytorch._todo.modules import ETFLinear
 
     l1 = ETFLinear(4, 5)
     l2 = nn.Linear(4, 5, bias=False)
@@ -38,5 +38,3 @@ def test_ETFLinear():  # noqa
     o1 = l1(x)
     o2 = l2(x)
     assert torch.allclose(o1, o2)
-
-

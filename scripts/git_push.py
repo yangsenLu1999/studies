@@ -34,9 +34,9 @@ try:
 except:  # noqa
     exit(1)
 else:
-    from huaytools.utils.git_utils import GitUtils, GitSubtreeUtils
-    from huaytools.utils import get_logger, get_caller_name
-    from huaytools.utils import PrintUtils
+    from huaytools_local.utils.git_utils import GitUtils, GitSubtreeUtils
+    from huaytools_local.utils import get_logger, get_caller_name
+    from huaytools_local.utils import PrintUtils
 
 
 class GitHelper:

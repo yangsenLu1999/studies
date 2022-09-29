@@ -1,4 +1,5 @@
 huaytools
+markdown
 
 ## python>=3.8
 # tqdm
