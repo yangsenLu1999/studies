@@ -1,11 +1,14 @@
 ## LeetCode_0187_重复的DNA序列（中等, 2021-10）
-<!--{
-    "tags": ["哈希表", "位运算"],
-    "来源": "LeetCode",
-    "编号": "0187",
-    "难度": "中等",
-    "标题": "重复的DNA序列"
-}-->
+<!--
+{
+    "category": ["哈希表", "位运算"],
+    "source": "LeetCode",
+    "level": "中等",
+    "number": "0187",
+    "name": "重复的DNA序列",
+    "company": []
+}
+-->
 
 <summary><b>问题简述</b></summary>
 

@@ -1,12 +1,14 @@
 ## LeetCode_0437_路径总和III（中等, 2022-02）
-<!--{
-    "tags": ["二叉树", "深度优先搜索", "前缀和", "TreeDP"],
-    "来源": "LeetCode",
-    "编号": "0437",
-    "难度": "中等",
-    "标题": "路径总和III",
-    "公司": []
-}-->
+<!--
+{
+    "category": ["二叉树", "深度优先搜索", "前缀和", "TreeDP"],
+    "source": "LeetCode",
+    "level": "中等",
+    "number": "0437",
+    "name": "路径总和III",
+    "company": []
+}
+-->
 
 <summary><b>问题简述</b></summary>
 

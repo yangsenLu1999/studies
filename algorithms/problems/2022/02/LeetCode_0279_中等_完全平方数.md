@@ -1,12 +1,14 @@
 ## LeetCode_0279_完全平方数（中等, 2022-02）
-<!--{
-    "tags": ["DFS2DP"],
-    "来源": "LeetCode",
-    "难度": "中等",
-    "编号": "0279",
-    "标题": "完全平方数",
-    "公司": []
-}-->
+<!--
+{
+    "category": ["DFS2DP"],
+    "source": "LeetCode",
+    "level": "中等",
+    "number": "0279",
+    "name": "完全平方数",
+    "company": []
+}
+-->
 
 <summary><b>问题简述</b></summary>
 

@@ -1,12 +1,14 @@
 ## LeetCode_0091_解码方法（中等, 2022-02）
-<!--{
-    "tags": ["DP", "DFS2DP"],
-    "来源": "LeetCode",
-    "难度": "中等",
-    "编号": "0091",
-    "标题": "解码方法",
-    "公司": []
-}-->
+<!--
+{
+    "category": ["DP", "DFS2DP"],
+    "source": "LeetCode",
+    "level": "中等",
+    "number": "0091",
+    "name": "解码方法",
+    "company": []
+}
+-->
 
 <summary><b>问题简述</b></summary>
 

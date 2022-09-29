@@ -1,12 +1,14 @@
 ## LeetCode_0474_一和零（中等, 2022-02）
-<!--{
-    "tags": ["DFS2DP"],
-    "来源": "LeetCode",
-    "难度": "中等",
-    "编号": "0474",
-    "标题": "一和零",
-    "公司": []
-}-->
+<!--
+{
+    "category": ["DFS2DP"],
+    "source": "LeetCode",
+    "level": "中等",
+    "number": "0474",
+    "name": "一和零",
+    "company": []
+}
+-->
 
 <summary><b>问题简述</b></summary>
 

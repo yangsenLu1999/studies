@@ -1,12 +1,14 @@
 ## LeetCode_0113_路径总和II（中等, 2022-02）
-<!--{
-    "tags": ["二叉树"],
-    "来源": "LeetCode",
-    "难度": "中等",
-    "编号": "0113",
-    "标题": "路径总和II",
-    "公司": []
-}-->
+<!--
+{
+    "category": ["二叉树"],
+    "source": "LeetCode",
+    "level": "中等",
+    "number": "0113",
+    "name": "路径总和II",
+    "company": []
+}
+-->
 
 <summary><b>问题简述</b></summary>
 

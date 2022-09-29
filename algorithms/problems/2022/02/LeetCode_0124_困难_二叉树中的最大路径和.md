@@ -1,12 +1,14 @@
 ## LeetCode_0124_二叉树中的最大路径和（困难, 2022-02）
-<!--{
-    "tags": ["TreeDP"],
-    "来源": "LeetCode",
-    "难度": "困难",
-    "编号": "0124",
-    "标题": "二叉树中的最大路径和",
-    "公司": []
-}-->
+<!--
+{
+    "category": ["TreeDP"],
+    "source": "LeetCode",
+    "level": "困难",
+    "number": "0124",
+    "name": "二叉树中的最大路径和",
+    "company": []
+}
+-->
 
 <summary><b>问题简述</b></summary>
 
