@@ -1,28 +1,30 @@
-# python>=3.8
-tqdm
-regex
-beautifulsoup4
-markdown
-python-levenshtein
-pyyaml
-requests
+huaytools
 
-# machine learning
-scikit-learn
+## python>=3.8
+# tqdm
+# regex
+# beautifulsoup4
+# markdown
+# python-levenshtein
+# pyyaml
+# requests
 
-# nlp
-jieba
-hanlp
-gensim
-autophrasex
+## machine learning
+# scikit-learn
 
-# huggingface
-accelerate
-transformers
-datasets
-evaluate
+## nlp
+# jieba
+# hanlp
+# gensim
+# autophrasex
 
-# keras
+## huggingface
+# accelerate
+# transformers
+# datasets
+# evaluate
+
+## keras
 # tensorflow
 # tensorflow-macos
 # tensorflow-metal
