@@ -24,6 +24,8 @@ from dataclasses import dataclass, field
 
 from huaytools.utils import get_logger, MarkdownUtils
 
+from readme.args import args
+
 
 @dataclass
 class ProblemInfo:
@@ -52,20 +54,40 @@ class ProblemInfo:
 @dataclass(unsafe_hash=True)
 class TagTypeInfo:
     name: str
-    show_name: str
     level: int
+    show_name: str
 
 
 class TagType:
-    hot: ClassVar[TagTypeInfo] = TagTypeInfo('hot', 'Hot 🔥', 0)
-    level: ClassVar[TagTypeInfo] = TagTypeInfo(ProblemInfo.F_LEVEL, 'Level', 1)
-    subject: ClassVar[TagTypeInfo] = TagTypeInfo(ProblemInfo.F_SOURCE, 'Subject', 2)
-    category: ClassVar[TagTypeInfo] = TagTypeInfo(ProblemInfo.F_CATEGORY, 'Category', 3)
+    hot: ClassVar[TagTypeInfo] = TagTypeInfo('hot', 0, 'Hot 🔥')
+    level: ClassVar[TagTypeInfo] = TagTypeInfo(ProblemInfo.F_LEVEL, 1, 'Level 📈')
+    subject: ClassVar[TagTypeInfo] = TagTypeInfo(ProblemInfo.F_SOURCE, 2, 'Subject 📓')
+    category: ClassVar[TagTypeInfo] = TagTypeInfo(ProblemInfo.F_CATEGORY, 3, 'Category')
+
+
+@dataclass(unsafe_hash=True)
+class CategoryInfo:
+    name: str
+    level: int
+    show_name: str = None
+
+
+# class Categories:
+#     base: ClassVar[CategoryInfo] = CategoryInfo('base', 0, '基础')
+#     data_struct: ClassVar[CategoryInfo] = CategoryInfo('data_struct', 1, '数据结构')
+#     algorithm: ClassVar[CategoryInfo] = CategoryInfo('algorithm', 2, '算法')
+#     trick: ClassVar[CategoryInfo] = CategoryInfo('trick', 3, '技巧')
+category_map = {
+    '基础': CategoryInfo('base', 0, '基础'),
+    '数据结构': CategoryInfo('data_struct', 1, '数据结构'),
+    '算法': CategoryInfo('algorithm', 2, '算法'),
+    '技巧': CategoryInfo('trick', 3, '技巧'),
+}
 
 
 @dataclass
 class TagInfo:
-    tag_name: str
+    _tag_name: str
     tag_type: TagTypeInfo = None
     collects: list[ProblemInfo] = field(default_factory=list)
 
@@ -74,21 +96,26 @@ class TagInfo:
         return len(self.collects)
 
     EMPTY: ClassVar[str] = ''
+    SEP: ClassVar[str] = '-'
 
     @property
     def tag_category(self):
-        if '-' in self.tag_name:
-            return self.tag_name.split('-', maxsplit=1)[0]
+        """格式：tag_category-tag_name"""
+        if self.SEP in self._tag_name:
+            return self._tag_name.split(self.SEP, maxsplit=1)[0]
         else:
             return self.EMPTY
 
     @property
-    def tag_head(self):
-        if '-' in self.tag_name:
-            name = self.tag_name.split('-', maxsplit=1)[1]
+    def tag_name(self):
+        if self.SEP in self._tag_name:
+            return self._tag_name.split(self.SEP, maxsplit=1)[1]
         else:
-            name = self.tag_name
-        return f'{name} ({self.tag_count})'
+            return self._tag_name
+
+    @property
+    def tag_head(self):
+        return f'{self.tag_name} ({self.tag_count})'
 
 
 # 修改 tag 的类型
@@ -102,19 +129,83 @@ EX_HOT_TAGS = [
     '牛客'
 ]
 
+# 本地有效，GitHub 无效
+# sp_div = '''<div>
+# <div style="float: left; width: 50%; ">
+#
+# {toc_hot}
+#
+# </div>
+# <div style="float: right; width: 50%; ">
+#
+# {toc_subject}
+#
+# </div>
+# <div style="width: 50%; ">
+#
+# {toc_level}
+#
+# </div>
+# </div>'''
 
-class AlgoReadme:
+# GitHub 上 style 失效: style="width: 100%; border: none; background: none"
+TMP_TOC_TD_CATEGORY = '<td width="1000" valign="top">\n\n{sub_toc}\n\n</td>'
+TMP_TOC_TABLE = '''<table frame="void" >
+<tr>
+<td colspan="2" valign="top" width="1000">
+
+{toc_hot}
+
+</td>
+<td colspan="2" rowspan="3" valign="top" width="1000">
+
+{toc_subject}
+
+</td>
+</tr>
+<tr></tr>
+<tr>
+<td colspan="2" valign="top">
+
+{toc_level}
+
+</td>
+</tr>
+<tr></tr>
+<tr>  <!-- loop TMP_TOC_TD_CATEGORY -->
+{toc_category}
+</tr>
+</table>'''
+
+README_TITLE = 'Algorithms'
+TMP_README = '''# {title}
+
+{toc}
+
+---
+
+{sub_toc}'''
+
+TMP_README_CONCAT = '''## {title}
+
+{toc}
+'''
+
+
+class Algorithms:
     """"""
     logger = get_logger()
     # AUTO_GENERATED_STR = '<!-- Auto-generated -->'
     RE_INFO = re.compile(r'<!--(.*?)-->', flags=re.DOTALL)
 
-    def __init__(self, fp_algo: Path):
+    def __init__(self):
         """"""
         # attrs
-        self.fp_algo = fp_algo
-        self.fp_problems = fp_algo / 'problems'
-        self.fp_toc = fp_algo / 'toc'
+        self.title = self.__class__.__name__
+        self.fp_algo = args.fp_algorithms
+        self.fp_algo_readme = args.fp_algorithms_readme
+        self.fp_repo_readme_algorithms = args.fp_repo_readme_algorithms
+        self.fp_problems = self.fp_algo / 'problems'
         with open(self.fp_algo / 'tag2topic.json') as f:
             self.tag2topic = json.load(f)
 
@@ -249,23 +340,28 @@ class AlgoReadme:
 
     def _generate_sub_toc(self, tag_type: TagTypeInfo):
         """"""
-        sub_toc = [f'## {tag_type.show_name}']
+        sub_toc = [f'### {tag_type.show_name}']
         for tag_info in self.type2tags[tag_type]:
             sub_toc.append(self._get_toc_tag_line(tag_info))
         return sub_toc
 
     def _generate_category_toc(self):
-        """"""
-        category2problems = defaultdict(list)
+        """tag格式：category-tag_name"""
+        category2problems: dict[CategoryInfo, list[TagInfo]] = defaultdict(list)
         for tag_info in self.type2tags[TagType.category]:
             assert tag_info.tag_category != ''
-            category2problems[tag_info.tag_category].append(tag_info)
+            category2problems[category_map[tag_info.tag_category]].append(tag_info)
 
-        toc = [f'## {TagType.category.show_name}']
-        for tag_category, tag_infos in category2problems.items():
-            toc.append(f'### {tag_category}')
+        # toc = [f'## {TagType.category.show_name}']
+        toc = []
+        for tag_category in sorted(category2problems.keys(), key=lambda k: k.level):
+            # toc.append(f'### {tag_category.show_name}')
+            sub_toc = [f'### {tag_category.show_name}']
+            tag_infos = category2problems[tag_category]
             for tag_info in tag_infos:
-                toc.append(self._get_toc_tag_line(tag_info))
+                sub_toc.append(self._get_toc_tag_line(tag_info))
+
+            toc.append(TMP_TOC_TD_CATEGORY.format(sub_toc='\n'.join(sub_toc)))
         return toc
 
     def build(self):
@@ -296,21 +392,23 @@ class AlgoReadme:
                     ))
                 contents.append('')
 
-        with open(self.fp_algo / 'README.md', 'w', encoding='utf8') as f:
-            f.write('# Algorithms Coding\n\n')
-            f.write('\n'.join(toc_hot))
-            f.write('\n')
-            f.write('\n'.join(toc_level))
-            f.write('\n')
-            f.write('\n'.join(toc_subject))
-            f.write('\n')
-            f.write('\n'.join(toc_category))
-            f.write('\n\n---\n\n')
-            f.write('\n'.join(contents))
+        toc = TMP_TOC_TABLE.format(toc_hot='\n'.join(toc_hot),
+                                   toc_subject='\n'.join(toc_subject),
+                                   toc_level='\n'.join(toc_level),
+                                   toc_category='\n'.join(toc_category))
+        sub_toc = '\n'.join(contents)
+        readme = TMP_README.format(title=self.title, toc=toc, sub_toc=sub_toc)
+
+        with self.fp_algo_readme.open('w', encoding='utf8') as f:
+            f.write(readme)
+
+        toc_concat = toc.replace('(#', f'({self.fp_algo.name}/README.md#')
+        readme_concat = TMP_README_CONCAT.format(title=self.title, toc=toc_concat)
+        with self.fp_repo_readme_algorithms.open('w', encoding='utf8') as f:
+            f.write(readme_concat)
 
 
 if __name__ == '__main__':
     """"""
-    _fp = Path(r'/home/huay/workspace/github/studies/algorithms')
-    algo = AlgoReadme(_fp)
+    algo = Algorithms()
     algo.build()
