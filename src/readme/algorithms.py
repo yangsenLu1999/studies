@@ -150,7 +150,7 @@ EX_HOT_TAGS = [
 
 # GitHub 上 style 失效: style="width: 100%; border: none; background: none"
 TMP_TOC_TD_CATEGORY = '<td width="1000" valign="top">\n\n{sub_toc}\n\n</td>'
-TMP_TOC_TABLE = '''<table frame="void" >
+TMP_TOC_TABLE = '''<table>  <!-- frame="void" 无效 -->
 <tr>
 <td colspan="2" valign="top" width="1000">
 

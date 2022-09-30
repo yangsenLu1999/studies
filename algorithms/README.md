@@ -1,6 +1,6 @@
 # Algorithms
 
-<table frame="void" >
+<table>  <!-- frame="void" 无效 -->
 <tr>
 <td colspan="2" valign="top" width="1000">
 
