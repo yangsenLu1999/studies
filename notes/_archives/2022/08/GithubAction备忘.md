@@ -9,10 +9,11 @@ Github Action 备忘
         - [条件执行 - `jobs.<job_id>.if`](#条件执行---jobsjob_idif)
         - [矩阵策略 - `jobs.<job_id>.strategy.matrix`](#矩阵策略---jobsjob_idstrategymatrix)
         - [复用流程 - `jobs.<job_id>.uses`](#复用流程---jobsjob_iduses)
-        - [依赖执行 - `jobs.<job_id>.needs`](#依赖执行---jobsjob_idneeds)
-- [其他](#其他)
+        - [依赖执行](#依赖执行)
+- [其他事项](#其他事项)
     - [添加 Actions secrets](#添加-actions-secrets)
     - [添加工作流状态徽章](#添加工作流状态徽章)
+- [GitHub Action 推荐](#github-action-推荐)
 <!-- TOC -->
 ---
 
@@ -66,14 +67,40 @@ jobs:  # 该工作流的所有作业
 ### 触发器 - `on`
 > [`on`](https://docs.github.com/cn/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)
 
-示例
 ```yaml
 on:
+  # 在 push 时被触发
   push:
-    branches: [ '**' ]  # 任意分支
-  schedule:  # 定时执行
+    branches:
+      - '**'  # 任意分支
+      - 'releases/**-alpha'
+      - '!releases/**'  # 所有 releases/** 都不触发，除了 releases/**-alpha
+
+  # 使该 workflow 依赖于其他 workflow 触发
+  workflow_run:
+    workflows: [ "Build" ]  # 当名为 Build 的 workflow 在满足以下条件的分支上执行时，本 workflow 才会被执行
+    types: [ requested ]  # requested/completed
+    branches:
+      - 'releases/**'
+      - '!releases/**-alpha'
+
+  # 使该 workflow 能被其他 workflow 调用
+  workflow_call:
+
+  # 使该 workflow 能在 GitHub 上手动触发
+  workflow_dispatch:
+
+  # 执行 release 时触发（GitHub 项目页）
+  release:
+    types: [ published ]  # published/created/edited/deleted/...
+  
+  # 定时触发
+  schedule:
     - cron: '0 0 * * *'  # cron 语法，UTC 时间，+08:00 即北京时间
 ```
+
+> 关于各触发事件的可选项(`types`)：[Events that trigger workflows - GitHub Docs](https://docs.github.com/cn/actions/using-workflows/events-that-trigger-workflows#available-events)
+
 
 ### 作业 - `jobs`
 > [`jobs`](https://docs.github.com/cn/actions/using-workflows/workflow-syntax-for-github-actions#jobs)
@@ -81,7 +108,6 @@ on:
 #### 条件执行 - `jobs.<job_id>.if`
 > [`jobs.<job_id>.if`](https://docs.github.com/cn/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)
 
-示例
 ```yaml
 steps:
 - name: Install dependencies on Windows
@@ -95,7 +121,6 @@ steps:
 #### 矩阵策略 - `jobs.<job_id>.strategy.matrix`
 > [`jobs.<job_id>.strategy.matrix`](https://docs.github.com/cn/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)
 
-示例
 ```yaml
 strategy:
   fail-fast: false  # 当矩阵中有任何一个作业失败时，是否停止其他所有作业，默认为 true，建议设为 false
@@ -108,21 +133,42 @@ strategy:
 > [`jobs.<job_id>.uses`](https://docs.github.com/cn/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iduses)
 
 - 复用的流程来自于其他仓库；
-    - 官方仓库：[GitHub Actions](https://github.com/actions)
+    - 
 - **不能跟 `run` 同时使用**；
+- 两类复用：
+    - 其他 workflow 文件
+    - 其他 GitHub Actions 仓库
+        - 官方仓库：[GitHub Actions](https://github.com/actions)
+        - GitHub 市场：https://github.com/marketplace?type=actions
 
-示例
 ```yaml
 steps:
 - name: Checkout
-  uses: actions/checkout@master
+  uses: actions/checkout@v3  # 仓库
+- name: Build
+  uses: ./.github/workflows/build.yml  # 文件
 ```
 
-#### 依赖执行 - `jobs.<job_id>.needs`
-> [`jobs.<job_id>.needs`](https://docs.github.com/cn/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)
+#### 依赖执行
 
+- 默认各 workflow，以及 workflow 内的各 job 都是并发执行的；
+- 使用 `on.workflow_run` 触发器添加 workflow 之间的依赖
+- 使用 `jobs.<job_id>.needs` 添加 job 之间的依赖
 
-## 其他
+```yml
+on:
+  workflow_run:
+    workflows: [ "Build" ]  # 当名为 Build 的 workflow 完成时
+    types: [ completed ]
+
+jobs:
+  build:
+    # ...
+  publish:  # 依赖 build 完成时
+    needs: build
+```
+
+## 其他事项
 
 ### 添加 Actions secrets
 > 仓库主页 -> Settings -> Secrets -> Actions -> New repository secret
@@ -139,6 +185,16 @@ steps:
 ### 添加工作流状态徽章
 > [Adding a workflow status badge - GitHub Docs](https://docs.github.com/cn/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)
 
+![workflow](https://github.com/imhuay/studies/actions/workflows/learn-github-actions.yml/badge.svg?branch=master)
 ```txt
-![workflow_name](https://github.com/github/docs/actions/workflows/$file_name.yml/badge.svg?branch=master)
+![workflow](https://github.com/<user>/<repo>/actions/workflows/$file_name.yml/badge.svg?branch=master)
 ```
+
+## GitHub Action 推荐
+
+- [yi-Xu-0100/traffic-to-badge: 📊 The GitHub action that using repositories Insights/traffic data to generate badges that include views and clones.](https://github.com/yi-Xu-0100/traffic-to-badge)
+    > 生成仓库的访问量
+- [athul/waka-readme: Wakatime Weekly Metrics on your Profile Readme.](https://github.com/athul/waka-readme)
+    > 添加 Wakatime 信息
+- [gautamkrishnar/blog-post-workflow: Show your latest blog posts from any sources or StackOverflow activity or Youtube Videos on your GitHub profile/project readme automatically using the RSS feed](https://github.com/gautamkrishnar/blog-post-workflow)
+    > 添加 blog-post
