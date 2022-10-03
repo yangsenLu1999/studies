@@ -121,11 +121,12 @@ class TagInfo:
 
 # 修改 tag 的类型
 TAG2TYPE_MODIFY = {
-    '热门&经典&易错': TagType.hot
+    '热门&经典&易错': TagType.hot,
+    'LeetCode Hot 100': TagType.hot,
 }
 # 加入热门标签
 EX_HOT_TAGS = [
-    'LeetCode',
+    # 'LeetCode',
     '剑指Offer',
     '牛客'
 ]
