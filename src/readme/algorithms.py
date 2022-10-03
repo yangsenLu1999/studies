@@ -126,7 +126,7 @@ TAG2TYPE_MODIFY = {
 }
 # 加入热门标签
 EX_HOT_TAGS = [
-    # 'LeetCode',
+    'LeetCode',
     '剑指Offer',
     '牛客'
 ]

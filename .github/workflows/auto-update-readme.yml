@@ -3,6 +3,7 @@ name: auto-update-readme
 on:
   push:
     paths:
+      - 'src/readme/**'
       - 'algorithms/**'
 
 jobs:
