@@ -8,7 +8,7 @@
 ![clones per week](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/clones_per_week.svg) -->
 ![views](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/views.svg)
 ![views per week](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/views_per_week.svg)
-![](https://visitor-badge.glitch.me/badge?page_id=imhuay.studies&right_color=green&left_text=page%20views)
+![](https://visitor-badge.laobi.icu/badge?page_id=imhuay.studies&right_color=green&left_text=page%20views)
 [![GitHub Repo stars](https://img.shields.io/github/stars/imhuay/studies?style=social)](https://github.com/imhuay/studies/stargazers)  
 [![GitHub issues](https://img.shields.io/github/issues/imhuay/studies?color=important&cacheSeconds=3600)](https://github.com/imhuay/studies/issues)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/imhuay/studies?color=inactive&cacheSeconds=3600)](https://github.com/imhuay/studies/issues?q=is:issue+is:closed)

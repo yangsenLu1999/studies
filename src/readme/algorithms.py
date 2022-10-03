@@ -25,6 +25,7 @@ from dataclasses import dataclass, field
 from huaytools.utils import get_logger, MarkdownUtils
 
 from readme.args import args
+from readme.utils import ReadmeUtils
 
 
 @dataclass
@@ -264,7 +265,7 @@ class Algorithms:
         if updated:
             with fp.open('w', encoding='utf8') as f:
                 f.write('\n'.join(lines))
-            self._git_add(fp)
+                # ReadmeUtils.git_add(fp)
 
         return updated
 
@@ -277,10 +278,11 @@ class Algorithms:
                                                        level=info[ProblemInfo.F_LEVEL],
                                                        title=info[ProblemInfo.F_NAME])
         if new_fn != fp.name:
-            self.logger.info(f'rename {fp.name} to {new_fn}')
-            fp = fp.rename(fp.parent / new_fn)
-            self._git_add(fp)
-
+            # fp = fp.rename(fp.parent / new_fn)
+            new_fp = fp.parent / new_fn
+            # ReadmeUtils.git_add(fp)
+            ReadmeUtils.git_mv(fp, new_fp)
+            fp = new_fp
         return fp
 
     NUMBER_WIDTH = 5
@@ -298,13 +300,13 @@ class Algorithms:
         except:  # noqa
             self.logger.info(fp)
 
-    GIT_ADD_TEMP = 'git add "{fp}"'
-
-    def _git_add(self, fp):
-        """"""
-        command = self.GIT_ADD_TEMP.format(fp=fp)
-        # self.logger.info(command)
-        os.system(command)
+    # GIT_ADD_TEMP = 'git add "{fp}"'
+    #
+    # def _git_add(self, fp):
+    #     """"""
+    #     command = self.GIT_ADD_TEMP.format(fp=fp)
+    #     # self.logger.info(command)
+    #     os.system(command)
 
     tag_infos: dict[str, TagInfo] = dict()
 
