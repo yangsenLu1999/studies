@@ -5,35 +5,23 @@
 # Keep on Your Studying!
 
 <!-- ![clones](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/clones.svg)
-![clones per week](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/clones_per_week.svg) -->
+![clones per week](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/clones_per_week.svg) 
 ![views](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/views.svg)
-![views per week](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/views_per_week.svg)
-![](https://visitor-badge.laobi.icu/badge?page_id=imhuay.studies&right_color=green&left_text=page%20views)
-[![GitHub Repo stars](https://img.shields.io/github/stars/imhuay/studies?style=social)](https://github.com/imhuay/studies/stargazers)  
+![views per week](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/views_per_week.svg) -->
 [![GitHub issues](https://img.shields.io/github/issues/imhuay/studies?color=important&cacheSeconds=3600)](https://github.com/imhuay/studies/issues)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/imhuay/studies?color=inactive&cacheSeconds=3600)](https://github.com/imhuay/studies/issues?q=is:issue+is:closed)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/imhuay/studies?style=flat&cacheSeconds=3600)
 [![GitHub last commit](https://img.shields.io/github/last-commit/imhuay/studies?cacheSeconds=3600)](https://github.com/imhuay/studies/commits)
-<!-- ![](https://img.shields.io/tokei/lines/github/imhuay/studies?color=yellow&cacheSeconds=3600) -->
+![](https://visitor-badge.laobi.icu/badge?page_id=imhuay.studies&right_color=green&left_text=page%20views)
+<!-- [![GitHub Repo stars](https://img.shields.io/github/stars/imhuay/studies?style=social)](https://github.com/imhuay/studies/stargazers) -->
 
-<!-- <a href="https://github.com/imhuay/studies/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/imhuay/studies?cacheSeconds=3600"></a> -->
-<!-- <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/imhuay/studies?style=flat&cacheSeconds=3600"> -->
-<!-- <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/imhuay/studies?cacheSeconds=3600"> -->
-<!-- <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/imhuay/studies?color=orange&cacheSeconds=3600"> -->
-<!-- <a href="https://visitorbadge.io/status?path=imhuay/studies"><img alt="Visitors" src="https://api.visitorbadge.io/api/visitors?path=imhuay/studies&style=flat" /></a> -->
-<!-- <img src="https://visitor-badge.glitch.me/badge?page_id=imhuay.studies" /> -->
-<!-- <a href="https://github.com/imhuay/studies/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/imhuay/studies?style=social"></a> -->
 </div>
 
-<!-- ![python-version](https://img.shields.io/badge/python-3.8+-green) -->
-<!-- ![pytorch-version](https://img.shields.io/badge/pytorch-1.8+-green) -->
-<!-- ![tf-version](https://img.shields.io/badge/tensorflow-2.3+-green) -->
-<!-- ![repo-size](https://img.shields.io/github/repo-size/imhuay/studies) -->
-<!-- ![total-lines](https://img.shields.io/tokei/lines/github/imhuay/studies) -->
-<!-- ![code-size](https://img.shields.io/github/languages/code-size/imhuay/studies) -->
+### Last 7 days
+<!--START_SECTION:waka-->
+<!--END_SECTION:waka-->
+> [如何生成这些信息？]()
 
-<!-- ![followers](https://img.shields.io/github/followers/imhuay?style=social) -->
-<!-- ![user-stars](https://img.shields.io/github/stars/imhuay?style=social) -->
 
 {readme_algorithms}
 

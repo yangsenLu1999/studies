@@ -1,8 +1,10 @@
 name: auto-update-readme
 
 on:
+  workflow_dispatch: # for manual workflow trigger
   push:
     paths:
+      - 'README_main.md'
       - 'src/readme/**'
       - 'algorithms/**'
 

@@ -1,0 +1,27 @@
+# https://github.com/athul/waka-readme
+
+name: waka-readme
+
+on:
+  #push:
+  workflow_dispatch: # for manual workflow trigger
+  schedule:
+    - cron: '0 0 * * *' # runs at every 12AM UTC
+
+jobs:
+  update-readme:
+    name: Update Wakatime
+    runs-on: ubuntu-latest
+    steps:
+      - uses: athul/waka-readme@master
+        with:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          #GH_TOKEN: ${{ github.token }}
+          #REPOSITORY: ${{ github.repository }}
+          COMMIT_MESSAGE: "Auto-update wakatime"
+          BLOCKS: ->  # ⣀⣄⣤⣦⣶⣷⣿, ░▒▓█, ->, etc.
+          TIME_RANGE: last_7_days  # last_30_days, last_6_months, last_year, all_time
+          SHOW_TITLE: false
+          SHOW_TIME: true
+          SHOW_TOTAL: false
+          SHOW_MASKED_TIME: false  # override SHOW_TOTAL
