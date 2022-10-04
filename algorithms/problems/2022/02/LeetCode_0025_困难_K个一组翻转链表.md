@@ -1,12 +1,12 @@
 ## LeetCode_0025_K个一组翻转链表（困难, 2022-02）
 <!--
 {
-    "category": ["链表"],
+    "tags": ["链表"],
     "source": "LeetCode",
     "level": "困难",
     "number": "0025",
     "name": "K个一组翻转链表",
-    "company": []
+    "companies": []
 }
 -->
 

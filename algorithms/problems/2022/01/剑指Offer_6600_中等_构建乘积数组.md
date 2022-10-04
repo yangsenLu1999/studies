@@ -1,12 +1,12 @@
 ## 剑指Offer_6600_构建乘积数组（中等, 2022-01）
 <!--
 {
-    "category": ["前缀和"],
+    "tags": ["前缀和"],
     "source": "剑指Offer",
     "level": "中等",
     "number": "6600",
     "name": "构建乘积数组",
-    "company": []
+    "companies": []
 }
 -->
 

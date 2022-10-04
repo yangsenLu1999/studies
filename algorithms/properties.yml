@@ -1,0 +1,178 @@
+tag_types:
+  hot:
+    level: 0
+    show_name: "Hot 🔥"
+  level:
+    level: 2
+    show_name: "Level 📈"
+  subject:
+    level: 1
+    show_name: "Subject 📓"
+  algorithm:  # algorithm 细分类型 -> algo_types
+    level: 3
+    show_name: "Algorithm"
+
+algo_types:
+  base:
+    level: 0
+    show_name: "基础"
+  data_struct:
+    level: 1
+    show_name: "数据结构"
+  algorithm:
+    level: 2
+    show_name: "算法"
+  trick:
+    level: 3
+    show_name: "技巧"
+
+tags:
+  # hot 不单独作为标签类型，只能作为附加标签
+  common:
+    简单:
+      name: Easy
+      type: level
+    中等:
+      name: Medium
+      type: level
+    困难:
+      name: Hard
+      type: level
+    牛客:
+      type: subject
+    剑指Offer:
+      type: [subject, hot]
+    LeetCode:
+      type: subject
+    剑指Offer2:
+      type: subject
+    程序员面试金典:
+      type: subject
+    coll: &coll
+      name: Collections
+      type: subject
+    Collection: *coll
+    华为机试:
+      name: 牛客-华为机试
+      type: subject
+    热门: &hot
+      name: "热门&经典&易错"
+      type: [subject, hot]
+    经典: *hot
+    易错: *hot
+    lc100:
+      name: "LeetCode Hot 100"
+      type: [subject, hot]
+
+  algo:  # type: algorithm
+    # base
+    模拟:
+      algo_type: base
+    找规律:
+      algo_type: base
+    数学:
+      algo_type: base
+
+    # data_struct
+    字符串:
+      algo_type: data_struct
+    线段树: &s_tree
+      name: 线段树/树状数组
+      algo_type: data_struct
+    树状数组: *s_tree
+    二叉树: &binary_tree
+      name: 二叉树/树
+      algo_type: data_struct
+    树: *binary_tree
+    二叉搜索树: *binary_tree
+    链表:
+      algo_type: data_struct
+    栈: &stack_queue
+      name: 栈/队列
+      algo_type: data_struct
+    队列: *stack_queue
+    数组: &array
+      name: 数组、矩阵(二维数组)
+      algo_type: data_struct
+    矩阵: *array
+    二维数组: *array
+    堆: &head
+      name: 堆/优先队列
+      algo_type: data_struct
+    优先队列: *head
+    设计:
+      algo_type: data_struct
+    并查集:
+      algo_type: data_struct
+    图:
+      algo_type: data_struct
+
+    # algorithm
+    分治:
+      algo_type: algorithm
+    递归: &recur
+      name: 递归/迭代
+      algo_type: algorithm
+    迭代: *recur
+    回溯: *recur
+    动态规划: &dp
+      name: 动态规划(记忆化搜索)
+      algo_type: algorithm
+      type: hot
+    dp: *dp
+    记忆化搜索: *dp
+    递推: *dp
+    排序: &sort
+      name: 排序/快排
+      algo_type: algorithm
+    快排: *sort
+    归并排序: *sort
+    bfs: &bfs
+      name: 广度优先搜索(BFS)
+      algo_type: algorithm
+    广度优先搜索: *bfs
+    dfs: &dfs
+      name: 深度优先搜索(DFS)
+      algo_type: algorithm
+    深度优先搜索: *dfs
+    dfs+回溯: *dfs
+    dfs+剪枝: *dfs
+    二分: &bisect
+      name: 二分/二分搜索
+      algo_type: algorithm
+    二分搜索: *bisect
+    二分法: *bisect
+    二分查找: *bisect
+
+    # trick
+    双指针: &two_pointer
+      name: 双指针/滑动窗口
+      algo_type: trick
+    快慢指针: *two_pointer
+    快慢指针（链表）: *two_pointer
+    快慢指针（数组）: *two_pointer
+    同向双指针: *two_pointer
+    对向双指针: *two_pointer
+    滑动窗口: *two_pointer
+    有限状态自动机:
+      algo_type: trick
+    贪心:
+      algo_type: trick
+    前缀和:
+      algo_type: trick
+    dfs2dp:
+      name: 从暴力递归到动态规划
+      algo_type: trick
+    单调栈: &m_stack
+      name: 单调栈/单调队列
+      algo_type: trick
+    单调队列: *m_stack
+    hash: &hash
+      name: 哈希表(Hash)
+      algo_type: trick
+    哈希表: *hash
+    treedp:
+      name: 自底向上的递归技巧
+      algo_type: trick
+    位运算:
+      algo_type: trick

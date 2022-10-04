@@ -1,12 +1,12 @@
 ## 剑指Offer_4900_丑数（中等, 2021-12）
 <!--
 {
-    "category": ["动态规划", "经典"],
+    "tags": ["动态规划", "经典"],
     "source": "剑指Offer",
     "level": "中等",
     "number": "4900",
     "name": "丑数",
-    "company": []
+    "companies": []
 }
 -->
 

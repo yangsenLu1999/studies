@@ -1,12 +1,12 @@
 ## LeetCode_0112_路径总和（简单, 2022-02）
 <!--
 {
-    "category": ["二叉树"],
+    "tags": ["二叉树"],
     "source": "LeetCode",
     "level": "简单",
     "number": "0112",
     "name": "路径总和",
-    "company": []
+    "companies": []
 }
 -->
 

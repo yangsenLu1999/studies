@@ -1,12 +1,12 @@
 ## LeetCode_0015_三数之和（中等, 2021-10）
 <!--
 {
-    "category": ["双指针"],
+    "tags": ["双指针"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0015",
     "name": "三数之和",
-    "company": []
+    "companies": []
 }
 -->
 

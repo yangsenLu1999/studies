@@ -1,12 +1,12 @@
 ## LeetCode_0021_合并两个有序链表（简单, 2021-10）
 <!--
 {
-    "category": ["递归"],
+    "tags": ["递归"],
     "source": "LeetCode",
     "level": "简单",
     "number": "0021",
     "name": "合并两个有序链表",
-    "company": []
+    "companies": []
 }
 -->
 

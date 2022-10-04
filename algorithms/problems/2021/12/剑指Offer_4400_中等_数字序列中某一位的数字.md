@@ -1,12 +1,12 @@
 ## 剑指Offer_4400_数字序列中某一位的数字（中等, 2021-12）
 <!--
 {
-    "category": ["找规律"],
+    "tags": ["找规律"],
     "source": "剑指Offer",
     "level": "中等",
     "number": "4400",
     "name": "数字序列中某一位的数字",
-    "company": []
+    "companies": []
 }
 -->
 

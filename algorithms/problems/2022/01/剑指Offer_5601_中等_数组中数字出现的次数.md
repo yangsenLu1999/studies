@@ -1,12 +1,12 @@
 ## 剑指Offer_5601_数组中数字出现的次数（中等, 2022-01）
 <!--
 {
-    "category": ["位运算"],
+    "tags": ["位运算"],
     "source": "剑指Offer",
     "level": "中等",
     "number": "5601",
     "name": "数组中数字出现的次数",
-    "company": []
+    "companies": []
 }
 -->
 

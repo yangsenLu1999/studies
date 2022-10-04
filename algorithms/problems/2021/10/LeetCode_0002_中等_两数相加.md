@@ -1,12 +1,12 @@
 ## LeetCode_0002_两数相加（中等, 2021-10）
 <!--
 {
-    "category": ["链表"],
+    "tags": ["链表"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0002",
     "name": "两数相加",
-    "company": []
+    "companies": []
 }
 -->
 

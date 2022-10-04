@@ -1,12 +1,12 @@
 ## 剑指Offer_2700_二叉树的镜像（简单, 2021-11）
 <!--
 {
-    "category": ["二叉树", "递归"],
+    "tags": ["二叉树", "递归"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "2700",
     "name": "二叉树的镜像",
-    "company": []
+    "companies": []
 }
 -->
 

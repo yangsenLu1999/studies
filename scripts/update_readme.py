@@ -53,13 +53,10 @@ class BuildReadme:
         """"""
         with open(self.fp_repo_readme_main, encoding='utf8') as f:
             tmp = f.read()
-        with open(self.algo.fp_repo_readme_algorithms, encoding='utf8') as f:
-            readme_algorithms = f.read()
 
-        readme_homepage = tmp.format(readme_algorithms=readme_algorithms)
+        readme_homepage = tmp.format(readme_algorithms=self.algo.readme)
         with open(args.fp_repo_readme, 'w', encoding='utf8') as f:
             f.write(readme_homepage)
-            # ReadmeUtils.git_add(args.fp_repo_readme)
 
     def build(self):
         # build algorithms

@@ -1,12 +1,12 @@
 ## 剑指Offer_1700_打印从1到最大的n位数（N叉树的遍历）（中等, 2021-11）
 <!--
 {
-    "category": ["DFS"],
+    "tags": ["DFS"],
     "source": "剑指Offer",
     "level": "中等",
     "number": "1700",
     "name": "打印从1到最大的n位数（N叉树的遍历）",
-    "company": []
+    "companies": []
 }
 -->
 

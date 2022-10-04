@@ -1,12 +1,12 @@
 ## LeetCode_0988_从叶结点开始的最小字符串（中等, 2022-02）
 <!--
 {
-    "category": ["二叉树"],
+    "tags": ["二叉树"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0988",
     "name": "从叶结点开始的最小字符串",
-    "company": []
+    "companies": []
 }
 -->
 

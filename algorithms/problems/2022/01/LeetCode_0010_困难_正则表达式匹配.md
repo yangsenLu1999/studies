@@ -1,12 +1,12 @@
 ## LeetCode_0010_正则表达式匹配（困难, 2022-01）
 <!--
 {
-    "category": ["动态规划"],
+    "tags": ["动态规划"],
     "source": "LeetCode",
     "level": "困难",
     "number": "0010",
     "name": "正则表达式匹配",
-    "company": []
+    "companies": []
 }
 -->
 

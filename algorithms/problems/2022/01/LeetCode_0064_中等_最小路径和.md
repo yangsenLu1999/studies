@@ -1,12 +1,12 @@
 ## LeetCode_0064_最小路径和（中等, 2022-01）
 <!--
 {
-    "category": ["动态规划"],
+    "tags": ["动态规划"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0064",
     "name": "最小路径和",
-    "company": []
+    "companies": []
 }
 -->
 

@@ -1,12 +1,12 @@
 ## LeetCode_0257_二叉树的所有路径（简单, 2022-02）
 <!--
 {
-    "category": ["二叉树"],
+    "tags": ["二叉树"],
     "source": "LeetCode",
     "level": "简单",
     "number": "0257",
     "name": "二叉树的所有路径",
-    "company": []
+    "companies": []
 }
 -->
 

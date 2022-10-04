@@ -1,12 +1,12 @@
 ## LeetCode_0279_完全平方数（中等, 2022-02）
 <!--
 {
-    "category": ["DFS2DP"],
+    "tags": ["DFS2DP"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0279",
     "name": "完全平方数",
-    "company": []
+    "companies": []
 }
 -->
 

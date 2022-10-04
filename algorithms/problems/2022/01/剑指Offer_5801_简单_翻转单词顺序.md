@@ -1,12 +1,12 @@
 ## 剑指Offer_5801_翻转单词顺序（简单, 2022-01）
 <!--
 {
-    "category": ["双指针"],
+    "tags": ["双指针"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "5801",
     "name": "翻转单词顺序",
-    "company": []
+    "companies": []
 }
 -->
 

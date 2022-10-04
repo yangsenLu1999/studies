@@ -1,12 +1,12 @@
 ## LeetCode_0020_有效的括号（简单, 2022-03）
 <!--
 {
-    "category": ["栈"],
+    "tags": ["栈"],
     "source": "LeetCode",
     "level": "简单",
     "number": "0020",
     "name": "有效的括号",
-    "company": []
+    "companies": []
 }
 -->
 

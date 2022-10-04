@@ -1,12 +1,12 @@
 ## 剑指Offer_3700_序列化二叉树（困难, 2021-12）
 <!--
 {
-    "category": ["二叉树"],
+    "tags": ["二叉树"],
     "source": "剑指Offer",
     "level": "困难",
     "number": "3700",
     "name": "序列化二叉树",
-    "company": []
+    "companies": []
 }
 -->
 

@@ -1,12 +1,12 @@
 ## 剑指Offer_2800_对称的二叉树（简单, 2021-11）
 <!--
 {
-    "category": ["二叉树", "递归"],
+    "tags": ["二叉树", "递归"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "2800",
     "name": "对称的二叉树",
-    "company": []
+    "companies": []
 }
 -->
 

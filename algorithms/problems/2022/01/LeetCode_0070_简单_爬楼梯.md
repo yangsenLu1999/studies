@@ -1,12 +1,12 @@
 ## LeetCode_0070_爬楼梯（简单, 2022-01）
 <!--
 {
-    "category": ["动态规划"],
+    "tags": ["动态规划"],
     "source": "LeetCode",
     "level": "简单",
     "number": "0070",
     "name": "爬楼梯",
-    "company": []
+    "companies": []
 }
 -->
 

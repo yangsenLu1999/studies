@@ -1,12 +1,12 @@
 ## 剑指Offer_4500_把数组排成最小的数（中等, 2021-12）
 <!--
 {
-    "category": ["排序"],
+    "tags": ["排序"],
     "source": "剑指Offer",
     "level": "中等",
     "number": "4500",
     "name": "把数组排成最小的数",
-    "company": []
+    "companies": []
 }
 -->
 

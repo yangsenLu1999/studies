@@ -1,12 +1,12 @@
 ## LeetCode_0352_将数据流变为多个不相交区间（困难, 2021-10）
 <!--
 {
-    "category": ["二分查找", "模拟"],
+    "tags": ["二分查找", "模拟"],
     "source": "LeetCode",
     "level": "困难",
     "number": "0352",
     "name": "将数据流变为多个不相交区间",
-    "company": []
+    "companies": []
 }
 -->
 

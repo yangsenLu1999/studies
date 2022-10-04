@@ -1,12 +1,12 @@
 ## 剑指Offer_5701_和为s的两个数字（简单, 2022-01）
 <!--
 {
-    "category": ["双指针"],
+    "tags": ["双指针"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "5701",
     "name": "和为s的两个数字",
-    "company": []
+    "companies": []
 }
 -->
 

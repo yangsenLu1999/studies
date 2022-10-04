@@ -1,12 +1,12 @@
 ## LeetCode_0053_最大子数组和（简单, 2022-01）
 <!--
 {
-    "category": ["动态规划"],
+    "tags": ["动态规划"],
     "source": "LeetCode",
     "level": "简单",
     "number": "0053",
     "name": "最大子数组和",
-    "company": []
+    "companies": []
 }
 -->
 

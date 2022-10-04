@@ -1,12 +1,12 @@
 ## 剑指Offer_0500_替换空格（简单, 2021-11）
 <!--
 {
-    "category": ["字符串"],
+    "tags": ["字符串"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "0500",
     "name": "替换空格",
-    "company": []
+    "companies": []
 }
 -->
 
