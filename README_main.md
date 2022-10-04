@@ -4,16 +4,20 @@
 
 # Keep on Your Studying!
 
-<!-- ![clones](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/clones.svg)
-![clones per week](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/clones_per_week.svg) 
-![views](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/views.svg)
-![views per week](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/views_per_week.svg) -->
+![wakatime](https://wakatime.com/badge/user/c840568d-e4b1-4c63-ade0-03856283d319/project/9e315c90-2c5a-43d3-846e-ba0a1022435f.svg)
 [![GitHub issues](https://img.shields.io/github/issues/imhuay/studies?color=important&cacheSeconds=3600)](https://github.com/imhuay/studies/issues)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/imhuay/studies?color=inactive&cacheSeconds=3600)](https://github.com/imhuay/studies/issues?q=is:issue+is:closed)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/imhuay/studies?style=flat&cacheSeconds=3600)
-[![GitHub last commit](https://img.shields.io/github/last-commit/imhuay/studies?cacheSeconds=3600)](https://github.com/imhuay/studies/commits)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/imhuay/studies?color=active&cacheSeconds=3600)
 ![](https://visitor-badge.laobi.icu/badge?page_id=imhuay.studies&right_color=green&left_text=page%20views)
-<!-- [![GitHub Repo stars](https://img.shields.io/github/stars/imhuay/studies?style=social)](https://github.com/imhuay/studies/stargazers) -->
+
+<!-- 
+![clones](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/clones.svg)
+![clones per week](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/clones_per_week.svg)
+![views](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/views.svg)
+![views per week](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/views_per_week.svg)
+[![GitHub last commit](https://img.shields.io/github/last-commit/imhuay/studies?cacheSeconds=3600)](https://github.com/imhuay/studies/commits)
+[![GitHub Repo stars](https://img.shields.io/github/stars/imhuay/studies?style=social)](https://github.com/imhuay/studies/stargazers)
+-->
 
 </div>
 

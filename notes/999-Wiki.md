@@ -9,7 +9,7 @@ Wiki
     - [gitbook](#gitbook)
         - [[1]](#1)
         - [[2]](#2)
-    - [Github Action](#github-action)
+    - [GitHub Action](#github-action)
     - [glob](#glob)
 - [H](#h)
     - [Hive](#hive)
@@ -44,7 +44,7 @@ Wiki
 
 ### git
 > 一个开源的分布式版本控制系统，可以有效地进行项目版本管理。
-- [`git` 的常用命令](./_archives/2022/06/git.md)
+- [`git` 常用命令](./_archives/2022/06/git.md)
     - [`git-subtree` 的基本用法](./_archives/2022/06/git-subtree的基本用法.md)
 
 ### gitbook
