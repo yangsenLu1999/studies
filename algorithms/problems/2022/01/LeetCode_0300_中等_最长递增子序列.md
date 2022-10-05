@@ -1,12 +1,12 @@
 ## LeetCode_0300_最长递增子序列（中等, 2022-01）
 <!--
 {
-    "category": ["动态规划", "贪心", "经典"],
+    "tags": ["动态规划", "贪心", "经典"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0300",
     "name": "最长递增子序列",
-    "company": []
+    "companies": []
 }
 -->
 

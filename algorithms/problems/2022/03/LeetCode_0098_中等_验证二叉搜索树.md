@@ -1,12 +1,12 @@
 ## LeetCode_0098_验证二叉搜索树（中等, 2022-03）
 <!--
 {
-    "category": ["二叉树"],
+    "tags": ["二叉树"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0098",
     "name": "验证二叉搜索树",
-    "company": []
+    "companies": []
 }
 -->
 

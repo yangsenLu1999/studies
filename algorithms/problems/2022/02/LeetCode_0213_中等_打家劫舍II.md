@@ -1,12 +1,12 @@
 ## LeetCode_0213_打家劫舍II（中等, 2022-02）
 <!--
 {
-    "category": ["动态规划"],
+    "tags": ["动态规划"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0213",
     "name": "打家劫舍II",
-    "company": []
+    "companies": []
 }
 -->
 

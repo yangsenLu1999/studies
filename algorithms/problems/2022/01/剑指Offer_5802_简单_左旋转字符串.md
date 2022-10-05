@@ -1,12 +1,12 @@
 ## 剑指Offer_5802_左旋转字符串（简单, 2022-01）
 <!--
 {
-    "category": ["字符串"],
+    "tags": ["字符串"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "5802",
     "name": "左旋转字符串",
-    "company": []
+    "companies": []
 }
 -->
 

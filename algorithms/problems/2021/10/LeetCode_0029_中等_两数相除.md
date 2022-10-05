@@ -1,12 +1,12 @@
 ## LeetCode_0029_两数相除（中等, 2021-10）
 <!--
 {
-    "category": ["位运算", "二分查找"],
+    "tags": ["位运算", "二分查找"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0029",
     "name": "两数相除",
-    "company": []
+    "companies": []
 }
 -->
 

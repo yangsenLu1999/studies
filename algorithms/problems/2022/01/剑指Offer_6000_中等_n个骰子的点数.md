@@ -1,12 +1,12 @@
 ## 剑指Offer_6000_n个骰子的点数（中等, 2022-01）
 <!--
 {
-    "category": ["动态规划", "DFS2DP"],
+    "tags": ["动态规划", "DFS2DP"],
     "source": "剑指Offer",
     "level": "中等",
     "number": "6000",
     "name": "n个骰子的点数",
-    "company": []
+    "companies": []
 }
 -->
 

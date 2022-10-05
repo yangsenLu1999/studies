@@ -1,12 +1,12 @@
 ## LeetCode_0474_一和零（中等, 2022-02）
 <!--
 {
-    "category": ["DFS2DP"],
+    "tags": ["DFS2DP"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0474",
     "name": "一和零",
-    "company": []
+    "companies": []
 }
 -->
 

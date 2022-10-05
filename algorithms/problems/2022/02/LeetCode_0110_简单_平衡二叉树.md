@@ -1,12 +1,12 @@
 ## LeetCode_0110_平衡二叉树（简单, 2022-02）
 <!--
 {
-    "category": ["TreeDP"],
+    "tags": ["TreeDP"],
     "source": "LeetCode",
     "level": "简单",
     "number": "0110",
     "name": "平衡二叉树",
-    "company": []
+    "companies": []
 }
 -->
 

@@ -1,12 +1,12 @@
 ## 剑指Offer_1200_矩阵中的路径（中等, 2021-11）
 <!--
 {
-    "category": ["DFS", "DFS+回溯"],
+    "tags": ["DFS", "DFS+回溯"],
     "source": "剑指Offer",
     "level": "中等",
     "number": "1200",
     "name": "矩阵中的路径",
-    "company": []
+    "companies": []
 }
 -->
 

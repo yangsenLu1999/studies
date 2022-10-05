@@ -1,12 +1,12 @@
 ## 剑指Offer_1002_跳台阶（简单, 2021-11）
 <!--
 {
-    "category": ["DP"],
+    "tags": ["DP"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "1002",
     "name": "跳台阶",
-    "company": []
+    "companies": []
 }
 -->
 

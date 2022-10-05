@@ -1,12 +1,12 @@
 ## 剑指Offer_3000_包含min函数的栈（简单, 2021-11）
 <!--
 {
-    "category": ["栈", "数组", "设计"],
+    "tags": ["栈", "数组", "设计"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "3000",
     "name": "包含min函数的栈",
-    "company": []
+    "companies": []
 }
 -->
 

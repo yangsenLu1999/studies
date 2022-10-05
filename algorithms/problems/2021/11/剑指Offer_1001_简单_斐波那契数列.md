@@ -1,12 +1,12 @@
 ## 剑指Offer_1001_斐波那契数列（简单, 2021-11）
 <!--
 {
-    "category": ["DP", "记忆化搜索"],
+    "tags": ["DP", "记忆化搜索"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "1001",
     "name": "斐波那契数列",
-    "company": []
+    "companies": []
 }
 -->
 

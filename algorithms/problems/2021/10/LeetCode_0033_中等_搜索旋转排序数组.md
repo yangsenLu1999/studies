@@ -1,12 +1,12 @@
 ## LeetCode_0033_搜索旋转排序数组（中等, 2021-10）
 <!--
 {
-    "category": ["二分查找"],
+    "tags": ["二分查找"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0033",
     "name": "搜索旋转排序数组",
-    "company": []
+    "companies": []
 }
 -->
 

@@ -1,12 +1,12 @@
 ## 剑指Offer_5902_队列的最大值（中等, 2022-01）
 <!--
 {
-    "category": ["队列", "设计"],
+    "tags": ["队列", "设计"],
     "source": "剑指Offer",
     "level": "中等",
     "number": "5902",
     "name": "队列的最大值",
-    "company": []
+    "companies": []
 }
 -->
 

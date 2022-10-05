@@ -1,12 +1,12 @@
 ## 剑指Offer_4000_最小的k个数（partition操作）（简单, 2021-12）
 <!--
 {
-    "category": ["优先队列", "快排", "经典"],
+    "tags": ["优先队列", "快排", "经典"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "4000",
     "name": "最小的k个数（partition操作）",
-    "company": []
+    "companies": []
 }
 -->
 

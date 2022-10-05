@@ -1,12 +1,12 @@
 ## 剑指Offer_6300_买卖股票的最佳时机（中等, 2022-01）
 <!--
 {
-    "category": ["模拟"],
+    "tags": ["模拟"],
     "source": "剑指Offer",
     "level": "中等",
     "number": "6300",
     "name": "买卖股票的最佳时机",
-    "company": []
+    "companies": []
 }
 -->
 

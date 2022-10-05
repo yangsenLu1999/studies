@@ -1,12 +1,12 @@
 ## 剑指Offer_1300_机器人的运动范围（中等, 2021-11）
 <!--
 {
-    "category": ["DFS"],
+    "tags": ["DFS"],
     "source": "剑指Offer",
     "level": "中等",
     "number": "1300",
     "name": "机器人的运动范围",
-    "company": []
+    "companies": []
 }
 -->
 

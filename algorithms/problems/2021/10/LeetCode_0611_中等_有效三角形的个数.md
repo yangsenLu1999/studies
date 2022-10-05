@@ -1,12 +1,12 @@
 ## LeetCode_0611_有效三角形的个数（中等, 2021-10）
 <!--
 {
-    "category": ["双指针"],
+    "tags": ["双指针"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0611",
     "name": "有效三角形的个数",
-    "company": []
+    "companies": []
 }
 -->
 

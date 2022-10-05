@@ -1,12 +1,12 @@
 ## LeetCode_0123_买卖股票的最佳时机III（困难, 2022-01）
 <!--
 {
-    "category": ["动态规划"],
+    "tags": ["动态规划"],
     "source": "LeetCode",
     "level": "困难",
     "number": "0123",
     "name": "买卖股票的最佳时机III",
-    "company": []
+    "companies": []
 }
 -->
 

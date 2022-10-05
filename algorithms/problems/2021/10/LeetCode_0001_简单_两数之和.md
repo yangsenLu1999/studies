@@ -1,12 +1,12 @@
 ## LeetCode_0001_两数之和（简单, 2021-10）
 <!--
 {
-    "category": ["哈希表"],
+    "tags": ["哈希表"],
     "source": "LeetCode",
     "level": "简单",
     "number": "0001",
     "name": "两数之和",
-    "company": []
+    "companies": []
 }
 -->
 

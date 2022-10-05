@@ -1,12 +1,12 @@
 ## 剑指Offer_4100_数据流中的中位数（困难, 2021-12）
 <!--
 {
-    "category": ["设计", "堆"],
+    "tags": ["设计", "堆"],
     "source": "剑指Offer",
     "level": "困难",
     "number": "4100",
     "name": "数据流中的中位数",
-    "company": []
+    "companies": []
 }
 -->
 

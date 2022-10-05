@@ -1,12 +1,12 @@
 ## 剑指Offer_5501_求二叉树的深度（简单, 2022-01）
 <!--
 {
-    "category": ["二叉树"],
+    "tags": ["二叉树"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "5501",
     "name": "求二叉树的深度",
-    "company": []
+    "companies": []
 }
 -->
 

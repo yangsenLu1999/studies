@@ -39,12 +39,12 @@ for dp, _, fns in os.walk(fp_problems):
         info_str = RE_INFO.search(txt).group(1)
         info = json.loads(info_str)
         new_info = {
-            'category': NoIndentJSONEncoder.wrap(info['category']),
+            'tags': NoIndentJSONEncoder.wrap(info['category']),
             'source': info['source'],
-            'level': '困难' if info['level'] == '较难' else info['level'],
+            'level': info['level'],
             'number': info['number'],
             'name': info['name'],
-            'company': NoIndentJSONEncoder.wrap(info['company']),
+            'companies': NoIndentJSONEncoder.wrap(info['company']),
         }
         new_info_str = new_info_temp.format(info=json.dumps(new_info, indent=4, ensure_ascii=False,
                                                             cls=NoIndentJSONEncoder))

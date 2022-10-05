@@ -1,12 +1,12 @@
 ## LeetCode_0129_求根节点到叶节点数字之和（中等, 2022-02）
 <!--
 {
-    "category": ["二叉树"],
+    "tags": ["二叉树"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0129",
     "name": "求根节点到叶节点数字之和",
-    "company": []
+    "companies": []
 }
 -->
 

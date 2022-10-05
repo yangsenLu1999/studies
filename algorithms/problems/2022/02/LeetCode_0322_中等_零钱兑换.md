@@ -1,12 +1,12 @@
 ## LeetCode_0322_零钱兑换（中等, 2022-02）
 <!--
 {
-    "category": ["DFS2DP", "动态规划"],
+    "tags": ["DFS2DP", "动态规划"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0322",
     "name": "零钱兑换",
-    "company": []
+    "companies": []
 }
 -->
 

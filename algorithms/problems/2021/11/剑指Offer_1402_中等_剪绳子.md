@@ -1,12 +1,12 @@
 ## 剑指Offer_1402_剪绳子（中等, 2021-11）
 <!--
 {
-    "category": ["数学"],
+    "tags": ["数学"],
     "source": "剑指Offer",
     "level": "中等",
     "number": "1402",
     "name": "剪绳子",
-    "company": []
+    "companies": []
 }
 -->
 

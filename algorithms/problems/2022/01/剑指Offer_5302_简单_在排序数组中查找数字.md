@@ -1,12 +1,12 @@
 ## 剑指Offer_5302_在排序数组中查找数字（简单, 2022-01）
 <!--
 {
-    "category": ["二分"],
+    "tags": ["二分"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "5302",
     "name": "在排序数组中查找数字",
-    "company": []
+    "companies": []
 }
 -->
 

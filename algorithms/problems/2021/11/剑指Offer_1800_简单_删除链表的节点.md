@@ -1,12 +1,12 @@
 ## 剑指Offer_1800_删除链表的节点（简单, 2021-11）
 <!--
 {
-    "category": ["链表"],
+    "tags": ["链表"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "1800",
     "name": "删除链表的节点",
-    "company": []
+    "companies": []
 }
 -->
 

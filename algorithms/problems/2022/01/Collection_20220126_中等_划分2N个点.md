@@ -1,12 +1,12 @@
 ## Collection_20220126_划分2N个点（中等, 2022-01）
 <!--
 {
-    "category": ["数学"],
+    "tags": ["数学"],
     "source": "Collection",
     "level": "中等",
     "number": "20220126",
     "name": "划分2N个点",
-    "company": []
+    "companies": []
 }
 -->
 

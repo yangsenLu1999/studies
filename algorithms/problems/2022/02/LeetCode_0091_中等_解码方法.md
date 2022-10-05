@@ -1,12 +1,12 @@
 ## LeetCode_0091_解码方法（中等, 2022-02）
 <!--
 {
-    "category": ["DP", "DFS2DP"],
+    "tags": ["DP", "DFS2DP"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0091",
     "name": "解码方法",
-    "company": []
+    "companies": []
 }
 -->
 

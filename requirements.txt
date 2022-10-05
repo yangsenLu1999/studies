@@ -1,6 +1,7 @@
 huaytools
 markdown
 PyGithub
+pyyaml
 
 ## python>=3.8
 # tqdm

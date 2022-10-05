@@ -1,12 +1,12 @@
 ## 剑指Offer_5400_二叉搜索树的第k大节点（简单, 2022-01）
 <!--
 {
-    "category": ["二叉树", "dfs"],
+    "tags": ["二叉树", "dfs"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "5400",
     "name": "二叉搜索树的第k大节点",
-    "company": []
+    "companies": []
 }
 -->
 

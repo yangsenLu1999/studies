@@ -1,12 +1,12 @@
 ## LeetCode_0104_二叉树的最大深度（简单, 2021-10）
 <!--
 {
-    "category": ["二叉树", "递归"],
+    "tags": ["二叉树", "递归"],
     "source": "LeetCode",
     "level": "简单",
     "number": "0104",
     "name": "二叉树的最大深度",
-    "company": []
+    "companies": []
 }
 -->
 

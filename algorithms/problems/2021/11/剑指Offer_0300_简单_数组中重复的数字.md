@@ -1,12 +1,12 @@
 ## 剑指Offer_0300_数组中重复的数字（简单, 2021-11）
 <!--
 {
-    "category": ["哈希表"],
+    "tags": ["哈希表"],
     "source": "剑指Offer",
     "level": "简单",
     "number": "0300",
     "name": "数组中重复的数字",
-    "company": []
+    "companies": []
 }
 -->
 

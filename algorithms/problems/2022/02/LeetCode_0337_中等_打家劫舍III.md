@@ -1,12 +1,12 @@
 ## LeetCode_0337_打家劫舍III（中等, 2022-02）
 <!--
 {
-    "category": ["TreeDP"],
+    "tags": ["TreeDP"],
     "source": "LeetCode",
     "level": "中等",
     "number": "0337",
     "name": "打家劫舍III",
-    "company": []
+    "companies": []
 }
 -->
 
