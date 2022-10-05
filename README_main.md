@@ -21,7 +21,16 @@
 
 </div>
 
+## Index
+
+{toc_algorithms}
+{toc_notes}
+
+---
+
 {readme_algorithms}
+
+{readme_notes}
 
 <!-- <summary><b> TODO </b></summary> -->
 ### TODO

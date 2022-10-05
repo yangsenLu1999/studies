@@ -26,8 +26,7 @@ import yaml
 
 from huaytools.utils import MarkdownUtils
 
-from readme.args import args
-from readme.utils import ReadmeUtils
+from readme.utils import ReadmeUtils, args
 
 
 @dataclass
@@ -236,7 +235,7 @@ class Algorithms:
     def __init__(self):
         """"""
         # attrs
-        self.title = self.__class__.__name__
+        self.title = README_TITLE
         self._fp_algo = args.fp_algorithms
         self._fp_algo_readme = args.fp_algorithms_readme
         self._fp_problems = args.fp_algorithms_problems
@@ -375,7 +374,8 @@ class Algorithms:
             toc.append(TMP_TOC_TD_CATEGORY.format(sub_toc='\n'.join(sub_toc)))
         return toc
 
-    readme: str
+    readme_toc: str
+    readme_concat: str
 
     def build(self):
         self._type2tags = dict()
@@ -418,7 +418,8 @@ class Algorithms:
             f.write(readme)
 
         toc_concat = toc.replace('(#', f'({self._fp_algo.name}/README.md#')
-        self.readme = TMP_README_CONCAT.format(title=self.title, toc=toc_concat)
+        self.readme_toc = f'- [{README_TITLE}](#{MarkdownUtils.slugify(README_TITLE)})'
+        self.readme_concat = TMP_README_CONCAT.format(title=self.title, toc=toc_concat)
         # with self.fp_repo_readme_algorithms.open('w', encoding='utf8') as f:
         #     f.write(readme_concat)
 

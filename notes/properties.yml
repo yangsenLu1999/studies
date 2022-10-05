@@ -1,0 +1,11 @@
+subject_ids:
+  0:
+    name: 算法
+  1:
+    name: 编程
+  2:
+    name: 大数据
+  3:
+    name: 工具
+  9:
+    name: Wiki

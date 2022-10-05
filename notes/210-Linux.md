@@ -1,15 +1,20 @@
 Linux
 ===
+<!--info
+toc_id: linux
+-->
 
-- [Shell 脚本相关](#shell-脚本相关)
+<!-- TOC -->
+- [Shell 脚本](#shell-脚本)
 - [常用操作](#常用操作)
 - [文本处理](#文本处理)
-- [使用记录](#使用记录)
+- [杂项](#杂项)
+<!-- TOC -->
 
 ---
 
-## Shell 脚本相关
-> [Shell 脚本](./_archives/2022/07/Shell脚本.md)
+## Shell 脚本
+> [Shell 脚本使用记录](./_archives/2022/07/Shell脚本使用记录.md)
 
 
 ## 常用操作
@@ -25,5 +30,5 @@ Linux
 - [`awk` 命令的基本用法](./_archives/2022/06/Linux文本处理之awk.md)
 
 
-## 使用记录
+## 杂项
 - [Linux 使用 ssh 超时断开连接的原因及解决方法](http://bluebiu.com/blog/linux-ssh-session-alive.html)

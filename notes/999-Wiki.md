@@ -1,5 +1,8 @@
 Wiki
 ===
+<!--info
+toc_id: wiki
+-->
 
 <!-- TOC -->
 - [D](#d)

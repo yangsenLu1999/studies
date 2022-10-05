@@ -30,9 +30,9 @@ try:
 except:  # noqa
     exit(1)
 else:
-    from readme.args import args
     from readme.algorithms import Algorithms
-    from readme.utils import ReadmeUtils
+    from readme.notes import Notes
+    from readme.utils import ReadmeUtils, args
 
 
 class ENV:
@@ -48,19 +48,24 @@ class BuildReadme:
         self.fp_repo = args.fp_repo
         self.fp_repo_readme_main = args.fp_repo_readme_main
         self.algo = Algorithms()
+        self.note = Notes()
 
     def _update_homepage(self):
         """"""
         with open(self.fp_repo_readme_main, encoding='utf8') as f:
             tmp = f.read()
 
-        readme_homepage = tmp.format(readme_algorithms=self.algo.readme)
+        readme_homepage = tmp.format(toc_algorithms=self.algo.readme_toc,
+                                     toc_notes=self.note.readme_toc,
+                                     readme_algorithms=self.algo.readme_concat,
+                                     readme_notes=self.note.readme_concat)
         with open(args.fp_repo_readme, 'w', encoding='utf8') as f:
             f.write(readme_homepage)
 
     def build(self):
         # build algorithms
         self.algo.build()
+        self.note.build()
 
         # last
         self._update_homepage()
