@@ -26,9 +26,9 @@
 - [Algorithms](#algorithms)
 - [Researches](#researches)
     - [深度学习](#深度学习)
-    - [机器学习](#机器学习)
-    - [数据结构与算法](#数据结构与算法)
     - [自然语言处理](#自然语言处理)
+    - [数据结构与算法](#数据结构与算法)
+    - [机器学习](#机器学习)
     - [计算机视觉](#计算机视觉)
 - [Engineerings](#engineerings)
     - [Python](#python)
@@ -137,7 +137,7 @@
 
 <table>
 <tr>
-<td valign="top" width="1000">
+<td rowspan="3" valign="top" width="1000">
 
 ### 深度学习
 - [基础](notes/010-深度学习.md#基础)
@@ -155,8 +155,13 @@
 </td>
 <td valign="top" width="1000">
 
-### 机器学习
-- [模型](notes/020-机器学习.md#模型)
+### 自然语言处理
+- [基础](notes/030-自然语言处理.md#基础)
+- [调研](notes/030-自然语言处理.md#调研)
+    - [知识图谱](notes/030-自然语言处理.md#知识图谱)
+- [工具](notes/030-自然语言处理.md#工具)
+    - [HuggingFace](notes/030-自然语言处理.md#huggingface)
+- [资源](notes/030-自然语言处理.md#资源)
 
 </td>
 <td valign="top" width="1000">
@@ -172,13 +177,8 @@
 <tr>
 <td valign="top" width="1000">
 
-### 自然语言处理
-- [基础](notes/030-自然语言处理.md#基础)
-- [调研](notes/030-自然语言处理.md#调研)
-    - [知识图谱](notes/030-自然语言处理.md#知识图谱)
-- [工具](notes/030-自然语言处理.md#工具)
-    - [HuggingFace](notes/030-自然语言处理.md#huggingface)
-- [资源](notes/030-自然语言处理.md#资源)
+### 机器学习
+- [模型](notes/020-机器学习.md#模型)
 
 </td>
 <td valign="top" width="1000">

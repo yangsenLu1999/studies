@@ -4,9 +4,9 @@ Notes
 <!-- TOC -->
 - [Researches](#researches)
     - [深度学习](#深度学习)
-    - [机器学习](#机器学习)
-    - [数据结构与算法](#数据结构与算法)
     - [自然语言处理](#自然语言处理)
+    - [数据结构与算法](#数据结构与算法)
+    - [机器学习](#机器学习)
     - [计算机视觉](#计算机视觉)
 - [Engineerings](#engineerings)
     - [Python](#python)
@@ -22,7 +22,7 @@ Notes
 
 <table>
 <tr>
-<td valign="top" width="1000">
+<td rowspan="3" valign="top" width="1000">
 
 ### 深度学习
 {dl}
@@ -30,8 +30,8 @@ Notes
 </td>
 <td valign="top" width="1000">
 
-### 机器学习
-{ml}
+### 自然语言处理
+{nlp}
 
 </td>
 <td valign="top" width="1000">
@@ -47,8 +47,8 @@ Notes
 <tr>
 <td valign="top" width="1000">
 
-### 自然语言处理
-{nlp}
+### 机器学习
+{ml}
 
 </td>
 <td valign="top" width="1000">
