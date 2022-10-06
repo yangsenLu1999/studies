@@ -1,13 +1,12 @@
 <!-- <div style="text-align: center"> -->
 <div align="center">  <!-- style="text-align: center" 在 GitHub 主页不生效 -->
-<!-- cacheSeconds 统一为 3600 秒 -->
 
 # Keep on Your Studying!
 
 [![wakatime](https://wakatime.com/badge/user/c840568d-e4b1-4c63-ade0-03856283d319.svg)](https://wakatime.com/@c840568d-e4b1-4c63-ade0-03856283d319)
-[![GitHub issues](https://img.shields.io/github/issues/imhuay/studies?color=important&cacheSeconds=3600)](https://github.com/imhuay/studies/issues)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/imhuay/studies?color=inactive&cacheSeconds=3600)](https://github.com/imhuay/studies/issues?q=is:issue+is:closed)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/imhuay/studies?color=active&cacheSeconds=3600)](https://github.com/imhuay/studies/commits/master)
+[![GitHub issues](https://img.shields.io/github/issues/imhuay/studies?color=important)](https://github.com/imhuay/studies/issues)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/imhuay/studies?color=inactive)](https://github.com/imhuay/studies/issues?q=is:issue+is:closed)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/imhuay/studies?color=active)](https://github.com/imhuay/studies/commits/master)
 [![](https://visitor-badge.laobi.icu/badge?page_id=imhuay.studies&right_color=green&left_text=page%20views)](https://visitor-badge.laobi.icu)
 
 <!-- 

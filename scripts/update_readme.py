@@ -13,6 +13,7 @@ import sys
 import json
 import time
 import doctest
+import subprocess
 
 from typing import *
 from pathlib import Path
@@ -20,7 +21,8 @@ from itertools import islice
 from collections import defaultdict
 
 from huaytools.utils import get_logger
-from github import Github
+
+# from github import Github
 
 logger = get_logger()
 
@@ -50,6 +52,30 @@ class BuildReadme:
         self.algo = Algorithms()
         self.note = Notes()
 
+        # process
+        self.build()
+        self.git_push()
+
+    commit_info = 'Auto-Update README'
+
+    def git_push(self):
+        os.system('git add -u')
+        code, data = subprocess.getstatusoutput(f'git commit -m "{self.commit_info}"')
+        if code == 0:
+            # os.system('git push')
+            data = subprocess.getoutput('git push')
+            print(data)
+        else:
+            print(data)
+
+    def build(self):
+        # build algorithms
+        self.algo.build()
+        self.note.build()
+
+        # last
+        self._update_homepage()
+
     def _update_homepage(self):
         """"""
         with open(self.fp_repo_readme_main, encoding='utf8') as f:
@@ -62,17 +88,8 @@ class BuildReadme:
         with open(args.fp_repo_readme, 'w', encoding='utf8') as f:
             f.write(readme_homepage)
 
-    def build(self):
-        # build algorithms
-        self.algo.build()
-        self.note.build()
-
-        # last
-        self._update_homepage()
-
 
 if __name__ == '__main__':
     """"""
-    br = BuildReadme()
-    br.build()
-    logger.info(f'Update README Success!')
+    BuildReadme()
+    # logger.info(f'Update README Success!')

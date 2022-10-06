@@ -4,12 +4,12 @@ on:
   workflow_dispatch: # for manual workflow trigger
   schedule:
     - cron: '0 0 * * *' # runs at every 12AM UTC
-#  push:
-#    branches: [ 'master' ]
-#    paths:
-#      - 'README_main.md'
-#      - 'src/readme/**'
-#      - 'algorithms/**'
+  push:
+    branches: [ 'master' ]
+    paths:
+      - 'README_main.md'
+      #- 'src/readme/**'
+      #- 'algorithms/**'
 
 jobs:
   update-readme:
@@ -32,8 +32,7 @@ jobs:
       run: |
         git config --global user.name 'imhuay-auto'
         git config --global user.email 'imhuay@163.com'
-        #git checkout features/auto-update
         python scripts/update_readme.py
-        git add -u
-        git commit -m 'Auto-Update README'
-        git push 
+        #git add -u
+        #git commit -m 'Auto-Update README'
+        #git push 
