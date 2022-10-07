@@ -20,10 +20,23 @@
 
 </div>
 
-## Index
+<table>
+<tr>
+<td valign="top" width="1000">
+
+## Index 📑
 
 {toc_algorithms}
 {toc_notes}
+
+</td>
+<td valign="top" width="1000">
+
+{toc_recent}
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -31,8 +44,8 @@
 
 {readme_notes}
 
-<!-- <summary><b> TODO </b></summary> -->
-### TODO
+
+## TODO
 
 - [ ] 给 algorithms/notes 添加 README，TOC 树形目录；
 - [ ] 尝试 GitHub 提供的 projects 栏：参考 [Projects · zhaoyan346a/Blog](https://github.com/zhaoyan346a/Blog/projects)

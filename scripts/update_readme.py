@@ -53,8 +53,6 @@ class BuildReadme:
         self.note = Notes()
 
         # process
-        self.build()
-        self.git_push()
 
     commit_info = 'Auto-Update README'
 
@@ -83,6 +81,7 @@ class BuildReadme:
 
         readme_homepage = tmp.format(toc_algorithms=self.algo.readme_toc,
                                      toc_notes=self.note.readme_toc,
+                                     toc_recent=self.note.repo_recent_toc,
                                      readme_algorithms=self.algo.readme_concat,
                                      readme_notes=self.note.readme_concat)
         with open(args.fp_repo_readme, 'w', encoding='utf8') as f:
@@ -91,5 +90,7 @@ class BuildReadme:
 
 if __name__ == '__main__':
     """"""
-    BuildReadme()
+    br = BuildReadme()
+    br.build()
+    br.git_push()
     # logger.info(f'Update README Success!')
