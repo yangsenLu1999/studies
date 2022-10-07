@@ -1,13 +1,11 @@
 ## 剑指Offer_4400_数字序列中某一位的数字（中等, 2021-12）
-<!--
-{
-    "tags": ["找规律"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "4400",
-    "name": "数字序列中某一位的数字",
-    "companies": []
-}
+<!--info
+tags: [找规律]
+source: 剑指Offer
+level: 中等
+number: '4400'
+name: 数字序列中某一位的数字
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

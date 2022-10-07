@@ -1,13 +1,11 @@
 ## 剑指Offer2_069_山峰数组的顶部（简单, 2022-02）
-<!--
-{
-    "tags": ["二分查找"],
-    "source": "剑指Offer2",
-    "level": "简单",
-    "number": "069",
-    "name": "山峰数组的顶部",
-    "companies": []
-}
+<!--info
+tags: [二分查找]
+source: 剑指Offer2
+level: 简单
+number: 069
+name: 山峰数组的顶部
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

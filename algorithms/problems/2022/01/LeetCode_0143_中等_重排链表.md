@@ -1,13 +1,13 @@
 ## LeetCode_0143_重排链表（中等, 2022-01）
-<!--
-{
-    "tags": ["链表", "模拟"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0143",
-    "name": "重排链表",
-    "companies": ["字节", "度小满"]
-}
+<!--info
+tags: [链表, 模拟]
+source: LeetCode
+level: 中等
+number: '0143'
+name: 重排链表
+companies:
+- 字节
+- 度小满
 -->
 
 <summary><b>问题简述</b></summary>

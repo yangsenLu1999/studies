@@ -1,13 +1,11 @@
 ## LeetCode_0016_最接近的三数之和（中等, 2021-10）
-<!--
-{
-    "tags": ["双指针"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0016",
-    "name": "最接近的三数之和",
-    "companies": []
-}
+<!--info
+tags: [双指针]
+source: LeetCode
+level: 中等
+number: '0016'
+name: 最接近的三数之和
+companies: []
 -->
 
 <summary><b>问题简述</b></summary> 

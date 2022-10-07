@@ -1,13 +1,11 @@
 ## LeetCode_0005_最长回文子串（中等, 2021-10）
-<!--
-{
-    "tags": ["DP", "模拟", "双指针"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0005",
-    "name": "最长回文子串",
-    "companies": []
-}
+<!--info
+tags: [DP, 模拟, 双指针]
+source: LeetCode
+level: 中等
+number: '0005'
+name: 最长回文子串
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

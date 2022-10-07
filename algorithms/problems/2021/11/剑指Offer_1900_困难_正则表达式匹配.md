@@ -1,13 +1,11 @@
 ## 剑指Offer_1900_正则表达式匹配（困难, 2021-11）
-<!--
-{
-    "tags": ["字符串", "动态规划", "递归"],
-    "source": "剑指Offer",
-    "level": "困难",
-    "number": "1900",
-    "name": "正则表达式匹配",
-    "companies": []
-}
+<!--info
+tags: [字符串, 动态规划, 递归]
+source: 剑指Offer
+level: 困难
+number: '1900'
+name: 正则表达式匹配
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

@@ -1,13 +1,11 @@
 ## 剑指Offer_2500_合并两个排序的链表（简单, 2021-11）
-<!--
-{
-    "tags": ["链表", "递归", "迭代"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "2500",
-    "name": "合并两个排序的链表",
-    "companies": []
-}
+<!--info
+tags: [链表, 递归, 迭代]
+source: 剑指Offer
+level: 简单
+number: '2500'
+name: 合并两个排序的链表
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

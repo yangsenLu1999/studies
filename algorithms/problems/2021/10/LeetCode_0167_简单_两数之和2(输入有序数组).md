@@ -1,13 +1,11 @@
 ## LeetCode_0167_两数之和2(输入有序数组)（简单, 2021-10）
-<!--
-{
-    "tags": ["双指针"],
-    "source": "LeetCode",
-    "level": "简单",
-    "number": "0167",
-    "name": "两数之和2(输入有序数组)",
-    "companies": []
-}
+<!--info
+tags: [双指针]
+source: LeetCode
+level: 简单
+number: '0167'
+name: 两数之和2(输入有序数组)
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

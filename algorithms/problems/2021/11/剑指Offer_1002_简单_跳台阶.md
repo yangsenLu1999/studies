@@ -1,13 +1,11 @@
 ## 剑指Offer_1002_跳台阶（简单, 2021-11）
-<!--
-{
-    "tags": ["DP"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "1002",
-    "name": "跳台阶",
-    "companies": []
-}
+<!--info
+tags: [DP]
+source: 剑指Offer
+level: 简单
+number: '1002'
+name: 跳台阶
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

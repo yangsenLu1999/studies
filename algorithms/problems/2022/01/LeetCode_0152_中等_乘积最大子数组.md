@@ -1,13 +1,11 @@
 ## LeetCode_0152_乘积最大子数组（中等, 2022-01）
-<!--
-{
-    "tags": ["动态规划"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0152",
-    "name": "乘积最大子数组",
-    "companies": []
-}
+<!--info
+tags: [动态规划]
+source: LeetCode
+level: 中等
+number: '0152'
+name: 乘积最大子数组
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

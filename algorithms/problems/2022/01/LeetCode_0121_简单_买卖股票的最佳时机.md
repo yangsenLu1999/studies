@@ -1,13 +1,11 @@
 ## LeetCode_0121_买卖股票的最佳时机（简单, 2022-01）
-<!--
-{
-    "tags": ["动态规划"],
-    "source": "LeetCode",
-    "level": "简单",
-    "number": "0121",
-    "name": "买卖股票的最佳时机",
-    "companies": []
-}
+<!--info
+tags: [动态规划]
+source: LeetCode
+level: 简单
+number: '0121'
+name: 买卖股票的最佳时机
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

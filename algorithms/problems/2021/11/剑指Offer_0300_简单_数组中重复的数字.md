@@ -1,13 +1,11 @@
 ## 剑指Offer_0300_数组中重复的数字（简单, 2021-11）
-<!--
-{
-    "tags": ["哈希表"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "0300",
-    "name": "数组中重复的数字",
-    "companies": []
-}
+<!--info
+tags: [哈希表]
+source: 剑指Offer
+level: 简单
+number: '0300'
+name: 数组中重复的数字
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

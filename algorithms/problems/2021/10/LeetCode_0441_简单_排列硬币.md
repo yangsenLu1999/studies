@@ -1,13 +1,11 @@
 ## LeetCode_0441_排列硬币（简单, 2021-10）
-<!--
-{
-    "tags": ["二分查找", "数学"],
-    "source": "LeetCode",
-    "level": "简单",
-    "number": "0441",
-    "name": "排列硬币",
-    "companies": []
-}
+<!--info
+tags: [二分查找, 数学]
+source: LeetCode
+level: 简单
+number: '0441'
+name: 排列硬币
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

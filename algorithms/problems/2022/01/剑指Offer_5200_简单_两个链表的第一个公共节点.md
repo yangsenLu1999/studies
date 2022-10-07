@@ -1,13 +1,11 @@
 ## 剑指Offer_5200_两个链表的第一个公共节点（简单, 2022-01）
-<!--
-{
-    "tags": ["链表", "快慢指针（链表）"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "5200",
-    "name": "两个链表的第一个公共节点",
-    "companies": []
-}
+<!--info
+tags: [链表, 快慢指针（链表）]
+source: 剑指Offer
+level: 简单
+number: '5200'
+name: 两个链表的第一个公共节点
+companies: []
 -->
 
 <summary><b>问题描述</b></summary>

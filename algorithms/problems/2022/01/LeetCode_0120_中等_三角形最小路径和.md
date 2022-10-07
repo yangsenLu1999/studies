@@ -1,13 +1,11 @@
 ## LeetCode_0120_三角形最小路径和（中等, 2022-01）
-<!--
-{
-    "tags": ["动态规划"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0120",
-    "name": "三角形最小路径和",
-    "companies": []
-}
+<!--info
+tags: [动态规划]
+source: LeetCode
+level: 中等
+number: '0120'
+name: 三角形最小路径和
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

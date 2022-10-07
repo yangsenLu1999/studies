@@ -1,13 +1,11 @@
 ## LeetCode_0001_两数之和（简单, 2021-10）
-<!--
-{
-    "tags": ["哈希表"],
-    "source": "LeetCode",
-    "level": "简单",
-    "number": "0001",
-    "name": "两数之和",
-    "companies": []
-}
+<!--info
+tags: [哈希表, lc100]
+source: LeetCode
+level: 简单
+number: '0001'
+name: 两数之和
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>
@@ -57,19 +55,16 @@
 
 ```python
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:  # noqa
-        """"""
-        tmp = dict()
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
 
-        for i in range(len(nums)):
-            left = target - nums[i]  # 减去当前值
-            if left in tmp:  # 如果差值在哈希表中，说明找到了答案
-                return [tmp[left], i]
+        tb = dict()
 
-            tmp[nums[i]] = i  # 保存当前值的位置
-
+        for i, x in enumerate(nums):
+            if (r := target - x) in tb:
+                return [tb[r], i]
+            tb[x] = i
+        
         return []
-
 ```
 
 </details>

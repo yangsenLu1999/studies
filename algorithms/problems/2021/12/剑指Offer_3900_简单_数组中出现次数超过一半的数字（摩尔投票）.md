@@ -1,13 +1,11 @@
 ## 剑指Offer_3900_数组中出现次数超过一半的数字（摩尔投票）（简单, 2021-12）
-<!--
-{
-    "tags": ["排序", "模拟", "分治", "经典"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "3900",
-    "name": "数组中出现次数超过一半的数字（摩尔投票）",
-    "companies": []
-}
+<!--info
+tags: [排序, 模拟, 分治, 经典]
+source: 剑指Offer
+level: 简单
+number: '3900'
+name: 数组中出现次数超过一半的数字（摩尔投票）
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

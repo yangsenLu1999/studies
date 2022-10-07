@@ -1,13 +1,11 @@
 ## 剑指Offer_0900_用两个栈实现队列（简单, 2021-11）
-<!--
-{
-    "tags": ["栈", "队列", "设计"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "0900",
-    "name": "用两个栈实现队列",
-    "companies": []
-}
+<!--info
+tags: [栈, 队列, 设计]
+source: 剑指Offer
+level: 简单
+number: 0900
+name: 用两个栈实现队列
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

@@ -1,13 +1,11 @@
 ## LeetCode_0876_链表的中间结点（简单, 2022-01）
-<!--
-{
-    "tags": ["链表", "快慢指针"],
-    "source": "LeetCode",
-    "level": "简单",
-    "number": "0876",
-    "name": "链表的中间结点",
-    "companies": []
-}
+<!--info
+tags: [链表, 快慢指针]
+source: LeetCode
+level: 简单
+number: 0876
+name: 链表的中间结点
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

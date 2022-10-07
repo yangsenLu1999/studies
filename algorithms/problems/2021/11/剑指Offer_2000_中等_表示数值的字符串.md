@@ -1,13 +1,11 @@
 ## 剑指Offer_2000_表示数值的字符串（中等, 2021-11）
-<!--
-{
-    "tags": ["字符串", "有限状态自动机"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "2000",
-    "name": "表示数值的字符串",
-    "companies": []
-}
+<!--info
+tags: [字符串, 有限状态自动机]
+source: 剑指Offer
+level: 中等
+number: '2000'
+name: 表示数值的字符串
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

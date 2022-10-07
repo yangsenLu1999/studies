@@ -1,13 +1,11 @@
 ## 剑指Offer_6400_求1~n的和（中等, 2022-01）
-<!--
-{
-    "tags": ["递归"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "6400",
-    "name": "求1~n的和",
-    "companies": []
-}
+<!--info
+tags: [递归]
+source: 剑指Offer
+level: 中等
+number: '6400'
+name: 求1~n的和
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

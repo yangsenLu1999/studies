@@ -1,13 +1,11 @@
 ## LeetCode_0343_整数拆分（中等, 2021-12）
-<!--
-{
-    "tags": ["数学", "动态规划"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0343",
-    "name": "整数拆分",
-    "companies": []
-}
+<!--info
+tags: [数学, 动态规划]
+source: LeetCode
+level: 中等
+number: '0343'
+name: 整数拆分
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

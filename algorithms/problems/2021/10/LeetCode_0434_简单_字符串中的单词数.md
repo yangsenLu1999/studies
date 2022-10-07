@@ -1,13 +1,11 @@
 ## LeetCode_0434_字符串中的单词数（简单, 2021-10）
-<!--
-{
-    "tags": ["字符串"],
-    "source": "LeetCode",
-    "level": "简单",
-    "number": "0434",
-    "name": "字符串中的单词数",
-    "companies": []
-}
+<!--info
+tags: [字符串]
+source: LeetCode
+level: 简单
+number: '0434'
+name: 字符串中的单词数
+companies: []
 -->
 
 <summary><b>问题描述</b></summary>

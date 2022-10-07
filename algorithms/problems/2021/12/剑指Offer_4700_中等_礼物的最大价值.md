@@ -1,13 +1,11 @@
 ## 剑指Offer_4700_礼物的最大价值（中等, 2021-12）
-<!--
-{
-    "tags": ["动态规划"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "4700",
-    "name": "礼物的最大价值",
-    "companies": []
-}
+<!--info
+tags: [动态规划]
+source: 剑指Offer
+level: 中等
+number: '4700'
+name: 礼物的最大价值
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

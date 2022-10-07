@@ -1,13 +1,11 @@
 ## 剑指Offer_6100_扑克牌中的顺子（简单, 2022-01）
-<!--
-{
-    "tags": ["排序", "模拟"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "6100",
-    "name": "扑克牌中的顺子",
-    "companies": []
-}
+<!--info
+tags: [排序, 模拟]
+source: 剑指Offer
+level: 简单
+number: '6100'
+name: 扑克牌中的顺子
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

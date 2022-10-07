@@ -1,13 +1,11 @@
 ## LeetCode_0518_零钱兑换II（中等, 2022-02）
-<!--
-{
-    "tags": ["动态规划"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0518",
-    "name": "零钱兑换II",
-    "companies": []
-}
+<!--info
+tags: [动态规划]
+source: LeetCode
+level: 中等
+number: 0518
+name: 零钱兑换II
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

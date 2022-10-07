@@ -1,13 +1,11 @@
 ## LeetCode_0496_下一个更大元素（简单, 2021-11）
-<!--
-{
-    "tags": ["单调栈"],
-    "source": "LeetCode",
-    "level": "简单",
-    "number": "0496",
-    "name": "下一个更大元素",
-    "companies": []
-}
+<!--info
+tags: [单调栈]
+source: LeetCode
+level: 简单
+number: 0496
+name: 下一个更大元素
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

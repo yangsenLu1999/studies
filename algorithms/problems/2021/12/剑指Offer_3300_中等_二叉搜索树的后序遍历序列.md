@@ -1,13 +1,11 @@
 ## 剑指Offer_3300_二叉搜索树的后序遍历序列（中等, 2021-12）
-<!--
-{
-    "tags": ["二叉树"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "3300",
-    "name": "二叉搜索树的后序遍历序列",
-    "companies": []
-}
+<!--info
+tags: [二叉树]
+source: 剑指Offer
+level: 中等
+number: '3300'
+name: 二叉搜索树的后序遍历序列
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

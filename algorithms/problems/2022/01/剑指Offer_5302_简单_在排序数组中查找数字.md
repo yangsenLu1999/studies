@@ -1,13 +1,11 @@
 ## 剑指Offer_5302_在排序数组中查找数字（简单, 2022-01）
-<!--
-{
-    "tags": ["二分"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "5302",
-    "name": "在排序数组中查找数字",
-    "companies": []
-}
+<!--info
+tags: [二分]
+source: 剑指Offer
+level: 简单
+number: '5302'
+name: 在排序数组中查找数字
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

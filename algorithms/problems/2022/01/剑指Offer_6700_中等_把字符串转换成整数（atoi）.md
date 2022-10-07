@@ -1,13 +1,11 @@
 ## 剑指Offer_6700_把字符串转换成整数（atoi）（中等, 2022-01）
-<!--
-{
-    "tags": ["字符串", "模拟", "经典"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "6700",
-    "name": "把字符串转换成整数（atoi）",
-    "companies": []
-}
+<!--info
+tags: [字符串, 模拟, 经典]
+source: 剑指Offer
+level: 中等
+number: '6700'
+name: 把字符串转换成整数（atoi）
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

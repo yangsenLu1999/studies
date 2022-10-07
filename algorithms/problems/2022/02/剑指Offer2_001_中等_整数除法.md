@@ -1,13 +1,11 @@
 ## 剑指Offer2_001_整数除法（中等, 2022-02）
-<!--
-{
-    "tags": ["二分", "经典"],
-    "source": "剑指Offer2",
-    "level": "中等",
-    "number": "001",
-    "name": "整数除法",
-    "companies": []
-}
+<!--info
+tags: [二分, 经典]
+source: 剑指Offer2
+level: 中等
+number: '001'
+name: 整数除法
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

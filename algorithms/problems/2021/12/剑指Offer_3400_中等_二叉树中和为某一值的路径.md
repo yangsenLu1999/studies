@@ -1,13 +1,11 @@
 ## 剑指Offer_3400_二叉树中和为某一值的路径（中等, 2021-12）
-<!--
-{
-    "tags": ["二叉树", "DFS"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "3400",
-    "name": "二叉树中和为某一值的路径",
-    "companies": []
-}
+<!--info
+tags: [二叉树, DFS]
+source: 剑指Offer
+level: 中等
+number: '3400'
+name: 二叉树中和为某一值的路径
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

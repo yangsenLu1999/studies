@@ -1,13 +1,11 @@
 ## 剑指Offer_6802_二叉树的最近公共祖先（简单, 2022-01）
-<!--
-{
-    "tags": ["二叉树", "TreeDP"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "6802",
-    "name": "二叉树的最近公共祖先",
-    "companies": []
-}
+<!--info
+tags: [二叉树, TreeDP]
+source: 剑指Offer
+level: 简单
+number: '6802'
+name: 二叉树的最近公共祖先
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

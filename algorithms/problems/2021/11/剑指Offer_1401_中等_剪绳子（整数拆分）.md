@@ -1,13 +1,11 @@
 ## 剑指Offer_1401_剪绳子（整数拆分）（中等, 2021-11）
-<!--
-{
-    "tags": ["动态规划", "贪心", "数学"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "1401",
-    "name": "剪绳子（整数拆分）",
-    "companies": []
-}
+<!--info
+tags: [动态规划, 贪心, 数学]
+source: 剑指Offer
+level: 中等
+number: '1401'
+name: 剪绳子（整数拆分）
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

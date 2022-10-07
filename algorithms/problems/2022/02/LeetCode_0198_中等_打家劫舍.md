@@ -1,13 +1,11 @@
 ## LeetCode_0198_打家劫舍（中等, 2022-02）
-<!--
-{
-    "tags": ["动态规划", "DFS2DP"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0198",
-    "name": "打家劫舍",
-    "companies": []
-}
+<!--info
+tags: [动态规划, DFS2DP]
+source: LeetCode
+level: 中等
+number: 0198
+name: 打家劫舍
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

@@ -1,13 +1,11 @@
 ## 剑指Offer_4200_连续子数组的最大和（简单, 2021-12）
-<!--
-{
-    "tags": ["动态规划"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "4200",
-    "name": "连续子数组的最大和",
-    "companies": []
-}
+<!--info
+tags: [动态规划]
+source: 剑指Offer
+level: 简单
+number: '4200'
+name: 连续子数组的最大和
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

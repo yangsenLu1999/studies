@@ -1,13 +1,11 @@
 ## LeetCode_0072_编辑距离（困难, 2022-01）
-<!--
-{
-    "tags": ["动态规划", "经典"],
-    "source": "LeetCode",
-    "level": "困难",
-    "number": "0072",
-    "name": "编辑距离",
-    "companies": []
-}
+<!--info
+tags: [动态规划, 经典]
+source: LeetCode
+level: 困难
+number: '0072'
+name: 编辑距离
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

@@ -1,13 +1,11 @@
 ## 剑指Offer_5901_滑动窗口的最大值（困难, 2022-01）
-<!--
-{
-    "tags": ["滑动窗口", "单调队列"],
-    "source": "剑指Offer",
-    "level": "困难",
-    "number": "5901",
-    "name": "滑动窗口的最大值",
-    "companies": []
-}
+<!--info
+tags: [滑动窗口, 单调队列]
+source: 剑指Offer
+level: 困难
+number: '5901'
+name: 滑动窗口的最大值
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

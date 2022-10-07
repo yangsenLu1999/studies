@@ -1,13 +1,11 @@
 ## LeetCode_0002_两数相加（中等, 2021-10）
-<!--
-{
-    "tags": ["链表"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0002",
-    "name": "两数相加",
-    "companies": []
-}
+<!--info
+tags: [链表]
+source: LeetCode
+level: 中等
+number: '0002'
+name: 两数相加
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

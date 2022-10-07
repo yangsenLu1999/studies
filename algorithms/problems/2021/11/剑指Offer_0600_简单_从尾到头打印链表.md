@@ -1,13 +1,11 @@
 ## 剑指Offer_0600_从尾到头打印链表（简单, 2021-11）
-<!--
-{
-    "tags": ["链表", "栈", "DFS", "递归"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "0600",
-    "name": "从尾到头打印链表",
-    "companies": []
-}
+<!--info
+tags: [链表, 栈, DFS, 递归]
+source: 剑指Offer
+level: 简单
+number: '0600'
+name: 从尾到头打印链表
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

@@ -1,13 +1,11 @@
 ## LeetCode_0859_亲密字符串（简单, 2021-11）
-<!--
-{
-    "tags": ["模拟", "字符串"],
-    "source": "LeetCode",
-    "level": "简单",
-    "number": "0859",
-    "name": "亲密字符串",
-    "companies": []
-}
+<!--info
+tags: [模拟, 字符串]
+source: LeetCode
+level: 简单
+number: 0859
+name: 亲密字符串
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

@@ -1,13 +1,11 @@
 ## 剑指Offer_6200_圆圈中最后剩下的数字（约瑟夫环问题）（中等, 2022-01）
-<!--
-{
-    "tags": ["模拟", "递推", "经典"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "6200",
-    "name": "圆圈中最后剩下的数字（约瑟夫环问题）",
-    "companies": []
-}
+<!--info
+tags: [模拟, 递推, 经典]
+source: 剑指Offer
+level: 中等
+number: '6200'
+name: 圆圈中最后剩下的数字（约瑟夫环问题）
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

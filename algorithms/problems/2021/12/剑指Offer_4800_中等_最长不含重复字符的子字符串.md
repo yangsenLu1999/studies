@@ -1,13 +1,11 @@
 ## 剑指Offer_4800_最长不含重复字符的子字符串（中等, 2021-12）
-<!--
-{
-    "tags": ["哈希表", "双指针", "动态规划"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "4800",
-    "name": "最长不含重复字符的子字符串",
-    "companies": []
-}
+<!--info
+tags: [哈希表, 双指针, 动态规划]
+source: 剑指Offer
+level: 中等
+number: '4800'
+name: 最长不含重复字符的子字符串
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

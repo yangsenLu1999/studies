@@ -20,35 +20,63 @@ import json
 # from collections import defaultdict
 from pathlib import Path
 
+import yaml
+
 from huaytools_local.utils import NoIndentJSONEncoder
 
 fp_problems = Path(r'../../algorithms/problems')
 RE_INFO = re.compile(r'<!--(.*?)-->', flags=re.DOTALL)
 
-new_info_temp = '''<!--
+new_info_temp = '''<!--info
 {info}
 -->'''
 
-for dp, _, fns in os.walk(fp_problems):
-    for fn in fns:
-        fp = Path(dp) / fn
 
-        with fp.open(encoding='utf8') as f:
-            txt = f.read()
+def json_info(info):
+    info['tags'] = NoIndentJSONEncoder.wrap(info['tags'])
+    info['companies'] = NoIndentJSONEncoder.wrap(info['companies'])
+    return json.dumps(info, indent=4, ensure_ascii=False,
+                      cls=NoIndentJSONEncoder)
 
-        info_str = RE_INFO.search(txt).group(1)
-        info = json.loads(info_str)
-        new_info = {
-            'tags': NoIndentJSONEncoder.wrap(info['category']),
-            'source': info['source'],
-            'level': info['level'],
-            'number': info['number'],
-            'name': info['name'],
-            'companies': NoIndentJSONEncoder.wrap(info['company']),
-        }
-        new_info_str = new_info_temp.format(info=json.dumps(new_info, indent=4, ensure_ascii=False,
-                                                            cls=NoIndentJSONEncoder))
 
-        new_txt = RE_INFO.sub(new_info_str, txt, count=1)
-        with fp.open('w', encoding='utf8') as f:
-            f.write(new_txt)
+def yaml_info(info):
+    if not info['companies']:
+        info['companies'] = []
+    tags = info.pop('tags')
+    s = str(yaml.safe_dump(info, sort_keys=False, allow_unicode=True))
+    s = s.replace('null', '')
+    s = s.strip()
+    ss = s.split('\n')
+    ss.insert(0, f'tags: [{", ".join(tags)}]')
+    s = '\n'.join(ss)
+    return s
+
+
+def process(fp):
+    with fp.open(encoding='utf8') as f:
+        txt = f.read()
+    info_str = RE_INFO.search(txt).group(1)
+    info = json.loads(info_str)
+    new_info = yaml_info(info)
+    new_info_str = new_info_temp.format(info=new_info)
+    new_txt = RE_INFO.sub(new_info_str, txt, count=1)
+    with fp.open('w', encoding='utf8') as f:
+        f.write(new_txt)
+
+
+def main():
+    for dp, _, fns in os.walk(fp_problems):
+        for fn in fns:
+            fp = Path(dp) / fn
+            process(fp)
+
+
+def _test():
+    fp = Path(r'../../algorithms/problems/2021/10/LeetCode_0001_简单_两数之和.md')
+    process(fp)
+
+
+if __name__ == '__main__':
+    """"""
+    # _test()
+    main()

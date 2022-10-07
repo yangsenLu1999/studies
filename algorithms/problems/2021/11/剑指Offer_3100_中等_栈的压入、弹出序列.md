@@ -1,13 +1,11 @@
 ## 剑指Offer_3100_栈的压入、弹出序列（中等, 2021-11）
-<!--
-{
-    "tags": ["栈", "数组", "经典"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "3100",
-    "name": "栈的压入、弹出序列",
-    "companies": []
-}
+<!--info
+tags: [栈, 数组, 经典]
+source: 剑指Offer
+level: 中等
+number: '3100'
+name: 栈的压入、弹出序列
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

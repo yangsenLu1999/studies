@@ -1,13 +1,11 @@
 ## LeetCode_0017_电话号码的字母组合（中等, 2022-10）
-<!--
-{
-    "tags": ["字符串", "dfs", "lc100"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0017",
-    "name": "电话号码的字母组合",
-    "companies": []
-}
+<!--info
+tags: [字符串, dfs, lc100]
+source: LeetCode
+level: 中等
+number: '0017'
+name: 电话号码的字母组合
+companies: []
 -->
 
 > [17. 电话号码的字母组合 - 力扣（LeetCode）](https://leetcode.cn/problems/letter-combinations-of-a-phone-number)

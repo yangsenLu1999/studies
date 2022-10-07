@@ -1,12 +1,10 @@
-<!--
-{
-    "category": [],
-    "source": "",
-    "level": "",
-    "number": "",
-    "name": "",
-    "company": []
-}
+<!--info
+tags: []
+source: 
+level: 
+number: ''
+name: 
+companies: []
 -->
 
 > 
@@ -36,4 +34,3 @@ xxx
 ```
 
 </details>
-

@@ -1,13 +1,11 @@
 ## 剑指Offer_0400_二维数组中的查找（中等, 2021-11）
-<!--
-{
-    "tags": ["二分查找"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "0400",
-    "name": "二维数组中的查找",
-    "companies": []
-}
+<!--info
+tags: [二分查找]
+source: 剑指Offer
+level: 中等
+number: '0400'
+name: 二维数组中的查找
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

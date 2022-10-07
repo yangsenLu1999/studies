@@ -1,13 +1,11 @@
 ## 剑指Offer_6500_不用加减乘除做加法（简单, 2022-01）
-<!--
-{
-    "tags": ["位运算"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "6500",
-    "name": "不用加减乘除做加法",
-    "companies": []
-}
+<!--info
+tags: [位运算]
+source: 剑指Offer
+level: 简单
+number: '6500'
+name: 不用加减乘除做加法
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

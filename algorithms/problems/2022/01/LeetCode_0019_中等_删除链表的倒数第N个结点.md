@@ -1,13 +1,11 @@
 ## LeetCode_0019_删除链表的倒数第N个结点（中等, 2022-01）
-<!--
-{
-    "tags": ["链表", "快慢指针"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0019",
-    "name": "删除链表的倒数第N个结点",
-    "companies": []
-}
+<!--info
+tags: [链表, 快慢指针]
+source: LeetCode
+level: 中等
+number: 0019
+name: 删除链表的倒数第N个结点
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

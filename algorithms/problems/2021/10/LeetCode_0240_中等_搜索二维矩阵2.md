@@ -1,13 +1,11 @@
 ## LeetCode_0240_搜索二维矩阵2（中等, 2021-10）
-<!--
-{
-    "tags": ["二分查找"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0240",
-    "name": "搜索二维矩阵2",
-    "companies": []
-}
+<!--info
+tags: [二分查找]
+source: LeetCode
+level: 中等
+number: '0240'
+name: 搜索二维矩阵2
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

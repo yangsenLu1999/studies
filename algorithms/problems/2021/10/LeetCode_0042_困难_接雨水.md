@@ -1,13 +1,11 @@
 ## LeetCode_0042_接雨水（困难, 2021-10）
-<!--
-{
-    "tags": ["双指针"],
-    "source": "LeetCode",
-    "level": "困难",
-    "number": "0042",
-    "name": "接雨水",
-    "companies": []
-}
+<!--info
+tags: [双指针]
+source: LeetCode
+level: 困难
+number: '0042'
+name: 接雨水
+companies: []
 -->
 
 <summary><b>问题描述</b></summary>

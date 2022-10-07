@@ -1,13 +1,11 @@
 ## 剑指Offer_3600_二叉搜索树与双向链表（中等, 2021-12）
-<!--
-{
-    "tags": ["二叉树", "递归", "经典"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "3600",
-    "name": "二叉搜索树与双向链表",
-    "companies": []
-}
+<!--info
+tags: [二叉树, 递归, 经典]
+source: 剑指Offer
+level: 中等
+number: '3600'
+name: 二叉搜索树与双向链表
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

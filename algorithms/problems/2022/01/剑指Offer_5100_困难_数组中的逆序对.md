@@ -1,13 +1,11 @@
 ## 剑指Offer_5100_数组中的逆序对（困难, 2022-01）
-<!--
-{
-    "tags": ["分治", "树状数组", "经典"],
-    "source": "剑指Offer",
-    "level": "困难",
-    "number": "5100",
-    "name": "数组中的逆序对",
-    "companies": []
-}
+<!--info
+tags: [分治, 树状数组, 经典]
+source: 剑指Offer
+level: 困难
+number: '5100'
+name: 数组中的逆序对
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

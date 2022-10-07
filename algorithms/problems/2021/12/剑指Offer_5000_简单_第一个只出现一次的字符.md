@@ -1,13 +1,11 @@
 ## 剑指Offer_5000_第一个只出现一次的字符（简单, 2021-12）
-<!--
-{
-    "tags": ["哈希表"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "5000",
-    "name": "第一个只出现一次的字符",
-    "companies": []
-}
+<!--info
+tags: [哈希表]
+source: 剑指Offer
+level: 简单
+number: '5000'
+name: 第一个只出现一次的字符
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

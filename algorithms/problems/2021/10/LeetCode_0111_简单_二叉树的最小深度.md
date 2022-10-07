@@ -1,13 +1,11 @@
 ## LeetCode_0111_二叉树的最小深度（简单, 2021-10）
-<!--
-{
-    "tags": ["二叉树", "DFS"],
-    "source": "LeetCode",
-    "level": "简单",
-    "number": "0111",
-    "name": "二叉树的最小深度",
-    "companies": []
-}
+<!--info
+tags: [二叉树, DFS]
+source: LeetCode
+level: 简单
+number: '0111'
+name: 二叉树的最小深度
+companies: []
 -->
 
 <summary><b>问题描述</b></summary>

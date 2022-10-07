@@ -1,13 +1,11 @@
 ## LeetCode_0004_寻找两个正序数组的中位数（困难, 2022-02）
-<!--
-{
-    "tags": ["二分"],
-    "source": "LeetCode",
-    "level": "困难",
-    "number": "0004",
-    "name": "寻找两个正序数组的中位数",
-    "companies": []
-}
+<!--info
+tags: [二分]
+source: LeetCode
+level: 困难
+number: '0004'
+name: 寻找两个正序数组的中位数
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

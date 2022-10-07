@@ -228,6 +228,7 @@ class Algorithms:
     """"""
     # AUTO_GENERATED_STR = '<!-- Auto-generated -->'
     _RE_INFO = re.compile(r'<!--(.*?)-->', flags=re.DOTALL)
+    _RE_INFO_YAML = re.compile(r'<!--info(.*?)-->', flags=re.DOTALL)
     _tag_infos: dict[str, TagInfo]
     _problems_infos: list[ProblemInfo]
     _type2tags: dict[TagType, list[TagInfo]]
@@ -254,7 +255,7 @@ class Algorithms:
                 fp = Path(dp) / fn  # each problem.md
                 if fp.suffix != '.md':
                     continue
-                info = self._extract_info(fp)
+                info = self._extract_info_yaml(fp)
                 self._update_info(info, fp)
                 self._try_update_title(info)
                 self._problems_infos.append(ProblemInfo(**info))
@@ -315,8 +316,20 @@ class Algorithms:
             fp = new_fp
         return fp
 
+    def _extract_info_yaml(self, fp) -> dict:
+        fp = Path(fp)
+        with fp.open(encoding='utf8') as f:
+            txt = f.read()
+
+        try:
+            info_str = self._RE_INFO_YAML.search(txt).group(1)  # type:ignore
+            info = yaml.safe_load(info_str.strip())
+        except:  # noqa
+            raise ValueError(fp)
+
+        return info
+
     def _extract_info(self, fp) -> dict:
-        """"""
         fp = Path(fp)
         with fp.open(encoding='utf8') as f:
             txt = f.read()

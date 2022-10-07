@@ -1,13 +1,11 @@
 ## 剑指Offer_4100_数据流中的中位数（困难, 2021-12）
-<!--
-{
-    "tags": ["设计", "堆"],
-    "source": "剑指Offer",
-    "level": "困难",
-    "number": "4100",
-    "name": "数据流中的中位数",
-    "companies": []
-}
+<!--info
+tags: [设计, 堆]
+source: 剑指Offer
+level: 困难
+number: '4100'
+name: 数据流中的中位数
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

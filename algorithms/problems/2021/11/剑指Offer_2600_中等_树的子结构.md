@@ -1,13 +1,11 @@
 ## 剑指Offer_2600_树的子结构（中等, 2021-11）
-<!--
-{
-    "tags": ["二叉树", "递归"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "2600",
-    "name": "树的子结构",
-    "companies": []
-}
+<!--info
+tags: [二叉树, 递归]
+source: 剑指Offer
+level: 中等
+number: '2600'
+name: 树的子结构
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

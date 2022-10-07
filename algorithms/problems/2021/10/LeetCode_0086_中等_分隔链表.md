@@ -1,13 +1,11 @@
 ## LeetCode_0086_分隔链表（中等, 2021-10）
-<!--
-{
-    "tags": ["链表"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0086",
-    "name": "分隔链表",
-    "companies": []
-}
+<!--info
+tags: [链表]
+source: LeetCode
+level: 中等
+number: 0086
+name: 分隔链表
+companies: []
 -->
 
 <summary><b>问题描述</b></summary>

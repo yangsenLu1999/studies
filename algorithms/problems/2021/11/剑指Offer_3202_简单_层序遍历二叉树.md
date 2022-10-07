@@ -1,13 +1,11 @@
 ## 剑指Offer_3202_层序遍历二叉树（简单, 2021-11）
-<!--
-{
-    "tags": ["BFS", "二叉树", "队列"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "3202",
-    "name": "层序遍历二叉树",
-    "companies": []
-}
+<!--info
+tags: [BFS, 二叉树, 队列]
+source: 剑指Offer
+level: 简单
+number: '3202'
+name: 层序遍历二叉树
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

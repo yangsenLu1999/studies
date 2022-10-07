@@ -1,13 +1,11 @@
 ## 剑指Offer_1100_旋转数组的最小数字（简单, 2021-11）
-<!--
-{
-    "tags": ["二分查找"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "1100",
-    "name": "旋转数组的最小数字",
-    "companies": []
-}
+<!--info
+tags: [二分查找]
+source: 剑指Offer
+level: 简单
+number: '1100'
+name: 旋转数组的最小数字
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

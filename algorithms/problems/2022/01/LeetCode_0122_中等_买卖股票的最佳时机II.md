@@ -1,13 +1,11 @@
 ## LeetCode_0122_买卖股票的最佳时机II（中等, 2022-01）
-<!--
-{
-    "tags": ["动态规划"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0122",
-    "name": "买卖股票的最佳时机II",
-    "companies": []
-}
+<!--info
+tags: [动态规划]
+source: LeetCode
+level: 中等
+number: '0122'
+name: 买卖股票的最佳时机II
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

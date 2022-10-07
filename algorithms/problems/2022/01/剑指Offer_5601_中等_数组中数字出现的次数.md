@@ -1,13 +1,11 @@
 ## 剑指Offer_5601_数组中数字出现的次数（中等, 2022-01）
-<!--
-{
-    "tags": ["位运算"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "5601",
-    "name": "数组中数字出现的次数",
-    "companies": []
-}
+<!--info
+tags: [位运算]
+source: 剑指Offer
+level: 中等
+number: '5601'
+name: 数组中数字出现的次数
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

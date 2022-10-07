@@ -1,13 +1,11 @@
 ## LeetCode_0958_二叉树的完全性检验（中等, 2022-03）
-<!--
-{
-    "tags": ["二叉树", "经典"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0958",
-    "name": "二叉树的完全性检验",
-    "companies": []
-}
+<!--info
+tags: [二叉树, 经典]
+source: LeetCode
+level: 中等
+number: 0958
+name: 二叉树的完全性检验
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

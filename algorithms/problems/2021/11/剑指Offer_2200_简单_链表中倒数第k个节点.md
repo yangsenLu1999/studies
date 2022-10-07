@@ -1,13 +1,11 @@
 ## 剑指Offer_2200_链表中倒数第k个节点（简单, 2021-11）
-<!--
-{
-    "tags": ["链表", "快慢指针（链表）"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "2200",
-    "name": "链表中倒数第k个节点",
-    "companies": []
-}
+<!--info
+tags: [链表, 快慢指针（链表）]
+source: 剑指Offer
+level: 简单
+number: '2200'
+name: 链表中倒数第k个节点
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

@@ -1,13 +1,11 @@
 ## 剑指Offer_2100_调整数组顺序使奇数位于偶数前面（简单, 2021-11）
-<!--
-{
-    "tags": ["数组", "双指针"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "2100",
-    "name": "调整数组顺序使奇数位于偶数前面",
-    "companies": []
-}
+<!--info
+tags: [数组, 双指针]
+source: 剑指Offer
+level: 简单
+number: '2100'
+name: 调整数组顺序使奇数位于偶数前面
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

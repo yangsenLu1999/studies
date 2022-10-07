@@ -1,13 +1,11 @@
 ## 剑指Offer_5702_和为s的连续正数序列（简单, 2022-01）
-<!--
-{
-    "tags": ["双指针"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "5702",
-    "name": "和为s的连续正数序列",
-    "companies": []
-}
+<!--info
+tags: [双指针]
+source: 剑指Offer
+level: 简单
+number: '5702'
+name: 和为s的连续正数序列
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

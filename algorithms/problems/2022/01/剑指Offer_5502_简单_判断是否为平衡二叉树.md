@@ -1,13 +1,11 @@
 ## 剑指Offer_5502_判断是否为平衡二叉树（简单, 2022-01）
-<!--
-{
-    "tags": ["二叉树"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "5502",
-    "name": "判断是否为平衡二叉树",
-    "companies": []
-}
+<!--info
+tags: [二叉树]
+source: 剑指Offer
+level: 简单
+number: '5502'
+name: 判断是否为平衡二叉树
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

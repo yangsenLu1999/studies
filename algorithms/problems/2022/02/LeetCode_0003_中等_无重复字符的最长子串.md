@@ -1,13 +1,11 @@
 ## LeetCode_0003_无重复字符的最长子串（中等, 2022-02）
-<!--
-{
-    "tags": ["滑动窗口"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0003",
-    "name": "无重复字符的最长子串",
-    "companies": []
-}
+<!--info
+tags: [滑动窗口]
+source: LeetCode
+level: 中等
+number: '0003'
+name: 无重复字符的最长子串
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

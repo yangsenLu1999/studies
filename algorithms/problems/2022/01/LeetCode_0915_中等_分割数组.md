@@ -1,13 +1,12 @@
 ## LeetCode_0915_分割数组（中等, 2022-01）
-<!--
-{
-    "tags": ["模拟"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0915",
-    "name": "分割数组",
-    "companies": ["小红书"]
-}
+<!--info
+tags: [模拟]
+source: LeetCode
+level: 中等
+number: 0915
+name: 分割数组
+companies:
+- 小红书
 -->
 
 <summary><b>问题简述</b></summary>

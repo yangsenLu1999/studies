@@ -1,13 +1,11 @@
 ## 剑指Offer_3500_复杂链表的复制（深拷贝）（中等, 2021-12）
-<!--
-{
-    "tags": ["链表", "哈希表", "经典"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "3500",
-    "name": "复杂链表的复制（深拷贝）",
-    "companies": []
-}
+<!--info
+tags: [链表, 哈希表, 经典]
+source: 剑指Offer
+level: 中等
+number: '3500'
+name: 复杂链表的复制（深拷贝）
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

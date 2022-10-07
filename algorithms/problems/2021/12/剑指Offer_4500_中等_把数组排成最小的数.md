@@ -1,13 +1,11 @@
 ## 剑指Offer_4500_把数组排成最小的数（中等, 2021-12）
-<!--
-{
-    "tags": ["排序"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "4500",
-    "name": "把数组排成最小的数",
-    "companies": []
-}
+<!--info
+tags: [排序]
+source: 剑指Offer
+level: 中等
+number: '4500'
+name: 把数组排成最小的数
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

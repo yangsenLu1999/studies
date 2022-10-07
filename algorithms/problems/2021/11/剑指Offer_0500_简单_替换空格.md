@@ -1,13 +1,11 @@
 ## 剑指Offer_0500_替换空格（简单, 2021-11）
-<!--
-{
-    "tags": ["字符串"],
-    "source": "剑指Offer",
-    "level": "简单",
-    "number": "0500",
-    "name": "替换空格",
-    "companies": []
-}
+<!--info
+tags: [字符串]
+source: 剑指Offer
+level: 简单
+number: '0500'
+name: 替换空格
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

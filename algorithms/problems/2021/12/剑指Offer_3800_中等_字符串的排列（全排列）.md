@@ -1,13 +1,11 @@
 ## 剑指Offer_3800_字符串的排列（全排列）（中等, 2021-12）
-<!--
-{
-    "tags": ["DFS+剪枝", "经典"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "3800",
-    "name": "字符串的排列（全排列）",
-    "companies": []
-}
+<!--info
+tags: [DFS+剪枝, 经典]
+source: 剑指Offer
+level: 中等
+number: '3800'
+name: 字符串的排列（全排列）
+companies: []
 -->
 
 <summary><b>问题简述</b></summary>

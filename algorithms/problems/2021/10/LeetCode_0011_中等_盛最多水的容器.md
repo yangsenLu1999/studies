@@ -1,13 +1,11 @@
 ## LeetCode_0011_盛最多水的容器（中等, 2021-10）
-<!--
-{
-    "tags": ["双指针"],
-    "source": "LeetCode",
-    "level": "中等",
-    "number": "0011",
-    "name": "盛最多水的容器",
-    "companies": []
-}
+<!--info
+tags: [双指针]
+source: LeetCode
+level: 中等
+number: '0011'
+name: 盛最多水的容器
+companies: []
 -->
 
 <summary><b>问题描述</b></summary>

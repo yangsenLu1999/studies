@@ -1,13 +1,11 @@
 ## 剑指Offer_1300_机器人的运动范围（中等, 2021-11）
-<!--
-{
-    "tags": ["DFS"],
-    "source": "剑指Offer",
-    "level": "中等",
-    "number": "1300",
-    "name": "机器人的运动范围",
-    "companies": []
-}
+<!--info
+tags: [DFS]
+source: 剑指Offer
+level: 中等
+number: '1300'
+name: 机器人的运动范围
+companies: []
 -->
 
 <summary><b>问题描述</b></summary>
