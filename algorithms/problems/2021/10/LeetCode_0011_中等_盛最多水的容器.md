@@ -1,6 +1,6 @@
 ## LeetCode_0011_盛最多水的容器（中等, 2021-10）
 <!--info
-tags: [双指针]
+tags: [双指针, 贪心, lc100]
 source: LeetCode
 level: 中等
 number: '0011'
@@ -30,27 +30,28 @@ companies: []
 
 <summary><b>思路</b></summary>
 
-- 首尾双指针遍历
-
+- 首尾双指针遍历；
+- 每次移动左指针还是右指针？——贪心
 
 <details><summary><b>Python</b></summary>
 
 ```python
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        """"""
-        l, r = 0, len(height) - 1
-        ret = (r - l) * min(height[l], height[r])  # 初始化
 
+        def cur_amount():
+            return (r - l) * min(height[l], height[r])
+
+        l, r = 0, len(height) - 1
+        ret = cur_amount()
         while l < r:
             if height[l] < height[r]:
                 l += 1
             else:
                 r -= 1
             
-            tmp = (r - l) * min(height[l], height[r])
-            ret = max(ret, tmp)
-            
+            ret = max(ret, cur_amount())
+        
         return ret
 ```
 

@@ -1,6 +1,6 @@
 ## LeetCode_0010_正则表达式匹配（困难, 2022-01）
 <!--info
-tags: [动态规划]
+tags: [动态规划, lc100]
 source: LeetCode
 level: 困难
 number: '0010'
@@ -24,7 +24,7 @@ companies: []
 - 定义 `dp(i, j)` 表示 `s[:i]` 与 `p[:j]` 是否匹配；
 - 难点是要把所有情况考虑全面，尤其是初始化，以及 `p[j-1] == '*'` 的情况；
 
-<details><summary><b>递归版</b></summary>
+<details><summary><b>Python（递归写法）</b></summary>
 
 ```python
 class Solution:
@@ -32,19 +32,18 @@ class Solution:
 
         from functools import lru_cache
 
-        # 因为本题保证了 p 的合法性，所以可以省略部分边界判断
         @lru_cache(maxsize=None)
-        def dp(i, j):
-            if i == 0 and j == 0: return True
+        def dp(i, j):  # s[:i] 和 p[:j] 是否匹配
+            if i == 0 and j == 0: return True  # 空串和空串
             if j == 0: return False
-            # 空串的判断，比如 s='', p='a*' 或 'a*b*'
+            # s='' 时，p='a*' 或 'a*b*' 等
             if i == 0: return p[j - 1] == '*' and dp(i, j - 2)
 
-            # 情况1：s='abc', p='abc' 或 'ab.'
+            # s='abc' 时，p='abc' 或 'ab.'
             r1 = (s[i - 1] == p[j - 1] or p[j - 1] == '.') and dp(i - 1, j - 1)
-            # 情况2：'*'匹配了 0 个字符的情况，比如 s='ab', p='abc*'
+            # '*'匹配了 0 个字符的情况，比如 s='ab', p='abc*'
             r2 = p[j - 1] == '*' and dp(i, j - 2)
-            # 情况3：'*'匹配了 1 个以上的字符，比如 s='abc', p='abc*' 或 'ab.*'
+            # '*'匹配了 1 个以上的字符，比如 s='abc', p='abc*' 或 'ab.*'
             r3 = p[j - 1] == '*' and (s[i - 1] == p[j - 2] or p[j - 2] == '.') and dp(i - 1, j)
             
             return r1 or r2 or r3
@@ -56,7 +55,7 @@ class Solution:
 </details>
 
 
-<details><summary><b>迭代版</b></summary>
+<details><summary><b>Python（迭代写法）</b></summary>
 
 ```python
 class Solution:
@@ -70,7 +69,7 @@ class Solution:
         # for j in range(2, n + 1):
         #     dp[0][j] = p[j - 1] == '*' and dp[0][j - 2]
 
-        # 为了匹配“无缝转换”，把上面的初始化代码也写到了循环里面，两种写法都可以
+        # 为了展示“无缝转换”，把上面的初始化代码也写到了循环里面，两种写法都可以
         for i in range(0, m + 1):
             for j in range(0, n + 1):
                 if i == 0 and j == 0: dp[i][j] = True

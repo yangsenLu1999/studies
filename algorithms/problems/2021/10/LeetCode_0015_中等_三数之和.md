@@ -1,6 +1,6 @@
 ## LeetCode_0015_三数之和（中等, 2021-10）
 <!--info
-tags: [双指针]
+tags: [双指针, lc100]
 source: LeetCode
 level: 中等
 number: '0015'

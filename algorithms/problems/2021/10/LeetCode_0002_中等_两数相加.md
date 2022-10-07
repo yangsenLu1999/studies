@@ -1,6 +1,6 @@
 ## LeetCode_0002_两数相加（中等, 2021-10）
 <!--info
-tags: [链表]
+tags: [链表, lc100]
 source: LeetCode
 level: 中等
 number: '0002'
@@ -44,15 +44,54 @@ companies: []
 
 <summary><b>思路</b></summary>
 
-<details><summary><b>Python</b></summary>
+- 双指针依次向后遍历；
+
+<details><summary><b>Python 写法1</b></summary>
 
 ```python
 # Definition for singly-linked list.
-class ListNode:
-    def __init__(self, val=0, next=None):  # noqa
-        self.val = val
-        self.next = next
+# class ListNode:
+#     def __init__(self, val=0, next=None):  # noqa
+#         self.val = val
+#         self.next = next
 
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        p1, p2 = l1, l2
+        cur = dummy = ListNode()
+
+        ex = 0  # 进位
+        while p1 and p2:
+            s = p1.val + p2.val + ex
+            ex = s // 10
+            cur.next = ListNode(s % 10)
+            cur = cur.next
+            p1, p2 = p1.next, p2.next
+        
+        p = p1 or p2
+        while p:
+            s = p.val + ex
+            ex = s // 10
+            cur.next = ListNode(s % 10)
+            cur = cur.next
+            p = p.next
+
+        if ex:
+            cur.next = ListNode(1)
+
+        return dummy.next
+```
+
+</details>
+
+<details><summary><b>Python 写法2（代码优化）</b></summary>
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):  # noqa
+#         self.val = val
+#         self.next = next
 
 class Solution:
 

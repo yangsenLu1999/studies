@@ -1,6 +1,6 @@
 ## LeetCode_0005_最长回文子串（中等, 2021-10）
 <!--info
-tags: [DP, 模拟, 双指针]
+tags: [DP, 双指针, lc100]
 source: LeetCode
 level: 中等
 number: '0005'
@@ -52,8 +52,6 @@ companies: []
 - 初始状态
     - 单个字符：`dp[i][j] := True` 当 `i == j` 
     - 两个连续相同字符：`dp[i][j] := True` 当 `j == i + 1 && s[i] == s[j]`
-
-**注意**：
 - 动态规划并不是最适合的解，这里仅提供一个思路；
 - 如果要使用动态规划解本题，如何循环是关键，因为回文串的特点，从“双指针”的角度来看，需要从中心往两侧遍历，这跟大多数的 dp 问题略有不同；
 
@@ -131,10 +129,8 @@ class Solution:
 
 <summary><b>思路2：模拟-中心扩散（推荐）</b></summary>
 
-- 按照回文串的定义，遍历每个字符作为中点，向两边扩散；
-- 官方题解从 DP 的转移方程解释了为什么中心扩散可以得到正确答案（虽然这个结论非常直观），观察状态转移方程，可以看到所有状态在转移时的可能性都是唯一的：`dp[i][j] <- dp[i+1][j-1] <- dp[i+2][j-2] <- ...`，也就是说，从每一种边界情况开始「扩展」，都可以得出所有状态对应的答案。
-    > [最长回文子串 - 力扣官方题解](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/)
-
+- 按照回文的定义，遍历每个字符作为中点，向两边扩散；
+- 注意奇数和偶数两种情况；
 
 <details><summary><b>Python</b></summary>
 
@@ -143,7 +139,7 @@ class Solution:
     def longestPalindrome(self, s: str) -> str:
 
         n = len(s)
-        self.ret = s[0]
+        self.ret = ''
 
         # 从 s[l:r] 开始向两侧扩散，开始时，l==r 或者，l+1==r
         def process(l, r):
@@ -159,8 +155,8 @@ class Solution:
                 self.ret = tmp
 
         for l in range(n - 1):
-            process(l, l)
-            process(l, l + 1)
+            process(l, l)  # 奇数情况
+            process(l, l + 1)  # 偶数情况
 
         return self.ret
 ```

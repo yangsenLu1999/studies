@@ -1,6 +1,6 @@
 ## LeetCode_0003_无重复字符的最长子串（中等, 2022-02）
 <!--info
-tags: [滑动窗口]
+tags: [滑动窗口, lc100]
 source: LeetCode
 level: 中等
 number: '0003'
@@ -29,9 +29,9 @@ companies: []
 
 <summary><b>思路：滑动窗口</b></summary>
 
-- 维护一个已经出现过的字符集合，详见代码；
+- 维护一个已经出现过的字符集合；
 
-<details><summary><b>Python</b></summary>
+<details><summary><b>Python 写法1 （滑动窗口模板，推荐写法）</b></summary>
 
 ```python
 class Solution:
@@ -41,8 +41,8 @@ class Solution:
         l = r = 0  # 窗口边界
         ret = 0
         while r < len(s):
-            while s[r] in used:  # 如果已经出现过则移出
-                # 注意这里要 while 判断，因为 l 指针不一定刚好指向这个重复的字符，要一直移动直到把 r 指向的字符移出
+            while s[r] in used:  # 滑动左边界
+                # 判断的是右边界，移动的是左边界
                 used.remove(s[l])
                 l += 1
             ret = max(ret, r - l + 1)
@@ -54,8 +54,9 @@ class Solution:
 </details>
 
 
-**优化**：直接移动 l 指针到重复字符的下一个位置，减少 l 指针移动；
+<details><summary><b>Python 写法2 （优化）</b></summary>
 
+- **优化**：直接移动 l 指针到重复字符的下一个位置，减少 l 指针移动；
 ```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:

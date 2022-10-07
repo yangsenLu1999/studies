@@ -1,6 +1,6 @@
 ## LeetCode_0004_寻找两个正序数组的中位数（困难, 2022-02）
 <!--info
-tags: [二分]
+tags: [二分, lc100]
 source: LeetCode
 level: 困难
 number: '0004'
@@ -11,7 +11,7 @@ companies: []
 <summary><b>问题简述</b></summary>
 
 ```txt
-给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。
+给定两个大小分别为 m 和 n 的正序（从小到大）数组 A 和 B。请你找出并返回这两个正序数组的 中位数 。
 
 算法的时间复杂度应该为 O(log (m+n)) 。
 ```
@@ -78,24 +78,21 @@ class Solution:
                 r = i - 1  # [i-1, r) 区间不满足要求，下一轮从 [l, i-1) 继续找符合的，所以令 r = i - 1
 
         # 退出循环时 l == r
-        i = (l + r + 1) // 2
-        j = half - i
+        i, j = l, half - l
 
-        # 根据 i 和 j 的定义，都表述“数量”，所以
-        #   i == 0 表示不从 A 取数，“前一半”数都从 B 中取；
-        #   i == m 表示取 A 中所有数，剩下的从 B 中取；
-        #   j == 0, j == n 含义类似
+        # 记 m1, m2 分别表示前半部分的最大值和后半部分的最小值，根据定义
+        #   m1, m2 = max(A[i-1],B[j-1]), min(A[i],B[j])
+        # 这里要注意 i=0/i=m/j=0/j=n 的情况（越界）
+        #   i == 0 表示前一半从 A 中取 0 个数，即前一半都从 B 中取；
+        #   i == m 表示前一半取 A 中所有数，剩下的再从 B 中取；
+        #   j == 0, j == n 同理
         a_im1 = -inf if i == 0 else A[i - 1]
         a_i = inf if i == m else A[i]
         b_jm1 = -inf if j == 0 else B[j - 1]
         b_j = inf if j == n else B[j]
-
-        # m1：前一部分的最大值
-        # m2：后一部分的最小值
         m1, m2 = max(a_im1, b_jm1), min(a_i, b_j)
 
         return (m1 + m2) / 2 if (m + n) % 2 == 0 else m1
-
 ```
 
 </details>
