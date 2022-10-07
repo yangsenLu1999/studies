@@ -14,10 +14,12 @@ import os
 # import sys
 # import json
 # import unittest
+import subprocess
 
 # from typing import *
 # from collections import defaultdict
 from pathlib import Path
+from datetime import datetime
 
 from huaytools.utils import get_logger
 
@@ -50,6 +52,13 @@ class ReadmeUtils:
         else:
             logger.error(command)
 
+    @staticmethod
+    def get_file_first_commit_date(fp) -> str:
+        code, date_str = subprocess.getstatusoutput(f'git log --follow --format=%ad --date=iso-strict {fp} | tail -1')
+        if code != 0:
+            raise ValueError(f'{ReadmeUtils.get_file_first_commit_date.__name__}: {fp}')
+        # return datetime.fromisoformat(date_str)
+        return date_str
 
 class args:  # noqa
     """"""
@@ -68,7 +77,16 @@ class args:  # noqa
 
     # notes
     fp_notes = Path(fp_repo / 'notes')
+    fp_notes_archives = fp_notes / '_archives'
     fp_notes_readme = fp_notes / 'README.md'
     fp_notes_readme_main = fp_notes / 'README_main.md'
     fp_notes_readme_temp = fp_notes / 'README_template.md'
     fp_notes_property = fp_notes / 'properties.yml'
+
+    notes_top_limit = 5
+
+
+TEMP_main_readme_notes_recent_toc = '''## Recently 📖
+{toc_top}
+{toc_recent}
+'''

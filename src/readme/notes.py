@@ -10,11 +10,14 @@ Subject:
 """
 from __future__ import annotations
 
+import os
 # import os
 # import sys
 # import json
 # import unittest
 import re
+import subprocess
+
 import yaml
 
 from typing import ClassVar
@@ -22,7 +25,7 @@ from collections import defaultdict
 from pathlib import Path
 from dataclasses import dataclass, field
 
-from readme.utils import args
+from readme.utils import args, ReadmeUtils, TEMP_main_readme_notes_recent_toc
 
 
 # TMP_subject_toc = '''### {title}
@@ -42,6 +45,13 @@ class RE:
     note_info = re.compile(r'<!--info(.*?)-->', flags=re.DOTALL)
     note_toc = re.compile(r'<!-- TOC -->(.*?)<!-- TOC -->', flags=re.DOTALL)
     note_content = re.compile(r'<!-- CONTENT -->(.*?)<!-- CONTENT -->', flags=re.DOTALL)
+
+
+# def _load_note_info(fp, txt):
+#     m = RE.note_info.search(txt)
+#     if not m:
+#         raise ValueError(fp)
+#     return yaml.safe_load(m.group(1).strip())
 
 
 @dataclass
@@ -94,6 +104,59 @@ class SubjectInfo:
         return self.info['toc_id']
 
 
+@dataclass
+class NoteInfo:
+    path: Path
+    _info: dict = None
+    _title: str = None
+    _first_commit_date: str = None
+
+    @property
+    def title(self):
+        if self._title is None:
+            with self.path.open(encoding='utf8') as f:
+                for ln in f:
+                    self._title = ln
+                    break
+        return self._title
+
+    @property
+    def info(self):
+        if self._info is None:
+            with self.path.open(encoding='utf8') as f:
+                try:
+                    m = RE.note_info.search(f.read())
+                except:  # noqa
+                    raise ValueError(self.path)
+                if m:
+                    self._info = yaml.safe_load(m.group(1).strip())
+                else:
+                    self._info = dict()
+        return self._info
+
+    @property
+    def first_commit_date(self) -> str:
+        if self._first_commit_date is None:
+            self._first_commit_date = ReadmeUtils.get_file_first_commit_date(self.path)
+        return self._first_commit_date
+
+    @property
+    def date(self):
+        return self.first_commit_date[:10]
+
+    @property
+    def is_top(self):
+        return self.info.get('top', False)
+
+    @property
+    def toc_line_relative_to_repo(self):
+        """"""
+        if self.is_top:
+            return f'- [`{self.date}` {self.title} 📌]({self.path.relative_to(args.fp_repo)})'
+        else:
+            return f'- [`{self.date}` {self.title}]({self.path.relative_to(args.fp_repo)})'
+
+
 class Property:
 
     def __init__(self, fp_property_yaml):
@@ -116,14 +179,52 @@ class Notes:
     def __init__(self):
         """"""
         self._fp_notes = args.fp_notes
+        self._fp_notes_archives = args.fp_notes_archives
         self._fp_notes_readme = args.fp_notes_readme
         self._fp_notes_readme_temp = args.fp_notes_readme_temp
+        self._top_limit = args.notes_top_limit
+        # self._recent_limit = args.notes_recent_limit
         self.property = Property(args.fp_notes_property)
 
         self._load_note_indexes()
+        self._load_all_notes()
 
     subjects: list[SubjectInfo]
     cate2subjects: dict[SubjectId, list[SubjectInfo]]  # no-use
+    fp2date: dict[Path, str]
+    # recent_notes: list[Path]
+    notes: list[NoteInfo] = []
+    _notes_top: list[NoteInfo] = []
+    _notes_recent: list[NoteInfo] = []
+
+    @property
+    def recent_limit(self):
+        return
+
+    @property
+    def notes_top(self):
+        return self._notes_top[:self._top_limit]
+
+    @property
+    def notes_recent(self):
+        recent_limit = len(self.readme_toc.split('\n'))
+        return self._notes_recent[:recent_limit - len(self.notes_top)]
+
+    def _load_all_notes(self):
+        for dp, _, fns in os.walk(self._fp_notes_archives):
+            for fn in fns:
+                fp = Path(dp) / fn
+                if fp.suffix != '.md':
+                    continue
+                note_i = NoteInfo(fp)
+                self.notes.append(note_i)
+                if note_i.is_top:
+                    self._notes_top.append(note_i)
+                else:
+                    self._notes_recent.append(note_i)
+
+        self._notes_top.sort(key=lambda x: x.first_commit_date, reverse=True)
+        self._notes_recent.sort(key=lambda x: x.first_commit_date, reverse=True)
 
     def _load_note_indexes(self):
         self.subjects = []
@@ -143,6 +244,7 @@ class Notes:
 
     readme_toc: str
     readme_concat: str
+    repo_recent_toc: str
 
     def build(self):
         with self._fp_notes_readme_temp.open(encoding='utf8') as f:
@@ -154,17 +256,24 @@ class Notes:
         with self._fp_notes_readme.open('w', encoding='utf8') as f:
             f.write(readme)
 
-        self.readme_toc = self.get_readme_toc()
-        self.readme_concat = self.get_readme_concat()
+        self.readme_toc = self._get_readme_toc()
+        self.readme_concat = self._get_readme_concat()
+        self.repo_recent_toc = self._build_repo_recent_toc()
 
-    def get_readme_toc(self):
+    def _get_readme_toc(self):
         with self._fp_notes_readme.open(encoding='utf8') as f:
             return RE.note_toc.search(f.read()).group(1).strip()
 
-    def get_readme_concat(self):
+    def _get_readme_concat(self):
         with self._fp_notes_readme.open(encoding='utf8') as f:
             content = RE.note_content.search(f.read()).group(1).strip()
             return content.replace('](', f']({self._fp_notes.name}/')
+
+    def _build_repo_recent_toc(self):
+        return TEMP_main_readme_notes_recent_toc.format(
+            toc_top='\n'.join([n.toc_line_relative_to_repo for n in self.notes_top]),
+            toc_recent='\n'.join([n.toc_line_relative_to_repo for n in self.notes_recent])
+        )
 
 
 if __name__ == '__main__':

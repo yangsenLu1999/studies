@@ -124,7 +124,7 @@ TMP_TOC_TABLE = '''<table>  <!-- frame="void" 无效 -->
 </tr>
 </table>'''
 
-README_TITLE = 'Algorithms'
+README_TITLE = 'Algorithm Coding'
 TMP_README = '''# {title}
 
 {toc}
