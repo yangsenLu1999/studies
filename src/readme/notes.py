@@ -116,7 +116,7 @@ class NoteInfo:
         if self._title is None:
             with self.path.open(encoding='utf8') as f:
                 for ln in f:
-                    self._title = ln
+                    self._title = ln.strip()
                     break
         return self._title
 
