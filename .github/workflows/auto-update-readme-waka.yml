@@ -1,12 +1,12 @@
 # https://github.com/athul/waka-readme
 
-name: waka-readme
+name: auto-update-readme-waka
 
 on:
   #push:
   workflow_dispatch: # for manual workflow trigger
-  schedule:
-    - cron: '0 0 * * *' # runs at every 12AM UTC
+  schedule:  # https://docs.github.com/cn/actions/using-workflows/events-that-trigger-workflows#schedule
+    - cron: '0 22 * * *' # runs at every 22:00 UTC, avoid to conflict with auto-update-readme.yml
 
 jobs:
   update-readme:
