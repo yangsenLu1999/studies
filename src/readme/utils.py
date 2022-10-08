@@ -112,7 +112,6 @@ class args:  # noqa
     fp_repo = Path(_fp_cur_file.parent / '../..').resolve()
     fp_repo_readme = fp_repo / 'README.md'
     fp_repo_readme_temp = fp_repo / 'README_main.md'
-    fp_repo_readme_notes = fp_repo / 'README_notes.md'
 
     # algorithms
     fp_algorithms = Path(fp_repo / 'algorithms')
@@ -125,7 +124,6 @@ class args:  # noqa
     fp_notes = Path(fp_repo / 'notes')
     fp_notes_archives = fp_notes / '_archives'
     fp_notes_readme = fp_notes / 'README.md'
-    fp_notes_readme_main = fp_notes / 'README_main.md'
     fp_notes_readme_temp = fp_notes / 'README_template.md'
     fp_notes_property = fp_notes / 'properties.yml'
     notes_top_limit = 5

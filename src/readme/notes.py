@@ -56,22 +56,39 @@ class RE:
 
 @dataclass
 class SubjectInfo:
-    _prefix: str
-    name: str
     path: Path
-    _txt: str = field(default=None, hash=False)
-    _toc: str = field(default=None, hash=False)
-    _info: dict = field(default=None, hash=False)
-
     # subject_ids: ClassVar[dict[str, SubjectId]]
+
+    _prefix = None
+    _name = None
+    _txt = None
+    _toc = None
+    _info = None
+
+    @property
+    def head(self):
+        h_lv = '###' if self.name != 'WIKI' else '##'
+        return f'{h_lv} [{self.name}]({self.path.name})'
+
+    @property
+    def prefix(self):
+        if self._prefix is None:
+            self._prefix = self.path.stem.split('-')[0]
+        return self._prefix
+
+    @property
+    def name(self):
+        if self._name is None:
+            self._name = self.path.stem.split('-')[1]
+        return self._name
 
     @property
     def subject_id(self) -> str:
-        return self._prefix[0]
+        return self.prefix[0]
 
     @property
     def subject_number(self) -> str:
-        return self._prefix[1:]
+        return self.prefix[1:]
 
     @property
     def txt(self):
@@ -86,8 +103,10 @@ class SubjectInfo:
             m = RE.note_toc.search(self.txt)
             if not m:
                 raise ValueError(self.path)
-            self._toc = m.group(1).strip().replace('(#', f'({self.path.name}#')
-            # self._toc = TMP_subject_toc.format(title=self.name, toc=_toc)
+            toc = m.group(1).strip()
+            toc = toc.replace('(#', f'({self.path.name}#')
+            # toc = f'{self.head}\n{toc}'
+            self._toc = toc
         return self._toc
 
     @property
@@ -245,8 +264,7 @@ class Notes:
         for path in self._fp_notes.iterdir():
             if not RE.note_name.match(path.name):
                 continue
-            _prefix, name = path.stem.split('-')
-            _subject = SubjectInfo(_prefix, name, path)
+            _subject = SubjectInfo(path)
             self.subjects.append(_subject)
             sid = self.property.subject_ids[_subject.subject_id]
             self.cate2subjects[sid].append(_subject)
