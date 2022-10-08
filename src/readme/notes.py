@@ -118,6 +118,9 @@ class NoteInfo:
                 for ln in f:
                     self._title = ln.strip()
                     break
+
+            if not self._title:
+                self._title = f'Untitled-{self.path_relative_to_repo}'
         return self._title
 
     @property
@@ -149,12 +152,22 @@ class NoteInfo:
         return self.info.get('top', False)
 
     @property
+    def path_relative_to_repo(self):
+        return self.path.relative_to(args.fp_repo)
+
+    @property
     def toc_line_relative_to_repo(self):
         """"""
         if self.is_top:
-            return f'- [`{self.date}` {self.title} 📌]({self.path.relative_to(args.fp_repo)})'
+            return f'- [`{self.date}` {self.title} 📌]({self.path_relative_to_repo})'
         else:
-            return f'- [`{self.date}` {self.title}]({self.path.relative_to(args.fp_repo)})'
+            return f'- [`{self.date}` {self.title}]({self.path_relative_to_repo})'
+
+    @property
+    def sort_key(self):
+        # if self.title is None:
+        #     raise ValueError(self.path)
+        return self.first_commit_date, self.title
 
 
 class Property:
@@ -223,8 +236,8 @@ class Notes:
                 else:
                     self._notes_recent.append(note_i)
 
-        self._notes_top.sort(key=lambda x: x.first_commit_date, reverse=True)
-        self._notes_recent.sort(key=lambda x: x.first_commit_date, reverse=True)
+        self._notes_top.sort(key=lambda x: x.sort_key, reverse=True)
+        self._notes_recent.sort(key=lambda x: x.sort_key, reverse=True)
 
     def _load_note_indexes(self):
         self.subjects = []
