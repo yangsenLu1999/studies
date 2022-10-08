@@ -32,65 +32,10 @@ try:
 except:  # noqa
     exit(1)
 else:
-    from readme.algorithms import Algorithms
-    from readme.notes import Notes
-    from readme.utils import ReadmeUtils, args
-
-
-class ENV:
-    """"""
-    github_token = ''
-
-
-class BuildReadme:
-    """"""
-
-    def __init__(self):
-        """"""
-        self.fp_repo = args.fp_repo
-        self.fp_repo_readme_main = args.fp_repo_readme_main
-        self.algo = Algorithms()
-        self.note = Notes()
-
-        # process
-
-    commit_info = 'Auto-Update README'
-
-    def git_push(self):
-        os.system('git add -u')
-        code, data = subprocess.getstatusoutput(f'git commit -m "{self.commit_info}"')
-        if code == 0:
-            # os.system('git push')
-            data = subprocess.getoutput('git push')
-            print(data)
-        else:
-            print(data)
-
-    def build(self):
-        # build algorithms
-        self.algo.build()
-        self.note.build()
-
-        # last
-        self._update_homepage()
-
-    def _update_homepage(self):
-        """"""
-        with open(self.fp_repo_readme_main, encoding='utf8') as f:
-            tmp = f.read()
-
-        readme_homepage = tmp.format(toc_algorithms=self.algo.readme_toc,
-                                     toc_notes=self.note.readme_toc,
-                                     toc_recent=self.note.repo_recent_toc,
-                                     readme_algorithms=self.algo.readme_concat,
-                                     readme_notes=self.note.readme_concat)
-        with open(args.fp_repo_readme, 'w', encoding='utf8') as f:
-            f.write(readme_homepage)
-
+    from readme.build import BuildReadme
 
 if __name__ == '__main__':
     """"""
     br = BuildReadme()
-    br.build()
-    br.git_push()
+    br.pipeline()
     # logger.info(f'Update README Success!')

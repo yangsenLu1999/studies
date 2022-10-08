@@ -26,7 +26,14 @@ import yaml
 
 from huaytools.utils import MarkdownUtils
 
-from readme.utils import ReadmeUtils, args
+from readme.utils import (
+    args,
+    ReadmeUtils,
+    TEMP_algorithm_toc_td_category,
+    TEMP_algorithm_toc_table,
+    TEMP_algorithm_readme,
+    TEMP_main_readme_algorithms_concat
+)
 
 
 @dataclass
@@ -93,50 +100,6 @@ class TagInfo:
             return self.algo_type.name
         else:
             return self.EMPTY
-
-
-# GitHub 上 style 失效: style="width: 100%; border: none; background: none"
-TMP_TOC_TD_CATEGORY = '<td width="1000" valign="top">\n\n{sub_toc}\n\n</td>'
-TMP_TOC_TABLE = '''<table>  <!-- frame="void" 无效 -->
-<tr>
-<td colspan="2" valign="top" width="1000">
-
-{toc_hot}
-
-</td>
-<td colspan="2" rowspan="3" valign="top" width="1000">
-
-{toc_subject}
-
-</td>
-</tr>
-<tr></tr>
-<tr>
-<td colspan="2" valign="top">
-
-{toc_level}
-
-</td>
-</tr>
-<tr></tr>
-<tr>  <!-- loop TMP_TOC_TD_CATEGORY -->
-{toc_category}
-</tr>
-</table>'''
-
-README_TITLE = 'Algorithm Coding'
-TMP_README = '''# {title}
-
-{toc}
-
----
-
-{sub_toc}'''
-
-TMP_README_CONCAT = '''## {title}
-
-{toc}
-'''
 
 
 class Property:
@@ -236,7 +199,7 @@ class Algorithms:
     def __init__(self):
         """"""
         # attrs
-        self.title = README_TITLE
+        self.title = args.algorithms_readme_title
         self._fp_algo = args.fp_algorithms
         self._fp_algo_readme = args.fp_algorithms_readme
         self._fp_problems = args.fp_algorithms_problems
@@ -384,7 +347,7 @@ class Algorithms:
             for tag_info in tag_infos:
                 sub_toc.append(self._get_toc_tag_line(tag_info))
 
-            toc.append(TMP_TOC_TD_CATEGORY.format(sub_toc='\n'.join(sub_toc)))
+            toc.append(TEMP_algorithm_toc_td_category.format(sub_toc='\n'.join(sub_toc)))
         return toc
 
     readme_toc: str
@@ -420,19 +383,19 @@ class Algorithms:
                     ))
                 contents.append('')
 
-        toc = TMP_TOC_TABLE.format(toc_hot='\n'.join(toc_hot),
-                                   toc_subject='\n'.join(toc_subject),
-                                   toc_level='\n'.join(toc_level),
-                                   toc_category='\n'.join(toc_algo))
+        toc = TEMP_algorithm_toc_table.format(toc_hot='\n'.join(toc_hot),
+                                              toc_subject='\n'.join(toc_subject),
+                                              toc_level='\n'.join(toc_level),
+                                              toc_category='\n'.join(toc_algo))
         sub_toc = '\n'.join(contents)
-        readme = TMP_README.format(title=self.title, toc=toc, sub_toc=sub_toc)
+        readme = TEMP_algorithm_readme.format(title=self.title, toc=toc, sub_toc=sub_toc)
 
         with self._fp_algo_readme.open('w', encoding='utf8') as f:
             f.write(readme)
 
         toc_concat = toc.replace('(#', f'({self._fp_algo.name}/README.md#')
-        self.readme_toc = f'- [{README_TITLE}](#{MarkdownUtils.slugify(README_TITLE)})'
-        self.readme_concat = TMP_README_CONCAT.format(title=self.title, toc=toc_concat)
+        self.readme_toc = f'- [{self.title}](#{MarkdownUtils.slugify(self.title)})'
+        self.readme_concat = TEMP_main_readme_algorithms_concat.format(title=self.title, toc=toc_concat)
         # with self.fp_repo_readme_algorithms.open('w', encoding='utf8') as f:
         #     f.write(readme_concat)
 
