@@ -1,6 +1,6 @@
 # Algorithm Coding
 
-<table>  <!-- frame="void" 无效 -->
+<table>  <!-- invalid: frame="void", style="width: 100%; border: none; background: none" -->
 <tr>
 <td colspan="2" valign="top" width="1000">
 
@@ -39,6 +39,7 @@
 </tr>
 <tr></tr>
 <tr>  <!-- loop TMP_TOC_TD_CATEGORY -->
+
 <td width="1000" valign="top">
 
 ### 基础
@@ -88,6 +89,7 @@
 - [有限状态自动机 (1)](#有限状态自动机-1)
 
 </td>
+
 </tr>
 </table>
 

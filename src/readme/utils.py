@@ -11,6 +11,7 @@ Subject:
 from __future__ import annotations
 
 import os
+import re
 # import sys
 # import json
 # import unittest
@@ -20,6 +21,7 @@ import subprocess
 # from collections import defaultdict
 from pathlib import Path
 from datetime import datetime
+from dataclasses import dataclass, fields
 
 from huaytools.utils import get_logger
 
@@ -60,13 +62,56 @@ class ReadmeUtils:
         # return datetime.fromisoformat(date_str)
         return date_str
 
+    # RE_WAKATIME = re.compile(r'<!--START_SECTION:waka-->[\s\S]+<!--END_SECTION:waka-->')
+
+    # @staticmethod
+    # def extract_wakatime(txt) -> str:
+    #     return ReadmeUtils.RE_WAKATIME.search(txt).group()
+
+    SECTION_START = '<!--START_SECTION:{tag}-->'
+    SECTION_END = '<!--END_SECTION:{tag}-->'
+
+    @staticmethod
+    def replace_tag_content(tag, txt, content) -> str:
+        """"""
+        tag_begin = ReadmeUtils.SECTION_START.format(tag=tag)
+        tag_end = ReadmeUtils.SECTION_END.format(tag=tag)
+        re_pattern = re.compile(fr'{tag_begin}[\s\S]+{tag_end}')
+        repl = f'{tag_begin}\n\n{content}\n\n{tag_end}'
+        return re_pattern.sub(repl, txt, count=1)
+
+    @staticmethod
+    def find_tag_content(tag, txt) -> str:
+        """"""
+        tag_begin = ReadmeUtils.SECTION_START.format(tag=tag)
+        tag_end = ReadmeUtils.SECTION_END.format(tag=tag)
+        re_pattern = re.compile(fr'{tag_begin}[\s\S]+{tag_end}')
+        return re_pattern.search(txt).group()
+
+
+@dataclass
+class ReadmeTag:
+    index: str = None
+    recent: str = None
+    algorithms: str = None
+    notes: str = None
+    waka: str = None
+
+    def __post_init__(self):
+        for f in fields(self):
+            setattr(self, f.name, f.name)
+
+
+readme_tag = ReadmeTag()
+
+
 class args:  # noqa
     """"""
     _fp_cur_file = Path(__file__)
     # repo
     fp_repo = Path(_fp_cur_file.parent / '../..').resolve()
     fp_repo_readme = fp_repo / 'README.md'
-    fp_repo_readme_main = fp_repo / 'README_main.md'
+    fp_repo_readme_temp = fp_repo / 'README_main.md'
     fp_repo_readme_notes = fp_repo / 'README_notes.md'
 
     # algorithms
@@ -74,6 +119,7 @@ class args:  # noqa
     fp_algorithms_readme = fp_algorithms / 'README.md'
     fp_algorithms_problems = fp_algorithms / 'problems'
     fp_algorithms_property = fp_algorithms / 'properties.yml'
+    algorithms_readme_title = 'Algorithm Coding'
 
     # notes
     fp_notes = Path(fp_repo / 'notes')
@@ -82,7 +128,6 @@ class args:  # noqa
     fp_notes_readme_main = fp_notes / 'README_main.md'
     fp_notes_readme_temp = fp_notes / 'README_template.md'
     fp_notes_property = fp_notes / 'properties.yml'
-
     notes_top_limit = 5
 
 
@@ -90,3 +135,44 @@ TEMP_main_readme_notes_recent_toc = '''## Recently 📖
 {toc_top}
 {toc_recent}
 '''
+TEMP_main_readme_algorithms_concat = '''## {title}
+
+{toc}
+'''
+
+TEMP_algorithm_toc_td_category = '<td width="1000" valign="top">\n\n{sub_toc}\n\n</td>'
+TEMP_algorithm_toc_table = '''<table>  <!-- invalid: frame="void", style="width: 100%; border: none; background: none" -->
+<tr>
+<td colspan="2" valign="top" width="1000">
+
+{toc_hot}
+
+</td>
+<td colspan="2" rowspan="3" valign="top" width="1000">
+
+{toc_subject}
+
+</td>
+</tr>
+<tr></tr>
+<tr>
+<td colspan="2" valign="top">
+
+{toc_level}
+
+</td>
+</tr>
+<tr></tr>
+<tr>  <!-- loop TMP_TOC_TD_CATEGORY -->
+
+{toc_category}
+
+</tr>
+</table>'''
+TEMP_algorithm_readme = '''# {title}
+
+{toc}
+
+---
+
+{sub_toc}'''
