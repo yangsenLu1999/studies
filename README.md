@@ -100,7 +100,7 @@ Other              4 hrs 40 mins   >>>>---------------------   14.24 %
 - [剑指Offer (75)](algorithms/README.md#剑指offer-75)
 - [动态规划(记忆化搜索) (50)](algorithms/README.md#动态规划记忆化搜索-50)
 - [热门&经典&易错 (44)](algorithms/README.md#热门经典易错-44)
-- [LeetCode Hot 100 (9)](algorithms/README.md#leetcode-hot-100-9)
+- [LeetCode Hot 100 (14)](algorithms/README.md#leetcode-hot-100-14)
 
 </td>
 <td colspan="2" rowspan="3" valign="top" width="1000">
@@ -108,9 +108,9 @@ Other              4 hrs 40 mins   >>>>---------------------   14.24 %
 ### Subject 📓
 - [牛客 (131)](algorithms/README.md#牛客-131)
 - [剑指Offer (75)](algorithms/README.md#剑指offer-75)
-- [LeetCode (62)](algorithms/README.md#leetcode-62)
+- [LeetCode (64)](algorithms/README.md#leetcode-64)
 - [热门&经典&易错 (44)](algorithms/README.md#热门经典易错-44)
-- [LeetCode Hot 100 (9)](algorithms/README.md#leetcode-hot-100-9)
+- [LeetCode Hot 100 (14)](algorithms/README.md#leetcode-hot-100-14)
 - [剑指Offer2 (3)](algorithms/README.md#剑指offer2-3)
 - [程序员面试金典 (2)](algorithms/README.md#程序员面试金典-2)
 - [Collections (1)](algorithms/README.md#collections-1)
@@ -123,9 +123,9 @@ Other              4 hrs 40 mins   >>>>---------------------   14.24 %
 <td colspan="2" valign="top">
 
 ### Level 📈
-- [Medium (141)](algorithms/README.md#medium-141)
+- [Medium (142)](algorithms/README.md#medium-142)
 - [Easy (102)](algorithms/README.md#easy-102)
-- [Hard (32)](algorithms/README.md#hard-32)
+- [Hard (33)](algorithms/README.md#hard-33)
 
 </td>
 </tr>
@@ -144,12 +144,12 @@ Other              4 hrs 40 mins   >>>>---------------------   14.24 %
 
 ### 数据结构
 - [二叉树/树 (47)](algorithms/README.md#二叉树树-47)
-- [链表 (27)](algorithms/README.md#链表-27)
+- [链表 (29)](algorithms/README.md#链表-29)
 - [字符串 (17)](algorithms/README.md#字符串-17)
 - [栈/队列 (16)](algorithms/README.md#栈队列-16)
 - [数组、矩阵(二维数组) (10)](algorithms/README.md#数组矩阵二维数组-10)
+- [堆/优先队列 (7)](algorithms/README.md#堆优先队列-7)
 - [设计 (7)](algorithms/README.md#设计-7)
-- [堆/优先队列 (6)](algorithms/README.md#堆优先队列-6)
 - [图 (1)](algorithms/README.md#图-1)
 - [并查集 (1)](algorithms/README.md#并查集-1)
 - [线段树/树状数组 (1)](algorithms/README.md#线段树树状数组-1)
@@ -160,9 +160,9 @@ Other              4 hrs 40 mins   >>>>---------------------   14.24 %
 ### 算法
 - [动态规划(记忆化搜索) (50)](algorithms/README.md#动态规划记忆化搜索-50)
 - [二分/二分搜索 (22)](algorithms/README.md#二分二分搜索-22)
-- [递归/迭代 (22)](algorithms/README.md#递归迭代-22)
-- [深度优先搜索(DFS) (19)](algorithms/README.md#深度优先搜索dfs-19)
-- [排序/快排 (14)](algorithms/README.md#排序快排-14)
+- [递归/迭代 (21)](algorithms/README.md#递归迭代-21)
+- [深度优先搜索(DFS) (20)](algorithms/README.md#深度优先搜索dfs-20)
+- [排序/快排 (15)](algorithms/README.md#排序快排-15)
 - [分治 (4)](algorithms/README.md#分治-4)
 - [广度优先搜索(BFS) (4)](algorithms/README.md#广度优先搜索bfs-4)
 
@@ -301,8 +301,8 @@ Other              4 hrs 40 mins   >>>>---------------------   14.24 %
 - [G](notes/999-WIKI.md#g)
     - [git](notes/999-WIKI.md#git)
     - [gitbook](notes/999-WIKI.md#gitbook)
-        - [[1]](notes/999-WIKI.md#1)
-        - [[2]](notes/999-WIKI.md#2)
+        - [(1)](notes/999-WIKI.md#1)
+        - [(2)](notes/999-WIKI.md#2)
     - [GitHub Action](notes/999-WIKI.md#github-action)
     - [glob](notes/999-WIKI.md#glob)
 - [H](notes/999-WIKI.md#h)
