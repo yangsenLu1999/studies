@@ -1,13 +1,15 @@
-name: auto-update-readme
+name: daily
 
 on:
   workflow_dispatch: # for manual workflow trigger
   schedule:
-    - cron: '0 0 * * *' # runs at every 12AM UTC
+    - cron: '0 20 * * *' # runs at every 20:00 UTC
+    # Setting it to 00:00 may cause a huge delay, probably because so many tasks are being executed at that point.
   push:
     branches: [ 'master' ]
     paths:
-      - 'README_main.md'
+      - 'README.md'
+      - '.github/workflows/*'
       #- 'src/readme/**'
       #- 'algorithms/**'
 

@@ -4,6 +4,7 @@
 # Keep on Your Studying!
 
 [![wakatime](https://wakatime.com/badge/user/c840568d-e4b1-4c63-ade0-03856283d319.svg)](https://wakatime.com/@c840568d-e4b1-4c63-ade0-03856283d319)
+[![daily update](https://github.com/imhuay/studies/actions/workflows/daily.yml/badge.svg?branch=master)](https://github.com/imhuay/studies/actions?query=workflow:daily)
 [![GitHub issues](https://img.shields.io/github/issues/imhuay/studies?color=important)](https://github.com/imhuay/studies/issues)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/imhuay/studies?color=inactive)](https://github.com/imhuay/studies/issues?q=is:issue+is:closed)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/imhuay/studies?color=active)](https://github.com/imhuay/studies/commits/master)
