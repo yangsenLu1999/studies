@@ -10,8 +10,8 @@ toc_id: wiki
 - [G](#g)
     - [git](#git)
     - [gitbook](#gitbook)
-        - [[1]](#1)
-        - [[2]](#2)
+        - [(1)](#1)
+        - [(2)](#2)
     - [GitHub Action](#github-action)
     - [glob](#glob)
 - [H](#h)
@@ -52,15 +52,15 @@ toc_id: wiki
 
 ### gitbook
 
-#### [1]
+#### (1)
 > 一款现代化的文档平台，常用于编辑产品文档、知识分享、个人笔记等，支持与 GitHub 自动同步；  
-- 官网网址：[GitBook - Where software teams break knowledge silos.](https://www.gitbook.com/)
+- 官网网址：[GitBook - Where software teams break knowledge silos.](https://www.gitbook.com)
 - 本项目的 GitBook 地址：[studies-gitbook](https://imhuay.gitbook.io/studies)
 
 
-#### [2]
+#### (2)
 > 一个基于 Node.js 的命令行工具，使用 Markdown 快速构建文档或书籍；  
-> 目前团队已不再维护，转向 [GitBook 在线平台](#gitbook-1)
+> 目前团队已不再维护，转向 GitBook 在线平台
 - 官方 GitHub 地址（已不再维护）：[GitbookIO/gitbook](https://github.com/GitbookIO/gitbook)
 - [GitBook 使用记录](./_archives/2022/04/Gitbook.md)
     > 对 markdown 和 html 混写支持不佳，已不再使用
@@ -144,4 +144,4 @@ toc_id: wiki
 
 ### yaml
 > 一个可读性高，用来表达序列化数据的标记语言
-- [YAML 入门教程 | 菜鸟教程](https://www.runoob.com/w3cnote/yaml-intro.html)
+- [YAML 入门教程 - 菜鸟教程](https://www.runoob.com/w3cnote/yaml-intro.html)
