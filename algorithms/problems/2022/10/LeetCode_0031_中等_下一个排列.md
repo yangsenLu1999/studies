@@ -1,3 +1,4 @@
+## LeetCode_0031_下一个排列（中等, 2022-10）
 <!--info
 tags: [双指针, 经典, lc100]
 source: LeetCode
