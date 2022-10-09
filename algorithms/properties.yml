@@ -151,6 +151,7 @@ tags:
     快慢指针: *two_pointer
     快慢指针（链表）: *two_pointer
     快慢指针（数组）: *two_pointer
+    首尾双指针: *two_pointer
     同向双指针: *two_pointer
     对向双指针: *two_pointer
     滑动窗口: *two_pointer

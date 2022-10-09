@@ -1,6 +1,6 @@
 ## LeetCode_0021_合并两个有序链表（简单, 2021-10）
 <!--info
-tags: [递归]
+tags: [链表, lc100]
 source: LeetCode
 level: 简单
 number: '0021'
@@ -30,19 +30,48 @@ companies: []
 
 <summary><b>思路</b></summary>
 
+<details><summary><b>Python：迭代（推荐）</b></summary>
+
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+
+        dummy = ListNode()  # 伪头节点
+
+        cur, l, r = dummy, list1, list2
+        while l and r:
+            if l.val < r.val:
+                cur.next = l
+                l = l.next
+            else:
+                cur.next = r
+                r = r.next
+            
+            cur = cur.next
+        
+        cur.next = l or r  # 剩余部分
+        return dummy.next
+```
+
+</details>
+
 <details><summary><b>Python：递归</b></summary>
 
 ```python
 # Definition for singly-linked list.
-class ListNode:
-    def __init__(self, val=0, next=None):  # noqa
-        self.val = val
-        self.next = next
-
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:  # noqa
-        """ 递归 """
         if l1 is None:  # 尾递归 1
             return l2
         elif l2 is None:  # 尾递归 2
@@ -53,43 +82,6 @@ class Solution:
         else:
             l2.next = self.mergeTwoLists(l1, l2.next)
             return l2
-
-
-```
-
-</details>
-
-
-<details><summary><b>Python：迭代</b></summary>
-
-```python
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, val=0, next=None):  # noqa
-        self.val = val
-        self.next = next
-
-
-class Solution:
-    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:  # noqa
-        """ 迭代 """
-        head = ListNode(-1)  # 初始化
-
-        pre = head
-        while l1 and l2:
-            if l1.val < l2.val:
-                pre.next = l1
-                l1 = l1.next
-            else:
-                pre.next = l2
-                l2 = l2.next
-            pre = pre.next
-
-        # 合并后 l1 和 l2 最多只有一个还未被合并完，我们直接将链表末尾指向未合并完的链表即可
-        pre.next = l1 if l1 is not None else l2
-
-        return head.next
-
 ```
 
 </details>

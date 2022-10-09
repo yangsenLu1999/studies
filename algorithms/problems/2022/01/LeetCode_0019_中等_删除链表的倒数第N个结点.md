@@ -1,6 +1,6 @@
 ## LeetCode_0019_删除链表的倒数第N个结点（中等, 2022-01）
 <!--info
-tags: [链表, 快慢指针]
+tags: [链表, 快慢指针, lc100]
 source: LeetCode
 level: 中等
 number: 0019
@@ -57,24 +57,22 @@ companies: []
 #         self.next = next
 
 class Solution:
-    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
 
-        dummy = ListNode(0)  # 伪头节点
-        dummy.next = head
+        dummy = ListNode(next=head)
 
-        k = n + 1  # 获取倒数第 n+1 个节点
-        lp, fp = dummy, dummy
-        while fp:
-            if k <= 0:
-                lp = lp.next
-            
-            fp = fp.next
-            k -= 1
+        fast, slow = dummy, dummy
+        # 快指针先走 n+1 步（包括新加入的伪头节点）
+        for _ in range(n + 1):
+            fast = fast.next
         
-        # print(lp.val)
-        lp.next = lp.next.next
+        while fast:
+            fast = fast.next
+            slow = slow.next
+        
+        # 删除节点
+        slow.next = slow.next.next
         return dummy.next
 ```
 
 </details>
-

@@ -1,6 +1,6 @@
 ## LeetCode_0015_三数之和（中等, 2021-10）
 <!--info
-tags: [双指针, lc100]
+tags: [首尾双指针, 排序, lc100]
 source: LeetCode
 level: 中等
 number: '0015'
@@ -11,7 +11,9 @@ companies: []
 <summary><b>问题简述</b></summary> 
 
 ```text
-给定一个数组，找出该数组中所有和为 0 的三元组。
+给定一个数组，找出该数组中所有和为 0 的不重复的三元组。
+
+进阶：不使用 set 去重。
 ```
 
 
@@ -59,41 +61,33 @@ from typing import List
 
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        
-        # assert
+
         ret = []
-        L = len(nums)
-        if L < 3:
-            return ret
-
-        # 设置目标值
         target = 0
-        # 排序
-        nums = sorted(nums)
+        nums.sort()
 
+        L = len(nums)
         for i in range(L - 2):  # 固定第一个数
+
             # 剪枝
             if i > 0 and nums[i] == nums[i - 1]: continue
             if nums[i] + nums[i + 1] + nums[i + 2] > target: break
-            if nums[i] + nums[L - 2] + nums[L - 1] < target: continue
+            if nums[i] + nums[L - 1] + nums[L - 2] < target: continue
 
-            # 设置左右指针
-            l, r = i + 1, L - 1
+            # 首尾指针
+            l, r = i + 1, len(nums) - 1
             while l < r:
 
-                s = nums[i] + nums[l] + nums[r]
-                if s < target:
+                if (s := nums[i] + nums[l] + nums[r]) < target:
                     l += 1
                 elif s > target:
                     r -= 1
-                else:  # s == target
+                else:
                     ret.append([nums[i], nums[l], nums[r]])
 
-                    # 同时移动双指针
                     l += 1
                     r -= 1
-
-                    # 如果跟上一个值相同，就跳过
+                    # 剪枝，注意边界条件
                     while l < r and nums[l] == nums[l - 1]: l += 1
                     while l < r and nums[r] == nums[r + 1]: r -= 1
 

@@ -1,6 +1,6 @@
 ## LeetCode_0020_有效的括号（简单, 2022-03）
 <!--info
-tags: [栈]
+tags: [栈, lc100]
 source: LeetCode
 level: 简单
 number: '0020'
@@ -41,25 +41,19 @@ companies: []
 ```python
 class Solution:
     def isValid(self, s: str) -> bool:
-        """"""
-        N = len(s)
-        # 奇数情况一定无效
-        if N % 1: return False
 
-        # 小技巧，遇到左括号，压入对应的右扩招，这样遇到右括号对比时，直接比较即可
-        book = {'(': ')', '[': ']', '{': '}'}
+        stack = []  # 模拟栈
+        table = {')':'(', ']': '[', '}': '{'}
 
-        stk = []
         for c in s:
-            if c in book:
-                stk.append(book[c])
-            else:
-                # 如果栈为空，或者栈顶不匹配，无效
-                if not stk or stk[-1] != c: 
-                    return False
-                stk.pop()
-
-        return len(stk) == 0
+            if c in '([{':
+                stack.append(c)
+            elif stack and table[c] == stack[-1]:
+                stack.pop()
+            else:  # 栈为空，且遇到左括号，一定无效
+                return False
+        
+        return len(stack) == 0
 ```
 
 </details>

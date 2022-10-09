@@ -9,6 +9,7 @@ on:
     branches: [ 'master' ]
     paths:
       - 'README.md'
+      - 'algorithms/**'
       - '.github/workflows/*'
       #- 'src/readme/**'
       #- 'algorithms/**'

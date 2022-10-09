@@ -41,7 +41,7 @@ companies: []
 
 <summary><b>思路</b></summary>
 
-- 组合问题，DFS 模板解决；
+- 组合问题，DFS 模板；
 
 <details><summary><b>Python</b></summary>
 
@@ -71,7 +71,7 @@ class Solution:
             for c in tb[digits[i]]:
                 tmp.append(c)
                 dfs(i + 1, tmp)
-                tmp.pop()
+                tmp.pop()  # 回溯
 
         dfs(0, [])
         return ret
