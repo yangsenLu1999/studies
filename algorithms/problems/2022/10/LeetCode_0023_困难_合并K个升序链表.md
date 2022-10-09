@@ -31,6 +31,12 @@ companies: []
 
 <summary><b>思路</b></summary>
 
+- 维护一个优先队列（最小堆），队列中每个元素为各链表中的当前节点；
+- 依次弹出队首元素，如果当前队列还有元素就继续加入队列；
+- 提示：
+    - 优先队列的内部移动依赖于比较运算符；
+    - Python 标准库提供了一个简单的堆队列实现 [`heapq`](https://docs.python.org/zh-cn/3/library/heapq.html)；
+
 <details><summary><b>Python（写法 1，不重载运算符）</b></summary>
 
 ```python
