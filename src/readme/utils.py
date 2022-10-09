@@ -111,7 +111,6 @@ class args:  # noqa
     # repo
     fp_repo = Path(_fp_cur_file.parent / '../..').resolve()
     fp_repo_readme = fp_repo / 'README.md'
-    fp_repo_readme_temp = fp_repo / 'README_main.md'
 
     # algorithms
     fp_algorithms = Path(fp_repo / 'algorithms')

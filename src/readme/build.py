@@ -32,7 +32,6 @@ class BuildReadme:
         """"""
         self.fp_repo = args.fp_repo
         self._fp_repo_readme = args.fp_repo_readme
-        self.fp_repo_readme_temp = args.fp_repo_readme_temp
         self.algo = Algorithms()
         self.note = Notes()
 
