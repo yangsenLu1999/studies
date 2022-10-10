@@ -1,4 +1,4 @@
-Markdown 备忘
+Markdown 语法备忘
 ===
 
 - [VSCode 插件](#vscode-插件)

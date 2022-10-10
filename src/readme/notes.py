@@ -15,15 +15,15 @@ import os
 # import sys
 # import json
 # import unittest
+# import subprocess
 import re
-import subprocess
 
 import yaml
 
-from typing import ClassVar
+# from typing import ClassVar
 from collections import defaultdict
 from pathlib import Path
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 from readme.utils import args, ReadmeUtils, TEMP_main_readme_notes_recent_toc
 
@@ -41,8 +41,8 @@ class SubjectId:
 
 
 class RE:
+    # note_info = re.compile(r'<!--info(.*?)-->', flags=re.DOTALL)
     note_name = re.compile(r'(\d{3})-(.*?).md')
-    note_info = re.compile(r'<!--info(.*?)-->', flags=re.DOTALL)
     note_toc = re.compile(r'<!-- TOC -->(.*?)<!-- TOC -->', flags=re.DOTALL)
     note_content = re.compile(r'<!-- CONTENT -->(.*?)<!-- CONTENT -->', flags=re.DOTALL)
 
@@ -112,10 +112,11 @@ class SubjectInfo:
     @property
     def info(self) -> dict:
         if self._info is None:
-            m = RE.note_info.search(self.txt)
-            if not m:
+            try:
+                _info = ReadmeUtils.get_annotation_info(self.txt)
+            except:  # noqa
                 raise ValueError(self.path)
-            self._info = yaml.safe_load(m.group(1).strip())
+            self._info = yaml.safe_load(_info)
         return self._info
 
     @property
@@ -129,6 +130,7 @@ class NoteInfo:
     _info: dict = None
     _title: str = None
     _first_commit_date: str = None
+    _last_commit_date: str = None
 
     @property
     def title(self):
@@ -147,11 +149,11 @@ class NoteInfo:
         if self._info is None:
             with self.path.open(encoding='utf8') as f:
                 try:
-                    m = RE.note_info.search(f.read())
+                    _info = ReadmeUtils.get_annotation_info(f.read())
                 except:  # noqa
                     raise ValueError(self.path)
-                if m:
-                    self._info = yaml.safe_load(m.group(1).strip())
+                if _info:
+                    self._info = yaml.safe_load(_info)
                 else:
                     self._info = dict()
         return self._info
@@ -163,12 +165,23 @@ class NoteInfo:
         return self._first_commit_date
 
     @property
+    def last_commit_date(self) -> str:
+        if self._last_commit_date is None:
+            self._last_commit_date = ReadmeUtils.get_file_last_commit_date(self.path)
+        return self._last_commit_date
+
+    @property
     def date(self):
-        return self.first_commit_date[:10]
+        # return self.first_commit_date[:10]
+        return self.last_commit_date[:10]
 
     @property
     def is_top(self):
         return self.info.get('top', False)
+
+    @property
+    def is_hidden(self):
+        return self.info.get('hidden', False)
 
     @property
     def path_relative_to_repo(self):
@@ -186,7 +199,8 @@ class NoteInfo:
     def sort_key(self):
         # if self.title is None:
         #     raise ValueError(self.path)
-        return self.first_commit_date, self.title
+        # return self.first_commit_date, self.title
+        return self.last_commit_date, self.title
 
 
 class Property:
@@ -250,10 +264,11 @@ class Notes:
                     continue
                 note_i = NoteInfo(fp)
                 self.notes.append(note_i)
-                if note_i.is_top:
-                    self._notes_top.append(note_i)
-                else:
-                    self._notes_recent.append(note_i)
+                if not note_i.is_hidden:
+                    if note_i.is_top:
+                        self._notes_top.append(note_i)
+                    else:
+                        self._notes_recent.append(note_i)
 
         self._notes_top.sort(key=lambda x: x.sort_key, reverse=True)
         self._notes_recent.sort(key=lambda x: x.sort_key, reverse=True)

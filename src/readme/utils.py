@@ -55,11 +55,21 @@ class ReadmeUtils:
             logger.error(command)
 
     @staticmethod
-    def get_file_first_commit_date(fp) -> str:
+    def get_file_first_commit_date(fp, return_datetime=False) -> str | datetime:
         code, date_str = subprocess.getstatusoutput(f'git log --follow --format=%ad --date=iso-strict {fp} | tail -1')
         if code != 0:
             raise ValueError(f'{ReadmeUtils.get_file_first_commit_date.__name__}: {fp}')
-        # return datetime.fromisoformat(date_str)
+        if return_datetime:
+            return datetime.fromisoformat(date_str)
+        return date_str
+
+    @staticmethod
+    def get_file_last_commit_date(fp, return_datetime=False) -> str | datetime:
+        code, date_str = subprocess.getstatusoutput(f'git log --follow --format=%ad --date=iso-strict {fp} | head -1')
+        if code != 0:
+            raise ValueError(f'{ReadmeUtils.get_file_last_commit_date.__name__}: {fp}')
+        if return_datetime:
+            return datetime.fromisoformat(date_str)
         return date_str
 
     # RE_WAKATIME = re.compile(r'<!--START_SECTION:waka-->[\s\S]+<!--END_SECTION:waka-->')
@@ -70,6 +80,7 @@ class ReadmeUtils:
 
     SECTION_START = '<!--START_SECTION:{tag}-->'
     SECTION_END = '<!--END_SECTION:{tag}-->'
+    SECTION_ANNOTATION = r'<!--{tag}\n([\s\S]+)\n-->'
 
     @staticmethod
     def replace_tag_content(tag, txt, content) -> str:
@@ -81,12 +92,26 @@ class ReadmeUtils:
         return re_pattern.sub(repl, txt, count=1)
 
     @staticmethod
-    def find_tag_content(tag, txt) -> str:
+    def get_tag_content(tag, txt) -> str:
         """"""
         tag_begin = ReadmeUtils.SECTION_START.format(tag=tag)
         tag_end = ReadmeUtils.SECTION_END.format(tag=tag)
         re_pattern = re.compile(fr'{tag_begin}[\s\S]+{tag_end}')
         return re_pattern.search(txt).group()
+
+    @staticmethod
+    def get_annotation(tag, txt) -> str | None:
+        """"""
+        re_pattern = re.compile(ReadmeUtils.SECTION_ANNOTATION.format(tag=tag))
+        m = re_pattern.search(txt)
+        if m:
+            return m.group(1).strip()
+        return None
+
+    @staticmethod
+    def get_annotation_info(txt) -> str | None:
+        """"""
+        return ReadmeUtils.get_annotation('info', txt)
 
 
 @dataclass

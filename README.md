@@ -52,18 +52,18 @@
 <!--START_SECTION:recent-->
 
 ## Recently 📖
-- [`2022-09-19` 设计模式 📌](notes/_archives/2022/09/设计模式.md)
+- [`2022-10-08` 设计模式 📌](notes/_archives/2022/09/设计模式.md)
+- [`2022-10-10` Shell 脚本备忘](notes/_archives/2022/07/Shell脚本使用记录.md)
+- [`2022-10-10` Markdown 语法备忘](notes/_archives/2022/04/Markdown.md)
+- [`2022-10-01` Github Action 备忘](notes/_archives/2022/08/GithubAction备忘.md)
+- [`2022-09-28` WSL 使用记录](notes/_archives/2022/09/WSL使用记录.md)
+- [`2022-09-26` Markdown 简历工具](notes/_archives/2022/06/Markdown简历工具.md)
 - [`2022-09-25` Python 标准项目实践](notes/_archives/2022/09/python-标准项目实践.md)
-- [`2022-09-22` WSL 使用记录](notes/_archives/2022/09/WSL使用记录.md)
-- [`2022-09-19` 设计模式 - 建造者模式](notes/_archives/2022/09/设计模式-建造者模式.md)
-- [`2022-09-19` 设计模式 - 工厂模式](notes/_archives/2022/09/设计模式-工厂模式.md)
+- [`2022-09-22` PyCharm 常用配置](notes/_archives/2022/07/PyCharm常用配置.md)
 - [`2022-09-19` 标签体系构建](notes/_archives/2022/08/标签图谱构建.md)
+- [`2022-09-19` PET 模型实践](notes/_archives/2022/07/PET模型实践.md)
 - [`2022-09-19` `dataclass` 使用记录](notes/_archives/2022/09/python-dataclass使用记录.md)
-- [`2022-09-18` Github Action 备忘](notes/_archives/2022/08/GithubAction备忘.md)
-- [`2022-09-18` requirements.txt 语法备忘](notes/_archives/2022/09/python-requirements语法.md)
-- [`2022-08-26` glob 语法备忘](notes/_archives/2022/08/glob语法备忘.md)
-- [`2022-08-18` Python 容器基类的使用](notes/_archives/2022/08/Python容器基类的使用.md)
-- [`2022-08-18` SQL 字符串处理](notes/_archives/2022/08/SQL字符串处理.md)
+- [`2022-09-18` Python 容器基类的使用](notes/_archives/2022/08/Python容器基类的使用.md)
 
 
 <!--END_SECTION:recent-->
@@ -101,7 +101,7 @@ Other              4 hrs 40 mins   >>>----------------------   12.95 %
 - [剑指Offer (75)](algorithms/README.md#剑指offer-75)
 - [动态规划(记忆化搜索) (51)](algorithms/README.md#动态规划记忆化搜索-51)
 - [热门&经典&易错 (45)](algorithms/README.md#热门经典易错-45)
-- [LeetCode Hot 100 (16)](algorithms/README.md#leetcode-hot-100-16)
+- [LeetCode Hot 100 (17)](algorithms/README.md#leetcode-hot-100-17)
 
 </td>
 <td colspan="2" rowspan="3" valign="top" width="1000">
@@ -111,7 +111,7 @@ Other              4 hrs 40 mins   >>>----------------------   12.95 %
 - [剑指Offer (75)](algorithms/README.md#剑指offer-75)
 - [LeetCode (66)](algorithms/README.md#leetcode-66)
 - [热门&经典&易错 (45)](algorithms/README.md#热门经典易错-45)
-- [LeetCode Hot 100 (16)](algorithms/README.md#leetcode-hot-100-16)
+- [LeetCode Hot 100 (17)](algorithms/README.md#leetcode-hot-100-17)
 - [剑指Offer2 (3)](algorithms/README.md#剑指offer2-3)
 - [程序员面试金典 (2)](algorithms/README.md#程序员面试金典-2)
 - [Collections (1)](algorithms/README.md#collections-1)

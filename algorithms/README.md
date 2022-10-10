@@ -8,7 +8,7 @@
 - [剑指Offer (75)](#剑指offer-75)
 - [动态规划(记忆化搜索) (51)](#动态规划记忆化搜索-51)
 - [热门&经典&易错 (45)](#热门经典易错-45)
-- [LeetCode Hot 100 (16)](#leetcode-hot-100-16)
+- [LeetCode Hot 100 (17)](#leetcode-hot-100-17)
 
 </td>
 <td colspan="2" rowspan="3" valign="top" width="1000">
@@ -18,7 +18,7 @@
 - [剑指Offer (75)](#剑指offer-75)
 - [LeetCode (66)](#leetcode-66)
 - [热门&经典&易错 (45)](#热门经典易错-45)
-- [LeetCode Hot 100 (16)](#leetcode-hot-100-16)
+- [LeetCode Hot 100 (17)](#leetcode-hot-100-17)
 - [剑指Offer2 (3)](#剑指offer2-3)
 - [程序员面试金典 (2)](#程序员面试金典-2)
 - [Collections (1)](#collections-1)
@@ -420,7 +420,7 @@
 - [`牛客_0128_困难_接雨水问题`](problems/2022/05/牛客_0128_困难_接雨水问题.md)
 - [`牛客_0145_中等_01背包`](problems/2022/05/牛客_0145_中等_01背包.md)
 
-### LeetCode Hot 100 (16)
+### LeetCode Hot 100 (17)
 - [`LeetCode_0001_简单_两数之和`](problems/2021/10/LeetCode_0001_简单_两数之和.md)
 - [`LeetCode_0002_中等_两数相加`](problems/2021/10/LeetCode_0002_中等_两数相加.md)
 - [`LeetCode_0003_中等_无重复字符的最长子串`](problems/2022/02/LeetCode_0003_中等_无重复字符的最长子串.md)
@@ -437,6 +437,7 @@
 - [`LeetCode_0023_困难_合并K个升序链表`](problems/2022/10/LeetCode_0023_困难_合并K个升序链表.md)
 - [`LeetCode_0031_中等_下一个排列`](problems/2022/10/LeetCode_0031_中等_下一个排列.md)
 - [`LeetCode_0032_困难_最长有效括号`](problems/2022/10/LeetCode_0032_困难_最长有效括号.md)
+- [`LeetCode_0033_中等_搜索旋转排序数组`](problems/2021/10/LeetCode_0033_中等_搜索旋转排序数组.md)
 
 ### 剑指Offer2 (3)
 - [`剑指Offer2_001_中等_整数除法`](problems/2022/09/剑指Offer2_001_中等_整数除法.md)
