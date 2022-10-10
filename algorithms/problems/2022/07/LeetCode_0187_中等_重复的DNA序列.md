@@ -1,4 +1,4 @@
-## LeetCode_0187_重复的DNA序列（中等, 2021-10）
+## LeetCode_0187_重复的DNA序列（中等, 2022-07）
 <!--info
 tags: [哈希表, 位运算]
 source: LeetCode

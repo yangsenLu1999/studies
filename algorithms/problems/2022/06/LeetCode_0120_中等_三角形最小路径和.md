@@ -1,4 +1,4 @@
-## LeetCode_0120_三角形最小路径和（中等, 2022-01）
+## LeetCode_0120_三角形最小路径和（中等, 2022-06）
 <!--info
 tags: [动态规划]
 source: LeetCode

@@ -1,4 +1,4 @@
-## LeetCode_0876_链表的中间结点（简单, 2022-01）
+## LeetCode_0876_链表的中间结点（简单, 2022-06）
 <!--info
 tags: [链表, 快慢指针]
 source: LeetCode

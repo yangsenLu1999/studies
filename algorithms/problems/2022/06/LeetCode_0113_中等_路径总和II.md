@@ -1,4 +1,4 @@
-## LeetCode_0113_路径总和II（中等, 2022-02）
+## LeetCode_0113_路径总和II（中等, 2022-06）
 <!--info
 tags: [二叉树]
 source: LeetCode

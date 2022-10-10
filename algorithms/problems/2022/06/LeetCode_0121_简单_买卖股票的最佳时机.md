@@ -1,4 +1,4 @@
-## LeetCode_0121_买卖股票的最佳时机（简单, 2022-01）
+## LeetCode_0121_买卖股票的最佳时机（简单, 2022-06）
 <!--info
 tags: [动态规划]
 source: LeetCode

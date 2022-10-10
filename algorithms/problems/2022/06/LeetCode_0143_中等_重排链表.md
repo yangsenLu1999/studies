@@ -1,4 +1,4 @@
-## LeetCode_0143_重排链表（中等, 2022-01）
+## LeetCode_0143_重排链表（中等, 2022-06）
 <!--info
 tags: [链表, 模拟]
 source: LeetCode

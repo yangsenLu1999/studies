@@ -1,4 +1,4 @@
-## LeetCode_0322_零钱兑换（中等, 2022-02）
+## LeetCode_0322_零钱兑换（中等, 2022-06）
 <!--info
 tags: [DFS2DP, 动态规划]
 source: LeetCode

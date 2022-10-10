@@ -1,4 +1,4 @@
-## LeetCode_0240_搜索二维矩阵2（中等, 2021-10）
+## LeetCode_0240_搜索二维矩阵2（中等, 2022-07）
 <!--info
 tags: [二分查找]
 source: LeetCode

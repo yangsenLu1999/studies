@@ -1,4 +1,4 @@
-## LeetCode_0112_路径总和（简单, 2022-02）
+## LeetCode_0112_路径总和（简单, 2022-06）
 <!--info
 tags: [二叉树]
 source: LeetCode

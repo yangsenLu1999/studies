@@ -1,4 +1,4 @@
-## LeetCode_0434_字符串中的单词数（简单, 2021-10）
+## LeetCode_0434_字符串中的单词数（简单, 2022-07）
 <!--info
 tags: [字符串]
 source: LeetCode

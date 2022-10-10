@@ -1,4 +1,4 @@
-## LeetCode_0257_二叉树的所有路径（简单, 2022-02）
+## LeetCode_0257_二叉树的所有路径（简单, 2022-07）
 <!--info
 tags: [二叉树]
 source: LeetCode

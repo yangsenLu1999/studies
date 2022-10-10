@@ -1,4 +1,4 @@
-## LeetCode_0104_二叉树的最大深度（简单, 2021-10）
+## LeetCode_0104_二叉树的最大深度（简单, 2022-07）
 <!--info
 tags: [二叉树, 递归]
 source: LeetCode

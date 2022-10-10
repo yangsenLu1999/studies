@@ -1,4 +1,4 @@
-## LeetCode_0915_分割数组（中等, 2022-01）
+## LeetCode_0915_分割数组（中等, 2022-06）
 <!--info
 tags: [模拟]
 source: LeetCode

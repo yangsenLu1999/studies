@@ -1,4 +1,4 @@
-## LeetCode_0072_编辑距离（困难, 2022-01）
+## LeetCode_0072_编辑距离（困难, 2022-06）
 <!--info
 tags: [动态规划, 经典]
 source: LeetCode

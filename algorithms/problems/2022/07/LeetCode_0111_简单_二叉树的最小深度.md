@@ -1,4 +1,4 @@
-## LeetCode_0111_二叉树的最小深度（简单, 2021-10）
+## LeetCode_0111_二叉树的最小深度（简单, 2022-07）
 <!--info
 tags: [二叉树, DFS]
 source: LeetCode

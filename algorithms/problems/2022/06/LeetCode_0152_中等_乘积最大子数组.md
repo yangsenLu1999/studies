@@ -1,4 +1,4 @@
-## LeetCode_0152_乘积最大子数组（中等, 2022-01）
+## LeetCode_0152_乘积最大子数组（中等, 2022-06）
 <!--info
 tags: [动态规划]
 source: LeetCode

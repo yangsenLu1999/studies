@@ -1,4 +1,4 @@
-## LeetCode_0300_最长递增子序列（中等, 2022-01）
+## LeetCode_0300_最长递增子序列（中等, 2022-06）
 <!--info
 tags: [动态规划, 贪心, 经典]
 source: LeetCode

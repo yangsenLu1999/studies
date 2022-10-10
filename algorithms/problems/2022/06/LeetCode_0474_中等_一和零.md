@@ -1,4 +1,4 @@
-## LeetCode_0474_一和零（中等, 2022-02）
+## LeetCode_0474_一和零（中等, 2022-06）
 <!--info
 tags: [DFS2DP]
 source: LeetCode
