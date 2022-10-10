@@ -35,7 +35,7 @@ companies: []
 
     > 时刻注意数组下标的有效性，即 `i-1 >= 0 and i−dp[i−1]−2 >= 0`
 
-<details><summary><b>Python</b></summary>
+<details><summary><b>Python（迭代，推荐）</b></summary>
 
 ```python
 class Solution:
@@ -48,6 +48,33 @@ class Solution:
                 dp[i] = 2 + dp[i-1] + dp[i - dp[i-1] - 2]
         
         return max(dp)
+```
+
+</details>
+
+<details><summary><b>Python（递归）</b></summary>
+
+```python
+class Solution:
+    def longestValidParentheses(self, s: str) -> int:
+        
+        from functools import lru_cache
+
+        ret = [0]
+
+        @lru_cache(maxsize=None)
+        def dfs(i):  # s[i] 结尾的最长有效括号
+            if i <= 0: return 0
+
+            if i - dfs(i - 1) - 1 >= 0 and s[i - dfs(i - 1) - 1] == '(' and s[i] == ')':
+                r = 2 + dfs(i - 1) + dfs(i - dfs(i - 1) - 2)
+                ret[0] = max(ret[0], r)
+                return r
+            else:
+                return 0
+        
+        dfs(len(s) - 1)
+        return ret[0]
 ```
 
 </details>

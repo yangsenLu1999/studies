@@ -1,12 +1,14 @@
 ## LeetCode_0033_搜索旋转排序数组（中等, 2021-10）
 <!--info
-tags: [二分查找]
+tags: [二分查找, lc100]
 source: LeetCode
 level: 中等
 number: '0033'
 name: 搜索旋转排序数组
 companies: []
 -->
+
+> [33. 搜索旋转排序数组 - 力扣（LeetCode）](https://leetcode.cn/problems/search-in-rotated-sorted-array)
 
 <summary><b>问题简述</b></summary>
 
@@ -55,45 +57,74 @@ companies: []
 <summary><b>思路</b></summary>
 
 - “二分”的本质是两段性，而不是单调性；即只要二分后，左边满足某个性质，右边不满足某个性质，即可使用二分；
-- 比如本题二分后，有前半段满足 >= nums[0]，而后半段不满足；
-
     > [LogicStack-LeetCode/33.搜索旋转排序数组（中等）](https://github.com/SharingSource/LogicStack-LeetCode/blob/main/LeetCode/31-40/33.%20搜索旋转排序数组（中等）.md#二分解法)
+- 本题中，将数组从中间分开后，其中一个部分一定是有序的，有序部分可以通过比较 `a[m]` 和 `a[0]` 得到；
+- 此时如果 target 在有序部分，那么可以排除无序的一半，否则可以排除有序的一半；
+- 注意本题有很多编码细节，详见代码注释；
 
-
-<details><summary><b>Python：二分查找</b></summary>
-
-- 将数组从中间分开成左右两部分时，一定有一部分的数组是有序的。
+<details><summary><b>Python 写法 1：闭区间</b></summary>
 
 ```python
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        if not nums:
-            return -1
 
-        L = len(nums) - 1
-        l, r = 0, L
+        l, r = 0, len(nums) - 1  # [l, r] 闭区间
         while l <= r:
-            mid = l + (r - l) // 2  # 中点下标
+            # 注意如果这里使用 l < r，推出循环时 l == r，返回时要判断 nums[l] 是否等于 target
+            # 而使用 l <= r，那么当 l == r 时，会继续执行依次判断流程，此时 m == l == r
+            m = l + (r - l) // 2
 
-            if nums[mid] == target:
-                return mid
-
-            if nums[0] <= nums[mid]:  # [0, mid) 是有序的
-                # 如果目标在[0, mid)，则将搜索范围缩小到 [0,mid-1]，反之 [mid+1,L]
-                if nums[0] <= target < nums[mid]:
-                    r = mid - 1
+            if nums[m] == target: return m
+            
+            # 以下 nums[m] != target
+            if nums[0] <= nums[m]:  # [l, m] 是有序的；注意，这里必须使用 <=，考虑 m == 0 的情况
+                # 判断 target 是否在有序部分
+                if nums[l] <= target < nums[m]:  # 因为不能确定 nums[l] 是否等于 target，所以要用 <=
+                    r = m - 1
                 else:
-                    l = mid + 1
-            else:  # (mid, L] 是有序的
-                # 同理，如果目标在(mid, L]，则将搜索范围缩小到 [mid+1,L]，反之 [0,mid-1]
-                if nums[mid] < target <= nums[L]:
-                    l = mid + 1
+                    l = m + 1
+            else:  # (m, r] 是有序的
+                # 同理，判断 target 是否在有序部分
+                if nums[m] < target <= nums[r]:
+                    l = m + 1
                 else:
-                    r = mid - 1
+                    r = m - 1
 
         return -1
-
+        # 如果使用 while l < r，就要如下返回
+        # return -1 if nums[l] != target else l
 ```
 
 </details>
 
+
+<details><summary><b>Python 写法 2：左开右闭区间（推荐）</b></summary>
+
+```python
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+
+        l, r = 0, len(nums)  # [l, r) 左闭右开区间
+        while l < r:  # 这里不需要 l <= r，因为是半开区间，退出循环时 l == r 就表示区间内无元素
+            m = l + (r - l) // 2
+
+            if nums[m] == target: return m
+            
+            # 以下 nums[m] != target
+            if nums[0] < nums[m]:  # [l, m) 是有序的，这里用 < 或 <= 不影响
+                # 判断 target 是否在有序部分
+                if nums[l] <= target < nums[m]:  # 因为不能确定 nums[l] 是否等于 target，所以要用 <=
+                    r = m  # 右边界
+                else:
+                    l = m + 1
+            else:  # (m, r] 是有序的
+                # 同理，判断 target 是否在有序部分
+                if nums[m] < target <= nums[r - 1]:
+                    l = m + 1
+                else:
+                    r = m  # 右边界
+
+        return -1
+```
+
+</details>
