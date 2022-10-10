@@ -98,7 +98,7 @@ class Solution:
 </details>
 
 
-<details><summary><b>Python 写法 2：左开右闭区间（推荐）</b></summary>
+<details><summary><b>Python 写法 2：左闭右开区间（推荐）</b></summary>
 
 ```python
 class Solution:
