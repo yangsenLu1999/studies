@@ -52,7 +52,7 @@
 <!--START_SECTION:recent-->
 
 ## Recently 📖
-- [`2022-10-08` 设计模式 📌](notes/_archives/2022/09/设计模式.md)
+- [`2022-10-11` 设计模式 📌](notes/_archives/2022/09/设计模式.md)
 - [`2022-10-10` Shell 脚本备忘](notes/_archives/2022/07/Shell脚本使用记录.md)
 - [`2022-10-10` Markdown 语法备忘](notes/_archives/2022/04/Markdown.md)
 - [`2022-10-01` Github Action 备忘](notes/_archives/2022/08/GithubAction备忘.md)
@@ -101,7 +101,7 @@ Other              4 hrs 40 mins   >>>----------------------   11.48 %
 - [剑指Offer (75)](algorithms/README.md#剑指offer-75)
 - [动态规划(记忆化搜索) (51)](algorithms/README.md#动态规划记忆化搜索-51)
 - [热门&经典&易错 (45)](algorithms/README.md#热门经典易错-45)
-- [LeetCode Hot 100 (17)](algorithms/README.md#leetcode-hot-100-17)
+- [LeetCode Hot 100 (23)](algorithms/README.md#leetcode-hot-100-23)
 
 </td>
 <td colspan="2" rowspan="3" valign="top" width="1000">
@@ -109,9 +109,9 @@ Other              4 hrs 40 mins   >>>----------------------   11.48 %
 ### Subject 📓
 - [牛客 (131)](algorithms/README.md#牛客-131)
 - [剑指Offer (75)](algorithms/README.md#剑指offer-75)
-- [LeetCode (66)](algorithms/README.md#leetcode-66)
+- [LeetCode (71)](algorithms/README.md#leetcode-71)
 - [热门&经典&易错 (45)](algorithms/README.md#热门经典易错-45)
-- [LeetCode Hot 100 (17)](algorithms/README.md#leetcode-hot-100-17)
+- [LeetCode Hot 100 (23)](algorithms/README.md#leetcode-hot-100-23)
 - [剑指Offer2 (3)](algorithms/README.md#剑指offer2-3)
 - [程序员面试金典 (2)](algorithms/README.md#程序员面试金典-2)
 - [Collections (1)](algorithms/README.md#collections-1)
@@ -124,7 +124,7 @@ Other              4 hrs 40 mins   >>>----------------------   11.48 %
 <td colspan="2" valign="top">
 
 ### Level 📈
-- [Medium (143)](algorithms/README.md#medium-143)
+- [Medium (148)](algorithms/README.md#medium-148)
 - [Easy (102)](algorithms/README.md#easy-102)
 - [Hard (34)](algorithms/README.md#hard-34)
 
@@ -160,9 +160,9 @@ Other              4 hrs 40 mins   >>>----------------------   11.48 %
 
 ### 算法
 - [动态规划(记忆化搜索) (51)](algorithms/README.md#动态规划记忆化搜索-51)
-- [二分/二分搜索 (22)](algorithms/README.md#二分二分搜索-22)
-- [递归/迭代 (21)](algorithms/README.md#递归迭代-21)
-- [深度优先搜索(DFS) (20)](algorithms/README.md#深度优先搜索dfs-20)
+- [递归/迭代 (28)](algorithms/README.md#递归迭代-28)
+- [二分/二分搜索 (23)](algorithms/README.md#二分二分搜索-23)
+- [深度优先搜索(DFS) (21)](algorithms/README.md#深度优先搜索dfs-21)
 - [排序/快排 (15)](algorithms/README.md#排序快排-15)
 - [分治 (4)](algorithms/README.md#分治-4)
 - [广度优先搜索(BFS) (4)](algorithms/README.md#广度优先搜索bfs-4)
@@ -261,6 +261,7 @@ Other              4 hrs 40 mins   >>>----------------------   11.48 %
     - [数据类](notes/110-Python.md#数据类)
     - [装饰器](notes/110-Python.md#装饰器)
     - [杂项](notes/110-Python.md#杂项)
+- [设计模式](notes/110-Python.md#设计模式)
 - [备忘](notes/110-Python.md#备忘)
 
 </td>

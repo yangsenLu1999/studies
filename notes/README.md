@@ -88,6 +88,7 @@ Notes
     - [数据类](110-Python.md#数据类)
     - [装饰器](110-Python.md#装饰器)
     - [杂项](110-Python.md#杂项)
+- [设计模式](110-Python.md#设计模式)
 - [备忘](110-Python.md#备忘)
 
 </td>
