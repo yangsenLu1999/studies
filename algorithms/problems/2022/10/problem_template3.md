@@ -1,0 +1,78 @@
+<!--info
+tags: [递归, 回溯, lc100]
+source: LeetCode
+level: 中等
+number: '0046'
+name: 全排列
+companies: []
+-->
+
+> [46. 全排列 - 力扣（LeetCode）](https://leetcode.cn/problems/permutations/?favorite=2cktkvj)
+
+<summary><b>问题简述</b></summary>
+
+```txt
+给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
+```
+
+<!-- 
+<details><summary><b>详细描述</b></summary>
+
+```txt
+```
+
+</details>
+-->
+
+<!-- <div align="center"><img src="../../../_assets/xxx.png" height="300" /></div> -->
+
+<summary><b>思路 1</b></summary>
+
+- 递归+回溯模板：
+- 把递归过程看作一棵树的生成过程，考虑两个关键问题
+  1. 理解每个节点需要产生哪些分支；
+  2. 什么时候结束一条路径的递归；
+- 本题中，
+  - 对第一个问题：每个节点产生的分支由**在这条路径上**未使用过的数字决定；因此可以使用一个全局变量记录已经用过的数字，遍历时跳过这些数字即可；
+    - 因为这个树的生成过程实际上是一个串行的过程，所以使用全局变量配合回溯即可；
+  - 对第二个问题：使用一个变量记录当前的递归深度（最简单）；或者判断全局变量中每个数字都使用过；
+
+<details><summary><b>Python</b></summary>
+
+```python
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+
+        ret = []
+        used = [0] * len(nums)  # 记录各位置的使用情况
+        nums_len = len(nums)
+
+        def dfs(deep, tmp):  # deep: 递归深度
+            if deep == nums_len:  # len(tmp) == nums_len 也可以，省一个变量
+                ret.append(tmp[:])
+                return
+
+            for i in range(nums_len):
+                if used[i]: continue
+                
+                used[i] = 1
+                tmp.append(nums[i])
+                dfs(deep + 1, tmp)
+                tmp.pop()
+                used[i] = 0
+            
+        dfs(0, [])
+        return ret
+```
+
+</details>
+
+<summary><b>思路 2：下一个排列</b></summary>
+
+- 先排序，然后判断是否存在下一个排列，进而得到全部排列；
+- 代码略；
+
+<summary><b>相关问题</b></summary>
+
+- [47. 全排列 II - 力扣（LeetCode）](https://leetcode.cn/problems/permutations-ii/)
+    > 存在重复数字

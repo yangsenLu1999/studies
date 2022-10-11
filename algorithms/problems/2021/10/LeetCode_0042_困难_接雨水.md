@@ -1,6 +1,6 @@
 ## LeetCode_0042_接雨水（困难, 2021-10）
 <!--info
-tags: [双指针]
+tags: [双指针, lc100]
 source: LeetCode
 level: 困难
 number: '0042'
@@ -26,40 +26,47 @@ companies: []
 <div align="center"><img src="../../../_assets/rainwatertrap.png" height="150" /></div>
 
 
-<summary><b>思路</b></summary>
+<summary><b>思路 1：双指针</b></summary>
 
-<details><summary><b>法1）Python：双指针</b></summary>
+- 设置两个变量分别记录左右最高高度；
+- 双指针移动时优先移动较矮的位置，并更新能带来的增量；
+- 画图理解这个过程；
+
+<details><summary><b>Python</b></summary>
 
 ```Python
 class Solution:
     def trap(self, height: List[int]) -> int:
-        """"""
-        l, r = 0, len(height) - 1
-        
-        ans = 0
-        max_l = max_r = 0  # 保存当前位置时，左右最高的柱子
-        
-        while l <= r:
-            if height[l] <= height[r]:
-                if height[l] > max_l:
-                    max_l = height[l]
-                else:
-                    ans += max_l - height[l]
+
+        l, r = 0, len(height) - 1  # 首尾双指针
+        l_max, r_max = 0, 0  # 记录当前位置，左右的最高高度
+        ret = 0
+        while l < r:
+            # 更新左右最高高度
+            l_max = max(l_max, height[l])
+            r_max = max(r_max, height[r])
+
+            # 取左右较矮的作为当前位置
+            if height[l] < height[r]:  # <= 也可以
+                cur = height[l]
                 l += 1
             else:
-                if height[r] > max_r:
-                    max_r = height[r]
-                else:
-                    ans += max_r - height[r]
+                cur = height[r]
                 r -= 1
-                
-        return ans
+            
+            ret += min(l_max, r_max) - cur  # 更新当前位置能带来的增量
+        
+        return ret
 ``` 
 
 </details>
 
 
-<details><summary><b>法2）C++：左右遍历两次</b></summary>
+<summary><b>思路 2：遍历两次</b></summary>
+
+- 分别从左向右和从右向左遍历两次，记录每个位置左右两侧的最高高度；
+
+<details><summary><b>C++</b></summary>
 
 ```C++
 class Solution {
