@@ -25,8 +25,15 @@ Markdown 语法备忘
 ## 编辑
 
 ### 元素居中
-将需要居中的元素替换为 html 标签，然后加上 `style="text-align: center;"` 属性；
+将需要居中的元素用 `<div align="center">` 包裹；
+> 注意：github 不支持 `style="text-align: center;"`
 ```html
+<!-- 更通用 -->
+<div align="center">
+
+</div>
+
+<!-- GitHub 上不生效 -->
 <div style="text-align: center;">
 
 </div>
