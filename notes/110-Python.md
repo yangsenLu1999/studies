@@ -10,6 +10,7 @@ toc_id: python
     - [数据类](#数据类)
     - [装饰器](#装饰器)
     - [杂项](#杂项)
+- [设计模式](#设计模式)
 - [备忘](#备忘)
 <!-- TOC -->
 
@@ -34,6 +35,9 @@ toc_id: python
 - [Python 函数声明中单独的正斜杠（/）和星号（*）是什么作用](./_archives/2022/07/python函数声明中单独的正斜杠和星号是什么意思.md)
 - [类变量、成员变量，与注解](./_archives/2022/07/python类变量和成员变量的最佳实践)
 
+
+## 设计模式
+> [Python 设计模式](_archives/2022/09/设计模式.md)
 
 ## 备忘
 - [requirements.txt 语法备忘](./_archives/2022/09/python-requirements语法.md)
