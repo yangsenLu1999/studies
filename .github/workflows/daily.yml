@@ -9,10 +9,9 @@ on:
     branches: [ 'master' ]
     paths:
       - 'README.md'
-      - 'algorithms/**'
-      - '.github/workflows/*'
-      #- 'src/readme/**'
+      - '.github/workflows/daily.yml'
       #- 'algorithms/**'
+      #- 'src/readme/**'
 
 jobs:
   update-readme:

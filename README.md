@@ -52,9 +52,11 @@
 <!--START_SECTION:recent-->
 
 ## Recently 📖
+- [`2022-10-12` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
 - [`2022-10-11` 设计模式 📌](notes/_archives/2022/09/设计模式.md)
+- [`2022-10-12` Transformer/BERT](notes/_archives/2022/05/Transformers.md)
+- [`2022-10-11` Markdown 语法备忘](notes/_archives/2022/04/Markdown.md)
 - [`2022-10-10` Shell 脚本备忘](notes/_archives/2022/07/Shell脚本使用记录.md)
-- [`2022-10-10` Markdown 语法备忘](notes/_archives/2022/04/Markdown.md)
 - [`2022-10-01` Github Action 备忘](notes/_archives/2022/08/GithubAction备忘.md)
 - [`2022-09-28` WSL 使用记录](notes/_archives/2022/09/WSL使用记录.md)
 - [`2022-09-26` Markdown 简历工具](notes/_archives/2022/06/Markdown简历工具.md)
@@ -62,8 +64,6 @@
 - [`2022-09-22` PyCharm 常用配置](notes/_archives/2022/07/PyCharm常用配置.md)
 - [`2022-09-19` 标签体系构建](notes/_archives/2022/08/标签图谱构建.md)
 - [`2022-09-19` PET 模型实践](notes/_archives/2022/07/PET模型实践.md)
-- [`2022-09-19` `dataclass` 使用记录](notes/_archives/2022/09/python-dataclass使用记录.md)
-- [`2022-09-18` Python 容器基类的使用](notes/_archives/2022/08/Python容器基类的使用.md)
 
 
 <!--END_SECTION:recent-->
