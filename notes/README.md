@@ -30,7 +30,7 @@ Notes
     - [CNN](010-深度学习.md#cnn)
     - [RNN](010-深度学习.md#rnn)
     - [Attention](010-深度学习.md#attention)
-    - [Transformers](010-深度学习.md#transformers)
+    - [Transformer/BERTs](010-深度学习.md#transformerberts)
 - [专题](010-深度学习.md#专题)
     - [编程框架](010-深度学习.md#编程框架)
     - [表示学习](010-深度学习.md#表示学习)

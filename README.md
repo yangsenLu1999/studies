@@ -54,7 +54,7 @@
 ## Recently 📖
 - [`2022-10-12` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
 - [`2022-10-11` 设计模式 📌](notes/_archives/2022/09/设计模式.md)
-- [`2022-10-12` Transformer/BERT](notes/_archives/2022/05/Transformers.md)
+- [`2022-10-12` Transformer/BERT 系列模型](notes/_archives/2022/05/Transformers.md)
 - [`2022-10-11` Markdown 语法备忘](notes/_archives/2022/04/Markdown.md)
 - [`2022-10-10` Shell 脚本备忘](notes/_archives/2022/07/Shell脚本使用记录.md)
 - [`2022-10-01` Github Action 备忘](notes/_archives/2022/08/GithubAction备忘.md)
@@ -203,7 +203,7 @@ Other              4 hrs 40 mins   >>>----------------------   11.48 %
     - [CNN](notes/010-深度学习.md#cnn)
     - [RNN](notes/010-深度学习.md#rnn)
     - [Attention](notes/010-深度学习.md#attention)
-    - [Transformers](notes/010-深度学习.md#transformers)
+    - [Transformer/BERTs](notes/010-深度学习.md#transformerberts)
 - [专题](notes/010-深度学习.md#专题)
     - [编程框架](notes/010-深度学习.md#编程框架)
     - [表示学习](notes/010-深度学习.md#表示学习)
