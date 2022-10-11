@@ -3,7 +3,7 @@
 tags: [DP, DFS2DP]
 source: LeetCode
 level: 中等
-number: 0091
+number: '0091'
 name: 解码方法
 companies: []
 -->

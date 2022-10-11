@@ -3,7 +3,7 @@
 tags: [二叉树]
 source: LeetCode
 level: 中等
-number: 0988
+number: '0988'
 name: 从叶结点开始的最小字符串
 companies: []
 -->

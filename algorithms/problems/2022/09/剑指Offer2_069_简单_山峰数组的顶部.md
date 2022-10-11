@@ -3,7 +3,7 @@
 tags: [二分查找]
 source: 剑指Offer2
 level: 简单
-number: 069
+number: '069'
 name: 山峰数组的顶部
 companies: []
 -->

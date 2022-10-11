@@ -3,7 +3,7 @@
 tags: [二叉树]
 source: LeetCode
 level: 中等
-number: 0129
+number: '0129'
 name: 求根节点到叶节点数字之和
 companies: []
 -->

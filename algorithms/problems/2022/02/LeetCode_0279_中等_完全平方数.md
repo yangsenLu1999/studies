@@ -3,7 +3,7 @@
 tags: [DFS2DP]
 source: LeetCode
 level: 中等
-number: 0279
+number: '0279'
 name: 完全平方数
 companies: []
 -->

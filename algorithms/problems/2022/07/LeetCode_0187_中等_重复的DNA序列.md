@@ -3,7 +3,7 @@
 tags: [哈希表, 位运算]
 source: LeetCode
 level: 中等
-number: 0187
+number: '0187'
 name: 重复的DNA序列
 companies: []
 -->

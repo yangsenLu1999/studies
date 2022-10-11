@@ -3,7 +3,7 @@
 tags: [动态规划]
 source: LeetCode
 level: 中等
-number: 0518
+number: '0518'
 name: 零钱兑换II
 companies: []
 -->

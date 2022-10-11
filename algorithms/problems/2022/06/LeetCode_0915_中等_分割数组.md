@@ -3,10 +3,9 @@
 tags: [模拟]
 source: LeetCode
 level: 中等
-number: 0915
+number: '0915'
 name: 分割数组
-companies:
-- 小红书
+companies: [小红书]
 -->
 
 <summary><b>问题简述</b></summary>

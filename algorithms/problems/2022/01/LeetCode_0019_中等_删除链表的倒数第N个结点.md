@@ -3,7 +3,7 @@
 tags: [链表, 快慢指针, lc100]
 source: LeetCode
 level: 中等
-number: 0019
+number: '0019'
 name: 删除链表的倒数第N个结点
 companies: []
 -->

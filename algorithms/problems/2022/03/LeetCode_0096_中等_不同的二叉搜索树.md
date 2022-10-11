@@ -3,7 +3,7 @@
 tags: [动态规划]
 source: LeetCode
 level: 中等
-number: 0096
+number: '0096'
 name: 不同的二叉搜索树
 companies: []
 -->

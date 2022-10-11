@@ -3,7 +3,7 @@
 tags: [单调栈]
 source: LeetCode
 level: 简单
-number: 0496
+number: '0496'
 name: 下一个更大元素
 companies: []
 -->

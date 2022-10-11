@@ -3,7 +3,7 @@
 tags: [模拟, 字符串]
 source: LeetCode
 level: 简单
-number: 0859
+number: '0859'
 name: 亲密字符串
 companies: []
 -->

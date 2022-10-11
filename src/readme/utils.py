@@ -80,29 +80,32 @@ class ReadmeUtils:
 
     SECTION_START = '<!--START_SECTION:{tag}-->'
     SECTION_END = '<!--END_SECTION:{tag}-->'
-    SECTION_ANNOTATION = r'<!--{tag}\n([\s\S]+)\n-->'
+    SECTION_ANNOTATION = r'<!--{tag}\n(.*?)\n-->'
 
     @staticmethod
     def replace_tag_content(tag, txt, content) -> str:
         """"""
+        re_pattern = ReadmeUtils._get_section_re_pattern(tag)
         tag_begin = ReadmeUtils.SECTION_START.format(tag=tag)
         tag_end = ReadmeUtils.SECTION_END.format(tag=tag)
-        re_pattern = re.compile(fr'{tag_begin}[\s\S]+{tag_end}')
         repl = f'{tag_begin}\n\n{content}\n\n{tag_end}'
         return re_pattern.sub(repl, txt, count=1)
 
     @staticmethod
     def get_tag_content(tag, txt) -> str:
-        """"""
+        re_pattern = ReadmeUtils._get_section_re_pattern(tag)
+        return re_pattern.search(txt).group()
+
+    @staticmethod
+    def _get_section_re_pattern(tag):
         tag_begin = ReadmeUtils.SECTION_START.format(tag=tag)
         tag_end = ReadmeUtils.SECTION_END.format(tag=tag)
-        re_pattern = re.compile(fr'{tag_begin}[\s\S]+{tag_end}')
-        return re_pattern.search(txt).group()
+        return re.compile(fr'{tag_begin}.*?{tag_end}', flags=re.DOTALL)
 
     @staticmethod
     def get_annotation(tag, txt) -> str | None:
         """"""
-        re_pattern = re.compile(ReadmeUtils.SECTION_ANNOTATION.format(tag=tag))
+        re_pattern = re.compile(ReadmeUtils.SECTION_ANNOTATION.format(tag=tag), flags=re.DOTALL)
         m = re_pattern.search(txt)
         if m:
             return m.group(1).strip()

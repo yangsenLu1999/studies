@@ -5,9 +5,7 @@ source: LeetCode
 level: 中等
 number: '0143'
 name: 重排链表
-companies:
-- 字节
-- 度小满
+companies: [字节, 度小满]
 -->
 
 <summary><b>问题简述</b></summary>
