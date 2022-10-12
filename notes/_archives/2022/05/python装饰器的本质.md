@@ -1,5 +1,10 @@
 装饰器的本质
 ===
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-13%2001:56:19&color=yellowgreen&style=flat-square)
+
+<!--END_SECTION:badge-->
 
 - **装饰器**（不带参数的装饰器）从实现上看，就是一个“输入和输出都是**函数对象**”的函数；
 - **带参数的装饰器**实际上就是一个返回普通装饰器的函数（可以接受任意参数）；

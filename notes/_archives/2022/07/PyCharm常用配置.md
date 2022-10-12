@@ -1,5 +1,10 @@
 PyCharm 常用配置
 ===
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-13%2001:56:19&color=yellowgreen&style=flat-square)
+
+<!--END_SECTION:badge-->
 
 - [常用配置](#常用配置)
     - [显示空白符](#显示空白符)

@@ -1,5 +1,10 @@
 git 的基本使用
 ===
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-13%2001:56:19&color=yellowgreen&style=flat-square)
+
+<!--END_SECTION:badge-->
 > 官方文档：https://git-scm.com/book/zh
 
 - [常见错误](#常见错误)

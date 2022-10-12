@@ -1,5 +1,10 @@
 Markdown 语法备忘
 ===
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-13%2001:56:19&color=yellowgreen&style=flat-square)
+
+<!--END_SECTION:badge-->
 
 - [VSCode 插件](#vscode-插件)
     - [自动更新目录插件](#自动更新目录插件)

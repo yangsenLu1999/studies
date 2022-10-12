@@ -1,5 +1,10 @@
 HuggingFace 套件离线使用方法
 ===
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-13%2001:56:19&color=yellowgreen&style=flat-square)
+
+<!--END_SECTION:badge-->
 
 - HuggingFace 相关套件首次使用默认会从网络下载相关资源，导致在离线环境下无法使用；
 

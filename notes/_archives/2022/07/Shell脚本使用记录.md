@@ -1,5 +1,10 @@
 Shell 脚本备忘
 ===
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-13%2001:56:19&color=yellowgreen&style=flat-square)
+
+<!--END_SECTION:badge-->
 
 - [Tips](#tips)
     - [不使用 sh 命令，直接运行 shell 脚本的方法](#不使用-sh-命令直接运行-shell-脚本的方法)

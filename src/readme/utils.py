@@ -93,9 +93,17 @@ class ReadmeUtils:
         return re_pattern.sub(repl, txt, count=1)
 
     @staticmethod
-    def get_tag_content(tag, txt) -> str:
+    def get_tag_content(tag, txt) -> str | None:
+        """
+        <!--START_SECTION:{tag}-->
+        ...
+        <!--END_SECTION:{tag}-->
+        """
         re_pattern = ReadmeUtils._get_section_re_pattern(tag)
-        return re_pattern.search(txt).group()
+        m = re_pattern.search(txt)
+        if not m:
+            return None
+        return m.group()
 
     @staticmethod
     def _get_section_re_pattern(tag):
@@ -105,7 +113,11 @@ class ReadmeUtils:
 
     @staticmethod
     def get_annotation(tag, txt) -> str | None:
-        """"""
+        """
+        <!--<tag>
+        <info>
+        -->
+        """
         re_pattern = re.compile(ReadmeUtils.SECTION_ANNOTATION.format(tag=tag), flags=re.DOTALL)
         m = re_pattern.search(txt)
         if m:

@@ -1,5 +1,10 @@
 Python 容器基类的使用
 ===
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-13%2001:56:19&color=yellowgreen&style=flat-square)
+
+<!--END_SECTION:badge-->
 
 容器基类列表：[collections.abc — Python 文档](https://docs.python.org/zh-cn/3/library/collections.abc.html)
 

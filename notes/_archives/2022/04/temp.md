@@ -1,5 +1,10 @@
 BERT+CRF 等备忘
 ===
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-13%2001:56:19&color=yellowgreen&style=flat-square)
+
+<!--END_SECTION:badge-->
 > [ BERT中进行NER为什么没有使用CRF，我们使用DL进行序列标注问题的时候CRF是必备么？ - 知乎](https://www.zhihu.com/question/358892919)
 - 加入 CRF 的原因？
     - 引入 CRF，是为了建模标注序列内部的依赖或约束；

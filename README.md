@@ -53,6 +53,8 @@
 
 ## Recently 📖
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-10-13` BERT 常见面试问题](notes/_archives/2022/05/BERT常见面试问题.md)
+- [`2022-10-13` GBDT/XGBoost 备忘](notes/_archives/2022/10/XGBoost备忘.md)
 - [`2022-10-12` Transformer/BERT 系列模型](notes/_archives/2022/05/Transformers.md)
 - [`2022-09-25` Python 标准项目实践](notes/_archives/2022/09/python-标准项目实践.md)
 - [`2022-09-22` WSL 使用记录](notes/_archives/2022/09/WSL使用记录.md)
@@ -62,8 +64,6 @@
 - [`2022-09-18` Github Action 备忘](notes/_archives/2022/08/GithubAction备忘.md)
 - [`2022-09-18` requirements.txt 语法备忘](notes/_archives/2022/09/python-requirements语法.md)
 - [`2022-08-26` glob 语法备忘](notes/_archives/2022/08/glob语法备忘.md)
-- [`2022-08-18` Python 容器基类的使用](notes/_archives/2022/08/Python容器基类的使用.md)
-- [`2022-08-18` SQL 字符串处理](notes/_archives/2022/08/SQL字符串处理.md)
 
 
 <!--END_SECTION:recent-->
