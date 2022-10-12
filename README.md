@@ -77,12 +77,14 @@
 <!--START_SECTION:waka-->
 
 ```text
-Total Time: 36 hrs 30 mins
+Total Time: 36 hrs 59 mins
 
-Markdown           18 hrs 17 mins  >>>>>>>>>>>>>------------   50.12 %
-Python             13 hrs          >>>>>>>>>----------------   35.62 %
-YAML               3 hrs 51 mins   >>>----------------------   10.55 %
-Other              55 mins         >------------------------   02.53 %
+Markdown           21 hrs 47 mins  >>>>>>>>>>>>>>>----------   58.92 %
+Python             10 hrs 10 mins  >>>>>>>------------------   27.51 %
+GitHub             2 hrs 33 mins   >>-----------------------   06.94 %
+YAML               1 hr 54 mins    >------------------------   05.15 %
+Text               13 mins         -------------------------   00.61 %
+LeetCode           11 mins         -------------------------   00.53 %
 ```
 
 <!--END_SECTION:waka-->
