@@ -9,6 +9,7 @@ top: true
     - [RNN](#rnn)
     - [CNN](#cnn)
     - [Transformer](#transformer)
+    - [Transformer 能完全取代 RNN 吗？](#transformer-能完全取代-rnn-吗)
 - [Transformer 中各模块的作用](#transformer-中各模块的作用)
     - [QKV Projection](#qkv-projection)
         - [为什么在 Attention 之前要对 Q/K/V 做一次投影？](#为什么在-attention-之前要对-qkv-做一次投影)
@@ -24,7 +25,7 @@ top: true
     - [Feed-Forward Network](#feed-forward-network)
         - [FFN 层的作用是什么？](#ffn-层的作用是什么)
         - [FFN 中激活函数的选择](#ffn-中激活函数的选择)
-- [Transformer 能完全取代 RNN 吗？](#transformer-能完全取代-rnn-吗)
+- [BERT 相关面试题](#bert-相关面试题)
 - [参考资料](#参考资料)
 
 
@@ -137,6 +138,11 @@ assert torch.allclose(model(x, mask), traced_model(x, mask))
 - 缺点/劣势：
     - 不支持不定长输入（通过 padding 填充到定长）；
     - 计算复杂度高；
+
+### Transformer 能完全取代 RNN 吗？
+> [有了Transformer框架后是不是RNN完全可以废弃了？ - 知乎](https://www.zhihu.com/question/302392659?sort=created)
+
+- 不行；
 
 <!-- 
 下面主要从三个方面进行比较：对**上下文语义特征**和**序列特征**的表达能力（主要），以及**计算速度**；
@@ -296,10 +302,10 @@ assert torch.allclose(model(x, mask), traced_model(x, mask))
 - 为什么不使用 sigmoid 或 tanh？——这两个函数存在饱和区，会使导数趋向于 0，带来梯度消失的问题；不利于深层网络的训练；
 
 
-## Transformer 能完全取代 RNN 吗？
-> [有了Transformer框架后是不是RNN完全可以废弃了？ - 知乎](https://www.zhihu.com/question/302392659?sort=created)
 
-- 不行；
+## BERT 相关面试题
+- [daily-interview/BERT面试题.md at master · datawhalechina/daily-interview](https://github.com/datawhalechina/daily-interview/blob/master/AI%E7%AE%97%E6%B3%95/NLP/%E7%89%B9%E5%BE%81%E6%8C%96%E6%8E%98/BERT/BERT%E9%9D%A2%E8%AF%95%E9%A2%98.md)
+
 
 
 ## 参考资料
