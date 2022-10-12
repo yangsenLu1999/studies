@@ -132,7 +132,7 @@ class Solution:
 - 按照回文的定义，遍历每个字符作为中点，向两边扩散；
 - 注意奇数和偶数两种情况；
 
-<details><summary><b>Python</b></summary>
+<details><summary><b>Python: 写法 1 (推荐, 不容易写错)</b></summary>
 
 ```python
 class Solution:
@@ -158,6 +158,36 @@ class Solution:
             process(l, l)  # 奇数情况
             process(l, l + 1)  # 偶数情况
 
+        return self.ret
+```
+
+</details>
+
+<details><summary><b>Python: 写法 2</b></summary>
+
+- 相比写法 1, 写法 2 少用了一个变量, 但是很容易写错;
+
+```python
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        
+        self.ret = s[0]
+        n = len(s)
+
+        def process(l, r):
+            # 注意这里比较的时 s[l - 1] 和 s[r + 1]
+            while l - 1 >= 0 and r + 1 < n and s[l - 1] == s[r + 1]:
+                l, r = l - 1, r + 1
+            
+            if r - l + 1 > len(self.ret):
+                self.ret = s[l: r + 1]
+            
+        for i in range(n - 1):
+            process(i, i)  # 奇数情况
+            if s[i] == s[i + 1]:  # 偶数情况,
+                # 因为 process 中比较的是 s[l - 1] 和 s[r + 1], 所以要额外加一个判断条件
+                process(i, i + 1)
+        
         return self.ret
 ```
 
