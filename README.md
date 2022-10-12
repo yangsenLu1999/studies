@@ -100,8 +100,8 @@ Other              55 mins         >------------------------   02.53 %
 ### Hot 🔥
 - [剑指Offer (75)](algorithms/README.md#剑指offer-75)
 - [动态规划(记忆化搜索) (51)](algorithms/README.md#动态规划记忆化搜索-51)
-- [热门&经典&易错 (47)](algorithms/README.md#热门经典易错-47)
-- [LeetCode Hot 100 (23)](algorithms/README.md#leetcode-hot-100-23)
+- [热门&经典&易错 (46)](algorithms/README.md#热门经典易错-46)
+- [LeetCode Hot 100 (24)](algorithms/README.md#leetcode-hot-100-24)
 
 </td>
 <td colspan="2" rowspan="3" valign="top" width="1000">
@@ -109,9 +109,9 @@ Other              55 mins         >------------------------   02.53 %
 ### Subject 📓
 - [牛客 (131)](algorithms/README.md#牛客-131)
 - [剑指Offer (75)](algorithms/README.md#剑指offer-75)
-- [LeetCode (73)](algorithms/README.md#leetcode-73)
-- [热门&经典&易错 (47)](algorithms/README.md#热门经典易错-47)
-- [LeetCode Hot 100 (23)](algorithms/README.md#leetcode-hot-100-23)
+- [LeetCode (72)](algorithms/README.md#leetcode-72)
+- [热门&经典&易错 (46)](algorithms/README.md#热门经典易错-46)
+- [LeetCode Hot 100 (24)](algorithms/README.md#leetcode-hot-100-24)
 - [剑指Offer2 (3)](algorithms/README.md#剑指offer2-3)
 - [程序员面试金典 (2)](algorithms/README.md#程序员面试金典-2)
 - [Collections (1)](algorithms/README.md#collections-1)
@@ -126,7 +126,7 @@ Other              55 mins         >------------------------   02.53 %
 ### Level 📈
 - [Medium (148)](algorithms/README.md#medium-148)
 - [Easy (103)](algorithms/README.md#easy-103)
-- [Hard (35)](algorithms/README.md#hard-35)
+- [Hard (34)](algorithms/README.md#hard-34)
 
 </td>
 </tr>
@@ -145,7 +145,7 @@ Other              55 mins         >------------------------   02.53 %
 
 ### 数据结构
 - [二叉树/树 (47)](algorithms/README.md#二叉树树-47)
-- [链表 (31)](algorithms/README.md#链表-31)
+- [链表 (30)](algorithms/README.md#链表-30)
 - [字符串 (17)](algorithms/README.md#字符串-17)
 - [栈/队列 (17)](algorithms/README.md#栈队列-17)
 - [数组、矩阵(二维数组) (10)](algorithms/README.md#数组矩阵二维数组-10)
