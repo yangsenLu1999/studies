@@ -6,11 +6,11 @@
 [![wakatime](https://wakatime.com/badge/user/c840568d-e4b1-4c63-ade0-03856283d319.svg)](https://wakatime.com/@c840568d-e4b1-4c63-ade0-03856283d319)
 [![daily update](https://github.com/imhuay/studies/actions/workflows/daily.yml/badge.svg?branch=master)](https://github.com/imhuay/studies/actions?query=workflow:daily)
 [![GitHub issues](https://img.shields.io/github/issues/imhuay/studies?color=important)](https://github.com/imhuay/studies/issues)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/imhuay/studies?color=inactive)](https://github.com/imhuay/studies/issues?q=is:issue+is:closed)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/imhuay/studies?color=active)](https://github.com/imhuay/studies/commits/master)
 [![](https://visitor-badge.laobi.icu/badge?page_id=imhuay.studies&right_color=green&left_text=page%20views)](https://visitor-badge.laobi.icu)
 
 <!-- 
+[![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/imhuay/studies?color=inactive)](https://github.com/imhuay/studies/issues?q=is:issue+is:closed)
 ![clones](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/clones.svg)
 ![clones per week](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/clones_per_week.svg)
 ![views](https://raw.githubusercontent.com/imhuay/imhuay/traffic/traffic-studies/views.svg)
