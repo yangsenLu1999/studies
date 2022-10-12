@@ -1,7 +1,3 @@
-<!--{
-    "tags": ["神经网络", "不平衡学习"]
-}-->
-
 Do We Really Need a Learnable Classifier at the End of Deep Neural Network?
 ===
 > https://arxiv.org/abs/2203.09081

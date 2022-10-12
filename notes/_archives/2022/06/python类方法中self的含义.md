@@ -1,4 +1,5 @@
-# class method 中 self 的含义
+class method 中 `self` 的含义
+===
 
 - [本质](#本质)
 - [使用场景](#使用场景)
@@ -49,5 +50,3 @@
 
 ## 参考
 - [【python】class里定义的函数是怎么变成方法的？函数里的self有什么特殊意义么？_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1pa411e7tQ)
-
-
