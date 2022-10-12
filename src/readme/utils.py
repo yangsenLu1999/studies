@@ -55,22 +55,23 @@ class ReadmeUtils:
             logger.error(command)
 
     @staticmethod
-    def get_file_first_commit_date(fp, return_datetime=False) -> str | datetime:
-        code, date_str = subprocess.getstatusoutput(f'git log --follow --format=%ad --date=iso-strict {fp} | tail -1')
+    def _get_file_commit_date(fp, first_commit=True, return_datetime=False) -> str | datetime:
+        tail_or_head = 'tail' if first_commit else 'head'
+        code, date_str = subprocess.getstatusoutput(
+            f'git log --follow --format=%ad --date=iso-strict {fp} | {tail_or_head} -1')
         if code != 0:
-            raise ValueError(f'{ReadmeUtils.get_file_first_commit_date.__name__}: {fp}')
+            raise ValueError(f'{ReadmeUtils._get_file_commit_date.__name__}: {fp}')
         if return_datetime:
             return datetime.fromisoformat(date_str)
         return date_str
 
     @staticmethod
+    def get_file_first_commit_date(fp, return_datetime=False) -> str | datetime:
+        return ReadmeUtils._get_file_commit_date(fp, first_commit=True, return_datetime=return_datetime)
+
+    @staticmethod
     def get_file_last_commit_date(fp, return_datetime=False) -> str | datetime:
-        code, date_str = subprocess.getstatusoutput(f'git log --follow --format=%ad --date=iso-strict {fp} | head -1')
-        if code != 0:
-            raise ValueError(f'{ReadmeUtils.get_file_last_commit_date.__name__}: {fp}')
-        if return_datetime:
-            return datetime.fromisoformat(date_str)
-        return date_str
+        return ReadmeUtils._get_file_commit_date(fp, first_commit=False, return_datetime=return_datetime)
 
     # RE_WAKATIME = re.compile(r'<!--START_SECTION:waka-->[\s\S]+<!--END_SECTION:waka-->')
 

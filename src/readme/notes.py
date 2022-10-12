@@ -20,7 +20,7 @@ import re
 
 import yaml
 
-# from typing import ClassVar
+from typing import ClassVar
 from collections import defaultdict
 from pathlib import Path
 from dataclasses import dataclass
@@ -131,6 +131,7 @@ class NoteInfo:
     _title: str = None
     _first_commit_date: str = None
     _last_commit_date: str = None
+    sort_by_first_commit: ClassVar[bool] = True
 
     @property
     def title(self):
@@ -172,8 +173,7 @@ class NoteInfo:
 
     @property
     def date(self):
-        # return self.first_commit_date[:10]
-        return self.last_commit_date[:10]
+        return self._commit_datetime_for_sort[:10]
 
     @property
     def is_top(self):
@@ -199,8 +199,12 @@ class NoteInfo:
     def sort_key(self):
         # if self.title is None:
         #     raise ValueError(self.path)
-        # return self.first_commit_date, self.title
-        return self.last_commit_date, self.title
+        # return self.last_commit_date, self.title
+        return self._commit_datetime_for_sort, self.title
+
+    @property
+    def _commit_datetime_for_sort(self):
+        return self.first_commit_date if self.sort_by_first_commit else self.last_commit_date
 
 
 class Property:
