@@ -1,4 +1,12 @@
-## LeetCode_0029_两数相除（中等, 2021-10）
+## 两数相除
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-11%2019%3A57%3A07&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E4%BD%8D%E8%BF%90%E7%AE%97%2C%20%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [位运算, 二分查找]
 source: LeetCode

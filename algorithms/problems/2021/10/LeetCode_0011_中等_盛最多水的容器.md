@@ -1,4 +1,12 @@
-## LeetCode_0011_盛最多水的容器（中等, 2021-10）
+## 盛最多水的容器
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-08%2001%3A06%3A57&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E5%8F%8C%E6%8C%87%E9%92%88%2C%20%E8%B4%AA%E5%BF%83%2C%20LeetCode%20Hot%20100&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [双指针, 贪心, lc100]
 source: LeetCode

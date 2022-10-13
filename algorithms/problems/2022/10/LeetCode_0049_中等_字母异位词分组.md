@@ -1,5 +1,14 @@
+## 字母异位词分组
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2000%3A39%3A24&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=Hash%2C%20LeetCode%20Hot%20100&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
-tags: [hash, lc100]
+tags: [Hash, lc100]
 source: LeetCode
 level: 中等
 number: '0049'

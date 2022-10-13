@@ -1,4 +1,12 @@
-## LeetCode_0437_路径总和III（中等, 2022-06）
+## 路径总和III
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-10%2003%3A17%3A06&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E4%BA%8C%E5%8F%89%E6%A0%91%2C%20%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%2C%20%E5%89%8D%E7%BC%80%E5%92%8C%2C%20TreeDP&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [二叉树, 深度优先搜索, 前缀和, TreeDP]
 source: LeetCode

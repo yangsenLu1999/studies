@@ -1,4 +1,12 @@
-## 剑指Offer_4000_最小的k个数（partition操作）（简单, 2021-12）
+## 最小的k个数（partition操作）
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-07%2018%3A30%3A25&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%2C%20%E5%BF%AB%E6%8E%92%2C%20%E7%83%AD%E9%97%A8%26%E7%BB%8F%E5%85%B8%26%E6%98%93%E9%94%99&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [优先队列, 快排, 经典]
 source: 剑指Offer

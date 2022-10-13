@@ -1,4 +1,12 @@
-## LeetCode_0032_最长有效括号（困难, 2022-10）
+## 最长有效括号
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-10%2011%3A41%3A04&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E5%9B%B0%E9%9A%BE&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%2C%20%E6%A0%88%2C%20LeetCode%20Hot%20100&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [动态规划, 栈, lc100]
 source: LeetCode

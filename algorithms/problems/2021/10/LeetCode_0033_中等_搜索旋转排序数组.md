@@ -1,4 +1,12 @@
-## LeetCode_0033_搜索旋转排序数组（中等, 2021-10）
+## 搜索旋转排序数组
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-10%2022%3A59%3A38&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%2C%20LeetCode%20Hot%20100&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [二分查找, lc100]
 source: LeetCode

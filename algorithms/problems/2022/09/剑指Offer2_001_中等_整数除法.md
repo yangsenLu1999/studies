@@ -1,4 +1,12 @@
-## 剑指Offer2_001_整数除法（中等, 2022-09）
+## 整数除法
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-10%2003%3A17%3A06&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer2&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E4%BA%8C%E5%88%86%2C%20%E7%83%AD%E9%97%A8%26%E7%BB%8F%E5%85%B8%26%E6%98%93%E9%94%99&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [二分, 经典]
 source: 剑指Offer2

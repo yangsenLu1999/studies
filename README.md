@@ -100,24 +100,24 @@ LeetCode           11 mins         -------------------------   00.53 %
 <td colspan="2" valign="top" width="1000">
 
 ### Hot 🔥
-- [剑指Offer (75)](algorithms/README.md#剑指offer-75)
-- [动态规划(记忆化搜索) (51)](algorithms/README.md#动态规划记忆化搜索-51)
-- [热门&经典&易错 (46)](algorithms/README.md#热门经典易错-46)
-- [LeetCode Hot 100 (24)](algorithms/README.md#leetcode-hot-100-24)
+- [剑指Offer (75)](algorithms/README.md#剑指offer)
+- [动态规划 (53)](algorithms/README.md#动态规划)
+- [热门&经典&易错 (46)](algorithms/README.md#热门经典易错)
+- [LeetCode Hot 100 (25)](algorithms/README.md#leetcode-hot-100)
 
 </td>
 <td colspan="2" rowspan="3" valign="top" width="1000">
 
 ### Subject 📓
-- [牛客 (131)](algorithms/README.md#牛客-131)
-- [剑指Offer (75)](algorithms/README.md#剑指offer-75)
-- [LeetCode (72)](algorithms/README.md#leetcode-72)
-- [热门&经典&易错 (46)](algorithms/README.md#热门经典易错-46)
-- [LeetCode Hot 100 (24)](algorithms/README.md#leetcode-hot-100-24)
-- [剑指Offer2 (3)](algorithms/README.md#剑指offer2-3)
-- [程序员面试金典 (2)](algorithms/README.md#程序员面试金典-2)
-- [Collections (1)](algorithms/README.md#collections-1)
-- [牛客-华为机试 (1)](algorithms/README.md#牛客-华为机试-1)
+- [牛客 (131)](algorithms/README.md#牛客)
+- [剑指Offer (75)](algorithms/README.md#剑指offer)
+- [LeetCode (73)](algorithms/README.md#leetcode)
+- [热门&经典&易错 (46)](algorithms/README.md#热门经典易错)
+- [LeetCode Hot 100 (25)](algorithms/README.md#leetcode-hot-100)
+- [剑指Offer2 (3)](algorithms/README.md#剑指offer2)
+- [程序员面试金典 (2)](algorithms/README.md#程序员面试金典)
+- [Collections (1)](algorithms/README.md#collections)
+- [牛客-华为机试 (1)](algorithms/README.md#牛客-华为机试)
 
 </td>
 </tr>
@@ -125,10 +125,10 @@ LeetCode           11 mins         -------------------------   00.53 %
 <tr>
 <td colspan="2" valign="top">
 
-### Level 📈
-- [Medium (148)](algorithms/README.md#medium-148)
-- [Easy (103)](algorithms/README.md#easy-103)
-- [Hard (34)](algorithms/README.md#hard-34)
+### Level
+- [Medium (149)](algorithms/README.md#medium)
+- [Easy (103)](algorithms/README.md#easy)
+- [Hard (34)](algorithms/README.md#hard)
 
 </td>
 </tr>
@@ -138,50 +138,51 @@ LeetCode           11 mins         -------------------------   00.53 %
 <td width="1000" valign="top">
 
 ### 基础
-- [模拟 (19)](algorithms/README.md#模拟-19)
-- [数学 (9)](algorithms/README.md#数学-9)
-- [找规律 (2)](algorithms/README.md#找规律-2)
+- [模拟 (19)](algorithms/README.md#模拟)
+- [数学 (9)](algorithms/README.md#数学)
+- [找规律 (2)](algorithms/README.md#找规律)
 
 </td>
 <td width="1000" valign="top">
 
 ### 数据结构
-- [二叉树/树 (47)](algorithms/README.md#二叉树树-47)
-- [链表 (30)](algorithms/README.md#链表-30)
-- [字符串 (17)](algorithms/README.md#字符串-17)
-- [栈/队列 (17)](algorithms/README.md#栈队列-17)
-- [数组、矩阵(二维数组) (10)](algorithms/README.md#数组矩阵二维数组-10)
-- [堆/优先队列 (7)](algorithms/README.md#堆优先队列-7)
-- [设计 (7)](algorithms/README.md#设计-7)
-- [图 (1)](algorithms/README.md#图-1)
-- [并查集 (1)](algorithms/README.md#并查集-1)
-- [线段树/树状数组 (1)](algorithms/README.md#线段树树状数组-1)
+- [二叉树/树 (47)](algorithms/README.md#二叉树树)
+- [链表 (30)](algorithms/README.md#链表)
+- [字符串 (17)](algorithms/README.md#字符串)
+- [栈/队列 (17)](algorithms/README.md#栈队列)
+- [数组/矩阵 (10)](algorithms/README.md#数组矩阵)
+- [堆/优先队列 (7)](algorithms/README.md#堆优先队列)
+- [设计 (7)](algorithms/README.md#设计)
+- [图 (1)](algorithms/README.md#图)
+- [并查集 (1)](algorithms/README.md#并查集)
+- [线段树/树状数组 (1)](algorithms/README.md#线段树树状数组)
 
 </td>
 <td width="1000" valign="top">
 
 ### 算法
-- [动态规划(记忆化搜索) (51)](algorithms/README.md#动态规划记忆化搜索-51)
-- [递归/迭代 (28)](algorithms/README.md#递归迭代-28)
-- [二分/二分搜索 (23)](algorithms/README.md#二分二分搜索-23)
-- [深度优先搜索(DFS) (21)](algorithms/README.md#深度优先搜索dfs-21)
-- [排序/快排 (15)](algorithms/README.md#排序快排-15)
-- [分治 (4)](algorithms/README.md#分治-4)
-- [广度优先搜索(BFS) (4)](algorithms/README.md#广度优先搜索bfs-4)
+- [动态规划 (53)](algorithms/README.md#动态规划)
+- [递归 (25)](algorithms/README.md#递归)
+- [二分搜索 (23)](algorithms/README.md#二分搜索)
+- [深度优先搜索 (21)](algorithms/README.md#深度优先搜索)
+- [排序 (15)](algorithms/README.md#排序)
+- [分治 (4)](algorithms/README.md#分治)
+- [广度优先搜索 (4)](algorithms/README.md#广度优先搜索)
 
 </td>
 <td width="1000" valign="top">
 
 ### 技巧
-- [双指针/滑动窗口 (31)](algorithms/README.md#双指针滑动窗口-31)
-- [哈希表(Hash) (11)](algorithms/README.md#哈希表hash-11)
-- [从暴力递归到动态规划 (10)](algorithms/README.md#从暴力递归到动态规划-10)
-- [位运算 (9)](algorithms/README.md#位运算-9)
-- [自底向上的递归技巧 (6)](algorithms/README.md#自底向上的递归技巧-6)
-- [贪心 (4)](algorithms/README.md#贪心-4)
-- [前缀和 (3)](algorithms/README.md#前缀和-3)
-- [单调栈/单调队列 (3)](algorithms/README.md#单调栈单调队列-3)
-- [有限状态自动机 (1)](algorithms/README.md#有限状态自动机-1)
+- [双指针 (25)](algorithms/README.md#双指针)
+- [哈希表(Hash) (12)](algorithms/README.md#哈希表hash)
+- [从暴力递归到动态规划 (10)](algorithms/README.md#从暴力递归到动态规划)
+- [位运算 (9)](algorithms/README.md#位运算)
+- [树形递归 (6)](algorithms/README.md#树形递归)
+- [滑动窗口 (6)](algorithms/README.md#滑动窗口)
+- [贪心 (4)](algorithms/README.md#贪心)
+- [前缀和 (3)](algorithms/README.md#前缀和)
+- [单调栈/单调队列 (3)](algorithms/README.md#单调栈单调队列)
+- [有限状态自动机 (1)](algorithms/README.md#有限状态自动机)
 
 </td>
 

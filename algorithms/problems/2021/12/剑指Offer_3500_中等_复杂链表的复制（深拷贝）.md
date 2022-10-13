@@ -1,4 +1,12 @@
-## 剑指Offer_3500_复杂链表的复制（深拷贝）（中等, 2021-12）
+## 复杂链表的复制（深拷贝）
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-07%2018%3A30%3A25&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E9%93%BE%E8%A1%A8%2C%20%E5%93%88%E5%B8%8C%E8%A1%A8%2C%20%E7%83%AD%E9%97%A8%26%E7%BB%8F%E5%85%B8%26%E6%98%93%E9%94%99&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [链表, 哈希表, 经典]
 source: 剑指Offer

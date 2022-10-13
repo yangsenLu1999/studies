@@ -1,4 +1,12 @@
-## LeetCode_0047_全排列II（中等, 2022-10）
+## 全排列II
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-11%2009%3A58%3A21&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E9%80%92%E5%BD%92%2C%20%E5%9B%9E%E6%BA%AF%2C%20LeetCode%20Hot%20100&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [递归, 回溯, lc100]
 source: LeetCode
