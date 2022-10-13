@@ -1,7 +1,7 @@
 ## 重复的DNA序列
 <!--START_SECTION:badge-->
 
-![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2000%3A39%3A24&color=yellowgreen&style=flat-square)
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-13%2019%3A16%3A07&color=yellowgreen&style=flat-square)
 ![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
 ![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
 ![tags](https://img.shields.io/static/v1?label=tags&message=%E5%93%88%E5%B8%8C%E8%A1%A8%2C%20%E4%BD%8D%E8%BF%90%E7%AE%97&color=orange&style=flat-square)
