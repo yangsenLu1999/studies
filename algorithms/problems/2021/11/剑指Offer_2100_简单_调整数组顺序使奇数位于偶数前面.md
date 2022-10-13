@@ -1,4 +1,12 @@
-## 剑指Offer_2100_调整数组顺序使奇数位于偶数前面（简单, 2021-11）
+## 调整数组顺序使奇数位于偶数前面
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-07%2018%3A30%3A25&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E6%95%B0%E7%BB%84%2C%20%E5%8F%8C%E6%8C%87%E9%92%88&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [数组, 双指针]
 source: 剑指Offer

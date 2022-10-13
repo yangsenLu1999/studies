@@ -1,4 +1,12 @@
-## LeetCode_0098_验证二叉搜索树（中等, 2022-03）
+## 验证二叉搜索树
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-11%2019%3A57%3A07&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E4%BA%8C%E5%8F%89%E6%A0%91&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [二叉树]
 source: LeetCode

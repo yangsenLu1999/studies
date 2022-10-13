@@ -1,4 +1,12 @@
-## LeetCode_0017_电话号码的字母组合（中等, 2022-10）
+## 电话号码的字母组合
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-09%2020%3A16%3A06&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E5%AD%97%E7%AC%A6%E4%B8%B2%2C%20dfs%2C%20LeetCode%20Hot%20100&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [字符串, dfs, lc100]
 source: LeetCode

@@ -31,7 +31,7 @@ else:
     from readme.utils import ReadmeUtils, args
 
 logger = get_logger()
-last_modify_tmp = '![last modify](https://img.shields.io/static/v1?label=last%20modify&message={datetime}&color=yellowgreen&style=flat-square)'
+last_modify_tmp = '![last modify](https://img.shields.io/static/v1?label=last%20modify&message={datetime}&color=yellowgreen&style=flat-square)'  # noqa
 
 
 def update_note_last_modify(fp: Path):
@@ -59,4 +59,4 @@ if __name__ == '__main__':
     br = BuildReadme()
     br.build()
     br.git_push()
-    logger.info(f'Update README Success!')
+    logger.info(f'Update Success!')

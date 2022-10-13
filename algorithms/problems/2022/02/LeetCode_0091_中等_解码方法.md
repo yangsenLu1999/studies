@@ -1,4 +1,12 @@
-## LeetCode_0091_解码方法（中等, 2022-02）
+## 解码方法
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-11%2019%3A57%3A07&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=DP%2C%20DFS2DP&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [DP, DFS2DP]
 source: LeetCode

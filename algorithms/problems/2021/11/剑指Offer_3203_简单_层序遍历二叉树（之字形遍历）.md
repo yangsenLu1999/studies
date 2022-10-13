@@ -1,4 +1,12 @@
-## 剑指Offer_3203_层序遍历二叉树（之字形遍历）（简单, 2021-11）
+## 层序遍历二叉树（之字形遍历）
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-07%2018%3A30%3A25&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=BFS%2C%20%E4%BA%8C%E5%8F%89%E6%A0%91%2C%20%E9%98%9F%E5%88%97&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [BFS, 二叉树, 队列]
 source: 剑指Offer

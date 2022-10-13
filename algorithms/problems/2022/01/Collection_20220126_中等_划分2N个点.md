@@ -1,4 +1,12 @@
-## Collection_20220126_划分2N个点（中等, 2022-01）
+## 划分2N个点
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-07%2018%3A30%3A25&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=Collection&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E6%95%B0%E5%AD%A6&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [数学]
 source: Collection

@@ -1,4 +1,12 @@
-## LeetCode_0434_字符串中的单词数（简单, 2022-07）
+## 字符串中的单词数
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-10%2003%3A17%3A06&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E5%AD%97%E7%AC%A6%E4%B8%B2&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [字符串]
 source: LeetCode

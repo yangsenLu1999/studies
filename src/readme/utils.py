@@ -36,19 +36,19 @@ class ReadmeUtils:
         """不再使用，通过 git add -u 代替"""
         command = ReadmeUtils.GIT_ADD_TEMP.format(fp=fp.resolve())
         code = os.system(command)
-        ReadmeUtils._git_log(code, command)
+        ReadmeUtils._log_command(code, command)
 
     GIT_MV_TEMP = 'git mv "{old_fp}" "{new_fp}"'
 
     @staticmethod
     def git_mv(old_fp: Path, new_fp: Path):
-        command = ReadmeUtils.GIT_MV_TEMP.format(old_fp=old_fp.resolve(),
-                                                 new_fp=new_fp.resolve())
+        ReadmeUtils.git_add(old_fp)
+        command = ReadmeUtils.GIT_MV_TEMP.format(old_fp=old_fp.resolve(), new_fp=new_fp.resolve())
         code = os.system(command)
-        ReadmeUtils._git_log(code, command)
+        ReadmeUtils._log_command(code, command)
 
     @staticmethod
-    def _git_log(code, command):
+    def _log_command(code, command):
         if code == 0:
             logger.info(command)
         else:
@@ -58,7 +58,7 @@ class ReadmeUtils:
     def _get_file_commit_date(fp, first_commit=True, return_datetime=False) -> str | datetime:
         tail_or_head = 'tail' if first_commit else 'head'
         code, date_str = subprocess.getstatusoutput(
-            f'git log --follow --format=%ad --date=iso-strict {fp} | {tail_or_head} -1')
+            f'git log --follow --format=%ad --date=iso-strict "{fp}" | {tail_or_head} -1')
         if code != 0:
             raise ValueError(f'{ReadmeUtils._get_file_commit_date.__name__}: {fp}')
         if return_datetime:
@@ -68,6 +68,26 @@ class ReadmeUtils:
     @staticmethod
     def get_file_first_commit_date(fp, return_datetime=False) -> str | datetime:
         return ReadmeUtils._get_file_commit_date(fp, first_commit=True, return_datetime=return_datetime)
+
+    @staticmethod
+    def get_first_commit_date(fp, fmt='%Y-%m-%d %H:%M:%S') -> str:
+        _, date_str = subprocess.getstatusoutput(
+            f'git log --follow --format=%ad --date=iso-strict "{fp}" | tail -1')
+        return ReadmeUtils.get_date_str(date_str, fmt)
+
+    @staticmethod
+    def get_last_commit_date(fp, fmt='%Y-%m-%d %H:%M:%S') -> str:
+        _, date_str = subprocess.getstatusoutput(
+            f'git log --follow --format=%ad --date=iso-strict "{fp}" | head -1')
+        return ReadmeUtils.get_date_str(date_str, fmt)
+
+    @staticmethod
+    def get_date_str(iso_date_str: str, fmt):
+        if not iso_date_str:
+            dt = datetime.now()
+        else:
+            dt = datetime.fromisoformat(iso_date_str)
+        return dt.strftime(fmt)
 
     @staticmethod
     def get_file_last_commit_date(fp, return_datetime=False) -> str | datetime:
@@ -82,15 +102,37 @@ class ReadmeUtils:
     SECTION_START = '<!--START_SECTION:{tag}-->'
     SECTION_END = '<!--END_SECTION:{tag}-->'
     SECTION_ANNOTATION = r'<!--{tag}\n(.*?)\n-->'
+    TEMP_LAST_MODIFY_BADGE = '![last modify](https://img.shields.io/static/v1?label=last%20modify&message={datetime}&color=yellowgreen&style=flat-square)'  # noqa
+    TEMP_BADGE_URL = '![{label}](https://img.shields.io/static/v1?label={quote_label}&message={message}&color={color}&style={style})'  # noqa
+
+    @staticmethod
+    def get_tag_begin(tag):
+        return ReadmeUtils.SECTION_START.format(tag=tag)
+
+    @staticmethod
+    def get_tag_end(tag):
+        return ReadmeUtils.SECTION_END.format(tag=tag)
 
     @staticmethod
     def replace_tag_content(tag, txt, content) -> str:
         """"""
         re_pattern = ReadmeUtils._get_section_re_pattern(tag)
-        tag_begin = ReadmeUtils.SECTION_START.format(tag=tag)
-        tag_end = ReadmeUtils.SECTION_END.format(tag=tag)
-        repl = f'{tag_begin}\n\n{content}\n\n{tag_end}'
+        repl = f'{ReadmeUtils.get_tag_begin(tag)}\n\n{content}\n\n{ReadmeUtils.get_tag_end(tag)}'
         return re_pattern.sub(repl, txt, count=1)
+
+    @staticmethod
+    def get_last_modify_badge_url(fp):
+        return ReadmeUtils.get_badge_url(label='last modify',
+                                         message=ReadmeUtils.get_last_commit_date(fp),
+                                         color='yellowgreen',
+                                         style='flat-square')
+
+    @staticmethod
+    def get_badge_url(label, message, color, style='flat-square'):
+        from urllib.parse import quote
+        return ReadmeUtils.TEMP_BADGE_URL.format(label=label,
+                                                 quote_label=quote(str(label)),
+                                                 message=quote(str(message)), color=color, style=style)
 
     @staticmethod
     def get_tag_content(tag, txt) -> str | None:
@@ -107,9 +149,8 @@ class ReadmeUtils:
 
     @staticmethod
     def _get_section_re_pattern(tag):
-        tag_begin = ReadmeUtils.SECTION_START.format(tag=tag)
-        tag_end = ReadmeUtils.SECTION_END.format(tag=tag)
-        return re.compile(fr'{tag_begin}.*?{tag_end}', flags=re.DOTALL)
+        return re.compile(fr'{ReadmeUtils.get_tag_begin(tag)}.*?{ReadmeUtils.get_tag_end(tag)}',
+                          flags=re.DOTALL)
 
     @staticmethod
     def get_annotation(tag, txt) -> str | None:

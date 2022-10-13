@@ -1,4 +1,12 @@
-## LeetCode_0025_K个一组翻转链表（困难, 2022-02）
+## K个一组翻转链表
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-13%2002%3A33%3A42&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E5%9B%B0%E9%9A%BE&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E9%93%BE%E8%A1%A8%2C%20LeetCode%20Hot%20100&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [链表, lc100]
 source: LeetCode

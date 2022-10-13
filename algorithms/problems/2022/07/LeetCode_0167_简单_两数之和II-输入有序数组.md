@@ -1,10 +1,18 @@
-## LeetCode_0167_两数之和2(输入有序数组)（简单, 2022-07）
+## 两数之和II-输入有序数组
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2002%3A58%3A43&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E5%8F%8C%E6%8C%87%E9%92%88&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [双指针]
 source: LeetCode
 level: 简单
 number: '0167'
-name: 两数之和2(输入有序数组)
+name: 两数之和II-输入有序数组
 companies: []
 -->
 
@@ -74,4 +82,3 @@ class Solution:
 ```
 
 </details>
-

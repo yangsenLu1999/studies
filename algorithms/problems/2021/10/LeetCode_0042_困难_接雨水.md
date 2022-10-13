@@ -1,4 +1,12 @@
-## LeetCode_0042_接雨水（困难, 2021-10）
+## 接雨水
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-11%2010%3A52%3A23&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E5%9B%B0%E9%9A%BE&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E5%8F%8C%E6%8C%87%E9%92%88%2C%20LeetCode%20Hot%20100&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [双指针, lc100]
 source: LeetCode

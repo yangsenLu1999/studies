@@ -1,4 +1,12 @@
-## LeetCode_0337_打家劫舍III（中等, 2022-06）
+## 打家劫舍III
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-10%2003%3A17%3A06&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=TreeDP&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [TreeDP]
 source: LeetCode

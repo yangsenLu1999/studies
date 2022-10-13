@@ -92,7 +92,7 @@ tags:
       algo_type: data_struct
     队列: *stack_queue
     数组: &array
-      name: 数组、矩阵(二维数组)
+      name: 数组/矩阵
       algo_type: data_struct
     矩阵: *array
     二维数组: *array
@@ -111,42 +111,46 @@ tags:
     分治:
       algo_type: algorithm
     递归: &recur
-      name: 递归/迭代
+      name: 递归
       algo_type: algorithm
-    迭代: *recur
     回溯: *recur
+    递归+回溯: *recur
     动态规划: &dp
-      name: 动态规划(记忆化搜索)
+      name: 动态规划
       algo_type: algorithm
       type: hot
     dp: *dp
     记忆化搜索: *dp
     递推: *dp
+    迭代: *dp
     排序: &sort
-      name: 排序/快排
+      name: 排序
       algo_type: algorithm
     快排: *sort
     归并排序: *sort
     bfs: &bfs
-      name: 广度优先搜索(BFS)
+      name: 广度优先搜索
       algo_type: algorithm
     广度优先搜索: *bfs
     dfs: &dfs
-      name: 深度优先搜索(DFS)
+      name: 深度优先搜索
       algo_type: algorithm
     深度优先搜索: *dfs
     dfs+回溯: *dfs
     dfs+剪枝: *dfs
     二分: &bisect
-      name: 二分/二分搜索
+      name: 二分搜索
       algo_type: algorithm
     二分搜索: *bisect
     二分法: *bisect
     二分查找: *bisect
 
     # trick
+    滑动窗口:
+      name: 滑动窗口
+      algo_type: trick
     双指针: &two_pointer
-      name: 双指针/滑动窗口
+      name: 双指针
       algo_type: trick
     快慢指针: *two_pointer
     快慢指针（链表）: *two_pointer
@@ -154,7 +158,6 @@ tags:
     首尾双指针: *two_pointer
     同向双指针: *two_pointer
     对向双指针: *two_pointer
-    滑动窗口: *two_pointer
     有限状态自动机:
       algo_type: trick
     贪心:
@@ -173,7 +176,7 @@ tags:
       algo_type: trick
     哈希表: *hash
     treedp:
-      name: 自底向上的递归技巧
+      name: 树形递归
       algo_type: trick
     位运算:
       algo_type: trick

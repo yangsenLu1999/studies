@@ -1,4 +1,12 @@
-## LeetCode_0124_二叉树中的最大路径和（困难, 2022-02）
+## 二叉树中的最大路径和
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-07%2018%3A30%3A25&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E5%9B%B0%E9%9A%BE&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=TreeDP&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [TreeDP]
 source: LeetCode

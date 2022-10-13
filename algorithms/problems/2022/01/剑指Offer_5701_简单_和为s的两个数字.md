@@ -1,4 +1,12 @@
-## 剑指Offer_5701_和为s的两个数字（简单, 2022-01）
+## 和为s的两个数字
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-07%2018%3A30%3A25&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E5%8F%8C%E6%8C%87%E9%92%88&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [双指针]
 source: 剑指Offer

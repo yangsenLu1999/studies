@@ -1,4 +1,12 @@
-## LeetCode_0474_一和零（中等, 2022-06）
+## 一和零
+<!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-10%2003%3A17%3A06&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=DFS2DP&color=orange&style=flat-square)
+
+<!--END_SECTION:badge-->
 <!--info
 tags: [DFS2DP]
 source: LeetCode
