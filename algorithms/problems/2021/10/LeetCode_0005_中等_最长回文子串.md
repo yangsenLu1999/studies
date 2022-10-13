@@ -138,26 +138,23 @@ class Solution:
 class Solution:
     def longestPalindrome(self, s: str) -> str:
 
-        n = len(s)
         self.ret = ''
+        n = len(s)
 
-        # 从 s[l:r] 开始向两侧扩散，开始时，l==r 或者，l+1==r
         def process(l, r):
             tmp = ''
-            while l >= 0 and r < n:
-                if s[l] != s[r]:
-                    break
+            # 从 s[l:r] 开始向两侧扩散
+            while l >= 0 and r < n and s[l] == s[r]:
                 tmp = s[l: r + 1]
-                l -= 1
-                r += 1
-
+                l, r = l - 1, r + 1
+            
             if len(tmp) > len(self.ret):
                 self.ret = tmp
-
-        for l in range(n - 1):
-            process(l, l)  # 奇数情况
-            process(l, l + 1)  # 偶数情况
-
+        
+        for i in range(n):  # 注意 i 的范围
+            process(i, i)  # 奇数情况
+            process(i, i + 1)  # 偶数情况
+        
         return self.ret
 ```
 
