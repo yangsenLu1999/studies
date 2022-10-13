@@ -111,7 +111,8 @@ assert torch.allclose(model(x, mask), traced_model(x, mask))
 > 其他提法：Transformer 为什么比 RNN/CNN 更好用？优势在哪里？  
 > 参考资料：
 > - [自然语言处理三大特征抽取器（CNN/RNN/Transformer）比较 - 知乎](https://zhuanlan.zhihu.com/p/54743941)
->   - [CNN/RNN/Transformer比较（总结自上面内容） - 简书](https://www.jianshu.com/p/67666ada573b)
+>   - [CNN/RNN/Transformer比较 - 简书](https://www.jianshu.com/p/67666ada573b)
+>   - [NLP常用特征提取方法对比 - CSDN博客](https://blog.csdn.net/u013124704/article/details/105201349)
 
 ### RNN
 - 特点/优势（Transformer之前）：
