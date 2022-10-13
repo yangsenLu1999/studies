@@ -30,7 +30,7 @@
 <tr>
 <td colspan="2" valign="top">
 
-### Level
+### Level 📈
 - [Medium (149)](#medium)
 - [Easy (103)](#easy)
 - [Hard (34)](#hard)

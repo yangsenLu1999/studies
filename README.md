@@ -125,7 +125,7 @@ LeetCode           11 mins         -------------------------   00.53 %
 <tr>
 <td colspan="2" valign="top">
 
-### Level
+### Level 📈
 - [Medium (149)](algorithms/README.md#medium)
 - [Easy (103)](algorithms/README.md#easy)
 - [Hard (34)](algorithms/README.md#hard)
