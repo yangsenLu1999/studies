@@ -1,6 +1,13 @@
 Notes
 ===
 
+<table>
+<tr>
+<td valign="top" width="1000">
+
+<!-- omit in toc -->
+## Index 📑
+
 <!-- TOC -->
 - [Researches](#researches)
     - [深度学习](#深度学习)
@@ -16,8 +23,36 @@ Notes
 - [WIKI](#wiki)
 <!-- TOC -->
 
+</td>
+<td valign="top" width="1000">
 
-<!-- CONTENT -->
+<!-- omit in toc -->
+## Recently 📖
+<!--START_SECTION:recent-->
+
+- [`2022-07-27` Transformer 常见面试问题 📌](_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-10-13` BERT 常见面试问题](_archives/2022/05/BERT常见面试问题.md)
+- [`2022-10-13` GBDT/XGBoost 备忘](_archives/2022/10/XGBoost备忘.md)
+- [`2022-10-12` Transformer/BERT 系列模型](_archives/2022/05/Transformers.md)
+- [`2022-09-25` Python 标准项目实践](_archives/2022/09/python-标准项目实践.md)
+- [`2022-09-22` WSL 使用记录](_archives/2022/09/WSL使用记录.md)
+- [`2022-09-19` 设计模式](_archives/2022/09/设计模式.md)
+- [`2022-09-19` 标签体系构建](_archives/2022/08/标签图谱构建.md)
+- [`2022-09-19` `dataclass` 使用记录](_archives/2022/09/python-dataclass使用记录.md)
+- [`2022-09-18` Github Action 备忘](_archives/2022/08/GithubAction备忘.md)
+- [`2022-09-18` requirements.txt 语法备忘](_archives/2022/09/python-requirements语法.md)
+- [`2022-08-26` glob 语法备忘](_archives/2022/08/glob语法备忘.md)
+
+
+<!--END_SECTION:recent-->
+
+</td>
+</tr>
+</table>
+
+
+<!--START_SECTION:notes-->
+
 ## Researches
 
 <table>
@@ -153,4 +188,5 @@ Notes
     - [WSL](999-WIKI.md#wsl)
 - [Y](999-WIKI.md#y)
     - [yaml](999-WIKI.md#yaml)
-<!-- CONTENT -->
+
+<!--END_SECTION:notes-->
