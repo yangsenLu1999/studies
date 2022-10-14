@@ -1,6 +1,13 @@
 Notes
 ===
 
+<table>
+<tr>
+<td valign="top" width="1000">
+
+<!-- omit in toc -->
+## Index 📑
+
 <!-- TOC -->
 - [Researches](#researches)
     - [深度学习](#深度学习)
@@ -16,8 +23,21 @@ Notes
 - [WIKI](#wiki)
 <!-- TOC -->
 
+</td>
+<td valign="top" width="1000">
 
-<!-- CONTENT -->
+<!-- omit in toc -->
+## Recently 📖
+<!--START_SECTION:recent-->
+<!--END_SECTION:recent-->
+
+</td>
+</tr>
+</table>
+
+
+<!--START_SECTION:notes-->
+
 ## Researches
 
 <table>
@@ -100,4 +120,5 @@ Notes
 
 ## WIKI
 {wiki}
-<!-- CONTENT -->
+
+<!--END_SECTION:notes-->

@@ -1,10 +1,10 @@
 ## 将数据流变为多个不相交区间
 <!--START_SECTION:badge-->
 
-![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-13%2019%3A16%3A07&color=yellowgreen&style=flat-square)
-![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
-![level](https://img.shields.io/static/v1?label=level&message=%E5%9B%B0%E9%9A%BE&color=yellow&style=flat-square)
-![tags](https://img.shields.io/static/v1?label=tags&message=%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%2C%20%E6%A8%A1%E6%8B%9F&color=orange&style=flat-square)
+![2022-10-14 14:59:33](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
+![LeetCode](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![困难](https://img.shields.io/static/v1?label=level&message=%E5%9B%B0%E9%9A%BE&color=yellow&style=flat-square)
+![二分查找, 模拟](https://img.shields.io/static/v1?label=tags&message=%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%2C%20%E6%A8%A1%E6%8B%9F&color=orange&style=flat-square)
 
 <!--END_SECTION:badge-->
 <!--info

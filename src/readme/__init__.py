@@ -9,4 +9,4 @@ Subject:
     __init__.py
 """
 
-from ._base import Build
+from ._base import build

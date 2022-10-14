@@ -30,7 +30,7 @@
 <!--START_SECTION:index-->
 
 <!-- no toc -->
-- [Algorithm Coding](#algorithm-coding)
+- [Algorithm Codings](#algorithm-codings)
 - [Researches](#researches)
     - [深度学习](#深度学习)
     - [自然语言处理](#自然语言处理)
@@ -49,9 +49,9 @@
 </td>
 <td valign="top" width="1000">
 
+## Recently 📖
 <!--START_SECTION:recent-->
 
-## Recently 📖
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
 - [`2022-10-13` BERT 常见面试问题](notes/_archives/2022/05/BERT常见面试问题.md)
 - [`2022-10-13` GBDT/XGBoost 备忘](notes/_archives/2022/10/XGBoost备忘.md)
@@ -93,22 +93,32 @@ Text               13 mins         -------------------------   00.58 %
 
 <!--START_SECTION:algorithms-->
 
-## Algorithm Coding
+<!--START_SECTION:head-->
+
+## Algorithm Codings
+
+<!--END_SECTION:head-->
 
 <table>  <!-- invalid: frame="void", style="width: 100%; border: none; background: none" -->
 <tr>
 <td colspan="2" valign="top" width="1000">
 
 ### Hot 🔥
+<!--START_SECTION:hot-->
+
 - [剑指Offer (75)](algorithms/README.md#剑指offer)
 - [动态规划 (53)](algorithms/README.md#动态规划)
 - [热门&经典&易错 (46)](algorithms/README.md#热门经典易错)
 - [LeetCode Hot 100 (25)](algorithms/README.md#leetcode-hot-100)
 
+<!--END_SECTION:hot-->
+
 </td>
 <td colspan="2" rowspan="3" valign="top" width="1000">
 
 ### Subject 📓
+<!--START_SECTION:subject-->
+
 - [牛客 (131)](algorithms/README.md#牛客)
 - [剑指Offer (75)](algorithms/README.md#剑指offer)
 - [LeetCode (73)](algorithms/README.md#leetcode)
@@ -119,6 +129,8 @@ Text               13 mins         -------------------------   00.58 %
 - [Collections (1)](algorithms/README.md#collections)
 - [牛客-华为机试 (1)](algorithms/README.md#牛客-华为机试)
 
+<!--END_SECTION:subject-->
+
 </td>
 </tr>
 <tr></tr>
@@ -126,9 +138,13 @@ Text               13 mins         -------------------------   00.58 %
 <td colspan="2" valign="top">
 
 ### Level 📈
+<!--START_SECTION:level-->
+
 - [Medium (149)](algorithms/README.md#medium)
 - [Easy (103)](algorithms/README.md#easy)
 - [Hard (34)](algorithms/README.md#hard)
+
+<!--END_SECTION:level-->
 
 </td>
 </tr>
@@ -138,14 +154,20 @@ Text               13 mins         -------------------------   00.58 %
 <td width="1000" valign="top">
 
 ### 基础
+<!--START_SECTION:base-->
+
 - [模拟 (19)](algorithms/README.md#模拟)
 - [数学 (9)](algorithms/README.md#数学)
 - [找规律 (2)](algorithms/README.md#找规律)
+
+<!--END_SECTION:base-->
 
 </td>
 <td width="1000" valign="top">
 
 ### 数据结构
+<!--START_SECTION:data_struct-->
+
 - [二叉树/树 (47)](algorithms/README.md#二叉树树)
 - [链表 (30)](algorithms/README.md#链表)
 - [字符串 (17)](algorithms/README.md#字符串)
@@ -153,42 +175,51 @@ Text               13 mins         -------------------------   00.58 %
 - [数组/矩阵 (10)](algorithms/README.md#数组矩阵)
 - [堆/优先队列 (7)](algorithms/README.md#堆优先队列)
 - [设计 (7)](algorithms/README.md#设计)
-- [图 (1)](algorithms/README.md#图)
-- [并查集 (1)](algorithms/README.md#并查集)
 - [线段树/树状数组 (1)](algorithms/README.md#线段树树状数组)
+- [并查集 (1)](algorithms/README.md#并查集)
+- [图 (1)](algorithms/README.md#图)
+
+<!--END_SECTION:data_struct-->
 
 </td>
 <td width="1000" valign="top">
 
 ### 算法
+<!--START_SECTION:algo-->
+
 - [动态规划 (53)](algorithms/README.md#动态规划)
 - [递归 (25)](algorithms/README.md#递归)
-- [二分搜索 (23)](algorithms/README.md#二分搜索)
+- [二分查找 (23)](algorithms/README.md#二分查找)
 - [深度优先搜索 (21)](algorithms/README.md#深度优先搜索)
 - [排序 (15)](algorithms/README.md#排序)
 - [分治 (4)](algorithms/README.md#分治)
 - [广度优先搜索 (4)](algorithms/README.md#广度优先搜索)
 
+<!--END_SECTION:algo-->
+
 </td>
 <td width="1000" valign="top">
 
 ### 技巧
+<!--START_SECTION:trick-->
+
 - [双指针 (25)](algorithms/README.md#双指针)
 - [哈希表(Hash) (12)](algorithms/README.md#哈希表hash)
-- [从暴力递归到动态规划 (10)](algorithms/README.md#从暴力递归到动态规划)
+- [递归转动态规划 (10)](algorithms/README.md#递归转动态规划)
 - [位运算 (9)](algorithms/README.md#位运算)
-- [树形递归 (6)](algorithms/README.md#树形递归)
 - [滑动窗口 (6)](algorithms/README.md#滑动窗口)
+- [树形递归 (6)](algorithms/README.md#树形递归)
 - [贪心 (4)](algorithms/README.md#贪心)
 - [前缀和 (3)](algorithms/README.md#前缀和)
 - [单调栈/单调队列 (3)](algorithms/README.md#单调栈单调队列)
 - [有限状态自动机 (1)](algorithms/README.md#有限状态自动机)
 
+<!--END_SECTION:trick-->
+
 </td>
 
 </tr>
 </table>
-
 
 <!--END_SECTION:algorithms-->
 

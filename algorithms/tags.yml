@@ -1,0 +1,128 @@
+-
+  tag_type: subject
+  priority: 1
+  tags:
+    牛客:
+    剑指Offer:
+      is_hot: true
+    LeetCode:
+    剑指Offer2:
+    程序员面试金典:
+    coll: &coll
+      key: Collections
+    Collection: *coll
+    华为机试:
+      key: 牛客-华为机试
+    热门: &hot
+      key: 热门&经典&易错
+      is_hot: true
+    经典: *hot
+    易错: *hot
+    lc100:
+      key: LeetCode Hot 100
+      is_hot: true
+-
+  tag_type: level
+  priority: 2
+  tags:
+    简单:
+      key: Easy
+    中等:
+      key: Medium
+    困难:
+      key: Hard
+-
+  tag_type: base
+  priority: 3
+  tags:
+    模拟:
+    找规律:
+    数学:
+-
+  tag_type: data_struct
+  priority: 4
+  tags:
+    字符串:
+    线段树: &s_tree
+      key: 线段树/树状数组
+    树状数组: *s_tree
+    二叉树: &binary_tree
+      key: 二叉树/树
+    树: *binary_tree
+    二叉搜索树: *binary_tree
+    链表:
+    栈: &stack_queue
+      key: 栈/队列
+    队列: *stack_queue
+    数组: &array
+      key: 数组/矩阵
+    矩阵: *array
+    二维数组: *array
+    堆: &head
+      key: 堆/优先队列
+    优先队列: *head
+    设计:
+    并查集:
+    图:
+-
+  tag_type: algo
+  priority: 5
+  tags:
+    分治:
+    递归: &recur
+      key: 递归
+    回溯: *recur
+    递归+回溯: *recur
+    递归回溯: *recur
+    动态规划: &dp
+      key: 动态规划
+      is_hot: true
+    dp: *dp
+    记忆化搜索: *dp
+    递推: *dp
+    迭代: *dp
+    排序: &sort
+      key: 排序
+    快排: *sort
+    归并排序: *sort
+    bfs: &bfs
+      key: 广度优先搜索
+    广度优先搜索: *bfs
+    dfs: &dfs
+      key: 深度优先搜索
+    深度优先搜索: *dfs
+    dfs+回溯: *dfs
+    dfs+剪枝: *dfs
+    二分: &bisect
+      key: 二分查找
+    二分搜索: *bisect
+    二分法: *bisect
+    二分查找: *bisect
+-
+  tag_type: trick
+  priority: 6
+  tags:
+    滑动窗口:
+      key: 滑动窗口
+    双指针: &two_pointer
+      key: 双指针
+    快慢指针: *two_pointer
+    快慢指针（链表）: *two_pointer
+    快慢指针（数组）: *two_pointer
+    首尾双指针: *two_pointer
+    同向双指针: *two_pointer
+    对向双指针: *two_pointer
+    有限状态自动机:
+    贪心:
+    前缀和:
+    dfs2dp:
+      key: 递归转动态规划
+    单调栈: &m_stack
+      key: 单调栈/单调队列
+    单调队列: *m_stack
+    hash: &hash
+      key: 哈希表(Hash)
+    哈希表: *hash
+    treedp:
+      key: 树形递归
+    位运算:
