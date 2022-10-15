@@ -150,9 +150,9 @@ class ReadmeUtils:
         # parameters = {k: quote(str(v)) for k, v in parameters.items()}
         badge_url = ReadmeUtils.TEMP_BADGE_URL.format('&'.join([f'{k}={v}' for k, v in parameters.items()]))
         if url is None:
-            return f'![{message}]({badge_url})'
+            return f'![{label}]({badge_url})'
         else:
-            return f'[![{message}]({badge_url})]({url})'
+            return f'[![{label}]({badge_url})]({url})'
 
     @staticmethod
     def get_tag_content(tag, txt) -> str | None:

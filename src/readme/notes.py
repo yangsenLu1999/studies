@@ -24,6 +24,7 @@ from typing import ClassVar
 from collections import defaultdict
 from pathlib import Path
 from dataclasses import dataclass
+from urllib.parse import quote
 
 from readme._base import Builder
 from readme.utils import args, ReadmeUtils, TEMP_main_readme_notes_recent_toc
@@ -133,6 +134,16 @@ class NoteInfo:
     _first_commit_date: str = None
     _last_commit_date: str = None
     sort_by_first_commit: ClassVar[bool] = True
+
+    def __post_init__(self):
+        self.update_note_last_modify()
+
+    def update_note_last_modify(self):
+        with self.path.open(encoding='utf8') as f:
+            new_txt = ReadmeUtils.replace_tag_content('badge', f.read(),
+                                                      ReadmeUtils.get_last_modify_badge_url(self.path))
+        with self.path.open('w', encoding='utf8') as f:
+            f.write(new_txt)
 
     @property
     def title(self):
