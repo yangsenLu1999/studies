@@ -2,7 +2,7 @@ Github Action 备忘
 ===
 <!--START_SECTION:badge-->
 
-![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-13%2001:56:19&color=yellowgreen&style=flat-square)
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-09-18%2017:29:19&color=yellowgreen&style=flat-square)
 
 <!--END_SECTION:badge-->
 > 官方文档：[Workflows - GitHub Docs](https://docs.github.com/cn/actions/using-workflows)
