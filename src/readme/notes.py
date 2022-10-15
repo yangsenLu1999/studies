@@ -163,13 +163,13 @@ class NoteInfo:
     @property
     def first_commit_date(self) -> str:
         if self._first_commit_date is None:
-            self._first_commit_date = ReadmeUtils.get_file_first_commit_date(self.path)
+            self._first_commit_date = ReadmeUtils.get_first_commit_date(self.path)
         return self._first_commit_date
 
     @property
     def last_commit_date(self) -> str:
         if self._last_commit_date is None:
-            self._last_commit_date = ReadmeUtils.get_file_last_commit_date(self.path)
+            self._last_commit_date = ReadmeUtils.get_last_commit_date(self.path)
         return self._last_commit_date
 
     @property

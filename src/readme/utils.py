@@ -20,7 +20,7 @@ import subprocess
 # from typing import *
 # from collections import defaultdict
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from dataclasses import dataclass, fields
 
 from huaytools.utils import get_logger
@@ -29,6 +29,11 @@ logger = get_logger()
 
 
 class ReadmeUtils:
+    BJS = timezone(
+        timedelta(hours=8),
+        name='Asia/Beijing',
+    )
+
     @staticmethod
     def norm(txt: str):
         return txt.lower()
@@ -58,44 +63,45 @@ class ReadmeUtils:
         else:
             logger.error(command)
 
-    @staticmethod
-    def _get_file_commit_date(fp, first_commit=True, return_datetime=False) -> str | datetime:
-        tail_or_head = 'tail' if first_commit else 'head'
-        code, date_str = subprocess.getstatusoutput(
-            f'git log --follow --format=%ad --date=iso-strict "{fp}" | {tail_or_head} -1')
-        if code != 0:
-            raise ValueError(f'{ReadmeUtils._get_file_commit_date.__name__}: {fp}')
-        if return_datetime:
-            return datetime.fromisoformat(date_str)
-        return date_str
+    # @staticmethod
+    # def _get_file_commit_date(fp, first_commit=True, return_datetime=False) -> str | datetime:
+    #     tail_or_head = 'tail' if first_commit else 'head'
+    #     code, date_str = subprocess.getstatusoutput(
+    #         f'git log --follow --format=%ad --date=iso-strict "{fp}" | {tail_or_head} -1')
+    #     if code != 0:
+    #         raise ValueError(f'{ReadmeUtils._get_file_commit_date.__name__}: {fp}')
+    #     if return_datetime:
+    #         return datetime.fromisoformat(date_str)
+    #     return date_str
 
-    @staticmethod
-    def get_file_first_commit_date(fp, return_datetime=False) -> str | datetime:
-        return ReadmeUtils._get_file_commit_date(fp, first_commit=True, return_datetime=return_datetime)
+    # @staticmethod
+    # def get_file_first_commit_date(fp, return_datetime=False) -> str | datetime:
+    #     return ReadmeUtils._get_file_commit_date(fp, first_commit=True, return_datetime=return_datetime)
+
+    TEMP_GIT_LOG_FOLLOW = r'git log --invert-grep --grep="Auto\|AUTO\|auto" --format=%ad --date=iso-strict --follow "{fp}"'  # noqa
 
     @staticmethod
     def get_first_commit_date(fp, fmt='%Y-%m-%d %H:%M:%S') -> str:
-        _, date_str = subprocess.getstatusoutput(
-            f'git log --follow --format=%ad --date=iso-strict "{fp}" | tail -1')
+        _, date_str = subprocess.getstatusoutput(f'{ReadmeUtils.TEMP_GIT_LOG_FOLLOW.format(fp=fp)} | tail -1')
         return ReadmeUtils.get_date_str(date_str, fmt)
 
     @staticmethod
     def get_last_commit_date(fp, fmt='%Y-%m-%d %H:%M:%S') -> str:
-        _, date_str = subprocess.getstatusoutput(
-            f'git log --follow --format=%ad --date=iso-strict "{fp}" | head -1')
+        _, date_str = subprocess.getstatusoutput(f'{ReadmeUtils.TEMP_GIT_LOG_FOLLOW.format(fp=fp)} | head -1')
         return ReadmeUtils.get_date_str(date_str, fmt)
 
     @staticmethod
     def get_date_str(iso_date_str: str, fmt):
         if not iso_date_str:
-            dt = datetime.now()
+            dt = datetime.now(ReadmeUtils.BJS)
         else:
             dt = datetime.fromisoformat(iso_date_str)
+            dt.astimezone(ReadmeUtils.BJS)
         return dt.strftime(fmt)
 
-    @staticmethod
-    def get_file_last_commit_date(fp, return_datetime=False) -> str | datetime:
-        return ReadmeUtils._get_file_commit_date(fp, first_commit=False, return_datetime=return_datetime)
+    # @staticmethod
+    # def get_file_last_commit_date(fp, return_datetime=False) -> str | datetime:
+    #     return ReadmeUtils._get_file_commit_date(fp, first_commit=False, return_datetime=return_datetime)
 
     # RE_WAKATIME = re.compile(r'<!--START_SECTION:waka-->[\s\S]+<!--END_SECTION:waka-->')
 
