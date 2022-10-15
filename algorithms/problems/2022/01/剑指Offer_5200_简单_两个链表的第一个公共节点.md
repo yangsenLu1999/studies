@@ -1,14 +1,14 @@
 ## 两个链表的第一个公共节点
 <!--START_SECTION:badge-->
 
-![2022-10-14 14:59:33](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
+![2022-10-15 16:42:24](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-15%2016%3A42%3A24&color=yellowgreen&style=flat-square)
 ![剑指Offer](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
 ![简单](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
 ![链表, 双指针](https://img.shields.io/static/v1?label=tags&message=%E9%93%BE%E8%A1%A8%2C%20%E5%8F%8C%E6%8C%87%E9%92%88&color=orange&style=flat-square)
 
 <!--END_SECTION:badge-->
 <!--info
-tags: [链表, 快慢指针（链表）]
+tags: [链表, 快慢指针]
 source: 剑指Offer
 level: 简单
 number: '5200'
@@ -115,4 +115,3 @@ class Solution:
 ```
 
 </details>
-

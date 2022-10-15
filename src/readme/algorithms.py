@@ -31,14 +31,19 @@ from readme._base import Builder
 
 @dataclass()
 class Tag:
-    key: str
+    name: str
     type: str
     is_hot: bool
+    aliases: list[str] = field(default_factory=list, hash=False)
     problems: list[Problem] = field(default_factory=list, hash=False)
+
+    def __post_init__(self):
+        self.aliases.insert(0, self.name)
+        self.aliases = sorted(set(self.aliases), key=self.aliases.index)
 
     @property
     def title(self):
-        return self.key
+        return self.name
 
     @property
     def count(self):
@@ -56,6 +61,10 @@ class Tag:
             lns.append(p.toc_line)
         return '\n'.join(lns)
 
+    @property
+    def sort_key(self):
+        return self.count, self.name
+
 
 @dataclass()
 class TagType:
@@ -72,42 +81,45 @@ class TagType:
 
     @property
     def sorted_tags(self):
-        return sorted(self.tags, key=lambda i: i.count, reverse=True)
+        return sorted(self.tags, key=lambda i: i.sort_key, reverse=True)
 
 
 class _TagInfo:
-    name2key: dict[str, str] = dict()
-    key2tag: dict[str, Tag] = dict()
+    # name2key: dict[str, str] = dict()
+    # key2tag: dict[str, Tag] = dict()
+    tags: list[Tag] = list()
+    alias2tag: dict[str, Tag] = dict()
     type2tags: dict[str, TagType] = dict()
     hot_tags: list[Tag] = []
 
     def __init__(self):
         self._fp_tags = args.fp_algorithms_tags
+        self._fp_tag_info = args.fp_algorithms_tag_info
 
-        self._load()
+        self._load_tag_info()
 
-    def _load(self):
-        with self._fp_tags.open(encoding='utf8') as f:
-            tag_data: list[dict] = yaml.safe_load(f.read())
+    def _load_tag_info(self):
+        with self._fp_tag_info.open(encoding='utf8') as f:
+            _tag_info: list[dict] = yaml.safe_load(f.read())
 
-        for it in tag_data:
+        for it in _tag_info:
             tag_type: str = it['tag_type']
             priority: int = int(it['priority'])
             self.type2tags[tag_type] = TagType(tag_type, priority)
             tags: dict = it['tags']
             for name, info in tags.items():
                 info = info or dict()
-                key = self.name2key[name.lower()] = info.get('key', name)
-                if key not in self.key2tag:
-                    tag = Tag(key, tag_type, info.get('is_hot', False))
-                    self.key2tag[key] = tag
-                    self.type2tags[tag_type].tags.append(tag)
-                    if tag.is_hot:
-                        self.hot_tags.append(tag)
+                tag = Tag(name, tag_type, info.get('is_hot', False), info.get('aliases', []))
+                self.tags.append(tag)
+                self.type2tags[tag_type].tags.append(tag)
+                if tag.is_hot:
+                    self.hot_tags.append(tag)
+                for alias in tag.aliases:
+                    self.alias2tag[ReadmeUtils.norm(alias)] = tag
 
     @property
     def hot_tags_sorted(self):
-        return sorted(self.hot_tags, key=lambda i: i.count, reverse=True)
+        return sorted(self.hot_tags, key=lambda i: i.sort_key, reverse=True)
 
 
 tag_info = _TagInfo()
@@ -158,7 +170,7 @@ class Problem:
 
     @property
     def message_tags(self):
-        return ', '.join([tag_info.name2key[tag.lower()] for tag in self.tags])
+        return ', '.join([tag_info.alias2tag[ReadmeUtils.norm(tag)].name for tag in self.tags])
 
     @property
     def path(self):
@@ -258,8 +270,7 @@ class AlgorithmsBuilder(Builder):
         self._fp_problems = args.fp_algorithms_problems
         self._fp_tags = args.fp_algorithms_tags
 
-        self.name2key = tag_info.name2key
-        self.key2tag = tag_info.key2tag
+        self.alias2tag = tag_info.alias2tag
         self.type2tags = tag_info.type2tags
         self.title = args.algorithms_readme_title
 
@@ -275,10 +286,10 @@ class AlgorithmsBuilder(Builder):
                 self.problems.append(Problem(fp))
 
         for p in self.problems:
-            self.key2tag[self.name2key[p.source.lower()]].problems.append(p)
-            self.key2tag[self.name2key[p.level.lower()]].problems.append(p)
+            self.alias2tag[ReadmeUtils.norm(p.source)].problems.append(p)
+            self.alias2tag[ReadmeUtils.norm(p.level)].problems.append(p)
             for name in p.tags:
-                self.key2tag[self.name2key[name.lower()]].problems.append(p)
+                self.alias2tag[ReadmeUtils.norm(name)].problems.append(p)
 
     @property
     def hot_toc(self):

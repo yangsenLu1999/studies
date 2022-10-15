@@ -107,7 +107,7 @@ Text               13 mins         -------------------------   00.58 %
 <!--START_SECTION:hot-->
 
 - [剑指Offer (75)](algorithms/README.md#剑指offer)
-- [动态规划 (53)](algorithms/README.md#动态规划)
+- [动态规划 (51)](algorithms/README.md#动态规划)
 - [热门&经典&易错 (46)](algorithms/README.md#热门经典易错)
 - [LeetCode Hot 100 (25)](algorithms/README.md#leetcode-hot-100)
 
@@ -126,8 +126,8 @@ Text               13 mins         -------------------------   00.58 %
 - [LeetCode Hot 100 (25)](algorithms/README.md#leetcode-hot-100)
 - [剑指Offer2 (3)](algorithms/README.md#剑指offer2)
 - [程序员面试金典 (2)](algorithms/README.md#程序员面试金典)
-- [Collections (1)](algorithms/README.md#collections)
 - [牛客-华为机试 (1)](algorithms/README.md#牛客-华为机试)
+- [Collections (1)](algorithms/README.md#collections)
 
 <!--END_SECTION:subject-->
 
@@ -170,11 +170,11 @@ Text               13 mins         -------------------------   00.58 %
 
 - [二叉树/树 (47)](algorithms/README.md#二叉树树)
 - [链表 (30)](algorithms/README.md#链表)
-- [字符串 (17)](algorithms/README.md#字符串)
 - [栈/队列 (17)](algorithms/README.md#栈队列)
+- [字符串 (17)](algorithms/README.md#字符串)
 - [数组/矩阵 (10)](algorithms/README.md#数组矩阵)
-- [堆/优先队列 (7)](algorithms/README.md#堆优先队列)
 - [设计 (7)](algorithms/README.md#设计)
+- [堆/优先队列 (7)](algorithms/README.md#堆优先队列)
 - [线段树/树状数组 (1)](algorithms/README.md#线段树树状数组)
 - [并查集 (1)](algorithms/README.md#并查集)
 - [图 (1)](algorithms/README.md#图)
@@ -187,13 +187,13 @@ Text               13 mins         -------------------------   00.58 %
 ### 算法
 <!--START_SECTION:algo-->
 
-- [动态规划 (53)](algorithms/README.md#动态规划)
-- [递归 (25)](algorithms/README.md#递归)
+- [动态规划 (51)](algorithms/README.md#动态规划)
+- [递归 (23)](algorithms/README.md#递归)
 - [二分查找 (23)](algorithms/README.md#二分查找)
 - [深度优先搜索 (21)](algorithms/README.md#深度优先搜索)
 - [排序 (15)](algorithms/README.md#排序)
-- [分治 (4)](algorithms/README.md#分治)
 - [广度优先搜索 (4)](algorithms/README.md#广度优先搜索)
+- [分治 (4)](algorithms/README.md#分治)
 
 <!--END_SECTION:algo-->
 
@@ -210,8 +210,8 @@ Text               13 mins         -------------------------   00.58 %
 - [滑动窗口 (6)](algorithms/README.md#滑动窗口)
 - [树形递归 (6)](algorithms/README.md#树形递归)
 - [贪心 (4)](algorithms/README.md#贪心)
-- [前缀和 (3)](algorithms/README.md#前缀和)
 - [单调栈/单调队列 (3)](algorithms/README.md#单调栈单调队列)
+- [前缀和 (3)](algorithms/README.md#前缀和)
 - [有限状态自动机 (1)](algorithms/README.md#有限状态自动机)
 
 <!--END_SECTION:trick-->

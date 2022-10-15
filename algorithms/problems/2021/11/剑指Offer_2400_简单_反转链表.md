@@ -1,14 +1,14 @@
 ## 反转链表
 <!--START_SECTION:badge-->
 
-![2022-10-14 14:59:33](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
+![2022-10-15 16:42:24](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-15%2016%3A42%3A24&color=yellowgreen&style=flat-square)
 ![剑指Offer](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
 ![简单](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
-![链表, 递归, 动态规划, 热门&经典&易错](https://img.shields.io/static/v1?label=tags&message=%E9%93%BE%E8%A1%A8%2C%20%E9%80%92%E5%BD%92%2C%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%2C%20%E7%83%AD%E9%97%A8%26%E7%BB%8F%E5%85%B8%26%E6%98%93%E9%94%99&color=orange&style=flat-square)
+![链表, 热门&经典&易错](https://img.shields.io/static/v1?label=tags&message=%E9%93%BE%E8%A1%A8%2C%20%E7%83%AD%E9%97%A8%26%E7%BB%8F%E5%85%B8%26%E6%98%93%E9%94%99&color=orange&style=flat-square)
 
 <!--END_SECTION:badge-->
 <!--info
-tags: [链表, 递归, 迭代, 经典]
+tags: [链表, 经典]
 source: 剑指Offer
 level: 简单
 number: '2400'

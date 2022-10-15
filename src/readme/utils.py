@@ -29,6 +29,10 @@ logger = get_logger()
 
 
 class ReadmeUtils:
+    @staticmethod
+    def norm(txt: str):
+        return txt.lower()
+
     GIT_ADD_TEMP = 'git add "{fp}"'
 
     @staticmethod
@@ -210,6 +214,7 @@ class args:  # noqa
     fp_algorithms_problems = fp_algorithms / 'problems'
     fp_algorithms_property = fp_algorithms / 'properties.yml'
     fp_algorithms_tags = fp_algorithms / 'tags.yml'
+    fp_algorithms_tag_info = fp_algorithms / 'tag_info.yml'
     algorithms_readme_title = 'Algorithm Codings'
 
     # notes

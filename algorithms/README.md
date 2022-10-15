@@ -13,7 +13,7 @@
 <!--START_SECTION:hot-->
 
 - [剑指Offer (75)](#剑指offer)
-- [动态规划 (53)](#动态规划)
+- [动态规划 (51)](#动态规划)
 - [热门&经典&易错 (46)](#热门经典易错)
 - [LeetCode Hot 100 (25)](#leetcode-hot-100)
 
@@ -32,8 +32,8 @@
 - [LeetCode Hot 100 (25)](#leetcode-hot-100)
 - [剑指Offer2 (3)](#剑指offer2)
 - [程序员面试金典 (2)](#程序员面试金典)
-- [Collections (1)](#collections)
 - [牛客-华为机试 (1)](#牛客-华为机试)
+- [Collections (1)](#collections)
 
 <!--END_SECTION:subject-->
 
@@ -76,11 +76,11 @@
 
 - [二叉树/树 (47)](#二叉树树)
 - [链表 (30)](#链表)
-- [字符串 (17)](#字符串)
 - [栈/队列 (17)](#栈队列)
+- [字符串 (17)](#字符串)
 - [数组/矩阵 (10)](#数组矩阵)
-- [堆/优先队列 (7)](#堆优先队列)
 - [设计 (7)](#设计)
+- [堆/优先队列 (7)](#堆优先队列)
 - [线段树/树状数组 (1)](#线段树树状数组)
 - [并查集 (1)](#并查集)
 - [图 (1)](#图)
@@ -93,13 +93,13 @@
 ### 算法
 <!--START_SECTION:algo-->
 
-- [动态规划 (53)](#动态规划)
-- [递归 (25)](#递归)
+- [动态规划 (51)](#动态规划)
+- [递归 (23)](#递归)
 - [二分查找 (23)](#二分查找)
 - [深度优先搜索 (21)](#深度优先搜索)
 - [排序 (15)](#排序)
-- [分治 (4)](#分治)
 - [广度优先搜索 (4)](#广度优先搜索)
+- [分治 (4)](#分治)
 
 <!--END_SECTION:algo-->
 
@@ -116,8 +116,8 @@
 - [滑动窗口 (6)](#滑动窗口)
 - [树形递归 (6)](#树形递归)
 - [贪心 (4)](#贪心)
-- [前缀和 (3)](#前缀和)
 - [单调栈/单调队列 (3)](#单调栈单调队列)
+- [前缀和 (3)](#前缀和)
 - [有限状态自动机 (1)](#有限状态自动机)
 
 <!--END_SECTION:trick-->
@@ -516,14 +516,14 @@
 - [`程序员面试金典_0102_简单_判定是否互为字符重排`](problems/2022/09/程序员面试金典_0102_简单_判定是否互为字符重排.md)
 
 
-### Collections
-![1](https://img.shields.io/static/v1?label=total&message=1&color=blue&style=flat-square)
-- [`Collection_20220126_中等_划分2N个点`](problems/2022/01/Collection_20220126_中等_划分2N个点.md)
-
-
 ### 牛客-华为机试
 ![1](https://img.shields.io/static/v1?label=total&message=1&color=blue&style=flat-square)
 - [`华为机试_061_简单_放苹果`](problems/2022/05/华为机试_061_简单_放苹果.md)
+
+
+### Collections
+![1](https://img.shields.io/static/v1?label=total&message=1&color=blue&style=flat-square)
+- [`Collection_20220126_中等_划分2N个点`](problems/2022/01/Collection_20220126_中等_划分2N个点.md)
 
 
 ### Medium
@@ -951,27 +951,6 @@
 - [`牛客_0096_简单_判断一个链表是否为回文结构`](problems/2022/04/牛客_0096_简单_判断一个链表是否为回文结构.md)
 
 
-### 字符串
-![17](https://img.shields.io/static/v1?label=total&message=17&color=blue&style=flat-square)
-- [`LeetCode_0017_中等_电话号码的字母组合`](problems/2022/10/LeetCode_0017_中等_电话号码的字母组合.md)
-- [`LeetCode_0434_简单_字符串中的单词数`](problems/2022/07/LeetCode_0434_简单_字符串中的单词数.md)
-- [`LeetCode_0859_简单_亲密字符串`](problems/2021/11/LeetCode_0859_简单_亲密字符串.md)
-- [`剑指Offer_0500_简单_替换空格`](problems/2021/11/剑指Offer_0500_简单_替换空格.md)
-- [`剑指Offer_1900_困难_正则表达式匹配`](problems/2021/11/剑指Offer_1900_困难_正则表达式匹配.md)
-- [`剑指Offer_2000_中等_表示数值的字符串`](problems/2021/11/剑指Offer_2000_中等_表示数值的字符串.md)
-- [`剑指Offer_5802_简单_左旋转字符串`](problems/2022/01/剑指Offer_5802_简单_左旋转字符串.md)
-- [`剑指Offer_6700_中等_把字符串转换成整数（atoi）`](problems/2022/01/剑指Offer_6700_中等_把字符串转换成整数（atoi）.md)
-- [`牛客_0001_中等_大数加法`](problems/2022/01/牛客_0001_中等_大数加法.md)
-- [`牛客_0010_中等_大数乘法`](problems/2022/01/牛客_0010_中等_大数乘法.md)
-- [`牛客_0055_简单_最长公共前缀`](problems/2022/03/牛客_0055_简单_最长公共前缀.md)
-- [`牛客_0100_中等_把字符串转换成整数(atoi)`](problems/2022/04/牛客_0100_中等_把字符串转换成整数(atoi).md)
-- [`牛客_0101_简单_压缩字符串(一)`](problems/2022/04/牛客_0101_简单_压缩字符串(一).md)
-- [`牛客_0103_简单_反转字符串`](problems/2022/04/牛客_0103_简单_反转字符串.md)
-- [`牛客_0104_中等_比较版本号`](problems/2022/04/牛客_0104_中等_比较版本号.md)
-- [`牛客_0113_中等_验证IP地址`](problems/2022/05/牛客_0113_中等_验证IP地址.md)
-- [`牛客_0114_简单_旋转字符串`](problems/2022/05/牛客_0114_简单_旋转字符串.md)
-
-
 ### 栈/队列
 ![17](https://img.shields.io/static/v1?label=total&message=17&color=blue&style=flat-square)
 - [`LeetCode_0020_简单_有效的括号`](problems/2022/03/LeetCode_0020_简单_有效的括号.md)
@@ -993,6 +972,27 @@
 - [`牛客_0115_中等_栈和排序`](problems/2022/05/牛客_0115_中等_栈和排序.md)
 
 
+### 字符串
+![17](https://img.shields.io/static/v1?label=total&message=17&color=blue&style=flat-square)
+- [`LeetCode_0017_中等_电话号码的字母组合`](problems/2022/10/LeetCode_0017_中等_电话号码的字母组合.md)
+- [`LeetCode_0434_简单_字符串中的单词数`](problems/2022/07/LeetCode_0434_简单_字符串中的单词数.md)
+- [`LeetCode_0859_简单_亲密字符串`](problems/2021/11/LeetCode_0859_简单_亲密字符串.md)
+- [`剑指Offer_0500_简单_替换空格`](problems/2021/11/剑指Offer_0500_简单_替换空格.md)
+- [`剑指Offer_1900_困难_正则表达式匹配`](problems/2021/11/剑指Offer_1900_困难_正则表达式匹配.md)
+- [`剑指Offer_2000_中等_表示数值的字符串`](problems/2021/11/剑指Offer_2000_中等_表示数值的字符串.md)
+- [`剑指Offer_5802_简单_左旋转字符串`](problems/2022/01/剑指Offer_5802_简单_左旋转字符串.md)
+- [`剑指Offer_6700_中等_把字符串转换成整数（atoi）`](problems/2022/01/剑指Offer_6700_中等_把字符串转换成整数（atoi）.md)
+- [`牛客_0001_中等_大数加法`](problems/2022/01/牛客_0001_中等_大数加法.md)
+- [`牛客_0010_中等_大数乘法`](problems/2022/01/牛客_0010_中等_大数乘法.md)
+- [`牛客_0055_简单_最长公共前缀`](problems/2022/03/牛客_0055_简单_最长公共前缀.md)
+- [`牛客_0100_中等_把字符串转换成整数(atoi)`](problems/2022/04/牛客_0100_中等_把字符串转换成整数(atoi).md)
+- [`牛客_0101_简单_压缩字符串(一)`](problems/2022/04/牛客_0101_简单_压缩字符串(一).md)
+- [`牛客_0103_简单_反转字符串`](problems/2022/04/牛客_0103_简单_反转字符串.md)
+- [`牛客_0104_中等_比较版本号`](problems/2022/04/牛客_0104_中等_比较版本号.md)
+- [`牛客_0113_中等_验证IP地址`](problems/2022/05/牛客_0113_中等_验证IP地址.md)
+- [`牛客_0114_简单_旋转字符串`](problems/2022/05/牛客_0114_简单_旋转字符串.md)
+
+
 ### 数组/矩阵
 ![10](https://img.shields.io/static/v1?label=total&message=10&color=blue&style=flat-square)
 - [`剑指Offer_2100_简单_调整数组顺序使奇数位于偶数前面`](problems/2021/11/剑指Offer_2100_简单_调整数组顺序使奇数位于偶数前面.md)
@@ -1007,17 +1007,6 @@
 - [`牛客_0110_中等_旋转数组`](problems/2022/04/牛客_0110_中等_旋转数组.md)
 
 
-### 堆/优先队列
-![7](https://img.shields.io/static/v1?label=total&message=7&color=blue&style=flat-square)
-- [`LeetCode_0023_困难_合并K个升序链表`](problems/2022/10/LeetCode_0023_困难_合并K个升序链表.md)
-- [`剑指Offer_4000_简单_最小的k个数（partition操作）`](problems/2021/12/剑指Offer_4000_简单_最小的k个数（partition操作）.md)
-- [`剑指Offer_4100_困难_数据流中的中位数`](problems/2021/12/剑指Offer_4100_困难_数据流中的中位数.md)
-- [`剑指Offer2_076_中等_数组中的第K大的数字`](problems/2022/09/剑指Offer2_076_中等_数组中的第K大的数字.md)
-- [`牛客_0051_困难_合并k个已排序的链表`](problems/2022/03/牛客_0051_困难_合并k个已排序的链表.md)
-- [`牛客_0097_中等_字符串出现次数的TopK问题`](problems/2022/04/牛客_0097_中等_字符串出现次数的TopK问题.md)
-- [`牛客_0106_简单_三个数的最大乘积`](problems/2022/04/牛客_0106_简单_三个数的最大乘积.md)
-
-
 ### 设计
 ![7](https://img.shields.io/static/v1?label=total&message=7&color=blue&style=flat-square)
 - [`剑指Offer_0900_简单_用两个栈实现队列`](problems/2021/11/剑指Offer_0900_简单_用两个栈实现队列.md)
@@ -1027,6 +1016,17 @@
 - [`牛客_0093_困难_设计LRU缓存结构`](problems/2022/04/牛客_0093_困难_设计LRU缓存结构.md)
 - [`牛客_0094_困难_设计LFU缓存结构`](problems/2022/04/牛客_0094_困难_设计LFU缓存结构.md)
 - [`牛客_0124_中等_字典树的实现`](problems/2022/05/牛客_0124_中等_字典树的实现.md)
+
+
+### 堆/优先队列
+![7](https://img.shields.io/static/v1?label=total&message=7&color=blue&style=flat-square)
+- [`LeetCode_0023_困难_合并K个升序链表`](problems/2022/10/LeetCode_0023_困难_合并K个升序链表.md)
+- [`剑指Offer_4000_简单_最小的k个数（partition操作）`](problems/2021/12/剑指Offer_4000_简单_最小的k个数（partition操作）.md)
+- [`剑指Offer_4100_困难_数据流中的中位数`](problems/2021/12/剑指Offer_4100_困难_数据流中的中位数.md)
+- [`剑指Offer2_076_中等_数组中的第K大的数字`](problems/2022/09/剑指Offer2_076_中等_数组中的第K大的数字.md)
+- [`牛客_0051_困难_合并k个已排序的链表`](problems/2022/03/牛客_0051_困难_合并k个已排序的链表.md)
+- [`牛客_0097_中等_字符串出现次数的TopK问题`](problems/2022/04/牛客_0097_中等_字符串出现次数的TopK问题.md)
+- [`牛客_0106_简单_三个数的最大乘积`](problems/2022/04/牛客_0106_简单_三个数的最大乘积.md)
 
 
 ### 线段树/树状数组
@@ -1045,7 +1045,7 @@
 
 
 ### 动态规划
-![53](https://img.shields.io/static/v1?label=total&message=53&color=blue&style=flat-square)
+![51](https://img.shields.io/static/v1?label=total&message=51&color=blue&style=flat-square)
 - [`LeetCode_0005_中等_最长回文子串`](problems/2021/10/LeetCode_0005_中等_最长回文子串.md)
 - [`LeetCode_0010_困难_正则表达式匹配`](problems/2022/01/LeetCode_0010_困难_正则表达式匹配.md)
 - [`LeetCode_0032_困难_最长有效括号`](problems/2022/10/LeetCode_0032_困难_最长有效括号.md)
@@ -1071,8 +1071,6 @@
 - [`剑指Offer_1002_简单_跳台阶`](problems/2021/11/剑指Offer_1002_简单_跳台阶.md)
 - [`剑指Offer_1401_中等_剪绳子（整数拆分）`](problems/2021/11/剑指Offer_1401_中等_剪绳子（整数拆分）.md)
 - [`剑指Offer_1900_困难_正则表达式匹配`](problems/2021/11/剑指Offer_1900_困难_正则表达式匹配.md)
-- [`剑指Offer_2400_简单_反转链表`](problems/2021/11/剑指Offer_2400_简单_反转链表.md)
-- [`剑指Offer_2500_简单_合并两个排序的链表`](problems/2021/11/剑指Offer_2500_简单_合并两个排序的链表.md)
 - [`剑指Offer_4200_简单_连续子数组的最大和`](problems/2021/12/剑指Offer_4200_简单_连续子数组的最大和.md)
 - [`剑指Offer_4600_中等_斐波那契数列-3（把数字翻译成字符串）`](problems/2021/12/剑指Offer_4600_中等_斐波那契数列-3（把数字翻译成字符串）.md)
 - [`剑指Offer_4700_中等_礼物的最大价值`](problems/2021/12/剑指Offer_4700_中等_礼物的最大价值.md)
@@ -1102,7 +1100,7 @@
 
 
 ### 递归
-![25](https://img.shields.io/static/v1?label=total&message=25&color=blue&style=flat-square)
+![23](https://img.shields.io/static/v1?label=total&message=23&color=blue&style=flat-square)
 - [`LeetCode_0039_中等_组合总和`](problems/2022/10/LeetCode_0039_中等_组合总和.md)
 - [`LeetCode_0040_中等_组合总和II`](problems/2022/10/LeetCode_0040_中等_组合总和II.md)
 - [`LeetCode_0040_中等_组合总和II`](problems/2022/10/LeetCode_0040_中等_组合总和II.md)
@@ -1113,8 +1111,6 @@
 - [`剑指Offer_0600_简单_从尾到头打印链表`](problems/2021/11/剑指Offer_0600_简单_从尾到头打印链表.md)
 - [`剑指Offer_1600_中等_数值的整数次方（快速幂）`](problems/2021/11/剑指Offer_1600_中等_数值的整数次方（快速幂）.md)
 - [`剑指Offer_1900_困难_正则表达式匹配`](problems/2021/11/剑指Offer_1900_困难_正则表达式匹配.md)
-- [`剑指Offer_2400_简单_反转链表`](problems/2021/11/剑指Offer_2400_简单_反转链表.md)
-- [`剑指Offer_2500_简单_合并两个排序的链表`](problems/2021/11/剑指Offer_2500_简单_合并两个排序的链表.md)
 - [`剑指Offer_2600_中等_树的子结构`](problems/2021/11/剑指Offer_2600_中等_树的子结构.md)
 - [`剑指Offer_2700_简单_二叉树的镜像`](problems/2021/11/剑指Offer_2700_简单_二叉树的镜像.md)
 - [`剑指Offer_2800_简单_对称的二叉树`](problems/2021/11/剑指Offer_2800_简单_对称的二叉树.md)
@@ -1201,20 +1197,20 @@
 - [`程序员面试金典_0101_简单_判定字符是否唯一`](problems/2022/09/程序员面试金典_0101_简单_判定字符是否唯一.md)
 
 
-### 分治
-![4](https://img.shields.io/static/v1?label=total&message=4&color=blue&style=flat-square)
-- [`剑指Offer_0700_中等_重建二叉树`](problems/2021/11/剑指Offer_0700_中等_重建二叉树.md)
-- [`剑指Offer_3900_简单_数组中出现次数超过一半的数字（摩尔投票）`](problems/2021/12/剑指Offer_3900_简单_数组中出现次数超过一半的数字（摩尔投票）.md)
-- [`剑指Offer_5100_困难_数组中的逆序对`](problems/2022/01/剑指Offer_5100_困难_数组中的逆序对.md)
-- [`剑指Offer2_076_中等_数组中的第K大的数字`](problems/2022/09/剑指Offer2_076_中等_数组中的第K大的数字.md)
-
-
 ### 广度优先搜索
 ![4](https://img.shields.io/static/v1?label=total&message=4&color=blue&style=flat-square)
 - [`剑指Offer_3201_简单_层序遍历二叉树`](problems/2021/11/剑指Offer_3201_简单_层序遍历二叉树.md)
 - [`剑指Offer_3202_简单_层序遍历二叉树`](problems/2021/11/剑指Offer_3202_简单_层序遍历二叉树.md)
 - [`剑指Offer_3203_简单_层序遍历二叉树（之字形遍历）`](problems/2021/11/剑指Offer_3203_简单_层序遍历二叉树（之字形遍历）.md)
 - [`牛客_0109_中等_岛屿数量`](problems/2022/04/牛客_0109_中等_岛屿数量.md)
+
+
+### 分治
+![4](https://img.shields.io/static/v1?label=total&message=4&color=blue&style=flat-square)
+- [`剑指Offer_0700_中等_重建二叉树`](problems/2021/11/剑指Offer_0700_中等_重建二叉树.md)
+- [`剑指Offer_3900_简单_数组中出现次数超过一半的数字（摩尔投票）`](problems/2021/12/剑指Offer_3900_简单_数组中出现次数超过一半的数字（摩尔投票）.md)
+- [`剑指Offer_5100_困难_数组中的逆序对`](problems/2022/01/剑指Offer_5100_困难_数组中的逆序对.md)
+- [`剑指Offer2_076_中等_数组中的第K大的数字`](problems/2022/09/剑指Offer2_076_中等_数组中的第K大的数字.md)
 
 
 ### 双指针
@@ -1317,18 +1313,18 @@
 - [`牛客_0130_中等_分糖果问题`](problems/2022/05/牛客_0130_中等_分糖果问题.md)
 
 
-### 前缀和
-![3](https://img.shields.io/static/v1?label=total&message=3&color=blue&style=flat-square)
-- [`LeetCode_0437_中等_路径总和III`](problems/2022/06/LeetCode_0437_中等_路径总和III.md)
-- [`剑指Offer_6600_中等_构建乘积数组`](problems/2022/01/剑指Offer_6600_中等_构建乘积数组.md)
-- [`牛客_0125_中等_和为K的连续子数组`](problems/2022/05/牛客_0125_中等_和为K的连续子数组.md)
-
-
 ### 单调栈/单调队列
 ![3](https://img.shields.io/static/v1?label=total&message=3&color=blue&style=flat-square)
 - [`LeetCode_0496_简单_下一个更大元素`](problems/2021/11/LeetCode_0496_简单_下一个更大元素.md)
 - [`剑指Offer_5901_困难_滑动窗口的最大值`](problems/2022/01/剑指Offer_5901_困难_滑动窗口的最大值.md)
 - [`牛客_0082_困难_滑动窗口的最大值`](problems/2022/03/牛客_0082_困难_滑动窗口的最大值.md)
+
+
+### 前缀和
+![3](https://img.shields.io/static/v1?label=total&message=3&color=blue&style=flat-square)
+- [`LeetCode_0437_中等_路径总和III`](problems/2022/06/LeetCode_0437_中等_路径总和III.md)
+- [`剑指Offer_6600_中等_构建乘积数组`](problems/2022/01/剑指Offer_6600_中等_构建乘积数组.md)
+- [`牛客_0125_中等_和为K的连续子数组`](problems/2022/05/牛客_0125_中等_和为K的连续子数组.md)
 
 
 ### 有限状态自动机
