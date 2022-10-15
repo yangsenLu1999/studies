@@ -35,7 +35,7 @@ last_modify_tmp = '![last modify](https://img.shields.io/static/v1?label=last%20
 
 
 def update_note_last_modify(fp: Path):
-    datetime = ReadmeUtils.get_file_last_commit_date(fp)
+    datetime = ReadmeUtils.get_first_commit_date(fp)
     datetime = f'{datetime[:10]}%20{datetime[11:19]}'
     with fp.open(encoding='utf8') as f:
         new_txt = ReadmeUtils.replace_tag_content('badge', f.read(), last_modify_tmp.format(datetime=datetime))

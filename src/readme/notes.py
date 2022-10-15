@@ -25,6 +25,7 @@ from collections import defaultdict
 from pathlib import Path
 from dataclasses import dataclass
 
+from readme._base import Builder
 from readme.utils import args, ReadmeUtils, TEMP_main_readme_notes_recent_toc
 
 
@@ -162,13 +163,13 @@ class NoteInfo:
     @property
     def first_commit_date(self) -> str:
         if self._first_commit_date is None:
-            self._first_commit_date = ReadmeUtils.get_file_first_commit_date(self.path)
+            self._first_commit_date = ReadmeUtils.get_first_commit_date(self.path)
         return self._first_commit_date
 
     @property
     def last_commit_date(self) -> str:
         if self._last_commit_date is None:
-            self._last_commit_date = ReadmeUtils.get_file_last_commit_date(self.path)
+            self._last_commit_date = ReadmeUtils.get_last_commit_date(self.path)
         return self._last_commit_date
 
     @property
@@ -194,6 +195,12 @@ class NoteInfo:
             return f'- [`{self.date}` {self.title} 📌]({self.path_relative_to_repo})'
         else:
             return f'- [`{self.date}` {self.title}]({self.path_relative_to_repo})'
+
+    def get_toc_line_relative_to(self, parent_path: Path):
+        if self.is_top:
+            return f'- [`{self.date}` {self.title} 📌]({self.path.relative_to(parent_path)})'
+        else:
+            return f'- [`{self.date}` {self.title}]({self.path.relative_to(parent_path)})'
 
     @property
     def sort_key(self):
@@ -224,7 +231,7 @@ class Property:
             self.subject_ids[k] = SubjectId(k, **v)
 
 
-class Notes:
+class NotesBuilder(Builder):
 
     def __init__(self):
         """"""
@@ -257,7 +264,7 @@ class Notes:
 
     @property
     def notes_recent(self):
-        recent_limit = len(self.readme_toc.split('\n'))
+        recent_limit = len(self.toc_append.split('\n'))
         return self._notes_recent[:recent_limit - len(self.notes_top)]
 
     def _load_all_notes(self):
@@ -292,41 +299,48 @@ class Notes:
         for v in self.cate2subjects.values():
             v.sort(key=lambda s: s.subject_number)
 
-    readme_toc: str
-    readme_concat: str
-    repo_recent_toc: str
-
     def build(self):
         with self._fp_notes_readme_temp.open(encoding='utf8') as f:
-            tmp = f.read()
+            txt = f.read()
+
+        txt = ReadmeUtils.replace_tag_content('recent', txt, self.recent_toc)
 
         contents = {s.toc_id: s.toc for s in self.subjects}
-        readme = tmp.format(**contents)
+        txt = txt.format(**contents)
 
         with self._fp_notes_readme.open('w', encoding='utf8') as f:
-            f.write(readme)
+            f.write(txt)
 
-        self.readme_toc = self._get_readme_toc()
-        self.readme_concat = self._get_readme_concat()
-        self.repo_recent_toc = self._build_repo_recent_toc()
-
-    def _get_readme_toc(self):
+    @property
+    def toc_append(self):
         with self._fp_notes_readme.open(encoding='utf8') as f:
             return RE.note_toc.search(f.read()).group(1).strip()
 
-    def _get_readme_concat(self):
-        with self._fp_notes_readme.open(encoding='utf8') as f:
-            content = RE.note_content.search(f.read()).group(1).strip()
-            return content.replace('](', f']({self._fp_notes.name}/')
+    @property
+    def recent_toc(self):
+        return TEMP_main_readme_notes_recent_toc.format(
+            toc_top='\n'.join([n.get_toc_line_relative_to(self._fp_notes) for n in self.notes_top]),
+            toc_recent='\n'.join([n.get_toc_line_relative_to(self._fp_notes) for n in self.notes_recent])
+        )
 
-    def _build_repo_recent_toc(self):
+    @property
+    def recent_toc_append(self):
         return TEMP_main_readme_notes_recent_toc.format(
             toc_top='\n'.join([n.toc_line_relative_to_repo for n in self.notes_top]),
             toc_recent='\n'.join([n.toc_line_relative_to_repo for n in self.notes_recent])
         )
 
+    @property
+    def readme_append(self):
+        with self._fp_notes_readme.open(encoding='utf8') as f:
+            # content = RE.note_content.search(f.read()).group(1).strip()
+            # return content.replace('](', f']({self._fp_notes.name}/')
+            txt = f.read()
+        txt = ReadmeUtils.get_tag_content('notes', txt)
+        return txt.replace('](', f']({self._fp_notes.name}/')
+
 
 if __name__ == '__main__':
     """"""
-    note = Notes()
+    note = NotesBuilder()
     note.build()

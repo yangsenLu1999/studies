@@ -1,10 +1,10 @@
 ## 字符串的排列（全排列）
 <!--START_SECTION:badge-->
 
-![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-07%2018%3A30%3A25&color=yellowgreen&style=flat-square)
-![source](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
-![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
-![tags](https://img.shields.io/static/v1?label=tags&message=DFS%2B%E5%89%AA%E6%9E%9D%2C%20%E7%83%AD%E9%97%A8%26%E7%BB%8F%E5%85%B8%26%E6%98%93%E9%94%99&color=orange&style=flat-square)
+![2022-10-14 14:59:33](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
+![剑指Offer](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
+![中等](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![深度优先搜索, 热门&经典&易错](https://img.shields.io/static/v1?label=tags&message=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%2C%20%E7%83%AD%E9%97%A8%26%E7%BB%8F%E5%85%B8%26%E6%98%93%E9%94%99&color=orange&style=flat-square)
 
 <!--END_SECTION:badge-->
 <!--info

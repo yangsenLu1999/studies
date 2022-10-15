@@ -20,9 +20,9 @@ import subprocess
 # from pathlib import Path
 # from collections import defaultdict
 
-
-from readme.algorithms import Algorithms
-from readme.notes import Notes
+from readme._base import build
+from readme.algorithms import AlgorithmsBuilder
+from readme.notes import NotesBuilder
 from readme.utils import args, ReadmeUtils, readme_tag
 
 
@@ -32,12 +32,8 @@ class BuildReadme:
         """"""
         self.fp_repo = args.fp_repo
         self._fp_repo_readme = args.fp_repo_readme
-        self.algo = Algorithms()
-        self.note = Notes()
-
-    def pipeline(self):
-        self.build()
-        self.git_push()
+        self.algo = AlgorithmsBuilder()
+        self.note = NotesBuilder()
 
     commit_info = 'Auto-Update README'
 
@@ -52,9 +48,8 @@ class BuildReadme:
             print(data)
 
     def build(self):
-        # build algorithms
-        self.algo.build()
-        self.note.build()
+        # build
+        build(self.algo, self.note)
 
         # build repo readme
         self._update_homepage()
@@ -63,11 +58,11 @@ class BuildReadme:
         with open(self._fp_repo_readme, encoding='utf8') as f:
             txt = f.read()
 
-        txt_index = f'<!-- no toc -->\n{self.algo.readme_toc}\n{self.note.readme_toc}'
+        txt_index = f'<!-- no toc -->\n{self.algo.toc_append}\n{self.note.toc_append}'
         txt = ReadmeUtils.replace_tag_content(readme_tag.index, txt, txt_index)
-        txt = ReadmeUtils.replace_tag_content(readme_tag.recent, txt, self.note.repo_recent_toc)
-        txt = ReadmeUtils.replace_tag_content(readme_tag.algorithms, txt, self.algo.readme_concat)
-        txt = ReadmeUtils.replace_tag_content(readme_tag.notes, txt, self.note.readme_concat)
+        txt = ReadmeUtils.replace_tag_content(readme_tag.recent, txt, self.note.recent_toc_append)
+        txt = ReadmeUtils.replace_tag_content(readme_tag.algorithms, txt, self.algo.readme_append)
+        txt = ReadmeUtils.replace_tag_content(readme_tag.notes, txt, self.note.readme_append)
 
         with open(self._fp_repo_readme, 'w', encoding='utf8') as f:
             f.write(txt)

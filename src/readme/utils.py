@@ -20,7 +20,7 @@ import subprocess
 # from typing import *
 # from collections import defaultdict
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from dataclasses import dataclass, fields
 
 from huaytools.utils import get_logger
@@ -29,6 +29,15 @@ logger = get_logger()
 
 
 class ReadmeUtils:
+    BJS = timezone(
+        timedelta(hours=8),
+        name='Asia/Beijing',
+    )
+
+    @staticmethod
+    def norm(txt: str):
+        return txt.lower()
+
     GIT_ADD_TEMP = 'git add "{fp}"'
 
     @staticmethod
@@ -54,44 +63,45 @@ class ReadmeUtils:
         else:
             logger.error(command)
 
-    @staticmethod
-    def _get_file_commit_date(fp, first_commit=True, return_datetime=False) -> str | datetime:
-        tail_or_head = 'tail' if first_commit else 'head'
-        code, date_str = subprocess.getstatusoutput(
-            f'git log --follow --format=%ad --date=iso-strict "{fp}" | {tail_or_head} -1')
-        if code != 0:
-            raise ValueError(f'{ReadmeUtils._get_file_commit_date.__name__}: {fp}')
-        if return_datetime:
-            return datetime.fromisoformat(date_str)
-        return date_str
+    # @staticmethod
+    # def _get_file_commit_date(fp, first_commit=True, return_datetime=False) -> str | datetime:
+    #     tail_or_head = 'tail' if first_commit else 'head'
+    #     code, date_str = subprocess.getstatusoutput(
+    #         f'git log --follow --format=%ad --date=iso-strict "{fp}" | {tail_or_head} -1')
+    #     if code != 0:
+    #         raise ValueError(f'{ReadmeUtils._get_file_commit_date.__name__}: {fp}')
+    #     if return_datetime:
+    #         return datetime.fromisoformat(date_str)
+    #     return date_str
 
-    @staticmethod
-    def get_file_first_commit_date(fp, return_datetime=False) -> str | datetime:
-        return ReadmeUtils._get_file_commit_date(fp, first_commit=True, return_datetime=return_datetime)
+    # @staticmethod
+    # def get_file_first_commit_date(fp, return_datetime=False) -> str | datetime:
+    #     return ReadmeUtils._get_file_commit_date(fp, first_commit=True, return_datetime=return_datetime)
+
+    TEMP_GIT_LOG_FOLLOW = r'git log --invert-grep --grep="Auto\|AUTO\|auto" --format=%ad --date=iso-strict --follow "{fp}"'  # noqa
 
     @staticmethod
     def get_first_commit_date(fp, fmt='%Y-%m-%d %H:%M:%S') -> str:
-        _, date_str = subprocess.getstatusoutput(
-            f'git log --follow --format=%ad --date=iso-strict "{fp}" | tail -1')
+        _, date_str = subprocess.getstatusoutput(f'{ReadmeUtils.TEMP_GIT_LOG_FOLLOW.format(fp=fp)} | tail -1')
         return ReadmeUtils.get_date_str(date_str, fmt)
 
     @staticmethod
     def get_last_commit_date(fp, fmt='%Y-%m-%d %H:%M:%S') -> str:
-        _, date_str = subprocess.getstatusoutput(
-            f'git log --follow --format=%ad --date=iso-strict "{fp}" | head -1')
+        _, date_str = subprocess.getstatusoutput(f'{ReadmeUtils.TEMP_GIT_LOG_FOLLOW.format(fp=fp)} | head -1')
         return ReadmeUtils.get_date_str(date_str, fmt)
 
     @staticmethod
     def get_date_str(iso_date_str: str, fmt):
         if not iso_date_str:
-            dt = datetime.now()
+            dt = datetime.now(ReadmeUtils.BJS)
         else:
             dt = datetime.fromisoformat(iso_date_str)
+            dt.astimezone(ReadmeUtils.BJS)
         return dt.strftime(fmt)
 
-    @staticmethod
-    def get_file_last_commit_date(fp, return_datetime=False) -> str | datetime:
-        return ReadmeUtils._get_file_commit_date(fp, first_commit=False, return_datetime=return_datetime)
+    # @staticmethod
+    # def get_file_last_commit_date(fp, return_datetime=False) -> str | datetime:
+    #     return ReadmeUtils._get_file_commit_date(fp, first_commit=False, return_datetime=return_datetime)
 
     # RE_WAKATIME = re.compile(r'<!--START_SECTION:waka-->[\s\S]+<!--END_SECTION:waka-->')
 
@@ -103,7 +113,7 @@ class ReadmeUtils:
     SECTION_END = '<!--END_SECTION:{tag}-->'
     SECTION_ANNOTATION = r'<!--{tag}\n(.*?)\n-->'
     TEMP_LAST_MODIFY_BADGE = '![last modify](https://img.shields.io/static/v1?label=last%20modify&message={datetime}&color=yellowgreen&style=flat-square)'  # noqa
-    TEMP_BADGE_URL = '![{label}](https://img.shields.io/static/v1?label={quote_label}&message={message}&color={color}&style={style})'  # noqa
+    TEMP_BADGE_URL = 'https://img.shields.io/static/v1?{}'
 
     @staticmethod
     def get_tag_begin(tag):
@@ -122,34 +132,44 @@ class ReadmeUtils:
 
     @staticmethod
     def get_last_modify_badge_url(fp):
-        return ReadmeUtils.get_badge_url(label='last modify',
-                                         message=ReadmeUtils.get_last_commit_date(fp),
-                                         color='yellowgreen',
-                                         style='flat-square')
+        return ReadmeUtils.get_badge(label='last modify',
+                                     message=ReadmeUtils.get_last_commit_date(fp),
+                                     color='yellowgreen',
+                                     style='flat-square')
 
     @staticmethod
-    def get_badge_url(label, message, color, style='flat-square'):
+    def get_badge(label, message, color, style='flat-square', url=None, **options):
         from urllib.parse import quote
-        return ReadmeUtils.TEMP_BADGE_URL.format(label=label,
-                                                 quote_label=quote(str(label)),
-                                                 message=quote(str(message)), color=color, style=style)
+        parameters = {
+            'label': quote(str(label)),
+            'message': quote(str(message)),
+            'color': color,
+            'style': style,
+        }
+        parameters.update(options)
+        # parameters = {k: quote(str(v)) for k, v in parameters.items()}
+        badge_url = ReadmeUtils.TEMP_BADGE_URL.format('&'.join([f'{k}={v}' for k, v in parameters.items()]))
+        if url is None:
+            return f'![{message}]({badge_url})'
+        else:
+            return f'[![{message}]({badge_url})]({url})'
 
     @staticmethod
     def get_tag_content(tag, txt) -> str | None:
         """
         <!--START_SECTION:{tag}-->
-        ...
+        <content>
         <!--END_SECTION:{tag}-->
         """
         re_pattern = ReadmeUtils._get_section_re_pattern(tag)
         m = re_pattern.search(txt)
         if not m:
             return None
-        return m.group()
+        return m.group(1).strip()
 
     @staticmethod
     def _get_section_re_pattern(tag):
-        return re.compile(fr'{ReadmeUtils.get_tag_begin(tag)}.*?{ReadmeUtils.get_tag_end(tag)}',
+        return re.compile(fr'{ReadmeUtils.get_tag_begin(tag)}(.*?){ReadmeUtils.get_tag_end(tag)}',
                           flags=re.DOTALL)
 
     @staticmethod
@@ -199,7 +219,9 @@ class args:  # noqa
     fp_algorithms_readme = fp_algorithms / 'README.md'
     fp_algorithms_problems = fp_algorithms / 'problems'
     fp_algorithms_property = fp_algorithms / 'properties.yml'
-    algorithms_readme_title = 'Algorithm Coding'
+    fp_algorithms_tags = fp_algorithms / 'tags.yml'
+    fp_algorithms_tag_info = fp_algorithms / 'tag_info.yml'
+    algorithms_readme_title = 'Algorithm Codings'
 
     # notes
     fp_notes = Path(fp_repo / 'notes')
@@ -210,8 +232,7 @@ class args:  # noqa
     notes_top_limit = 5
 
 
-TEMP_main_readme_notes_recent_toc = '''## Recently 📖
-{toc_top}
+TEMP_main_readme_notes_recent_toc = '''{toc_top}
 {toc_recent}
 '''
 TEMP_main_readme_algorithms_concat = '''## {title}

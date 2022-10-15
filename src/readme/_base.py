@@ -10,6 +10,7 @@ Subject:
 """
 from __future__ import annotations
 
+
 # import os
 # import sys
 # import json
@@ -20,16 +21,15 @@ from __future__ import annotations
 # from collections import defaultdict
 
 
-class Readme:
+class Builder:
 
     def build(self):
         raise NotImplementedError
 
+    @property
+    def readme_append(self):
+        raise NotImplementedError
 
-class Build:
 
-    def __init__(self, *readmes: Readme):
-        self.readmes = readmes
-
-    def build(self):
-        [r.build() for r in self.readmes]
+def build(*readmes: Builder):
+    [r.build() for r in readmes]

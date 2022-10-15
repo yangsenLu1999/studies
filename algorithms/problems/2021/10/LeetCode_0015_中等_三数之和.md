@@ -1,10 +1,10 @@
 ## 三数之和
 <!--START_SECTION:badge-->
 
-![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-09%2020%3A16%3A06&color=yellowgreen&style=flat-square)
-![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
-![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
-![tags](https://img.shields.io/static/v1?label=tags&message=%E9%A6%96%E5%B0%BE%E5%8F%8C%E6%8C%87%E9%92%88%2C%20%E6%8E%92%E5%BA%8F%2C%20LeetCode%20Hot%20100&color=orange&style=flat-square)
+![2022-10-14 14:59:33](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
+![LeetCode](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![中等](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![双指针, 排序, LeetCode Hot 100](https://img.shields.io/static/v1?label=tags&message=%E5%8F%8C%E6%8C%87%E9%92%88%2C%20%E6%8E%92%E5%BA%8F%2C%20LeetCode%20Hot%20100&color=orange&style=flat-square)
 
 <!--END_SECTION:badge-->
 <!--info

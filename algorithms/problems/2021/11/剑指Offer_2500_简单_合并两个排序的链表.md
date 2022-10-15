@@ -1,14 +1,14 @@
 ## 合并两个排序的链表
 <!--START_SECTION:badge-->
 
-![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-07%2018%3A30%3A25&color=yellowgreen&style=flat-square)
-![source](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
-![level](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
-![tags](https://img.shields.io/static/v1?label=tags&message=%E9%93%BE%E8%A1%A8%2C%20%E9%80%92%E5%BD%92%2C%20%E8%BF%AD%E4%BB%A3&color=orange&style=flat-square)
+![2022-10-15 16:42:24](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-15%2016%3A42%3A24&color=yellowgreen&style=flat-square)
+![剑指Offer](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
+![简单](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
+![链表](https://img.shields.io/static/v1?label=tags&message=%E9%93%BE%E8%A1%A8&color=orange&style=flat-square)
 
 <!--END_SECTION:badge-->
 <!--info
-tags: [链表, 递归, 迭代]
+tags: [链表]
 source: 剑指Offer
 level: 简单
 number: '2500'
