@@ -1,10 +1,10 @@
 ## 划分2N个点
 <!--START_SECTION:badge-->
 
-![2022-10-14 14:59:33](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
-![Collection](https://img.shields.io/static/v1?label=source&message=Collection&color=green&style=flat-square)
-![中等](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
-![数学](https://img.shields.io/static/v1?label=tags&message=%E6%95%B0%E5%AD%A6&color=orange&style=flat-square)
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=Collection&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E6%95%B0%E5%AD%A6&color=orange&style=flat-square)
 
 <!--END_SECTION:badge-->
 <!--info

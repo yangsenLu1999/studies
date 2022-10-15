@@ -1,10 +1,10 @@
 ## 数组中出现次数超过一半的数字（摩尔投票）
 <!--START_SECTION:badge-->
 
-![2022-10-14 14:59:33](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
-![剑指Offer](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
-![简单](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
-![排序, 模拟, 分治, 热门&经典&易错](https://img.shields.io/static/v1?label=tags&message=%E6%8E%92%E5%BA%8F%2C%20%E6%A8%A1%E6%8B%9F%2C%20%E5%88%86%E6%B2%BB%2C%20%E7%83%AD%E9%97%A8%26%E7%BB%8F%E5%85%B8%26%E6%98%93%E9%94%99&color=orange&style=flat-square)
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E6%8E%92%E5%BA%8F%2C%20%E6%A8%A1%E6%8B%9F%2C%20%E5%88%86%E6%B2%BB%2C%20%E7%83%AD%E9%97%A8%26%E7%BB%8F%E5%85%B8%26%E6%98%93%E9%94%99&color=orange&style=flat-square)
 
 <!--END_SECTION:badge-->
 <!--info

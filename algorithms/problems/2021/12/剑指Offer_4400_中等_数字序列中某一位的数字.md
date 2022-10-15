@@ -1,10 +1,10 @@
 ## 数字序列中某一位的数字
 <!--START_SECTION:badge-->
 
-![2022-10-14 14:59:33](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
-![剑指Offer](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
-![中等](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
-![找规律](https://img.shields.io/static/v1?label=tags&message=%E6%89%BE%E8%A7%84%E5%BE%8B&color=orange&style=flat-square)
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E6%89%BE%E8%A7%84%E5%BE%8B&color=orange&style=flat-square)
 
 <!--END_SECTION:badge-->
 <!--info

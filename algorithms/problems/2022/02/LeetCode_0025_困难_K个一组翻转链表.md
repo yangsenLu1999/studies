@@ -1,10 +1,10 @@
 ## K个一组翻转链表
 <!--START_SECTION:badge-->
 
-![2022-10-14 14:59:33](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
-![LeetCode](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
-![困难](https://img.shields.io/static/v1?label=level&message=%E5%9B%B0%E9%9A%BE&color=yellow&style=flat-square)
-![链表, LeetCode Hot 100](https://img.shields.io/static/v1?label=tags&message=%E9%93%BE%E8%A1%A8%2C%20LeetCode%20Hot%20100&color=orange&style=flat-square)
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E5%9B%B0%E9%9A%BE&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E9%93%BE%E8%A1%A8%2C%20LeetCode%20Hot%20100&color=orange&style=flat-square)
 
 <!--END_SECTION:badge-->
 <!--info

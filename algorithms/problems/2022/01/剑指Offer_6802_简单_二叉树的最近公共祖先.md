@@ -1,10 +1,10 @@
 ## 二叉树的最近公共祖先
 <!--START_SECTION:badge-->
 
-![2022-10-14 14:59:33](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
-![剑指Offer](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
-![简单](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
-![二叉树/树, 树形递归](https://img.shields.io/static/v1?label=tags&message=%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%A0%91%2C%20%E6%A0%91%E5%BD%A2%E9%80%92%E5%BD%92&color=orange&style=flat-square)
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
+![source](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
+![level](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%A0%91%2C%20%E6%A0%91%E5%BD%A2%E9%80%92%E5%BD%92&color=orange&style=flat-square)
 
 <!--END_SECTION:badge-->
 <!--info
