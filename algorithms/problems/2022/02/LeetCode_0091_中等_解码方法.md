@@ -40,84 +40,61 @@ companies: []
 
 <!-- <div align="center"><img src="../../../_assets/xxx.png" height="300" /></div> -->
 
-<summary><b>思路1：从左往右的暴力递归</b></summary>
+<summary><b>思路</b></summary>
 
-- 定义 `dfs(i)` 表示 `s[:i]` 已经固定的情况下，`s[i:]` 的解码方法；
-- 【递归基】`i=n` 时，`s[:n]` 都固定了，即表示找到了一种解法方法；
-- 本题的难点是 `dfs(i)` 不光可以从 `dfs(i-1)` 递推，还可以从 `dfs(i-2)` 递推；
-    > 可以看做是有限制的跳台阶问题；
+- 有限制的  "跳台阶" 问题: `dp[i] = dp[i-1] + dp[i-2]`;
+    - 只有当 `s[i]` 和 `s[i-1]` 满足某些条件时, 才能从 `dp[i-1]` 或 `dp[i-2]` "跳上来";
 
-<details><summary><b>Python</b></summary>
+<details><summary><b>Python: 递归写法</b></summary>
 
 ```python
 class Solution:
     def numDecodings(self, s: str) -> int:
 
-        from functools import lru_cache  # 记忆化搜索
+        from functools import lru_cache
 
-        n = len(s)  # 字符长度
+        @lru_cache
+        def dfs(i):  # 前 i 个字符的解码方法数
+            # 最容易出错的点, 以 0 开头的字符串不存在相应的编码
+            if i <= 1: return int(s[0] != '0')
 
-        @lru_cache(maxsize=None)
-        def dfs(i):  # 表示 s[:i] 已经固定的情况下，s[i:] 的解码方法
-            if i == n:  # s[:n] 都已经固定，即找到了一种有效的解码方法
-                ret = 1
-            elif s[i] == '0':  # 以 0 开始的字符不存在有效解码
-                ret = 0
-            elif s[i] == '1':  # 如果以 1 开头，可以尝试两个位置
-                ret = dfs(i + 1)  # 这个 1 已经固定了
-                if i + 1 < n:  # 因为 10 ~ 19 都存在有效解码，因此只要后面存在两个字符，就可以加上 dfs(i + 2)
-                    ret += dfs(i + 2)
-            elif s[i] == '2':  # 如果以 2 开头，可以有条件的尝试两个位置
-                ret = dfs(i + 1)
-                if i + 1 < n and '0' <= s[i + 1] <= '6':
-                    ret += dfs(i + 2)
-            else:  # 如果以 3~9 开头，只能尝试一个位置
-                ret = dfs(i + 1)
-
+            ret = 0
+            if '1' <= s[i - 1] <= '9':  # 如果 s[i] 在 0~9, 存在相应的编码
+                ret += dfs(i - 1)  # s[i-1] == 1 和 s[i-2] 的特殊讨论
+            if s[i - 2] == '1' or s[i - 2] == '2' and '0' <= s[i - 1] <= '6':
+                ret += dfs(i - 2)
+            
             return ret
-
-        return dfs(0)
+        
+        return dfs(len(s))
 ```
 
 </details>
 
-
-<summary><b>思路2：将暴力递归转化为动态规划</b></summary>
-
-- 有了递归过程后，就可以脱离原问题，模板化的将其转化为动态规划。
-
-<details><summary><b>Python</b></summary>
+<details><summary><b>Python: 迭代写法 (与递归版一一对应)</b></summary>
 
 ```python
 class Solution:
     def numDecodings(self, s: str) -> int:
+        
+        # if s[0] == '0': return 0
 
-        n = len(s)  # 字符长度
-        dp = [0] * (n + 1)
-
-        # 初始化（对应递归中的 base case）
-        #   i == n 时 ret = 1，即
-        dp[n] = 1
-
-        # 递推过程：对应递归过程填空
-        #   下面的写法略有冗余，可以做一些合并，但是为了做到跟递归一一对应，就没有修改
-        for i in range(n - 1, -1, -1):
-            # 为什么是倒序遍历，一方面可以从问题理解；
-            #   另一方面可以从递归过程看，因为最后返回的是 dp[0]，同时 dp[i] 需要从  dp[i + 1] 递推，所以显然需要逆序遍历
-            if s[i] == '0':
-                dp[i] = 0  # ret = 0
-            elif s[i] == '1':
-                dp[i] = dp[i + 1]  # ret = rec(i + 1)
-                if i + 1 < n:
-                    dp[i] += dp[i + 2]  # ret += rec(i + 2)
-            elif s[i] == '2':
-                dp[i] = dp[i + 1]  # ret = rec(i + 1)
-                if i + 1 < n and '0' <= s[i + 1] <= '6':
-                    dp[i] += dp[i + 2]  # ret += rec(i + 2)
-            else:
-                dp[i] = dp[i + 1]  # ret = rec(i + 1)
-
-        return dp[0]  # return rec(0)
+        dp = [0] * (len(s) + 1)
+        # dp[0] = dp[1] = int(s[0] != '0')
+        
+        # 注意 i 的范围与递归中一致
+        for i in range(len(s) + 1):
+            # 下面就是把递归中的代码搬过来
+            if i <= 1:  # 如果把这一段拿到循环外, 需要调整 i 的遍历范围
+                dp[i] = int(s[0] != '0')
+                continue
+            dp[i] = 0
+            if '1' <= s[i - 1] <= '9':
+                dp[i] += dp[i - 1]
+            if s[i - 2] == '1' or s[i - 2] == '2' and '0' <= s[i - 1] <= '6':
+                dp[i] += dp[i - 2]
+        
+        return dp[-1]
 ```
 
 </details>
