@@ -218,8 +218,6 @@ class args:  # noqa
     fp_algorithms = Path(fp_repo / 'algorithms')
     fp_algorithms_readme = fp_algorithms / 'README.md'
     fp_algorithms_problems = fp_algorithms / 'problems'
-    fp_algorithms_property = fp_algorithms / 'properties.yml'
-    fp_algorithms_tags = fp_algorithms / 'tags.yml'
     fp_algorithms_tag_info = fp_algorithms / 'tag_info.yml'
     algorithms_readme_title = 'Algorithm Codings'
 
@@ -228,7 +226,6 @@ class args:  # noqa
     fp_notes_archives = fp_notes / '_archives'
     fp_notes_readme = fp_notes / 'README.md'
     fp_notes_readme_temp = fp_notes / 'README_template.md'
-    fp_notes_property = fp_notes / 'properties.yml'
     notes_top_limit = 5
 
 

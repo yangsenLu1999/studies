@@ -21,10 +21,8 @@ import re
 import yaml
 
 from typing import ClassVar
-from collections import defaultdict
 from pathlib import Path
 from dataclasses import dataclass
-from urllib.parse import quote
 
 from readme._base import Builder
 from readme.utils import args, ReadmeUtils, TEMP_main_readme_notes_recent_toc
@@ -128,8 +126,14 @@ class SubjectInfo:
 
 @dataclass
 class NoteInfo:
+    top: bool = False
+    hidden: bool = False
+
+
+@dataclass
+class Note:
     path: Path
-    _info: dict = None
+    _info: NoteInfo = None
     _title: str = None
     _first_commit_date: str = None
     _last_commit_date: str = None
@@ -158,17 +162,19 @@ class NoteInfo:
         return self._title
 
     @property
-    def info(self):
+    def info(self) -> NoteInfo:
         if self._info is None:
             with self.path.open(encoding='utf8') as f:
                 try:
-                    _info = ReadmeUtils.get_annotation_info(f.read())
+                    _info_str = ReadmeUtils.get_annotation_info(f.read())
                 except:  # noqa
                     raise ValueError(self.path)
-                if _info:
-                    self._info = yaml.safe_load(_info)
+                _info: dict
+                if _info_str:
+                    _info = yaml.safe_load(_info_str)
                 else:
-                    self._info = dict()
+                    _info = dict()
+            self._info = NoteInfo(**_info)
         return self._info
 
     @property
@@ -189,11 +195,11 @@ class NoteInfo:
 
     @property
     def is_top(self):
-        return self.info.get('top', False)
+        return self.info.top
 
     @property
     def is_hidden(self):
-        return self.info.get('hidden', False)
+        return self.info.hidden
 
     @property
     def path_relative_to_repo(self):
@@ -225,23 +231,6 @@ class NoteInfo:
         return self.first_commit_date if self.sort_by_first_commit else self.last_commit_date
 
 
-class Property:
-
-    def __init__(self, fp_property_yaml):
-        with fp_property_yaml.open(encoding='utf8') as f:
-            self.properties = yaml.safe_load(f.read())
-
-        self._load_subject_ids()
-
-    subject_ids: dict[str, SubjectId]
-
-    def _load_subject_ids(self):
-        self.subject_ids = dict()
-        for k, v in self.properties['subject_ids'].items():
-            k = str(k)
-            self.subject_ids[k] = SubjectId(k, **v)
-
-
 class NotesBuilder(Builder):
 
     def __init__(self):
@@ -252,18 +241,15 @@ class NotesBuilder(Builder):
         self._fp_notes_readme_temp = args.fp_notes_readme_temp
         self._top_limit = args.notes_top_limit
         # self._recent_limit = args.notes_recent_limit
-        self.property = Property(args.fp_notes_property)
 
         self._load_note_indexes()
         self._load_all_notes()
 
     subjects: list[SubjectInfo]
-    cate2subjects: dict[SubjectId, list[SubjectInfo]]  # no-use
     fp2date: dict[Path, str]
-    # recent_notes: list[Path]
-    notes: list[NoteInfo] = []
-    _notes_top: list[NoteInfo] = []
-    _notes_recent: list[NoteInfo] = []
+    notes: list[Note] = []
+    _notes_top: list[Note] = []
+    _notes_recent: list[Note] = []
 
     @property
     def recent_limit(self):
@@ -284,7 +270,7 @@ class NotesBuilder(Builder):
                 fp = Path(dp) / fn
                 if fp.suffix != '.md':
                     continue
-                note_i = NoteInfo(fp)
+                note_i = Note(fp)
                 self.notes.append(note_i)
                 if not note_i.is_hidden:
                     if note_i.is_top:
@@ -297,18 +283,11 @@ class NotesBuilder(Builder):
 
     def _load_note_indexes(self):
         self.subjects = []
-        self.cate2subjects = defaultdict(list)
         for path in self._fp_notes.iterdir():
             if not RE.note_name.match(path.name):
                 continue
             _subject = SubjectInfo(path)
             self.subjects.append(_subject)
-            sid = self.property.subject_ids[_subject.subject_id]
-            self.cate2subjects[sid].append(_subject)
-
-        # sort
-        for v in self.cate2subjects.values():
-            v.sort(key=lambda s: s.subject_number)
 
     def build(self):
         with self._fp_notes_readme_temp.open(encoding='utf8') as f:
