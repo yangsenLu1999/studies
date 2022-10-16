@@ -124,7 +124,7 @@ class Solution:
 </details>
 
 
-<summary><b>思路3：后序遍历（树形DP）（推荐）</b></summary>
+<summary><b>思路3：后序遍历（推荐）</b></summary>
 
 <details><summary><b>Python</b></summary>
 
@@ -135,28 +135,39 @@ class Solution:
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
     def pathSum(self, root: TreeNode, targetSum: int) -> int:
-        from collections import defaultdict
-        self.prefix = defaultdict(int)  # 保存前缀和
-        self.prefix[0] = 1
-        self.targetSum = targetSum
+        
+        from dataclasses import dataclass
 
-        def dfs(x, preSum):
-            if not x: return 0
+        @dataclass
+        class Info:
+            cnt: int  # 题目要求的路径数目
+            dp: list  # 保存所有可能的路径和
 
-            ret = 0
-            preSum += x.val
-            ret += self.prefix[preSum - targetSum]
+        def dfs(x):
+            if not x:
+                return Info(0, [])
+            
+            l, r = dfs(x.left), dfs(x.right)
 
-            self.prefix[preSum] += 1
-            ret += dfs(x.left, preSum)
-            ret += dfs(x.right, preSum)
-            self.prefix[preSum] -= 1
+            x_cnt = l.cnt + r.cnt
+            x_dp = [x.val]
+            if x.val == targetSum:
+                x_cnt += 1
+            for t in l.dp:
+                x_dp.append(t + x.val)
+                if t + x.val == targetSum:
+                    x_cnt += 1
+            for t in r.dp:
+                x_dp.append(t + x.val)
+                if t + x.val == targetSum:
+                    x_cnt += 1
 
-            return ret
-
-        return dfs(root, 0)
+            return Info(x_cnt, x_dp)
+        
+        return dfs(root).cnt
 ```
 
 </details>
