@@ -19,24 +19,30 @@ import re
 from typing import ClassVar
 from pathlib import Path
 from dataclasses import dataclass, field
+from collections import defaultdict
 
 import yaml
 
 from huaytools.utils import MarkdownUtils
-
 from readme.utils import args, ReadmeUtils
-
 from readme._base import Builder
 
 
-@dataclass()
+@dataclass(unsafe_hash=True)
 class Tag:
     name: str
     type: str
     is_hot: bool = False
     aliases: list[str] = field(default_factory=list, hash=False)
     notes: list[str] = field(default_factory=list, hash=False)
-    problems: list[Problem] = field(default_factory=list, hash=False)
+    _problems: list[Problem] = field(default_factory=list, hash=False)
+
+    def add_problem(self, p: Problem):
+        self._problems.append(p)
+
+    @property
+    def problems(self):
+        return sorted(set(self._problems), key=lambda i: i.sort_key)
 
     def __post_init__(self):
         self.aliases.insert(0, self.name)
@@ -64,7 +70,7 @@ class Tag:
                 lns.append(f'    - [{_p.stem}](../notes/_archives/{_p})')
             lns.append('')
         lns.append(ReadmeUtils.get_badge('total', self.count, 'blue'))
-        for p in sorted(self.problems, key=lambda i: i.sort_key):
+        for p in self.problems:
             lns.append(p.toc_line)
         return '\n'.join(lns)
 
@@ -95,7 +101,7 @@ class _TagInfo:
     # name2key: dict[str, str] = dict()
     # key2tag: dict[str, Tag] = dict()
     tags: list[Tag] = list()
-    alias2tag: dict[str, Tag] = dict()
+    alias2tags: dict[str, list[Tag]] = defaultdict(list)
     type2tags: dict[str, TagType] = dict()
     hot_tags: list[Tag] = []
 
@@ -123,7 +129,7 @@ class _TagInfo:
                 if tag.is_hot:
                     self.hot_tags.append(tag)
                 for alias in tag.aliases:
-                    self.alias2tag[ReadmeUtils.norm(alias)] = tag
+                    self.alias2tags[ReadmeUtils.norm(alias)].append(tag)
 
     @property
     def hot_tags_sorted(self):
@@ -133,7 +139,7 @@ class _TagInfo:
 tag_info = _TagInfo()
 
 
-@dataclass()
+@dataclass(unsafe_hash=True)
 class Problem:
     _path: Path
 
@@ -171,14 +177,23 @@ class Problem:
 
     @property
     def badge_content(self):
-        return '\n'.join([ReadmeUtils.get_last_modify_badge_url(self.path),
-                          ReadmeUtils.get_badge('source', message=self.source, color='green'),
-                          ReadmeUtils.get_badge('level', message=self.level, color='yellow'),
-                          ReadmeUtils.get_badge('tags', message=self.message_tags, color='orange')])
+        lns = [ReadmeUtils.get_last_modify_badge_url(self.path),
+               ReadmeUtils.get_badge('source', message=self.source, color='green'),
+               ReadmeUtils.get_badge('level', message=self.level, color='yellow')]
 
-    @property
-    def message_tags(self):
-        return ', '.join([tag_info.alias2tag[ReadmeUtils.norm(tag)].name for tag in self.tags])
+        used = set()
+        for t in self.tags:
+            for tag in tag_info.alias2tags[ReadmeUtils.norm(t)]:
+                if tag not in used:
+                    used.add(tag)
+                    lns.append(ReadmeUtils.get_badge('', message=tag.name, color='blue',
+                                                     url=f'../../../README.md#{MarkdownUtils.slugify(tag.title)}'))
+
+        return '\n'.join(lns)
+
+    # @property
+    # def message_tags(self):
+    #     return ', '.join([tag_info.alias2tag[ReadmeUtils.norm(tag)].name for tag in self.tags])
 
     @property
     def path(self):
@@ -277,7 +292,7 @@ class AlgorithmsBuilder(Builder):
         self._fp_algo_readme = args.fp_algorithms_readme
         self._fp_problems = args.fp_algorithms_problems
 
-        self.alias2tag = tag_info.alias2tag
+        self.alias2tags = tag_info.alias2tags
         self.type2tags = tag_info.type2tags
         self.title = args.algorithms_readme_title
 
@@ -293,10 +308,10 @@ class AlgorithmsBuilder(Builder):
                 self.problems.append(Problem(fp))
 
         for p in self.problems:
-            self.alias2tag[ReadmeUtils.norm(p.source)].problems.append(p)
-            self.alias2tag[ReadmeUtils.norm(p.level)].problems.append(p)
+            [tag.add_problem(p) for tag in self.alias2tags[ReadmeUtils.norm(p.source)]]
+            [tag.add_problem(p) for tag in self.alias2tags[ReadmeUtils.norm(p.level)]]
             for name in p.tags:
-                self.alias2tag[ReadmeUtils.norm(name)].problems.append(p)
+                [tag.add_problem(p) for tag in self.alias2tags[ReadmeUtils.norm(name)]]
 
     @property
     def hot_toc(self):
