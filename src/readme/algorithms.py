@@ -33,8 +33,9 @@ from readme._base import Builder
 class Tag:
     name: str
     type: str
-    is_hot: bool
+    is_hot: bool = False
     aliases: list[str] = field(default_factory=list, hash=False)
+    notes: list[str] = field(default_factory=list, hash=False)
     problems: list[Problem] = field(default_factory=list, hash=False)
 
     def __post_init__(self):
@@ -55,8 +56,14 @@ class Tag:
 
     @property
     def toc(self):
-        lns = [f'### {self.title}',
-               ReadmeUtils.get_badge('total', self.count, 'blue')]
+        lns = [f'### {self.title}']
+        if self.notes:
+            lns.append('- **相关笔记** 📒')
+            for n in self.notes:
+                _p = Path(n)
+                lns.append(f'    - [{_p.stem}](../notes/_archives/{_p})')
+            lns.append('')
+        lns.append(ReadmeUtils.get_badge('total', self.count, 'blue'))
         for p in sorted(self.problems, key=lambda i: i.sort_key):
             lns.append(p.toc_line)
         return '\n'.join(lns)
@@ -93,7 +100,6 @@ class _TagInfo:
     hot_tags: list[Tag] = []
 
     def __init__(self):
-        self._fp_tags = args.fp_algorithms_tags
         self._fp_tag_info = args.fp_algorithms_tag_info
 
         self._load_tag_info()
@@ -109,7 +115,9 @@ class _TagInfo:
             tags: dict = it['tags']
             for name, info in tags.items():
                 info = info or dict()
-                tag = Tag(name, tag_type, info.get('is_hot', False), info.get('aliases', []))
+                info.setdefault('name', name)
+                info.setdefault('type', tag_type)
+                tag = Tag(**info)
                 self.tags.append(tag)
                 self.type2tags[tag_type].tags.append(tag)
                 if tag.is_hot:
@@ -204,7 +212,7 @@ class Problem:
     @property
     def last_commit_time(self):
         if self._last_commit_time is None:
-            ReadmeUtils.get_file_last_commit_date(self.path)
+            ReadmeUtils.get_last_commit_date(self.path)
         return self._last_commit_time
 
     @property
@@ -268,7 +276,6 @@ class AlgorithmsBuilder(Builder):
         self._fp_algo = args.fp_algorithms
         self._fp_algo_readme = args.fp_algorithms_readme
         self._fp_problems = args.fp_algorithms_problems
-        self._fp_tags = args.fp_algorithms_tags
 
         self.alias2tag = tag_info.alias2tag
         self.type2tags = tag_info.type2tags
@@ -304,7 +311,7 @@ class AlgorithmsBuilder(Builder):
         for tag_type in sorted(self.type2tags.values(), key=lambda i: i.priority):
             for tag in tag_type.sorted_tags:
                 lns.append(tag.toc)
-                lns.append('\n')
+                lns.append('')
         return '\n'.join(lns)
 
     @property
