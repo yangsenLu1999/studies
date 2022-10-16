@@ -2,9 +2,11 @@
 <!--START_SECTION:badge-->
 
 ![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
-![source](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
-![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
-![tags](https://img.shields.io/static/v1?label=tags&message=%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%A0%91%2C%20%E9%80%92%E5%BD%92%2C%20%E7%83%AD%E9%97%A8%26%E7%BB%8F%E5%85%B8%26%E6%98%93%E9%94%99&color=orange&style=flat-square)
+[![](https://img.shields.io/static/v1?label=&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)](../../../README.md#中等)
+[![](https://img.shields.io/static/v1?label=&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)](../../../README.md#剑指offer)
+[![](https://img.shields.io/static/v1?label=&message=%E4%BA%8C%E5%8F%89%E6%A0%91/%E6%A0%91&color=blue&style=flat-square)](../../../README.md#二叉树树)
+[![](https://img.shields.io/static/v1?label=&message=%E9%80%92%E5%BD%92&color=blue&style=flat-square)](../../../README.md#递归)
+[![](https://img.shields.io/static/v1?label=&message=%E7%83%AD%E9%97%A8%26%E7%BB%8F%E5%85%B8%26%E6%98%93%E9%94%99&color=blue&style=flat-square)](../../../README.md#热门经典易错)
 
 <!--END_SECTION:badge-->
 <!--info

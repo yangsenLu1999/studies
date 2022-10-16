@@ -53,6 +53,7 @@
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-10-16` 从暴力递归到动态规划](notes/_archives/2022/10/从暴力递归到动态规划.md)
 - [`2022-10-13` BERT 常见面试问题](notes/_archives/2022/05/BERT常见面试问题.md)
 - [`2022-10-13` GBDT/XGBoost 备忘](notes/_archives/2022/10/XGBoost备忘.md)
 - [`2022-10-12` Transformer/BERT 系列模型](notes/_archives/2022/05/Transformers.md)
@@ -63,7 +64,6 @@
 - [`2022-09-19` `dataclass` 使用记录](notes/_archives/2022/09/python-dataclass使用记录.md)
 - [`2022-09-18` Github Action 备忘](notes/_archives/2022/08/GithubAction备忘.md)
 - [`2022-09-18` requirements.txt 语法备忘](notes/_archives/2022/09/python-requirements语法.md)
-- [`2022-08-26` glob 语法备忘](notes/_archives/2022/08/glob语法备忘.md)
 
 
 <!--END_SECTION:recent-->
@@ -107,7 +107,7 @@ Stylus             8 mins          -------------------------   00.33 %
 <!--START_SECTION:hot-->
 
 - [剑指Offer (75)](algorithms/README.md#剑指offer)
-- [动态规划 (51)](algorithms/README.md#动态规划)
+- [动态规划 (53)](algorithms/README.md#动态规划)
 - [热门&经典&易错 (46)](algorithms/README.md#热门经典易错)
 - [LeetCode Hot 100 (25)](algorithms/README.md#leetcode-hot-100)
 
@@ -140,9 +140,9 @@ Stylus             8 mins          -------------------------   00.33 %
 ### Level 📈
 <!--START_SECTION:level-->
 
-- [Medium (149)](algorithms/README.md#medium)
-- [Easy (103)](algorithms/README.md#easy)
-- [Hard (34)](algorithms/README.md#hard)
+- [中等 (149)](algorithms/README.md#中等)
+- [简单 (103)](algorithms/README.md#简单)
+- [困难 (34)](algorithms/README.md#困难)
 
 <!--END_SECTION:level-->
 
@@ -170,8 +170,8 @@ Stylus             8 mins          -------------------------   00.33 %
 
 - [二叉树/树 (47)](algorithms/README.md#二叉树树)
 - [链表 (30)](algorithms/README.md#链表)
-- [栈/队列 (17)](algorithms/README.md#栈队列)
 - [字符串 (17)](algorithms/README.md#字符串)
+- [栈/队列 (16)](algorithms/README.md#栈队列)
 - [数组/矩阵 (10)](algorithms/README.md#数组矩阵)
 - [设计 (7)](algorithms/README.md#设计)
 - [堆/优先队列 (7)](algorithms/README.md#堆优先队列)
@@ -187,10 +187,10 @@ Stylus             8 mins          -------------------------   00.33 %
 ### 算法
 <!--START_SECTION:algo-->
 
-- [动态规划 (51)](algorithms/README.md#动态规划)
-- [递归 (23)](algorithms/README.md#递归)
+- [动态规划 (53)](algorithms/README.md#动态规划)
 - [二分查找 (23)](algorithms/README.md#二分查找)
-- [深度优先搜索 (21)](algorithms/README.md#深度优先搜索)
+- [递归 (21)](algorithms/README.md#递归)
+- [深度优先搜索 (20)](algorithms/README.md#深度优先搜索)
 - [排序 (15)](algorithms/README.md#排序)
 - [广度优先搜索 (4)](algorithms/README.md#广度优先搜索)
 - [分治 (4)](algorithms/README.md#分治)
@@ -205,7 +205,7 @@ Stylus             8 mins          -------------------------   00.33 %
 
 - [双指针 (25)](algorithms/README.md#双指针)
 - [哈希表(Hash) (12)](algorithms/README.md#哈希表hash)
-- [递归转动态规划 (10)](algorithms/README.md#递归转动态规划)
+- [暴力递归与动态规划 (11)](algorithms/README.md#暴力递归与动态规划)
 - [位运算 (9)](algorithms/README.md#位运算)
 - [滑动窗口 (6)](algorithms/README.md#滑动窗口)
 - [树形递归 (6)](algorithms/README.md#树形递归)
@@ -259,7 +259,8 @@ Stylus             8 mins          -------------------------   00.33 %
 <td valign="top" width="1000">
 
 ### 数据结构与算法
-
+- [模板](notes/000-数据结构与算法.md#模板)
+    - [动态规划](notes/000-数据结构与算法.md#动态规划)
 
 </td>
 </tr>

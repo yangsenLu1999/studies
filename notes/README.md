@@ -31,6 +31,7 @@ Notes
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-10-16` 从暴力递归到动态规划](_archives/2022/10/从暴力递归到动态规划.md)
 - [`2022-10-13` BERT 常见面试问题](_archives/2022/05/BERT常见面试问题.md)
 - [`2022-10-13` GBDT/XGBoost 备忘](_archives/2022/10/XGBoost备忘.md)
 - [`2022-10-12` Transformer/BERT 系列模型](_archives/2022/05/Transformers.md)
@@ -41,7 +42,6 @@ Notes
 - [`2022-09-19` `dataclass` 使用记录](_archives/2022/09/python-dataclass使用记录.md)
 - [`2022-09-18` Github Action 备忘](_archives/2022/08/GithubAction备忘.md)
 - [`2022-09-18` requirements.txt 语法备忘](_archives/2022/09/python-requirements语法.md)
-- [`2022-08-26` glob 语法备忘](_archives/2022/08/glob语法备忘.md)
 
 
 <!--END_SECTION:recent-->
@@ -87,7 +87,8 @@ Notes
 <td valign="top" width="1000">
 
 ### 数据结构与算法
-
+- [模板](000-数据结构与算法.md#模板)
+    - [动态规划](000-数据结构与算法.md#动态规划)
 
 </td>
 </tr>

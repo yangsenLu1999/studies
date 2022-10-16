@@ -2,9 +2,11 @@
 <!--START_SECTION:badge-->
 
 ![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
-![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
-![level](https://img.shields.io/static/v1?label=level&message=%E5%9B%B0%E9%9A%BE&color=yellow&style=flat-square)
-![tags](https://img.shields.io/static/v1?label=tags&message=%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%2C%20%E6%A0%88/%E9%98%9F%E5%88%97%2C%20LeetCode%20Hot%20100&color=orange&style=flat-square)
+[![](https://img.shields.io/static/v1?label=&message=%E5%9B%B0%E9%9A%BE&color=yellow&style=flat-square)](../../../README.md#困难)
+[![](https://img.shields.io/static/v1?label=&message=LeetCode&color=green&style=flat-square)](../../../README.md#leetcode)
+[![](https://img.shields.io/static/v1?label=&message=%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92&color=blue&style=flat-square)](../../../README.md#动态规划)
+[![](https://img.shields.io/static/v1?label=&message=%E6%A0%88/%E9%98%9F%E5%88%97&color=blue&style=flat-square)](../../../README.md#栈队列)
+[![](https://img.shields.io/static/v1?label=&message=LeetCode%20Hot%20100&color=blue&style=flat-square)](../../../README.md#leetcode-hot-100)
 
 <!--END_SECTION:badge-->
 <!--info

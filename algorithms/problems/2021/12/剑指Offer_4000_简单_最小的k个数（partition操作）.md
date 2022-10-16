@@ -2,9 +2,11 @@
 <!--START_SECTION:badge-->
 
 ![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
-![source](https://img.shields.io/static/v1?label=source&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)
-![level](https://img.shields.io/static/v1?label=level&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)
-![tags](https://img.shields.io/static/v1?label=tags&message=%E5%A0%86/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97%2C%20%E6%8E%92%E5%BA%8F%2C%20%E7%83%AD%E9%97%A8%26%E7%BB%8F%E5%85%B8%26%E6%98%93%E9%94%99&color=orange&style=flat-square)
+[![](https://img.shields.io/static/v1?label=&message=%E7%AE%80%E5%8D%95&color=yellow&style=flat-square)](../../../README.md#简单)
+[![](https://img.shields.io/static/v1?label=&message=%E5%89%91%E6%8C%87Offer&color=green&style=flat-square)](../../../README.md#剑指offer)
+[![](https://img.shields.io/static/v1?label=&message=%E5%A0%86/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97&color=blue&style=flat-square)](../../../README.md#堆优先队列)
+[![](https://img.shields.io/static/v1?label=&message=%E6%8E%92%E5%BA%8F&color=blue&style=flat-square)](../../../README.md#排序)
+[![](https://img.shields.io/static/v1?label=&message=%E7%83%AD%E9%97%A8%26%E7%BB%8F%E5%85%B8%26%E6%98%93%E9%94%99&color=blue&style=flat-square)](../../../README.md#热门经典易错)
 
 <!--END_SECTION:badge-->
 <!--info
