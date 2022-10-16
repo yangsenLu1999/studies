@@ -18,6 +18,8 @@ name: n个骰子的点数
 companies: []
 -->
 
+> [剑指 Offer 60. n个骰子的点数 - 力扣（LeetCode）](https://leetcode.cn/problems/nge-tou-zi-de-dian-shu-lcof/)
+
 <summary><b>问题简述</b></summary>
 
 ```txt
@@ -41,10 +43,6 @@ companies: []
 
 限制：
     1 <= n <= 11
-
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/nge-tou-zi-de-dian-shu-lcof
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 ```
 
 </details>
@@ -71,16 +69,16 @@ class Solution:
             dp_pre = dfs(k - 1)
             dp = [0] * (k * 6 + 1)
 
-            # 遍历方式 1:
-            # for i in range(1 * (n - 1), 6 * (n - 1) + 1):  # n - 1 个骰子的点数范围
-            #     for d in range(1, 7):  # 当前骰子掷出的点数
-            #         dp[i + d] += dp_pre[i]
-
-            # 遍历方式 2（推荐，不需要判断范围）：
-            for i in range(1 * k, 6 * k + 1):  # n 个骰子的点数范围
+            # 遍历方式 1（推荐，不需要判断范围）:
+            for i in range(1 * (k - 1), 6 * (k - 1) + 1):  # n - 1 个骰子的点数范围
                 for d in range(1, 7):  # 当前骰子掷出的点数
-                    if 1 * (k - 1) <= i - d <= 6 * (k - 1):
-                        dp[i] += dp_pre[i - d]
+                    dp[i + d] += dp_pre[i]
+
+            # 遍历方式 2：
+            # for i in range(1 * k, 6 * k + 1):  # n 个骰子的点数范围
+            #     for d in range(1, 7):  # 当前骰子掷出的点数
+            #         if 1 * (k - 1) <= i - d <= 6 * (k - 1):  # 边界判断
+            #             dp[i] += dp_pre[i - d]
 
             return dp
 
@@ -95,7 +93,6 @@ class Solution:
 ```python
 class Solution:
     def dicesProbability(self, n: int) -> List[float]:
-        
 
         dp = [1] * 7
 
