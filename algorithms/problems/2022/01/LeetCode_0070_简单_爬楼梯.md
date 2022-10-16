@@ -8,7 +8,7 @@
 
 <!--END_SECTION:badge-->
 <!--info
-tags: [动态规划]
+tags: [动态规划, dsf2dp]
 source: LeetCode
 level: 简单
 number: '0070'

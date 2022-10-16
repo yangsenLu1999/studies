@@ -4,11 +4,11 @@
 ![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
 ![source](https://img.shields.io/static/v1?label=source&message=LeetCode&color=green&style=flat-square)
 ![level](https://img.shields.io/static/v1?label=level&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)
-![tags](https://img.shields.io/static/v1?label=tags&message=%E9%80%92%E5%BD%92%E8%BD%AC%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92&color=orange&style=flat-square)
+![tags](https://img.shields.io/static/v1?label=tags&message=%E6%9A%B4%E5%8A%9B%E9%80%92%E5%BD%92%E4%B8%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92&color=orange&style=flat-square)
 
 <!--END_SECTION:badge-->
 <!--info
-tags: [DFS2DP]
+tags: [dfs2dp]
 source: LeetCode
 level: 中等
 number: '0279'

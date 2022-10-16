@@ -49,7 +49,7 @@ companies: []
 
 <!-- <div align="center"><img src="../../../_assets/xxx.png" height="300" /></div> -->
 
-- 在不使用任何数学结论的前提下，可以把本题当做纯 DP 来做：
+- 在不使用任何数学结论的前提下，可以把本题当做纯 dp 来做：
 
 <details><summary><b>Python（写法1）</b></summary>
 
@@ -126,4 +126,3 @@ class Solution:
 ```
 
 </details>
-

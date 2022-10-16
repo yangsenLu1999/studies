@@ -63,7 +63,7 @@
       aliases: [回溯, 递归+回溯, 递归回溯]
     动态规划:
       is_hot: true
-      aliases: [dp, 记忆化搜索, 递推]
+      aliases: [dp, 记忆化搜索, 递推, dfs2dp]
     排序:
       aliases: [快排, 归并排序]
     广度优先搜索:

@@ -8,7 +8,7 @@
 
 <!--END_SECTION:badge-->
 <!--info
-tags: [DP, 记忆化搜索]
+tags: [dp, 记忆化搜索]
 source: 剑指Offer
 level: 简单
 number: '1001'
@@ -55,7 +55,7 @@ companies: []
 <summary><b>思路</b></summary>
 
 - 法1）递归
-- 法2）DP（记忆化搜索），因为每个答案只与固定的前两个结果有关，因此可以使用滚动 DP；
+- 法2）dp（记忆化搜索），因为每个答案只与固定的前两个结果有关，因此可以使用滚动 dp；
 
 
 <details><summary><b>Python：递归（会超时）</b></summary>
@@ -97,4 +97,3 @@ class Solution:
 ```
 
 </details>
-

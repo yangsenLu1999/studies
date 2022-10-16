@@ -8,7 +8,7 @@
 
 <!--END_SECTION:badge-->
 <!--info
-tags: [DP]
+tags: [dp]
 source: 剑指Offer
 level: 简单
 number: '1002'
@@ -72,4 +72,3 @@ class Solution:
 ```
 
 </details>
-

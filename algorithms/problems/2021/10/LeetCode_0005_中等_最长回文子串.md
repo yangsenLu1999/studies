@@ -8,7 +8,7 @@
 
 <!--END_SECTION:badge-->
 <!--info
-tags: [DP, 双指针, lc100]
+tags: [dp, 双指针, lc100]
 source: LeetCode
 level: 中等
 number: '0005'

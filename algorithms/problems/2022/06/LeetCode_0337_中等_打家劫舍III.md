@@ -39,9 +39,9 @@ companies: []
 
 <!-- <div align="center"><img src="../../../_assets/xxx.png" height="300" /></div> -->
 
-<summary><b>思路：树形 DP + 记忆化搜索</b></summary>
+<summary><b>思路：树形 dp + 记忆化搜索</b></summary>
 
-- 树形 DP 问题，就是否抢劫当前节点分两种情况讨论，详见代码；
+- 树形 dp 问题，就是否抢劫当前节点分两种情况讨论，详见代码；
 
 <details><summary><b>Python</b></summary>
 
@@ -79,4 +79,3 @@ class Solution:
 ```
 
 </details>
-

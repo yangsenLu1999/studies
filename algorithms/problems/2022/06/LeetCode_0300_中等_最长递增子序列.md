@@ -85,7 +85,7 @@ class Solution:
 
 </details>
 
-<summary><b>思路2：优化 DP 的状态定义</b></summary>
+<summary><b>思路2：优化 dp 的状态定义</b></summary>
 
 - 考虑新的**状态定义**：`dp[i]` 表示长度为 `i + 1` 的最长递增子序列末尾的最小值；
     > `dp` 序列一定时单调递增的，可用反证法证明，详见：[最长递增子序列（动态规划 + 二分查找，清晰图解） - Krahets](https://leetcode-cn.com/problems/longest-increasing-subsequence/solution/zui-chang-shang-sheng-zi-xu-lie-dong-tai-gui-hua-2/)
@@ -134,4 +134,3 @@ class Solution:
 ```
 
 </details>
-
