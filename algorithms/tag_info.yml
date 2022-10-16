@@ -22,12 +22,9 @@
   tag_type: level
   priority: 2
   tags:
-    Easy:
-      aliases: [简单]
-    Medium:
-      aliases: [中等]
-    Hard:
-      aliases: [困难]
+    简单:
+    中等:
+    困难:
 -
   tag_type: base
   priority: 3

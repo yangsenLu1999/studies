@@ -64,7 +64,7 @@ class Tag:
     def toc(self):
         lns = [f'### {self.title}']
         if self.notes:
-            lns.append('- **相关笔记** 📒')
+            lns.append('- **相关笔记** 🔗')
             for n in self.notes:
                 _p = Path(n)
                 lns.append(f'    - [{_p.stem}](../notes/_archives/{_p})')
@@ -177,18 +177,18 @@ class Problem:
 
     @property
     def badge_content(self):
-        lns = [ReadmeUtils.get_last_modify_badge_url(self.path),
-               ReadmeUtils.get_badge('source', message=self.source, color='green'),
-               ReadmeUtils.get_badge('level', message=self.level, color='yellow')]
-
+        lns = [ReadmeUtils.get_last_modify_badge_url(self.path)]
         used = set()
+        lns.append(ReadmeUtils.get_badge('', message=self.level, color='yellow',
+                                         url=f'../../../README.md#{MarkdownUtils.slugify(self.level)}'))
+        lns.append(ReadmeUtils.get_badge('', message=self.source, color='green',
+                                         url=f'../../../README.md#{MarkdownUtils.slugify(self.source)}'))
         for t in self.tags:
             for tag in tag_info.alias2tags[ReadmeUtils.norm(t)]:
                 if tag not in used:
                     used.add(tag)
                     lns.append(ReadmeUtils.get_badge('', message=tag.name, color='blue',
                                                      url=f'../../../README.md#{MarkdownUtils.slugify(tag.title)}'))
-
         return '\n'.join(lns)
 
     # @property

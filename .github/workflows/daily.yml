@@ -8,8 +8,9 @@ on:
   push:
     branches: [ 'master' ]
     paths:
-      - 'README.md'
       - '.github/workflows/daily.yml'
+      - 'README.md'
+      - 'notes/**'
       #- 'algorithms/**'
       #- 'src/readme/**'
 
