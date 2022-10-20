@@ -78,7 +78,8 @@ class ReadmeUtils:
     # def get_file_first_commit_date(fp, return_datetime=False) -> str | datetime:
     #     return ReadmeUtils._get_file_commit_date(fp, first_commit=True, return_datetime=return_datetime)
 
-    TEMP_GIT_LOG_FOLLOW = r'git log --invert-grep --grep="Auto\|AUTO\|auto" --format=%ad --date=iso-strict --follow "{fp}"'  # noqa
+    # TEMP_GIT_LOG_FOLLOW = r'git log --invert-grep --grep="Auto\|AUTO\|auto" --format=%ad --date=iso-strict --follow "{fp}"'  # noqa
+    TEMP_GIT_LOG_FOLLOW = r'git log --author=imhuay --format=%ad --date=iso-strict --follow "{fp}"'  # noqa
 
     @staticmethod
     def get_first_commit_date(fp, fmt='%Y-%m-%d %H:%M:%S') -> str:

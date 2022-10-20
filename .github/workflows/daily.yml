@@ -35,8 +35,8 @@ jobs:
 
     - name: Update README
       run: |
-        git config --global user.name 'imhuay-auto'
-        git config --global user.email 'imhuay@163.com'
+        git config user.name 'github-actions[bot]'
+        git config user.email 'github-actions[bot]@users.noreply.github.com'
         python scripts/daily.py
         #git add -u
         #git commit -m 'Auto-Update README'
