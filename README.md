@@ -53,6 +53,7 @@
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-10-22` 滑动窗口模板](notes/_archives/2022/10/滑动窗口模板.md)
 - [`2022-10-17` 树形递归技巧](notes/_archives/2022/10/树形递归技巧.md)
 - [`2022-10-16` 从暴力递归到动态规划](notes/_archives/2022/10/从暴力递归到动态规划.md)
 - [`2022-10-13` BERT 常见面试问题](notes/_archives/2022/05/BERT常见面试问题.md)
@@ -63,7 +64,6 @@
 - [`2022-09-19` 设计模式](notes/_archives/2022/09/设计模式.md)
 - [`2022-09-19` 标签体系构建](notes/_archives/2022/08/标签图谱构建.md)
 - [`2022-09-19` `dataclass` 使用记录](notes/_archives/2022/09/python-dataclass使用记录.md)
-- [`2022-09-18` Github Action 备忘](notes/_archives/2022/08/GithubAction备忘.md)
 
 
 <!--END_SECTION:recent-->
@@ -259,9 +259,11 @@ Stylus       8 mins          -------------------------   00.30 %
 <td valign="top" width="1000">
 
 ### 数据结构与算法
-- [模板](notes/000-数据结构与算法.md#模板)
-    - [树形递归技巧](notes/000-数据结构与算法.md#树形递归技巧)
+- [技巧](notes/000-数据结构与算法.md#技巧)
+    - [二叉树递归技巧](notes/000-数据结构与算法.md#二叉树递归技巧)
     - [递归与动态规划](notes/000-数据结构与算法.md#递归与动态规划)
+- [模板](notes/000-数据结构与算法.md#模板)
+    - [滑动窗口](notes/000-数据结构与算法.md#滑动窗口)
 
 </td>
 </tr>
@@ -345,6 +347,8 @@ Stylus       8 mins          -------------------------   00.30 %
     - [glob](notes/999-WIKI.md#glob)
 - [H](notes/999-WIKI.md#h)
     - [Hive](notes/999-WIKI.md#hive)
+- [J](notes/999-WIKI.md#j)
+    - [简历 (Resume)](notes/999-WIKI.md#简历-resume)
 - [K](notes/999-WIKI.md#k)
     - [开发环境](notes/999-WIKI.md#开发环境)
         - [Mac](notes/999-WIKI.md#mac)
@@ -357,7 +361,7 @@ Stylus       8 mins          -------------------------   00.30 %
 - [O](notes/999-WIKI.md#o)
     - [Obsidian](notes/999-WIKI.md#obsidian)
 - [S](notes/999-WIKI.md#s)
-    - [Scheduler (Spark)](notes/999-WIKI.md#scheduler-spark)
+    - [STAR 法则](notes/999-WIKI.md#star-法则)
 - [W](notes/999-WIKI.md#w)
     - [WSL](notes/999-WIKI.md#wsl)
 - [Y](notes/999-WIKI.md#y)
