@@ -16,6 +16,8 @@ toc_id: wiki
     - [glob](#glob)
 - [H](#h)
     - [Hive](#hive)
+- [J](#j)
+    - [简历 (Resume)](#简历-resume)
 - [K](#k)
     - [开发环境](#开发环境)
         - [Mac](#mac)
@@ -28,7 +30,7 @@ toc_id: wiki
 - [O](#o)
     - [Obsidian](#obsidian)
 - [S](#s)
-    - [Scheduler (Spark)](#scheduler-spark)
+    - [STAR 法则](#star-法则)
 - [W](#w)
     - [WSL](#wsl)
 - [Y](#y)
@@ -82,6 +84,16 @@ toc_id: wiki
 - [Hive SQL 常用操作](./_archives/2022/04/HiveSQL常用操作.md)
 
 
+## J
+
+
+### 简历 (Resume)
+> 个人学历、经历、特长、爱好及其它有关情况所作的简明扼要的书面介绍;
+
+- [怎么写好一份简历(算法工程师)](./_archives/2022/10/简历技巧.md)
+- [使用 Markdown 编辑简历](./_archives/2022/06/Markdown简历工具.md)
+
+
 ## K
 
 ### 开发环境
@@ -129,8 +141,15 @@ toc_id: wiki
 
 ## S
 
-### Scheduler (Spark)
-- 调度器，用于控制例行化调度、依赖检测等功能；
+<!-- ### Scheduler (Spark)
+- 调度器，用于控制例行化调度、依赖检测等功能； -->
+
+
+### STAR 法则
+> STAR 法则是一种用于描述事件的方式, STAR 分别表示情境 (Situation)、任务 (Task)、行动 (Action)、结果 (Result) 四项的缩写;
+>> [STAR法则_百度百科](https://baike.baidu.com/item/STAR%E6%B3%95%E5%88%99/9056070)
+
+- [使用 STAR 法则描述描述](./_archives/2022/10/%E7%AE%80%E5%8E%86%E6%8A%80%E5%B7%A7.md#star-法则)
 
 
 ## W

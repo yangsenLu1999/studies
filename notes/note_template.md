@@ -11,3 +11,6 @@ hidden: false
 
 <!-- TOC -->
 
+<!-- 相对链接路径
+> algorithms/[xxx](../../../../algorithms/README.md#xxx)
+-->
