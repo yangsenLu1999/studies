@@ -2,7 +2,7 @@ PyCharm 常用配置
 ===
 <!--START_SECTION:badge-->
 
-![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-15%2010%3A39%3A35&color=yellowgreen&style=flat-square)
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-23%2017%3A20%3A33&color=yellowgreen&style=flat-square)
 
 <!--END_SECTION:badge-->
 

@@ -31,6 +31,7 @@ Notes
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-10-23` 关系抽取](_archives/2022/10/关系抽取.md)
 - [`2022-10-22` 滑动窗口模板](_archives/2022/10/滑动窗口模板.md)
 - [`2022-10-17` 树形递归技巧](_archives/2022/10/树形递归技巧.md)
 - [`2022-10-16` 从暴力递归到动态规划](_archives/2022/10/从暴力递归到动态规划.md)
@@ -41,7 +42,6 @@ Notes
 - [`2022-09-22` WSL 使用记录](_archives/2022/09/WSL使用记录.md)
 - [`2022-09-19` 设计模式](_archives/2022/09/设计模式.md)
 - [`2022-09-19` 标签体系构建](_archives/2022/08/标签图谱构建.md)
-- [`2022-09-19` `dataclass` 使用记录](_archives/2022/09/python-dataclass使用记录.md)
 
 
 <!--END_SECTION:recent-->
@@ -129,6 +129,7 @@ Notes
     - [杂项](110-Python.md#杂项)
 - [设计模式](110-Python.md#设计模式)
 - [备忘](110-Python.md#备忘)
+    - [第三方库](110-Python.md#第三方库)
 
 </td>
 <td valign="top" width="1000">
