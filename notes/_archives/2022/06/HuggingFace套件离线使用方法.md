@@ -13,7 +13,7 @@ HuggingFace 套件离线使用方法
 ### 提前下载文件
 
 - 法1）手动下载文件
-    <div align="center"><img src="_assets/HuggingFace离线下载图示.png" height="300" /></div>
+    <div align="center"><img src="../../../_assets/HuggingFace离线下载图示.png" height="300" /></div>
 - 法2）使用 `huggingface_hub` 库下载；
     ```shell
     $ pip install huggingface_hub
@@ -23,7 +23,7 @@ HuggingFace 套件离线使用方法
 
     hf_hub_download(repo_id="bigscience/T0_3B", filename="config.json", cache_dir="./your/path/bigscience_t0")
     ```
-    <div align="center"><img src="_assets/HuggingFace离线下载图示2.png" height="300" /></div>
+    <div align="center"><img src="../../../_assets/HuggingFace离线下载图示2.png" height="300" /></div>
 - 法3）在联网环境使用 `.from_pretrained()` 下载，然后使用 `.save_pretrained()` 保存；
     ```python
     from transformers import AutoConfig, AutoTokenizer, AutoModelForSeq2SeqLM

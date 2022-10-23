@@ -30,7 +30,7 @@ Sentence-BERT
 
 ## 模型结构
 
-<div align="center"><img src="_assets/Sentence-BERT模型图.png" height="300" /></div>
+<div align="center"><img src="../../../_assets/Sentence-BERT模型图.png" height="300" /></div>
 
 <!-- > [CoSENT（一）：比Sentence-BERT更有效的句向量方案 - 科学空间|Scientific Spaces](https://kexue.fm/archives/8847) -->
 

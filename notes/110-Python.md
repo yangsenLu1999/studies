@@ -12,6 +12,7 @@ toc_id: python
     - [杂项](#杂项)
 - [设计模式](#设计模式)
 - [备忘](#备忘)
+    - [第三方库](#第三方库)
 <!-- TOC -->
 
 ## 标准库
@@ -46,6 +47,10 @@ toc_id: python
 - [pip & conda 国内镜像](./_archives/2022/06/python国内镜像源.md)
 - [Python 标准项目结构]()
     - TODO
+
+### 第三方库
+
+- [PyGitHub](./_archives/2022/10/PyGithubExample.ipynb)
 
 <!-- omit in toc -->
 ## FAQ

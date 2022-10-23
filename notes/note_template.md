@@ -11,6 +11,10 @@ hidden: false
 
 <!-- TOC -->
 
-<!-- 相对链接路径
+<!-- 快速编辑
+
 > algorithms/[xxx](../../../../algorithms/README.md#xxx)
+
+<div align="center"><img src="../../../_assets/Sentence-BERT模型图.png" height="300" /></div>
+
 -->
