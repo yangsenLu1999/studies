@@ -53,6 +53,8 @@
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-10-25` 语言模型](notes/_archives/2022/10/语言模型.md)
+- [`2022-10-25` Transformer/BERT 常见变体](notes/_archives/2022/10/Transformer系列模型.md)
 - [`2022-10-23` 关系抽取](notes/_archives/2022/10/关系抽取.md)
 - [`2022-10-22` 滑动窗口模板](notes/_archives/2022/10/滑动窗口模板.md)
 - [`2022-10-17` 树形递归技巧](notes/_archives/2022/10/树形递归技巧.md)
@@ -62,8 +64,6 @@
 - [`2022-10-12` Transformer/BERT 系列模型](notes/_archives/2022/05/Transformers.md)
 - [`2022-09-25` Python 标准项目实践](notes/_archives/2022/09/python-标准项目实践.md)
 - [`2022-09-22` WSL 使用记录](notes/_archives/2022/09/WSL使用记录.md)
-- [`2022-09-19` 设计模式](notes/_archives/2022/09/设计模式.md)
-- [`2022-09-19` 标签体系构建](notes/_archives/2022/08/标签图谱构建.md)
 
 
 <!--END_SECTION:recent-->
@@ -109,7 +109,7 @@ YAML         3 mins          -------------------------   00.18 %
 - [剑指Offer (75)](algorithms/README.md#剑指offer)
 - [动态规划 (53)](algorithms/README.md#动态规划)
 - [热门&经典&易错 (46)](algorithms/README.md#热门经典易错)
-- [LeetCode Hot 100 (25)](algorithms/README.md#leetcode-hot-100)
+- [LeetCode Hot 100 (26)](algorithms/README.md#leetcode-hot-100)
 
 <!--END_SECTION:hot-->
 
@@ -121,9 +121,9 @@ YAML         3 mins          -------------------------   00.18 %
 
 - [牛客 (131)](algorithms/README.md#牛客)
 - [剑指Offer (75)](algorithms/README.md#剑指offer)
-- [LeetCode (73)](algorithms/README.md#leetcode)
+- [LeetCode (74)](algorithms/README.md#leetcode)
 - [热门&经典&易错 (46)](algorithms/README.md#热门经典易错)
-- [LeetCode Hot 100 (25)](algorithms/README.md#leetcode-hot-100)
+- [LeetCode Hot 100 (26)](algorithms/README.md#leetcode-hot-100)
 - [剑指Offer2 (3)](algorithms/README.md#剑指offer2)
 - [程序员面试金典 (2)](algorithms/README.md#程序员面试金典)
 - [牛客-华为机试 (1)](algorithms/README.md#牛客-华为机试)
@@ -140,7 +140,7 @@ YAML         3 mins          -------------------------   00.18 %
 ### Level 📈
 <!--START_SECTION:level-->
 
-- [中等 (149)](algorithms/README.md#中等)
+- [中等 (150)](algorithms/README.md#中等)
 - [简单 (103)](algorithms/README.md#简单)
 - [困难 (34)](algorithms/README.md#困难)
 
@@ -191,7 +191,7 @@ YAML         3 mins          -------------------------   00.18 %
 - [二分查找 (23)](algorithms/README.md#二分查找)
 - [递归 (21)](algorithms/README.md#递归)
 - [深度优先搜索 (20)](algorithms/README.md#深度优先搜索)
-- [排序 (15)](algorithms/README.md#排序)
+- [排序 (16)](algorithms/README.md#排序)
 - [广度优先搜索 (4)](algorithms/README.md#广度优先搜索)
 - [分治 (4)](algorithms/README.md#分治)
 
@@ -367,5 +367,6 @@ YAML         3 mins          -------------------------   00.18 %
     - [WSL](notes/999-WIKI.md#wsl)
 - [Y](notes/999-WIKI.md#y)
     - [yaml](notes/999-WIKI.md#yaml)
+    - [语言模型](notes/999-WIKI.md#语言模型)
 
 <!--END_SECTION:notes-->
