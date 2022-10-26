@@ -31,6 +31,7 @@ Notes
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-10-26` 链表常用操作备忘](_archives/2022/10/链表模板.md)
 - [`2022-10-25` 语言模型](_archives/2022/10/语言模型.md)
 - [`2022-10-25` Transformer/BERT 常见变体](_archives/2022/10/Transformer系列模型.md)
 - [`2022-10-23` 关系抽取](_archives/2022/10/关系抽取.md)
@@ -41,7 +42,6 @@ Notes
 - [`2022-10-13` GBDT/XGBoost 备忘](_archives/2022/10/XGBoost备忘.md)
 - [`2022-10-12` Transformer/BERT 系列模型](_archives/2022/05/Transformers.md)
 - [`2022-09-25` Python 标准项目实践](_archives/2022/09/python-标准项目实践.md)
-- [`2022-09-22` WSL 使用记录](_archives/2022/09/WSL使用记录.md)
 
 
 <!--END_SECTION:recent-->
@@ -92,6 +92,7 @@ Notes
     - [递归与动态规划](000-数据结构与算法.md#递归与动态规划)
 - [模板](000-数据结构与算法.md#模板)
     - [滑动窗口](000-数据结构与算法.md#滑动窗口)
+    - [链表](000-数据结构与算法.md#链表)
 
 </td>
 </tr>
