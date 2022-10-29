@@ -12,9 +12,12 @@
       aliases: [Coll, Collection]
     牛客-华为机试:
       aliases: [华为机试]
-    热门&经典&易错:
+    热门:
       is_hot: true
-      aliases: [热门, 经典, 易错]
+      aliases: [热门]
+    经典:
+      is_hot: true
+      aliases: [经典]
     LeetCode Hot 100:
       is_hot: true
       aliases: [lc100]
@@ -37,6 +40,7 @@
   priority: 4
   tags:
     链表:
+      notes: [2022/10/链表模板.md]
     字符串:
     设计:
     并查集:
@@ -74,6 +78,7 @@
   priority: 6
   tags:
     滑动窗口:
+      notes: [2022/10/滑动窗口模板.md]
     位运算:
     贪心:
     前缀和:
@@ -89,3 +94,4 @@
       aliases: [Hash, 哈希表]
     树形递归:
       aliases: [tree+dp, tree+dfs, 树形dp, TreeDp]
+      notes: [2022/10/树形递归技巧.md]
