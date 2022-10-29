@@ -53,6 +53,7 @@
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-10-26` 链表常用操作备忘](notes/_archives/2022/10/链表模板.md)
 - [`2022-10-25` 语言模型](notes/_archives/2022/10/语言模型.md)
 - [`2022-10-25` Transformer/BERT 常见变体](notes/_archives/2022/10/Transformer系列模型.md)
 - [`2022-10-23` 关系抽取](notes/_archives/2022/10/关系抽取.md)
@@ -63,7 +64,6 @@
 - [`2022-10-13` GBDT/XGBoost 备忘](notes/_archives/2022/10/XGBoost备忘.md)
 - [`2022-10-12` Transformer/BERT 系列模型](notes/_archives/2022/05/Transformers.md)
 - [`2022-09-25` Python 标准项目实践](notes/_archives/2022/09/python-标准项目实践.md)
-- [`2022-09-22` WSL 使用记录](notes/_archives/2022/09/WSL使用记录.md)
 
 
 <!--END_SECTION:recent-->
@@ -77,14 +77,14 @@
 <!--START_SECTION:waka-->
 
 ```text
-Total Time: 28 hrs 12 mins
+Total Time: 20 hrs 23 mins
 
-Markdown     18 hrs 24 mins  >>>>>>>>>>>>>>>>---------   65.27 %
-GitHub       8 hrs 11 mins   >>>>>>>------------------   29.05 %
-LeetCode     1 hr 10 mins    >------------------------   04.17 %
-Python       12 mins         -------------------------   00.73 %
-Jupyter      8 mins          -------------------------   00.51 %
-YAML         3 mins          -------------------------   00.20 %
+Markdown   14 hrs 57 mins  >>>>>>>>>>>>>>>>>>-------   73.38 %
+GitHub     3 hrs 27 mins   >>>>---------------------   16.94 %
+LeetCode   1 hr 14 mins    >>-----------------------   06.13 %
+Python     40 mins         >------------------------   03.34 %
+Jupyter    1 min           -------------------------   00.09 %
+JSON       0 secs          -------------------------   00.08 %
 ```
 
 <!--END_SECTION:waka-->
@@ -108,7 +108,7 @@ YAML         3 mins          -------------------------   00.20 %
 
 - [剑指Offer (75)](algorithms/README.md#剑指offer)
 - [动态规划 (53)](algorithms/README.md#动态规划)
-- [热门&经典&易错 (46)](algorithms/README.md#热门经典易错)
+- [热门&经典&易错 (47)](algorithms/README.md#热门经典易错)
 - [LeetCode Hot 100 (26)](algorithms/README.md#leetcode-hot-100)
 
 <!--END_SECTION:hot-->
@@ -122,7 +122,7 @@ YAML         3 mins          -------------------------   00.20 %
 - [牛客 (131)](algorithms/README.md#牛客)
 - [剑指Offer (75)](algorithms/README.md#剑指offer)
 - [LeetCode (74)](algorithms/README.md#leetcode)
-- [热门&经典&易错 (46)](algorithms/README.md#热门经典易错)
+- [热门&经典&易错 (47)](algorithms/README.md#热门经典易错)
 - [LeetCode Hot 100 (26)](algorithms/README.md#leetcode-hot-100)
 - [剑指Offer2 (3)](algorithms/README.md#剑指offer2)
 - [程序员面试金典 (2)](algorithms/README.md#程序员面试金典)
@@ -156,7 +156,7 @@ YAML         3 mins          -------------------------   00.20 %
 ### 基础
 <!--START_SECTION:base-->
 
-- [模拟 (19)](algorithms/README.md#模拟)
+- [模拟 (18)](algorithms/README.md#模拟)
 - [数学 (9)](algorithms/README.md#数学)
 - [找规律 (2)](algorithms/README.md#找规律)
 
@@ -264,6 +264,7 @@ YAML         3 mins          -------------------------   00.20 %
     - [递归与动态规划](notes/000-数据结构与算法.md#递归与动态规划)
 - [模板](notes/000-数据结构与算法.md#模板)
     - [滑动窗口](notes/000-数据结构与算法.md#滑动窗口)
+    - [链表](notes/000-数据结构与算法.md#链表)
 
 </td>
 </tr>

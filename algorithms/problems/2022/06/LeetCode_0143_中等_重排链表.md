@@ -1,11 +1,11 @@
 ## 重排链表
 <!--START_SECTION:badge-->
 
-![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-14%2014%3A59%3A33&color=yellowgreen&style=flat-square)
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-26%2012%3A48%3A18&color=yellowgreen&style=flat-square)
 [![](https://img.shields.io/static/v1?label=&message=%E4%B8%AD%E7%AD%89&color=yellow&style=flat-square)](../../../README.md#中等)
 [![](https://img.shields.io/static/v1?label=&message=LeetCode&color=green&style=flat-square)](../../../README.md#leetcode)
 [![](https://img.shields.io/static/v1?label=&message=%E9%93%BE%E8%A1%A8&color=blue&style=flat-square)](../../../README.md#链表)
-[![](https://img.shields.io/static/v1?label=&message=%E6%A8%A1%E6%8B%9F&color=blue&style=flat-square)](../../../README.md#模拟)
+[![](https://img.shields.io/static/v1?label=&message=%E7%83%AD%E9%97%A8%26%E7%BB%8F%E5%85%B8%26%E6%98%93%E9%94%99&color=blue&style=flat-square)](../../../README.md#热门经典易错)
 
 <!--END_SECTION:badge-->
 <!--info

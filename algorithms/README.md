@@ -14,7 +14,7 @@
 
 - [剑指Offer (75)](#剑指offer)
 - [动态规划 (53)](#动态规划)
-- [热门&经典&易错 (46)](#热门经典易错)
+- [热门&经典&易错 (47)](#热门经典易错)
 - [LeetCode Hot 100 (26)](#leetcode-hot-100)
 
 <!--END_SECTION:hot-->
@@ -28,7 +28,7 @@
 - [牛客 (131)](#牛客)
 - [剑指Offer (75)](#剑指offer)
 - [LeetCode (74)](#leetcode)
-- [热门&经典&易错 (46)](#热门经典易错)
+- [热门&经典&易错 (47)](#热门经典易错)
 - [LeetCode Hot 100 (26)](#leetcode-hot-100)
 - [剑指Offer2 (3)](#剑指offer2)
 - [程序员面试金典 (2)](#程序员面试金典)
@@ -62,7 +62,7 @@
 ### 基础
 <!--START_SECTION:base-->
 
-- [模拟 (19)](#模拟)
+- [模拟 (18)](#模拟)
 - [数学 (9)](#数学)
 - [找规律 (2)](#找规律)
 
@@ -423,9 +423,10 @@
 - [`LeetCode_0988_中等_从叶结点开始的最小字符串`](problems/2022/07/LeetCode_0988_中等_从叶结点开始的最小字符串.md)
 
 ### 热门&经典&易错
-![total](https://img.shields.io/static/v1?label=total&message=46&color=blue&style=flat-square)
+![total](https://img.shields.io/static/v1?label=total&message=47&color=blue&style=flat-square)
 - [`LeetCode_0031_中等_下一个排列`](problems/2022/10/LeetCode_0031_中等_下一个排列.md)
 - [`LeetCode_0072_困难_编辑距离`](problems/2022/06/LeetCode_0072_困难_编辑距离.md)
+- [`LeetCode_0143_中等_重排链表`](problems/2022/06/LeetCode_0143_中等_重排链表.md)
 - [`LeetCode_0206_简单_反转链表`](problems/2022/10/LeetCode_0206_简单_反转链表.md)
 - [`LeetCode_0300_中等_最长递增子序列`](problems/2022/06/LeetCode_0300_中等_最长递增子序列.md)
 - [`LeetCode_0958_中等_二叉树的完全性检验`](problems/2022/03/LeetCode_0958_中等_二叉树的完全性检验.md)
@@ -816,8 +817,7 @@
 - [`牛客_0128_困难_接雨水问题`](problems/2022/05/牛客_0128_困难_接雨水问题.md)
 
 ### 模拟
-![total](https://img.shields.io/static/v1?label=total&message=19&color=blue&style=flat-square)
-- [`LeetCode_0143_中等_重排链表`](problems/2022/06/LeetCode_0143_中等_重排链表.md)
+![total](https://img.shields.io/static/v1?label=total&message=18&color=blue&style=flat-square)
 - [`LeetCode_0352_困难_将数据流变为多个不相交区间`](problems/2021/10/LeetCode_0352_困难_将数据流变为多个不相交区间.md)
 - [`LeetCode_0859_简单_亲密字符串`](problems/2021/11/LeetCode_0859_简单_亲密字符串.md)
 - [`LeetCode_0915_中等_分割数组`](problems/2022/06/LeetCode_0915_中等_分割数组.md)
