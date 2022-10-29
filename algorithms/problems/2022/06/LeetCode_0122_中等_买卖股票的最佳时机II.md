@@ -8,7 +8,7 @@
 
 <!--END_SECTION:badge-->
 <!--info
-tags: [动态规划]
+tags: [动态规划, 贪心, 热门]
 source: LeetCode
 level: 中等
 number: '0122'

@@ -9,7 +9,7 @@
 
 <!--END_SECTION:badge-->
 <!--info
-tags: [二分查找, 热门, lc100]
+tags: [二分查找, lc100, 热门]
 source: LeetCode
 level: 中等
 number: '0033'

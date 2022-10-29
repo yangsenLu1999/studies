@@ -9,7 +9,7 @@
 
 <!--END_SECTION:badge-->
 <!--info
-tags: [二叉树, 递归]
+tags: [二叉树, 递归, 经典]
 source: LeetCode
 level: 简单
 number: '0104'

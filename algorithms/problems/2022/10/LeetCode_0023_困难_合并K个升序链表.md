@@ -10,7 +10,7 @@
 
 <!--END_SECTION:badge-->
 <!--info
-tags: [链表, 堆, lc100]
+tags: [链表, 堆, lc100, 热门]
 source: LeetCode
 level: 困难
 number: '0023'

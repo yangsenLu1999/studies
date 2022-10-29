@@ -9,7 +9,7 @@
 
 <!--END_SECTION:badge-->
 <!--info
-tags: [动态规划, 经典]
+tags: [动态规划, 经典, 热门]
 source: LeetCode
 level: 困难
 number: '0072'

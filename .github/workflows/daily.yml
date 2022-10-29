@@ -11,7 +11,7 @@ on:
       - '.github/workflows/daily.yml'
       - 'README.md'
       - 'notes/**'
-      #- 'algorithms/**'
+      - 'algorithms/**'
       #- 'src/readme/**'
 
 jobs:

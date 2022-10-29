@@ -57,7 +57,7 @@ companies: []
 </details>
 
 
-<summary><b>思路1：模拟</b></summary>
+<summary><b>思路</b></summary>
 
 ```txt
 1. 遍历 prices，以 min_p 记录当前的最小值（非全局最小值）；

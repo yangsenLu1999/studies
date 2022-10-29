@@ -9,7 +9,7 @@
 
 <!--END_SECTION:badge-->
 <!--info
-tags: [递归+回溯, lc100]
+tags: [递归+回溯, lc100, 热门]
 source: LeetCode
 level: 中等
 number: '0046'
