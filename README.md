@@ -110,7 +110,7 @@ JSON       0 secs          -------------------------   00.08 %
 - [动态规划 (53)](algorithms/README.md#动态规划)
 - [经典 (38)](algorithms/README.md#经典)
 - [LeetCode Hot 100 (26)](algorithms/README.md#leetcode-hot-100)
-- [热门 (18)](algorithms/README.md#热门)
+- [热门 (17)](algorithms/README.md#热门)
 
 <!--END_SECTION:hot-->
 
@@ -125,7 +125,7 @@ JSON       0 secs          -------------------------   00.08 %
 - [剑指Offer (75)](algorithms/README.md#剑指offer)
 - [经典 (38)](algorithms/README.md#经典)
 - [LeetCode Hot 100 (26)](algorithms/README.md#leetcode-hot-100)
-- [热门 (18)](algorithms/README.md#热门)
+- [热门 (17)](algorithms/README.md#热门)
 - [剑指Offer2 (3)](algorithms/README.md#剑指offer2)
 - [程序员面试金典 (2)](algorithms/README.md#程序员面试金典)
 - [牛客-华为机试 (1)](algorithms/README.md#牛客-华为机试)

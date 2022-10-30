@@ -16,7 +16,7 @@
 - [动态规划 (53)](#动态规划)
 - [经典 (38)](#经典)
 - [LeetCode Hot 100 (26)](#leetcode-hot-100)
-- [热门 (18)](#热门)
+- [热门 (17)](#热门)
 
 <!--END_SECTION:hot-->
 
@@ -31,7 +31,7 @@
 - [剑指Offer (75)](#剑指offer)
 - [经典 (38)](#经典)
 - [LeetCode Hot 100 (26)](#leetcode-hot-100)
-- [热门 (18)](#热门)
+- [热门 (17)](#热门)
 - [剑指Offer2 (3)](#剑指offer2)
 - [程序员面试金典 (2)](#程序员面试金典)
 - [牛客-华为机试 (1)](#牛客-华为机试)
@@ -497,7 +497,7 @@
 - [`LeetCode_0215_中等_数组中的第K个最大元素`](problems/2022/10/LeetCode_0215_中等_数组中的第K个最大元素.md)
 
 ### 热门
-![total](https://img.shields.io/static/v1?label=total&message=18&color=blue&style=flat-square)
+![total](https://img.shields.io/static/v1?label=total&message=17&color=blue&style=flat-square)
 - [`LeetCode_0023_困难_合并K个升序链表`](problems/2022/10/LeetCode_0023_困难_合并K个升序链表.md)
 - [`LeetCode_0025_困难_K个一组翻转链表`](problems/2022/02/LeetCode_0025_困难_K个一组翻转链表.md)
 - [`LeetCode_0033_中等_搜索旋转排序数组`](problems/2021/10/LeetCode_0033_中等_搜索旋转排序数组.md)
@@ -512,7 +512,6 @@
 - [`LeetCode_0239_困难_滑动窗口最大值`](problems/2022/10/LeetCode_0239_困难_滑动窗口最大值.md)
 - [`LeetCode_0240_中等_搜索二维矩阵II`](problems/2022/07/LeetCode_0240_中等_搜索二维矩阵II.md)
 - [`剑指Offer_6700_中等_把字符串转换成整数`](problems/2022/01/剑指Offer_6700_中等_把字符串转换成整数.md)
-- [`牛客_0050_中等_链表中的节点每k个一组翻转`](problems/2022/03/牛客_0050_中等_链表中的节点每k个一组翻转.md)
 - [`牛客_0054_中等_三数之和`](problems/2022/03/牛客_0054_中等_三数之和.md)
 - [`牛客_0066_简单_两个链表的第一个公共结点`](problems/2022/03/牛客_0066_简单_两个链表的第一个公共结点.md)
 - [`牛客_0080_中等_把二叉树打印成多行`](problems/2022/03/牛客_0080_中等_把二叉树打印成多行.md)
