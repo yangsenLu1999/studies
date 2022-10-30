@@ -67,6 +67,7 @@ class Solution:
 <summary><b>进阶: 浮点数版本</b></summary>
 
 - 定义 `mySqrt(x: float, e: int)`, 其中 `e` 为小数精度;
+- 注: 代码未经过严格测试, 可能存在问题;
 
 <details><summary><b>Python</b></summary>
 
@@ -74,6 +75,12 @@ class Solution:
 class Solution:
     def mySqrt(self, x: float, e: int) -> int:
         if x in (0, 1): return x
+        
+        assert x > 0
+        flag = False
+        if x < 1:  # 小于 1 的情况
+            x = 1 / x
+            flag = True
         
         l, r = 0, x
         while l < r:
@@ -86,7 +93,7 @@ class Solution:
             else:
                 r = m
         
-        return m
+        return 1 / m if flag else m
 ```
 
 </details>
