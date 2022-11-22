@@ -77,13 +77,11 @@
 <!--START_SECTION:waka-->
 
 ```text
-Total Time: 58 mins
+Total Time: 51 mins
 
-Markdown         41 mins         >>>>>>>>>>>>>>>>>>-------   71.19 %
-GitHub           10 mins         >>>>>--------------------   18.84 %
-Python           5 mins          >>-----------------------   08.89 %
-LeetCode         0 secs          -------------------------   00.77 %
-GitIgnore file   0 secs          -------------------------   00.31 %
+Markdown   41 mins         >>>>>>>>>>>>>>>>>>>>-----   80.63 %
+GitHub     9 mins          >>>>>--------------------   18.50 %
+LeetCode   0 secs          -------------------------   00.87 %
 ```
 
 <!--END_SECTION:waka-->
