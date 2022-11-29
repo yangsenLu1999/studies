@@ -77,10 +77,9 @@
 <!--START_SECTION:waka-->
 
 ```text
-Total Time: 0 secs
+Total Time: 5 mins
 
-LeetCode   0 secs          >>>>>>>>>>>>>------------   52.75 %
-GitHub     0 secs          >>>>>>>>>>>>-------------   47.25 %
+GitHub   5 mins          >>>>>>>>>>>>>>>>>>>>>>>>>   100.00 %
 ```
 
 <!--END_SECTION:waka-->
