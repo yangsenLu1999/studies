@@ -21,13 +21,15 @@ Python 国内镜像源
 ### 生效方法
 ```shell
 # 安装时指定
-pip install $pkg -i $channel
+pip install $pkg -i http://pypi.douban.com/simple
 
 # 设置源
-pip config set global.index-url $channel
+pip config set global.index-url http://pypi.douban.com/simple
+pip config set install.trusted-host pypi.douban.com
 
 # 删除源
 pip config unset global.index-url
+pip config unset install.trusted-host
 ```
 
 ### 国内源
