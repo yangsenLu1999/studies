@@ -53,6 +53,9 @@
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-12-09` 搜索指标](notes/_archives/2022/12/搜索指标.md)
+- [`2022-12-09` 搜索与 NLP](notes/_archives/2022/12/搜索与NLP.md)
+- [`2022-12-09` 实验报告模板](notes/_archives/2022/12/实验报告模板.md)
 - [`2022-10-26` 链表常用操作备忘](notes/_archives/2022/10/链表模板.md)
 - [`2022-10-25` 语言模型](notes/_archives/2022/10/语言模型.md)
 - [`2022-10-25` Transformer/BERT 常见变体](notes/_archives/2022/10/Transformer系列模型.md)
@@ -61,9 +64,6 @@
 - [`2022-10-17` 树形递归技巧](notes/_archives/2022/10/树形递归技巧.md)
 - [`2022-10-16` 从暴力递归到动态规划](notes/_archives/2022/10/从暴力递归到动态规划.md)
 - [`2022-10-13` BERT 常见面试问题](notes/_archives/2022/05/BERT常见面试问题.md)
-- [`2022-10-13` GBDT/XGBoost 备忘](notes/_archives/2022/10/XGBoost备忘.md)
-- [`2022-10-12` Transformer/BERT 系列模型](notes/_archives/2022/05/Transformers.md)
-- [`2022-09-25` Python 标准项目实践](notes/_archives/2022/09/python-标准项目实践.md)
 
 
 <!--END_SECTION:recent-->
