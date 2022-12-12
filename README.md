@@ -53,6 +53,7 @@
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-12-12` NLP 标注工具](notes/_archives/2022/12/NLP标注工具.md)
 - [`2022-12-09` 搜索指标](notes/_archives/2022/12/搜索指标.md)
 - [`2022-12-09` 搜索与 NLP](notes/_archives/2022/12/搜索与NLP.md)
 - [`2022-12-09` 实验报告模板](notes/_archives/2022/12/实验报告模板.md)
@@ -63,7 +64,6 @@
 - [`2022-10-22` 滑动窗口模板](notes/_archives/2022/10/滑动窗口模板.md)
 - [`2022-10-17` 树形递归技巧](notes/_archives/2022/10/树形递归技巧.md)
 - [`2022-10-16` 从暴力递归到动态规划](notes/_archives/2022/10/从暴力递归到动态规划.md)
-- [`2022-10-13` BERT 常见面试问题](notes/_archives/2022/05/BERT常见面试问题.md)
 
 
 <!--END_SECTION:recent-->
@@ -250,6 +250,7 @@ Markdown   5 hrs 31 mins   >>>>>>>>>>>>>>>>>>>>>>>>>   100.00 %
     - [知识图谱](notes/030-自然语言处理.md#知识图谱)
 - [工具](notes/030-自然语言处理.md#工具)
     - [HuggingFace](notes/030-自然语言处理.md#huggingface)
+    - [标注工具](notes/030-自然语言处理.md#标注工具)
 - [资源](notes/030-自然语言处理.md#资源)
 
 </td>
