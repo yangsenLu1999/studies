@@ -20,5 +20,5 @@ hidden: false
     > 免费, 推荐
 - [LightTag - The Text Annotation Tool For Teams](https://www.lighttag.io/)
     > 个人免费
-- [Get Prodigy · Prodigy · An annotation tool for AI, Machine Learning & NLP](https://prodi.gy/buy)
+- [Prodigy · Prodigy · An annotation tool for AI, Machine Learning & NLP](https://prodi.gy/)
     > 收费
