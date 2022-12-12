@@ -32,7 +32,7 @@ hidden: false
 ### Query 扩展/改写/重写
 > [Query 扩展](./query扩展.md)
 - 同义 (synonyms/synonymy/synonymous)
-- 上下位 ()
+- 上下位 (hypernym/hyponym)
 
 ### 其他
 - 自动补全 (partial seq2seq)
