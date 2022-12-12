@@ -50,11 +50,5 @@ hidden: false
 ### Intro
 > NLP 在搜索中的应用
 
-- [NLP 与搜广推 - bytecoder - 知乎](https://www.zhihu.com/question/450932537/answer/2158121844)
-- [NLP 与搜索 - 厉害的山药 - 知乎](https://www.zhihu.com/question/450932537/answer/2235901305)
-- [SIGIR2019: 深度NLP在搜索系统中的应用 - 知乎](https://zhuanlan.zhihu.com/p/75572444)
-    - [[SIGIR2019] Deep Natural Language Processing for Search Systems](https://www.slideshare.net/WeiweiGuo2/deep-natural-language-processing-for-search-systems-sigir-2019-tutorial?from_action=save)
-- [搜索中的 Query 理解及应用 - 夕小瑶的博客](https://blog.csdn.net/xixiaoyaoww/article/details/106205415)
-
 ### More
 > [NLP 在搜索各模块中的具体方法](搜索相关阅读.md)
