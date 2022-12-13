@@ -17,9 +17,8 @@ hidden: false
     - [其他](#其他)
 - [Doc 理解](#doc-理解)
 - [Matching (匹配/相关性)](#matching-匹配相关性)
+- [领域搜索](#领域搜索)
 - [参考阅读](#参考阅读)
-    - [Intro](#intro)
-    - [More](#more)
 <!-- TOC -->
 
 
@@ -45,10 +44,9 @@ hidden: false
 ## Matching (匹配/相关性)
 
 
+## 领域搜索
+- [电商搜索](电商搜索.md)
+
+
 ## 参考阅读
-
-### Intro
-> NLP 在搜索中的应用
-
-### More
-> [NLP 在搜索各模块中的具体方法](搜索相关阅读.md)
+> [reference](搜索相关阅读.md)

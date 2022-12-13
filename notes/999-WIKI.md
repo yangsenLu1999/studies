@@ -27,6 +27,8 @@ toc_id: wiki
     - [领域短语挖掘](#领域短语挖掘)
 - [M](#m)
     - [Markdown](#markdown)
+- [N](#n)
+    - [NLP](#nlp)
 - [O](#o)
     - [Obsidian](#obsidian)
 - [S](#s)
@@ -130,6 +132,14 @@ toc_id: wiki
 > 另见：[Obsidian](#obsidian)
 - [Markdown 常用编辑格式](./_archives/2022/04/Markdown.md)
 - [使用 Markdown 编辑简历](./_archives/2022/06/Markdown简历工具.md)
+
+
+## N
+
+### NLP
+> 自然语言处理 (Natural Language Processing, NLP)
+
+- [NLP 领域术语](./_archives/2022/12/nlp_wiki.md)
 
 
 ## O

@@ -13,7 +13,9 @@ hidden: false
 <!-- TOC -->
 - [关键词](#关键词)
 - [概述](#概述)
-- [同义词挖掘](#同义词挖掘)
+- [基于同义词的 query 扩展](#基于同义词的-query-扩展)
+    - [同义词挖掘](#同义词挖掘)
+- [基于预训练语言模型的 query 扩展](#基于预训练语言模型的-query-扩展)
 - [参考阅读](#参考阅读)
 <!-- TOC -->
 
@@ -34,8 +36,23 @@ Query 扩展的一般过程:
 2. 在线阶段, 对 query 进行改写;
 
 
-## 同义词挖掘
-- [同义词挖掘 (电商)](同义词挖掘.md)
+
+## 基于同义词的 query 扩展
+
+**示例**
+```txt
+query:      men bikes
+synonyms:   {men, mens}, {bike, bicycle}
+recall:     men OR bikes => ((men OR mens) AND (bike OR bicycle)
+```
+
+### 同义词挖掘
+> [同义词挖掘 - 2022.12](同义词挖掘.md)
+
+
+## 基于预训练语言模型的 query 扩展
+
+- [基于 BERT/MLM 的查询扩展方法 - 2012.12](qe-mlm.md)
 
 
 ## 参考阅读
