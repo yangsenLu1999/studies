@@ -53,6 +53,10 @@
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-12-14` 电商搜索](notes/_archives/2022/12/电商搜索.md)
+- [`2022-12-14` 基于 BERT/MLM 的查询扩展方法](notes/_archives/2022/12/qe-mlm.md)
+- [`2022-12-14` NLP 领域术语 Wiki](notes/_archives/2022/12/nlp_wiki.md)
+- [`2022-12-14` NER](notes/_archives/2022/12/NER.md)
 - [`2022-12-12` 同义词挖掘](notes/_archives/2022/12/同义词挖掘.md)
 - [`2022-12-12` Query 扩展 (电商领域)](notes/_archives/2022/12/query扩展.md)
 - [`2022-12-12` Query 分析指南](notes/_archives/2022/12/query分析.md)
@@ -60,10 +64,6 @@
 - [`2022-12-12` Query 纠错](notes/_archives/2022/12/query纠错.md)
 - [`2022-12-12` NLP 标注工具](notes/_archives/2022/12/NLP标注工具.md)
 - [`2022-12-09` 搜索指标](notes/_archives/2022/12/搜索指标.md)
-- [`2022-12-09` 搜索与 NLP](notes/_archives/2022/12/搜索与NLP.md)
-- [`2022-10-26` 链表常用操作备忘](notes/_archives/2022/10/链表模板.md)
-- [`2022-10-25` 语言模型](notes/_archives/2022/10/语言模型.md)
-- [`2022-10-25` Transformer/BERT 常见变体](notes/_archives/2022/10/Transformer系列模型.md)
 
 
 <!--END_SECTION:recent-->
@@ -360,6 +360,8 @@ Text       3 mins          -------------------------   00.68 %
     - [领域短语挖掘](notes/999-WIKI.md#领域短语挖掘)
 - [M](notes/999-WIKI.md#m)
     - [Markdown](notes/999-WIKI.md#markdown)
+- [N](notes/999-WIKI.md#n)
+    - [NLP](notes/999-WIKI.md#nlp)
 - [O](notes/999-WIKI.md#o)
     - [Obsidian](notes/999-WIKI.md#obsidian)
 - [S](notes/999-WIKI.md#s)

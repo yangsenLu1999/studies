@@ -1,6 +1,9 @@
 NLP 领域术语 Wiki
 ===
 <!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-12-14%2000%3A44%3A12&color=yellowgreen&style=flat-square)
+
 <!--END_SECTION:badge-->
 <!--info
 top: false

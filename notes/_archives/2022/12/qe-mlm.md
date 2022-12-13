@@ -1,6 +1,9 @@
 基于 BERT/MLM 的查询扩展方法
 ===
 <!--START_SECTION:badge-->
+
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-12-14%2000%3A44%3A12&color=yellowgreen&style=flat-square)
+
 <!--END_SECTION:badge-->
 <!--info
 top: false

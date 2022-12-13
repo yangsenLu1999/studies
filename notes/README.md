@@ -31,6 +31,10 @@ Notes
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-12-14` 电商搜索](_archives/2022/12/电商搜索.md)
+- [`2022-12-14` 基于 BERT/MLM 的查询扩展方法](_archives/2022/12/qe-mlm.md)
+- [`2022-12-14` NLP 领域术语 Wiki](_archives/2022/12/nlp_wiki.md)
+- [`2022-12-14` NER](_archives/2022/12/NER.md)
 - [`2022-12-12` 同义词挖掘](_archives/2022/12/同义词挖掘.md)
 - [`2022-12-12` Query 扩展 (电商领域)](_archives/2022/12/query扩展.md)
 - [`2022-12-12` Query 分析指南](_archives/2022/12/query分析.md)
@@ -38,10 +42,6 @@ Notes
 - [`2022-12-12` Query 纠错](_archives/2022/12/query纠错.md)
 - [`2022-12-12` NLP 标注工具](_archives/2022/12/NLP标注工具.md)
 - [`2022-12-09` 搜索指标](_archives/2022/12/搜索指标.md)
-- [`2022-12-09` 搜索与 NLP](_archives/2022/12/搜索与NLP.md)
-- [`2022-10-26` 链表常用操作备忘](_archives/2022/10/链表模板.md)
-- [`2022-10-25` 语言模型](_archives/2022/10/语言模型.md)
-- [`2022-10-25` Transformer/BERT 常见变体](_archives/2022/10/Transformer系列模型.md)
 
 
 <!--END_SECTION:recent-->
@@ -190,6 +190,8 @@ Notes
     - [领域短语挖掘](999-WIKI.md#领域短语挖掘)
 - [M](999-WIKI.md#m)
     - [Markdown](999-WIKI.md#markdown)
+- [N](999-WIKI.md#n)
+    - [NLP](999-WIKI.md#nlp)
 - [O](999-WIKI.md#o)
     - [Obsidian](999-WIKI.md#obsidian)
 - [S](999-WIKI.md#s)
