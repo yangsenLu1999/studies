@@ -11,6 +11,7 @@ Markdown 简历工具
     - [komomoo/vuepress-theme-resume](#komomoovuepress-theme-resume)
     - [CyC2018/Markdown-Resume](#cyc2018markdown-resume)
 - [网页版](#网页版)
+- [简历技巧](#简历技巧)
 <!-- TOC -->
 
 ## GitHub 项目
@@ -19,19 +20,10 @@ Markdown 简历工具
 > [komomoo/vuepress-theme-resume: 🐈 书写简洁优雅的前端程序员 markdown 简历，由 vuepress 驱动](https://github.com/komomoo/vuepress-theme-resume)
 
 使用步骤
+- [安装 nodejs](../12/nodejs环境.md#nodejs-环境搭建)
+- 克隆本项目
 ```shell
-# 安装 Node.js ~= 16.x；安装 18.x 会报错，也可以通过 n 模块切换 node 版本
-# Ubuntu, 其他发行版参考：https://github.com/nodesource/distributions/blob/master/README.md#installation-instructions
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
-node -v
-# v16.17.1
-
-# 在不使用 sudo 的情况下全局下载一个包
-mkdir ~/.npm-global
-npm config set prefix '~/.npm-global'
-# 添加环境变量
-export PATH=~/.npm-global/bin:$PATH
+nvm use 16  # 高版本可能报错
 
 # 安装 yarn
 npm install --global yarn
@@ -64,3 +56,7 @@ yarn dev # 或 npm run dev
 ## 网页版
 - [冷熊简历](http://cv.ftqq.com/)
 - [木及简历](https://www.mujicv.com/)
+
+
+## 简历技巧
+- [怎么写好一份简历(算法工程师)](./_archives/2022/10/简历技巧.md)

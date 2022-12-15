@@ -17,7 +17,9 @@ toc_id: wiki
 - [H](#h)
     - [Hive](#hive)
 - [J](#j)
-    - [简历 (Resume)](#简历-resume)
+    - [Jupyter](#jupyter)
+        - [Jupyter Lab](#jupyter-lab)
+        - [IPython](#ipython)
 - [K](#k)
     - [开发环境](#开发环境)
         - [Mac](#mac)
@@ -29,6 +31,7 @@ toc_id: wiki
     - [Markdown](#markdown)
 - [N](#n)
     - [NLP](#nlp)
+    - [Node.js](#nodejs)
 - [O](#o)
     - [Obsidian](#obsidian)
 - [S](#s)
@@ -89,12 +92,17 @@ toc_id: wiki
 
 ## J
 
-### 简历 (Resume)
-> 个人学历、经历、特长、爱好及其它有关情况所作的简明扼要的书面介绍;
+### Jupyter
+> 一款支持交互式编程的笔记软件, 此前被称为 IPython notebook; 目前除了支持 Python 外, 也开始支持其他语言;
+>> 
 
-- [怎么写好一份简历(算法工程师)](./_archives/2022/10/简历技巧.md)
-- [使用 Markdown 编辑简历](./_archives/2022/06/Markdown简历工具.md)
+#### Jupyter Lab
+> Jupyter 开发的新一代 notebook 界面, 支持目录, 插件等更多高级功能; 
 
+#### IPython
+> Jupyter 的前身; 自 IPython 4.x 开始, 与语言无关的部分迁移至 Jupyter 项目, IPython 本身则专注于交互式 Python;
+
+- [Jupyter & IPython 使用备忘](./_archives/2022/12/jupyter与ipython备忘.md)
 
 ## K
 
@@ -141,6 +149,11 @@ toc_id: wiki
 
 - [NLP 领域术语](./_archives/2022/12/nlp_wiki.md)
 
+### Node.js
+> Node.js® is an open-source, cross-platform JavaScript runtime environment.
+>> [Node.js](https://nodejs.org/en/)
+
+- [Node.js 环境](./_archives/2022/12/nodejs环境.md)
 
 ## O
 
