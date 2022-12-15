@@ -53,6 +53,10 @@
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-12-15` 电商 NER 标签体系](notes/_archives/2022/12/电商NER标签体系.md)
+- [`2022-12-15` 基于用户行为数据的同义词挖掘方法 (英文)](notes/_archives/2022/12/基于用户行为数据的同义词挖掘方法.md)
+- [`2022-12-15` Node.js 环境搭建](notes/_archives/2022/12/nodejs环境.md)
+- [`2022-12-15` Jupyter & IPython 使用备忘](notes/_archives/2022/12/jupyter与ipython备忘.md)
 - [`2022-12-14` 电商搜索](notes/_archives/2022/12/电商搜索.md)
 - [`2022-12-14` 基于 BERT/MLM 的查询扩展方法](notes/_archives/2022/12/qe-mlm.md)
 - [`2022-12-14` NLP 领域术语 Wiki](notes/_archives/2022/12/nlp_wiki.md)
@@ -60,10 +64,6 @@
 - [`2022-12-12` 同义词挖掘](notes/_archives/2022/12/同义词挖掘.md)
 - [`2022-12-12` Query 扩展 (电商领域)](notes/_archives/2022/12/query扩展.md)
 - [`2022-12-12` Query 分析指南](notes/_archives/2022/12/query分析.md)
-- [`2022-12-12` 搜索相关阅读](notes/_archives/2022/12/搜索相关阅读.md)
-- [`2022-12-12` Query 纠错](notes/_archives/2022/12/query纠错.md)
-- [`2022-12-12` NLP 标注工具](notes/_archives/2022/12/NLP标注工具.md)
-- [`2022-12-09` 搜索指标](notes/_archives/2022/12/搜索指标.md)
 
 
 <!--END_SECTION:recent-->
@@ -351,7 +351,9 @@ Python     6 mins          -------------------------   00.60 %
 - [H](notes/999-WIKI.md#h)
     - [Hive](notes/999-WIKI.md#hive)
 - [J](notes/999-WIKI.md#j)
-    - [简历 (Resume)](notes/999-WIKI.md#简历-resume)
+    - [Jupyter](notes/999-WIKI.md#jupyter)
+        - [Jupyter Lab](notes/999-WIKI.md#jupyter-lab)
+        - [IPython](notes/999-WIKI.md#ipython)
 - [K](notes/999-WIKI.md#k)
     - [开发环境](notes/999-WIKI.md#开发环境)
         - [Mac](notes/999-WIKI.md#mac)
@@ -363,6 +365,7 @@ Python     6 mins          -------------------------   00.60 %
     - [Markdown](notes/999-WIKI.md#markdown)
 - [N](notes/999-WIKI.md#n)
     - [NLP](notes/999-WIKI.md#nlp)
+    - [Node.js](notes/999-WIKI.md#nodejs)
 - [O](notes/999-WIKI.md#o)
     - [Obsidian](notes/999-WIKI.md#obsidian)
 - [S](notes/999-WIKI.md#s)
