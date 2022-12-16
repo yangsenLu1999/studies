@@ -31,7 +31,7 @@ Notes
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](_archives/2022/05/Transformer常见面试问题.md)
-- [`2022-12-15` 电商 NER 标签体系](_archives/2022/12/电商NER标签体系.md)
+- [`2022-12-16` Label Studio 使用记录](_archives/2022/12/label-studio使用记录.md)
 - [`2022-12-15` 基于用户行为数据的同义词挖掘方法 (英文)](_archives/2022/12/基于用户行为数据的同义词挖掘方法.md)
 - [`2022-12-15` Node.js 环境搭建](_archives/2022/12/nodejs环境.md)
 - [`2022-12-15` Jupyter & IPython 使用备忘](_archives/2022/12/jupyter与ipython备忘.md)
@@ -77,6 +77,7 @@ Notes
 
 ### 自然语言处理
 - [基础](030-自然语言处理.md#基础)
+    - [命名实体识别](030-自然语言处理.md#命名实体识别)
 - [应用](030-自然语言处理.md#应用)
     - [知识图谱](030-自然语言处理.md#知识图谱)
     - [搜索](030-自然语言处理.md#搜索)
