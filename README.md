@@ -53,6 +53,8 @@
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-12-22` 电商领域的 NER](notes/_archives/2022/12/电商NER.md)
+- [`2022-12-22` query 理解参考资料](notes/_archives/2022/12/query理解相关阅读.md)
 - [`2022-12-16` Label Studio 使用记录](notes/_archives/2022/12/label-studio使用记录.md)
 - [`2022-12-15` 基于用户行为数据的同义词挖掘方法 (英文)](notes/_archives/2022/12/基于用户行为数据的同义词挖掘方法.md)
 - [`2022-12-15` Node.js 环境搭建](notes/_archives/2022/12/nodejs环境.md)
@@ -62,8 +64,6 @@
 - [`2022-12-14` NLP 领域术语 Wiki](notes/_archives/2022/12/nlp_wiki.md)
 - [`2022-12-14` NER](notes/_archives/2022/12/NER.md)
 - [`2022-12-12` 同义词挖掘](notes/_archives/2022/12/同义词挖掘.md)
-- [`2022-12-12` Query 扩展 (电商领域)](notes/_archives/2022/12/query扩展.md)
-- [`2022-12-12` Query 分析指南](notes/_archives/2022/12/query分析.md)
 
 
 <!--END_SECTION:recent-->
