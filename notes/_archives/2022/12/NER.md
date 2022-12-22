@@ -31,4 +31,5 @@ hidden: false
 
 ## 参考阅读
 - [电商搜索QP：Tagging - 知乎](https://zhuanlan.zhihu.com/p/532924107)
+- [万字综述！命名实体识别（NER）的过去和现在](https://mp.weixin.qq.com/s/sNXG-K5aPRFFQ3F373-e0A)
 
