@@ -77,9 +77,11 @@
 <!--START_SECTION:waka-->
 
 ```text
-Total Time: 2 hrs 28 mins
+Total Time: 2 hrs 58 mins
 
-Markdown   2 hrs 28 mins   >>>>>>>>>>>>>>>>>>>>>>>>>   100.00 %
+Markdown   2 hrs 32 mins   >>>>>>>>>>>>>>>>>>>>>----   85.65 %
+CSV        23 mins         >>>----------------------   13.41 %
+Other      1 min           -------------------------   00.93 %
 ```
 
 <!--END_SECTION:waka-->
