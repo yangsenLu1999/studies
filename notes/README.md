@@ -199,6 +199,7 @@ Notes
 - [O](999-WIKI.md#o)
     - [Obsidian](999-WIKI.md#obsidian)
 - [S](999-WIKI.md#s)
+    - [SQL](999-WIKI.md#sql)
     - [STAR 法则](999-WIKI.md#star-法则)
 - [W](999-WIKI.md#w)
     - [WSL](999-WIKI.md#wsl)

@@ -373,6 +373,7 @@ Other      1 min           -------------------------   00.46 %
 - [O](notes/999-WIKI.md#o)
     - [Obsidian](notes/999-WIKI.md#obsidian)
 - [S](notes/999-WIKI.md#s)
+    - [SQL](notes/999-WIKI.md#sql)
     - [STAR 法则](notes/999-WIKI.md#star-法则)
 - [W](notes/999-WIKI.md#w)
     - [WSL](notes/999-WIKI.md#wsl)
