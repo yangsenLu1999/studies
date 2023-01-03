@@ -35,6 +35,7 @@ toc_id: wiki
 - [O](#o)
     - [Obsidian](#obsidian)
 - [S](#s)
+    - [SQL](#sql)
     - [STAR 法则](#star-法则)
 - [W](#w)
     - [WSL](#wsl)
@@ -167,12 +168,16 @@ toc_id: wiki
 <!-- ### Scheduler (Spark)
 - 调度器，用于控制例行化调度、依赖检测等功能； -->
 
+### SQL
+> SQL (Structured Query Language) 是具有数据操纵和数据定义等多种功能的数据库语言;
+
+- [Hive/Spark/Presto SQL 备忘](./_archives/2023/01/SQL备忘.md)
 
 ### STAR 法则
 > STAR 法则是一种用于描述事件的方式, STAR 分别表示情境 (Situation)、任务 (Task)、行动 (Action)、结果 (Result) 四项的缩写;
 >> [STAR法则_百度百科](https://baike.baidu.com/item/STAR%E6%B3%95%E5%88%99/9056070)
 
-- [使用 STAR 法则描述描述](./_archives/2022/10/%E7%AE%80%E5%8E%86%E6%8A%80%E5%B7%A7.md#star-法则)
+- [使用 STAR 法则描述简历](./_archives/2022/10/简历技巧.md#star-法则)
 
 
 ## W
