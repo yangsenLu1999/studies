@@ -53,6 +53,7 @@
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
+- [`2023-01-04` SQL 备忘](notes/_archives/2023/01/SQL备忘.md)
 - [`2022-12-22` 电商领域的 NER](notes/_archives/2022/12/电商NER.md)
 - [`2022-12-22` query 理解参考资料](notes/_archives/2022/12/query理解相关阅读.md)
 - [`2022-12-16` Label Studio 使用记录](notes/_archives/2022/12/label-studio使用记录.md)
@@ -63,7 +64,6 @@
 - [`2022-12-14` 基于 BERT/MLM 的查询扩展方法](notes/_archives/2022/12/qe-mlm.md)
 - [`2022-12-14` NLP 领域术语 Wiki](notes/_archives/2022/12/nlp_wiki.md)
 - [`2022-12-14` NER](notes/_archives/2022/12/NER.md)
-- [`2022-12-12` 同义词挖掘](notes/_archives/2022/12/同义词挖掘.md)
 
 
 <!--END_SECTION:recent-->
