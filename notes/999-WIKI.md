@@ -4,7 +4,7 @@ Wiki
 toc_id: wiki
 -->
 
-<!-- TOC -->
+<!--START_SECTION:toc-->
 - [D](#d)
     - [Docker](#docker)
 - [G](#g)
@@ -34,6 +34,9 @@ toc_id: wiki
     - [Node.js](#nodejs)
 - [O](#o)
     - [Obsidian](#obsidian)
+- [P](#p)
+    - [PyCharm](#pycharm)
+    - [PySpark](#pyspark)
 - [S](#s)
     - [SQL](#sql)
     - [STAR 法则](#star-法则)
@@ -43,7 +46,7 @@ toc_id: wiki
 - [Y](#y)
     - [yaml](#yaml)
     - [语言模型](#语言模型)
-<!-- TOC -->
+<!--END_SECTION:toc-->
 
 
 ## D
@@ -160,9 +163,21 @@ toc_id: wiki
 ## O
 
 ### Obsidian
-> 一款流行的 Markdown 笔记软件；
+> 一款流行的 Markdown 笔记软件;
 - [Obsidian 使用记录](./_archives/2022/05/Obsidian.md)
 
+
+## P
+
+### PyCharm
+> JetBrains 公司开发的一款 Python IDE;
+
+- [PyCharm 常用配置](./_archives/2022/07/PyCharm常用配置.md)
+
+### PySpark
+> Spark 为 Python 开发者提供的 API;
+
+- [PySpark 备忘](./_archives/2023/01/PySpark备忘.md)
 
 ## S
 
