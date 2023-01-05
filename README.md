@@ -53,6 +53,7 @@
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
+- [`2023-01-05` Windows 使用备忘](notes/_archives/2023/01/Windows备忘.md)
 - [`2023-01-04` SQL 备忘](notes/_archives/2023/01/SQL备忘.md)
 - [`2022-12-22` 电商领域的 NER](notes/_archives/2022/12/电商NER.md)
 - [`2022-12-22` query 理解参考资料](notes/_archives/2022/12/query理解相关阅读.md)
@@ -63,7 +64,6 @@
 - [`2022-12-14` 电商搜索](notes/_archives/2022/12/电商搜索.md)
 - [`2022-12-14` 基于 BERT/MLM 的查询扩展方法](notes/_archives/2022/12/qe-mlm.md)
 - [`2022-12-14` NLP 领域术语 Wiki](notes/_archives/2022/12/nlp_wiki.md)
-- [`2022-12-14` NER](notes/_archives/2022/12/NER.md)
 
 
 <!--END_SECTION:recent-->
@@ -376,6 +376,7 @@ JSON       0 secs          -------------------------   00.12 %
     - [SQL](notes/999-WIKI.md#sql)
     - [STAR 法则](notes/999-WIKI.md#star-法则)
 - [W](notes/999-WIKI.md#w)
+    - [Windows](notes/999-WIKI.md#windows)
     - [WSL](notes/999-WIKI.md#wsl)
 - [Y](notes/999-WIKI.md#y)
     - [yaml](notes/999-WIKI.md#yaml)
