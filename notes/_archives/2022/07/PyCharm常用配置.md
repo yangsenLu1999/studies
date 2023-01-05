@@ -1,12 +1,18 @@
 PyCharm 常用配置
 ===
 <!--START_SECTION:badge-->
-
-![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-23%2017%3A20%3A33&color=yellowgreen&style=flat-square)
-
 <!--END_SECTION:badge-->
+<!--info
+top: false
+hidden: false
+-->
 
+> *keywords*: *PyCharm Config*
+
+<!--START_SECTION:toc-->
 - [常用配置](#常用配置)
+    - [窗口字体](#窗口字体)
+    - [代码字体](#代码字体)
     - [显示空白符](#显示空白符)
     - [移除行末空格/末尾空行](#移除行末空格末尾空行)
     - [禁止 import 折叠](#禁止-import-折叠)
@@ -22,26 +28,34 @@ PyCharm 常用配置
     - [键位映射](#键位映射)
 - [FAQ](#faq)
     - [【Mac】全屏模式下打开新项目默认在新 Tab 而不是新窗口](#mac全屏模式下打开新项目默认在新-tab-而不是新窗口)
+<!--END_SECTION:toc-->
 
 ---
 
 ## 常用配置
 
+### 窗口字体
+> Appearance & Behavior | Appearance -> Font -> 推荐 JetBrains Mono Medium (Size 14)
+
+### 代码字体
+> Editor | Font -> 推荐 Source Code Pro (Size 15)
+
 ### 显示空白符
 > Editor | General | Appearance -> Show whitespaces
 
 ### 移除行末空格/末尾空行
-> Editor | General -> On Save -> 全部勾选
+> Editor | General -> On Save (全部勾选)
 
 ### 禁止 import 折叠
-> Editor | General | Code Folding -> Imports
+> Editor | General | Code Folding -> Imports (取消勾选)
 
 ### 修改 Docstring 风格
 > Tools | Python Integrated Tools -> Docstring format -> Google
 
 ### 修改快捷键
 > Keymap
-- 安装插件：Plugins -> Marketplace -> Eclipse Keymap
+- 先安装插件：Plugins -> Marketplace -> Eclipse Keymap
+    > Windows 选 Eclipse, 非 Eclipse (macOS)
 
 **常用快捷键**
 
@@ -56,8 +70,9 @@ PyCharm 常用配置
 跳转到源代码 | Main Menu/View/Jump to Source | `command + click` | `Ctrl + Click`
 大小写互转 | Editor Actions/Toggle Case | `shift + command + U` | `Ctrl + Shift + U`
 代码格式化 | Main Menu/Code/Reformat Code | `shift + command + F` | `Alt + Shift + F`
-全局查找 | Main Menu/Edit/Find/Find in Files... | `control + F` | `Ctrl + Shift + F`
+全局查找 | Main Menu/Edit/Find/Find in Files... | `control + F` | `Ctrl + Shift + F` / `Ctrl + H`
 运行 | Main Menu/Run/Run | `shift + control + R` | `Shift + Ctrl + R`
+跳转文件 | Main Menu/Navigate/Goto by Name Actions/Go to File... | `shift + command + J` | `Alt + Shift + J`
 
 ### 启用代码兼容性检查
 > Editor | Inspections -> Code is incompatible with specific Python versions
