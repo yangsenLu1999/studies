@@ -10,12 +10,13 @@ WSL2 使用记录
 - [安装 WSL2](#安装-wsl2)
     - [官方推荐设置](#官方推荐设置)
 - [环境配置](#环境配置)
-    - [zsh](#zsh)
+    - [zsh (可选)](#zsh-可选)
     - [Python](#python)
         - [anaconda](#anaconda)
         - [安装 Pycharm 专业版](#安装-pycharm-专业版)
-    - [build-essential](#build-essential)
+    - [C++ 编译环境](#c-编译环境)
 - [WSL 常用操作](#wsl-常用操作)
+    - [路径](#路径)
 - [FAQ](#faq)
     - [fatal: unable to access 'https://github.com/xxx.git'](#fatal-unable-to-access-httpsgithubcomxxxgit)
 <!-- TOC -->
@@ -33,17 +34,25 @@ WSL2 使用记录
 
 ## 环境配置
 
-### zsh
+### zsh (可选)
 > [Installing ZSH · ohmyzsh/ohmyzsh Wiki](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH) 
 
 - 安装
     ```sh
+    # 先看下是否按安装 zsh
+    cat /etc/shells
+
     sudo apt install zsh
     zsh --version
 
     # set default
     chsh -s $(which zsh)
+
+    # 启动新窗口 (第一次使用 zsh 会出现引导页面)
     echo $SHELL
+
+    # 安装 ohmyzsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     ```
 - 修改主题
     ```sh
@@ -137,7 +146,7 @@ Thank you for installing Anaconda3!
 - 破解版安装：[PyCharm 破解教程 (持续更新~) - 异常教程](https://www.exception.site/essay/how-to-free-use-pycharm-2020)
 
 
-### build-essential
+### C++ 编译环境
 > [Get Started with C++ and Windows Subsystem for Linux in Visual Studio Code](https://code.visualstudio.com/docs/cpp/config-wsl)
 ```sh
 sudo apt-get install build-essential
@@ -146,15 +155,18 @@ sudo apt-get install build-essential
 
 ## WSL 常用操作
 
-- Windows 在 WSL 中的路径：`/mnt/d/<win_path>`（`d` 为盘符）
-- WSL 在 Windows 中的路径：`\\wsl$\Ubuntu-20.04\<wsl_path>`
-- 在 VSCode 中打开
-    ```bash
+### 路径
+- 在 WSL 中访问 Windows 路径：`/mnt/<盘符字母>/<file_path>`, 如 `/mnt/d/tmp/test.txt`
+- 在 Windows 中访问 WSL 路径：`\\wsl$\<Linux名称>\<file_path>`, 如 `\\wsl$\Ubuntu-20.04\tmp\test.txt`
+    > Linux 名称可以在 Win 文件管理器路径中访问 `\\wsl$` 查看
+- 在 WSL 中用 VSCode 中打开文件/文件夹
+    ```shell
     cd <wsl_path>
-    code .
+    code .  # 打开
+    code demo.py
     ```
-- 在 Windows 打开
-    ```bash
+- 在 WSL 中用 Win 文件管理器打开文件夹
+    ```shell
     cd <wsl_path>
     explorer.exe .
     ``` 
