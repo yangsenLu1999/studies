@@ -177,7 +177,15 @@ toc_id: wiki
 ### PySpark
 > Spark 为 Python 开发者提供的 API;
 
-- [PySpark 备忘](./_archives/2023/01/PySpark备忘.md)
+- [PySpark 笔记 & 备忘](./_archives/2023/01/PySpark笔记.md)
+
+## Q
+
+### Query 理解
+> Query 理解 (QU，Query Understanding), 简单来说就是从词法、句法、语义三个层面对 query 进行结构化解析;
+>> [搜索中的 Query 理解及应用_夕小瑶的博客-CSDN博客_query理解](https://blog.csdn.net/xixiaoyaoww/article/details/106205415)
+
+- [Query 理解相关阅读](./_archives/2022/12/query理解相关阅读.md)
 
 ## S
 
@@ -216,7 +224,6 @@ toc_id: wiki
 
 
 ### 语言模型
-> 语言模型指用来计算一个句子 (序列) 出现概率的模型; 记一个序列 $x=[x_1, x_2, .., x_n]$, 则语言模型的任务是建模联合概率 $P(x)=P(x_1, x_2, .., x_n)$, 根据条件概率公式与链式法则, 该概率可以被分解为 
-> $$ P(x)=\prod\limits_{t=1}^n P(x_t|x_{<t}) $$
+> 语言模型指用来计算一个句子 (序列) 出现概率的模型;
 
 - [语言模型基础](./_archives/2022/10/语言模型.md)

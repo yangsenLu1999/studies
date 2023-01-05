@@ -20,7 +20,6 @@ hidden: false
     - [配置国内源](#配置国内源)
     - [配置 `npm` 安装目录 (可选)](#配置-npm-安装目录-可选)
     - [安装 `n` 管理器 (可选)](#安装-n-管理器-可选)
-- [安装](#安装)
 <!-- TOC -->
 
 ## 安装 Node.js
@@ -79,7 +78,7 @@ nvm alias default lts/*
 
 #### 其他版本管理器
 > [替代版本管理器 | Microsoft Learn](https://learn.microsoft.com/zh-cn/windows/dev-environment/javascript/nodejs-on-wsl#alternative-version-managers)
->> 这里提到的 [`n` 管理器](#安装-n-管理器)比较特殊, 它需要先安装 node 和 npm 后才可以使用;  
+>> 这里提到的 [`n` 管理器](#安装-n-管理器-可选)比较特殊, 它需要先安装 node 和 npm 后才可以使用;  
 >> 其他管理器都是类似 nvm 的用法;
 
 - [Schniz/fnm: 🚀 Fast and simple Node.js version manager, built in Rust](https://github.com/Schniz/fnm#using-a-script)
@@ -133,6 +132,3 @@ mkdir -p $HOME/.n
 export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
 ```
-
-
-## 安装 
