@@ -38,6 +38,7 @@ toc_id: wiki
     - [SQL](#sql)
     - [STAR 法则](#star-法则)
 - [W](#w)
+    - [Windows](#windows)
     - [WSL](#wsl)
 - [Y](#y)
     - [yaml](#yaml)
@@ -181,6 +182,11 @@ toc_id: wiki
 
 
 ## W
+
+### Windows
+> 微软以图形用户界面为基础研发的操作系统
+
+- [Windows 使用备忘](./_archives/2023/01/Windows备忘.md)
 
 ### WSL
 > Windows Subsystem for Linux, WSL
