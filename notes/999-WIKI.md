@@ -4,7 +4,7 @@ Wiki
 toc_id: wiki
 -->
 
-<!--START_SECTION:toc-->
+<!-- TOC -->
 - [D](#d)
     - [Docker](#docker)
 - [G](#g)
@@ -46,7 +46,7 @@ toc_id: wiki
 - [Y](#y)
     - [yaml](#yaml)
     - [语言模型](#语言模型)
-<!--END_SECTION:toc-->
+<!-- TOC -->
 
 
 ## D
