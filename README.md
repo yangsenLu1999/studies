@@ -53,6 +53,9 @@
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
+- [`2023-01-06` 同义与上下位关系挖掘](notes/_archives/2022/12/同义与上下位挖掘.md)
+- [`2023-01-06` PySpark 笔记](notes/_archives/2023/01/PySpark笔记.md)
+- [`2023-01-06` Hive SQL 备忘](notes/_archives/2022/12/HiveSQL备忘.md)
 - [`2023-01-05` Windows 使用备忘](notes/_archives/2023/01/Windows备忘.md)
 - [`2023-01-04` SQL 备忘](notes/_archives/2023/01/SQL备忘.md)
 - [`2022-12-22` 电商领域的 NER](notes/_archives/2022/12/电商NER.md)
@@ -61,9 +64,6 @@
 - [`2022-12-15` 基于用户行为数据的同义词挖掘方法 (英文)](notes/_archives/2022/12/基于用户行为数据的同义词挖掘方法.md)
 - [`2022-12-15` Node.js 环境搭建](notes/_archives/2022/12/nodejs环境.md)
 - [`2022-12-15` Jupyter & IPython 使用备忘](notes/_archives/2022/12/jupyter与ipython备忘.md)
-- [`2022-12-14` 电商搜索](notes/_archives/2022/12/电商搜索.md)
-- [`2022-12-14` 基于 BERT/MLM 的查询扩展方法](notes/_archives/2022/12/qe-mlm.md)
-- [`2022-12-14` NLP 领域术语 Wiki](notes/_archives/2022/12/nlp_wiki.md)
 
 
 <!--END_SECTION:recent-->
@@ -372,6 +372,9 @@ Other      1 min           -------------------------   00.20 %
     - [Node.js](notes/999-WIKI.md#nodejs)
 - [O](notes/999-WIKI.md#o)
     - [Obsidian](notes/999-WIKI.md#obsidian)
+- [P](notes/999-WIKI.md#p)
+    - [PyCharm](notes/999-WIKI.md#pycharm)
+    - [PySpark](notes/999-WIKI.md#pyspark)
 - [S](notes/999-WIKI.md#s)
     - [SQL](notes/999-WIKI.md#sql)
     - [STAR 法则](notes/999-WIKI.md#star-法则)

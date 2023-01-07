@@ -2,7 +2,7 @@ query 理解参考资料
 ===
 <!--START_SECTION:badge-->
 
-![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-12-22%2020%3A10%3A13&color=yellowgreen&style=flat-square)
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2023-01-06%2000%3A29%3A03&color=yellowgreen&style=flat-square)
 
 <!--END_SECTION:badge-->
 <!--info
