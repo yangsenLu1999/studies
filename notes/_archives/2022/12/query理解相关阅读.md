@@ -14,8 +14,6 @@ hidden: false
 
 <!--START_SECTION:toc-->
 - [综述](#综述)
-    - [博客](#博客)
-    - [论文](#论文)
 - [NER](#ner)
 - [query 扩展/改写](#query-扩展改写)
     - [同义词](#同义词)
@@ -25,13 +23,13 @@ hidden: false
 
 ## 综述
 
-### 博客
+**博客**
 - [搜索中的 Query 理解及应用_夕小瑶的博客 - CSDN 博客](https://blog.csdn.net/xixiaoyaoww/article/details/106205415)
 - [业界总结｜搜索中的Query理解 - 知乎](https://zhuanlan.zhihu.com/p/393914267)
 - [Query理解在美团搜索中的应用 - 知乎](https://zhuanlan.zhihu.com/p/370576330)
+- [大话搜索query理解 - 知乎](https://zhuanlan.zhihu.com/p/111904993)
 
-
-### 论文
+**论文**
 
 ## NER
 

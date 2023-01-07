@@ -14,12 +14,27 @@ hidden: false
 
 <!-- TOC -->
 - [参考文档](#参考文档)
-- [常用 SQL](#常用-sql)
-    - [建表 (Hive/Spark)](#建表-hivespark)
-    - [临时表](#临时表)
-    - [`WITH t AS (...)` 子查询](#with-t-as--子查询)
+- [数据类型](#数据类型)
+    - [基本类型 TODO](#基本类型-todo)
+    - [容器类型](#容器类型)
+- [常用 DDL](#常用-ddl)
+    - [建表 (`CREATE`)](#建表-create)
+        - [临时表 (`CREATE TEMPORARY TABLE/CACHE TABLE`)](#临时表-create-temporary-tablecache-table)
+    - [修改 ()](#修改-)
+- [常用 DQL](#常用-dql)
+    - [聚合操作 (`GROUP BY`)](#聚合操作-group-by)
+        - [排序 `sort_array(collect_list(...))`](#排序-sort_arraycollect_list)
+    - [侧视图 (`LATERAL VIEW`)](#侧视图-lateral-view)
+        - [侧视图 for presto](#侧视图-for-presto)
+    - [窗口函数](#窗口函数)
+        - [排序 (`ROW_NUMBER/RANK/DENSE_RANK`)](#排序-row_numberrankdense_rank)
+        - [切片 (`NTILE`)](#切片-ntile)
+    - [子查询 (`WITH t AS (...)`)](#子查询-with-t-as-)
+    - [数组操作](#数组操作)
     - [分页](#分页)
-    - [`collect_list` 计数排序](#collect_list-计数排序)
+- [易错记录](#易错记录)
+    - [修改 `GROUP BY` 的对象](#修改-group-by-的对象)
+    - [日期加减](#日期加减)
 <!-- TOC -->
 
 
@@ -32,10 +47,41 @@ hidden: false
     - [Functions - Spark Documentation](https://spark.apache.org/docs/latest/sql-ref-functions.html)
     - [Spark SQL, Built-in Functions](https://spark.apache.org/docs/latest/api/sql)
 
+## 数据类型
 
-## 常用 SQL
+### 基本类型 TODO
 
-### 建表 (Hive/Spark)
+### 容器类型
+- 主要有 4 中容器类型: 
+    - `ARRAY<data_type>`
+    - `MAP<primitive_type, data_type>`
+    - `STRUCT<col_name : data_type [COMMENT col_comment], ...>`
+    - `UNIONTYPE<data_type, data_type, ...>` (支持不完整, 一般不用)
+
+```sql
+-- ARRAY
+SELECT ARRAY(1,2,3)  -- [1,2,3]
+SELECT ARRAY('a','b','c')[0]  -- "a"
+
+-- MAP
+SELECT MAP('a', 1), MAP('b', '2', 'c', 3)
+-- {"a":1}  {"b":"2","c":"3"}  -- 注意, 整数 3 转成了字符串 3
+SELECT MAP('a', 1)['a']  -- 1
+
+-- STRUCT
+SELECT STRUCT('a', 1, ARRAY(1,2,3))
+-- {"col1":"a","col2":1,"col3":[1,2,3]}
+SELECT STRUCT('a', 1, ARRAY(1,2,3)).col2  -- 1
+
+-- ARRAY + STRUCT
+SELECT ARRAY(STRUCT('a', 1), STRUCT('b', 2), STRUCT('c', 3)).col1
+-- ["a","b","c"]
+```
+
+## 常用 DDL
+> 数据定义语言 (Data Definition Language, DDL)
+
+### 建表 (`CREATE`)
 > [CreateTable - Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-CreateTable)
 ```sql
 -- 示例 1: 分区表, 
@@ -80,8 +126,7 @@ SORT BY new_key, key_value_pair  --
 ;
 ```
 
-
-### 临时表
+#### 临时表 (`CREATE TEMPORARY TABLE/CACHE TABLE`)
 ```sql
 -- Hive
 CREATE TEMPORARY TABLE IF NOT EXISTS tmp_table AS
@@ -99,7 +144,132 @@ CREATE TABLE dbname.tmp_tabel_name AS
 SELECT  ...
 ```
 
-### `WITH t AS (...)` 子查询
+### 修改 ()
+
+
+## 常用 DQL
+> 数据查询语言 (Data Query Language, DQL)
+
+### 聚合操作 (`GROUP BY`)
+
+#### 排序 `sort_array(collect_list(...))`
+> [hiveql - Sorting within collect_list() in hive - Stack Overflow](https://stackoverflow.com/questions/50766764/sorting-within-collect-list-in-hive/72458308#72458308)
+
+```sql
+SELECT key
+    , sort_array(collect_list(STRUCT(-cnt, item_cnt_pair))).col2 as item_cnt_list_sorted
+    -- col2 为 STRUCT 中的默认列名, 负号表示倒序排列
+FROM
+(
+    SELECT key, cnt
+        , concat(item, ':', cnt) AS item_cnt_pair  -- 可以通过 SPLIT 取值
+        -- , STRUCT(item, cnt) AS item_cnt_pair  -- 根据 STRUCT 的默认列名取值
+        -- , MAP(item, cnt) AS item_cnt_pair  -- 可以利用 map_keys/map_values 取值
+    FROM
+    (
+        SELECT key, item, count(1) AS cnt
+        -- FROM db.some_table A
+        FROM (
+            SELECT 'A' AS key, 'red' AS item UNION ALL
+            SELECT 'A' AS key, 'red' AS item UNION ALL
+            SELECT 'A' AS key, 'blue' AS item UNION ALL
+            SELECT 'A' AS key, 'blue' AS item UNION ALL
+            SELECT 'A' AS key, 'yellow' AS item UNION ALL
+            SELECT 'A' AS key, 'yellow' AS item UNION ALL
+            SELECT 'A' AS key, 'yellow' AS item UNION ALL
+            SELECT 'B' AS key, 'yellow' AS item UNION ALL
+            SELECT 'B' AS key, 'yellow' AS item UNION ALL
+            SELECT 'B' AS key, 'green' AS item
+        ) A
+        GROUP BY key, item
+    ) A
+) A
+GROUP BY key
+;
+-- A, ["yellow:3","blue:2","red:2"]
+-- B, ["yellow:2","green:1"]
+```
+- `sort_array(collect_list(STRUCT(cnt, item_cnt_pair))).col2` 相当于 python 中的对一个**元组列表**进行排序, 排序的 key 依次从元组中取;
+    - 一般情况下, 先排序(`ORDER/SORT BY`), 再 `collect_list` 也可以, 但是速度比较慢;
+
+
+### 侧视图 (`LATERAL VIEW`)
+```sql
+-- 语法
+lateralView: LATERAL VIEW udtf(expression) tableAlias AS columnAlias (',' columnAlias)*
+fromClause: FROM baseTable (lateralView)*
+
+-- 示例 1: 单
+SELECT pageid, adid
+FROM pageAds 
+LATERAL VIEW explode(adid_list) adTable AS adid
+;
+
+-- 示例 2: 多
+SELECT myCol1, myCol2 FROM baseTable
+LATERAL VIEW explode(col1) myTable1 AS myCol1
+LATERAL VIEW explode(col2) myTable2 AS myCol2
+;
+
+-- 示例 3: LATERAL VIEW OUTER
+SELECT * FROM src LATERAL VIEW explode(array()) C AS a limit 10;  -- 结果为空
+SELECT * FROM src LATERAL VIEW OUTER explode(array()) C AS a limit 10;  -- 有结果
+```
+
+#### 侧视图 for presto
+> 
+```sql
+```
+
+### 窗口函数
+> [HIVE SQL奇技淫巧 - 知乎](https://zhuanlan.zhihu.com/p/80887746)
+
+#### 排序 (`ROW_NUMBER/RANK/DENSE_RANK`)
+```sql
+SELECT 
+    cookieid, pt, pv,
+    ROW_NUMBER() OVER(PARTITION BY cookieid ORDER BY pv desc) AS rn1,   -- 形如 1,2,3,4,5 (最常用)
+    RANK() OVER(PARTITION BY cookieid ORDER BY pv desc) AS rn2,         -- 形如 1,1,3,3,5
+    DENSE_RANK() OVER(PARTITION BY cookieid ORDER BY pv desc) AS rn3    -- 形如 1,1,2,2,3
+FROM (
+    -- 测试数据
+    SELECT cookieid, T.col2[idx] AS pt, T.col3[idx] AS pv
+    FROM (
+        SELECT ARRAY(
+            STRUCT('cookie1', '2015-04-10', 1)
+            , STRUCT('cookie1', '2015-04-11', 5)
+            , STRUCT('cookie1', '2015-04-12', 7)
+            , STRUCT('cookie1', '2015-04-13', 3)
+            , STRUCT('cookie1', '2015-04-14', 2)
+            , STRUCT('cookie1', '2015-04-15', 4)
+            , STRUCT('cookie1', '2015-04-16', 4)
+            -- , STRUCT('cookie2', '2015-04-10', 2)
+            -- , STRUCT('cookie2', '2015-04-11', 3)
+            -- , STRUCT('cookie2', '2015-04-12', 5)
+            -- , STRUCT('cookie2', '2015-04-13', 6)
+            -- , STRUCT('cookie2', '2015-04-14', 3)
+            -- , STRUCT('cookie2', '2015-04-15', 9)
+            -- , STRUCT('cookie2', '2015-04-16', 7)
+        ) T
+    ) A
+    LATERAL VIEW posexplode(T.col1) B AS idx, cookieid
+) A
+;
+-- cookieid  pt          pv  rn1 rn2 rn3
+-- cookie1   2015-04-12  7   1   1   1
+-- cookie1   2015-04-11  5   2   2   2
+-- cookie1   2015-04-15  4   3   3   3
+-- cookie1   2015-04-16  4   4   3   3
+-- cookie1   2015-04-13  3   5   5   4
+-- cookie1   2015-04-14  2   6   6   5
+-- cookie1   2015-04-10  1   7   7   6
+```
+
+#### 切片 (`NTILE`)
+
+
+
+### 子查询 (`WITH t AS (...)`)
 > [Common Table Expression (CTE) - Spark Documentation](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select-cte.html)
 >> Hive 官方文档没查到相关的语法, 有些环境确实也不支持这个语法;
 ```sql
@@ -145,6 +315,66 @@ WITH
 SELECT * FROM t2;
 ```
 
+### 数组操作
+- Hive 提供的内置函数较少, 一般使用外部 UDF; Spark 则提供了丰富的数组操作函数, 一般命名为 `array_*`;
+- 常用的 Hive UDF 库
+    - [brickhouse - Hive](https://github.com/klout/brickhouse);
+
+```sql
+-- 以下 函数名 默认兼容 Hive 和 Spark
+-- brickhouse
+ADD JAR hdfs://path/to/brickhouse.jar;
+-- 交集(去重)
+CREATE TEMPORARY FUNCTION array_intersect AS "brickhouse.udf.collect.ArrayIntersectUDF";
+-- 并集(去重)
+CREATE TEMPORARY FUNCTION array_union AS "brickhouse.udf.collect.ArrayUnionUDF";
+-- 差集(存在的都移除, 不存在的都保留)
+CREATE TEMPORARY FUNCTION array_except AS "brickhouse.udf.collect.SetDifferenceUDF";
+
+-- 以下为 Hive 中测试结果, Spark 未测试
+-- 交集
+SELECT array_intersect(array(1,2,3,3), array(3,3,4,5));  -- [3]
+SELECT array_intersect(array(1,2,2,3,3), array(2,3,3,4,5));  -- [2,3]
+SELECT array_intersect(array(1,2,2,3,NULL), array(2,3,3,4,5));  -- [2,3]
+SELECT array_intersect(array(1,2,2,3,NULL), array(2,3,3,4,NULL));  -- [null,2,3]
+-- 并集
+SELECT array_union(array(1,2,3,3), array(3,3,4,5));  -- [1,2,3,4,5]
+SELECT array_union(array(1,2,3,NULL), array(3,3,4,5));  -- [null,1,2,3,4,5]
+-- 差集
+SELECT array_except(array(1,2,2,3), array(1,3,5)); -- [2,2], 不存在的都保留
+SELECT array_except(array(1,2,2,3,3), array(1,3,5)); -- [2,2], 存在的都移除
+SELECT array_except(array(1,2,2), array(1,2,3)); -- []
+-- 判断 a 是否 b 的子集
+SELECT size(array_except(array(1,2), array(1,2,3))) = 0;  -- true
+SELECT size(array_except(array(1,2,2), array(1,2,3))) = 0;  -- true
+SELECT size(array_except(array(1,2,2,NULL), array(1,2,3))) = 0;  -- false
+SELECT size(array_except(array(1,2,2), array(1,2,3,NULL))) = 0;  -- true
+
+
+```
+
+<!-- 
+#### 判断子集
+- 一个通用的方法是编写 UDF
+- 下面是一些 trick 方法
+
+```sql
+-- 判断 a 是否 b 的子集
+-- 思路是利用 a 构造正则表达式, 判断 b 中是否存在 a 的所有元素
+SELECT concat('#',concat_ws('#',b),'#') AS tmp_a
+    , concat('#(',concat_ws('|',a),')#') AS tmp_b
+    , concat('#',concat_ws('#',b),'#') RLIKE concat('#(',concat_ws('|',a),')#')  AS is_subset
+FROM (
+    SELECT array('a','b','c') AS a, array('b','c') AS b
+    UNION ALL
+    SELECT array('a','b','c') AS a, array('b','d') AS b
+) A
+-- #a#b#c#, #(b|c)#, true
+-- #a#b#c#, #(b|d)#, false
+
+```
+-->
+
 ### 分页
 > 使用场景: 限制每次下载/浏览的数据量时
 
@@ -172,40 +402,18 @@ WHERE rn > (page_id - 1) * page_sz AND rn <= (page_id * page_sz)
 > [传统数据库 SQL 窗口函数实现高效分页查询的案例分析_MsSql_脚本之家](https://www.jb51.net/article/212864.htm)
 
 
-### `collect_list` 计数排序
-> [hiveql - Sorting within collect_list() in hive - Stack Overflow](https://stackoverflow.com/questions/50766764/sorting-within-collect-list-in-hive/72458308#72458308)
+## 易错记录
 
+### 修改 `GROUP BY` 的对象
 ```sql
-SELECT key
-    , sort_array(collect_list(STRUCT(-cnt, item_cnt_map))).col2 as item_cnt_list_sorted
-    -- col2 为 STRUCT 中的默认列名, 负号表示倒序排列
-FROM
-(
-    SELECT key, cnt
-        , MAP(item, cnt) AS item_cnt_map
-        -- , concat(item, ':', cnt) AS item_cnt_map
-    FROM
-    (
-        SELECT key, item, count(1) AS cnt
-        -- FROM db.some_table A
-        FROM (
-            SELECT 'A' AS key, 'red' AS item UNION ALL
-            SELECT 'A' AS key, 'red' AS item UNION ALL
-            SELECT 'A' AS key, 'blue' AS item UNION ALL
-            SELECT 'A' AS key, 'blue' AS item UNION ALL
-            SELECT 'A' AS key, 'yellow' AS item UNION ALL
-            SELECT 'A' AS key, 'yellow' AS item UNION ALL
-            SELECT 'A' AS key, 'yellow' AS item UNION ALL
-            SELECT 'B' AS key, 'yellow' AS item UNION ALL
-            SELECT 'B' AS key, 'yellow' AS item UNION ALL
-            SELECT 'B' AS key, 'green' AS item
-        ) A
-        GROUP BY key, item
-    ) A
-) A
-GROUP BY key
-;
--- | A | [{"yellow":3},{"blue":2},{"red":2}] |
--- | B | [{"yellow":2},{"green":1}] |
+SELECT lower(query) AS query, count(1) AS cnt
+FROM ...
+GROUP BY lower(query)   -- OK
+-- GROUP BY query       -- err
 ```
-- `sort_array(collect_list(STRUCT(cnt, item_cnt_map))).col2` 相当于 python 中的对一个**元组列表**进行排序, 排序的 key 依次从元组中取;
+
+### 日期加减
+```sql
+pt >  DATE_SUB('${YYYY-MM-DD}', 7)  -- 7 天
+pt >= DATE_SUB('${YYYY-MM-DD}', 7)  -- 8 天
+```
