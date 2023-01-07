@@ -39,9 +39,9 @@ Notes
 - [`2022-12-22` 电商领域的 NER](_archives/2022/12/电商NER.md)
 - [`2022-12-22` query 理解参考资料](_archives/2022/12/query理解相关阅读.md)
 - [`2022-12-16` Label Studio 使用记录](_archives/2022/12/label-studio使用记录.md)
-- [`2022-12-15` 基于用户行为数据的同义词挖掘方法 (英文)](_archives/2022/12/基于用户行为数据的同义词挖掘方法.md)
 - [`2022-12-15` Node.js 环境搭建](_archives/2022/12/nodejs环境.md)
 - [`2022-12-15` Jupyter & IPython 使用备忘](_archives/2022/12/jupyter与ipython备忘.md)
+- [`2022-12-14` 电商搜索](_archives/2022/12/电商搜索.md)
 
 
 <!--END_SECTION:recent-->
