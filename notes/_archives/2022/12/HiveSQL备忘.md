@@ -7,7 +7,7 @@ Hive SQL 备忘
 <!--END_SECTION:badge-->
 <!--info
 top: false
-hidden: false
+hidden: true
 -->
 
 <!-- TOC -->
