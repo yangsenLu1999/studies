@@ -8,8 +8,10 @@ Markdown 语法备忘
 
 <!-- TOC -->
 - [基本语法](#基本语法)
+    - [表格](#表格)
     - [参考链接 (Reference-style Links)](#参考链接-reference-style-links)
 - [扩展语法](#扩展语法)
+    - [表格 (Table)](#表格-table)
     - [注脚 (Footnotes)](#注脚-footnotes)
     - [下标 (Subscript)](#下标-subscript)
     - [上标 (Superscript)](#上标-superscript)
@@ -17,7 +19,7 @@ Markdown 语法备忘
     - [高亮 (Highlight)](#高亮-highlight)
 - [其他编辑技巧](#其他编辑技巧)
     - [元素居中](#元素居中)
-    - [目录结构](#目录结构)
+    - [目录块 (类似 `tree` 命令生成)](#目录块-类似-tree-命令生成)
     - [换行](#换行)
     - [图片 (HTML)](#图片-html)
     - [隐藏块](#隐藏块)
@@ -32,6 +34,8 @@ Markdown 语法备忘
 
 ## 基本语法
 > [Basic Syntax | Markdown Guide](https://www.markdownguide.org/basic-syntax)
+
+### 表格
 
 ### 参考链接 (Reference-style Links)
 
@@ -58,6 +62,20 @@ Markdown 语法备忘
 ## 扩展语法
 > [Extended Syntax | Markdown Guide](https://www.markdownguide.org/extended-syntax)
 >> 并非所有 Markdown 程序都支持扩展语法
+
+### 表格 (Table)
+
+```markdown
+| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
+```
+
+| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
 
 ### 注脚 (Footnotes)
 
@@ -167,7 +185,7 @@ I need to highlight these <mark>very important words</mark>.
 </div>
 
 
-### 目录结构
+### 目录块 (类似 `tree` 命令生成)
 ```txt
 project
 ├── src/
