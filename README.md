@@ -53,7 +53,6 @@
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见面试问题 📌](notes/_archives/2022/05/Transformer常见面试问题.md)
-- [`2023-01-08` 常见的文本相似度计算](notes/_archives/2022/12/文本相似度计算.md)
 - [`2023-01-08` 低资源训练](notes/_archives/2022/12/低资源训练.md)
 - [`2023-01-08` 数仓基础概念](notes/_archives/2023/01/数仓基础.md)
 - [`2023-01-06` 同义与上下位关系挖掘](notes/_archives/2022/12/同义与上下位挖掘.md)
@@ -64,6 +63,7 @@
 - [`2022-12-22` query 理解参考资料](notes/_archives/2022/12/query理解相关阅读.md)
 - [`2022-12-16` Label Studio 使用记录](notes/_archives/2022/12/label-studio使用记录.md)
 - [`2022-12-15` Node.js 环境搭建](notes/_archives/2022/12/nodejs环境.md)
+- [`2022-12-15` Jupyter & IPython 使用备忘](notes/_archives/2022/12/jupyter与ipython备忘.md)
 
 
 <!--END_SECTION:recent-->
