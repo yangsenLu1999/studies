@@ -38,10 +38,10 @@ hidden: false
 ## 常用配置
 
 ### 窗口字体
-> Appearance & Behavior | Appearance -> Font -> 推荐 JetBrains Mono Medium (Size 14)
+> Appearance & Behavior | Appearance -> Font -> 推荐 JetBrains Mono Medium (Size 根据分辨率调整)
 
 ### 代码字体
-> Editor | Font -> 推荐 Source Code Pro (Size 15)
+> Editor | Font -> 推荐 Source Code Pro (推荐适当调大字体, 调小行间距)
 
 ### 显示空白符
 > Editor | General | Appearance -> Show whitespaces
@@ -64,18 +64,20 @@ hidden: false
 
 操作 | Keyword | 快捷键（Mac） | 快捷键（Win）
 ------|----------|----------|------------ 
-重命名 | Main Menu/Refactor/Rename... | `option + command + R` | `Alt + Shift + R`
-复制行 | Editor Actions/Duplicate Entire Lines | `control + command + down` | `Ctrl + Alt + ↓`
-删除行 | Editor Actions/Delete Line | `command + D` | `Ctrl + D`
-行上移 | Main Menu/Code/Move Line Up | `command + up` | `Alt + ↑`
-行下移 | Main Menu/Code/Move Line Down | `command + down` | `Alt + ↓`
-跳转定义 | Main Menu/Navigate/Go to Declaration or Usages | `command + click` | `Ctrl + Click`
-跳转到源代码 | Main Menu/View/Jump to Source | `command + click` | `Ctrl + Click`
-大小写互转 | Editor Actions/Toggle Case | `shift + command + U` | `Ctrl + Shift + U`
-代码格式化 | Main Menu/Code/Reformat Code | `shift + command + F` | `Alt + Shift + F`
-全局查找 | Main Menu/Edit/Find/Find in Files... | `control + F` | `Ctrl + Shift + F` / `Ctrl + H`
-运行 | Main Menu/Run/Run | `shift + control + R` | `Shift + Ctrl + R`
+行上移 (替代"语句上移") | Main Menu/Code/Move Line Up | `command + up` | `Alt + ↑`
+行下移 (替代"语句下移") | Main Menu/Code/Move Line Down | `command + down` | `Alt + ↓`
+跳转到源代码 (同跳转定义) | Main Menu/View/Jump to Source | `command + click` | `Ctrl + Click`
+代码格式化 (与"文件中查找"互换) | Main Menu/Code/Code Formatting Actions/Reformat Code | `shift + command + F` | `Alt + Shift + F`
+文件中查找 (与"代码格式化互换") | Main Menu/Edit/Find/Find in Files... | `control + F` | `Ctrl + Shift + F` / `Ctrl + H`
+运行 (替代"跳转文件") | Main Menu/Run/Run | `shift + control + R` | `Shift + Ctrl + R`
 跳转文件 | Main Menu/Navigate/Goto by Name Actions/Go to File... | `shift + command + J` | `Alt + Shift + J`
+重命名 (Eclipse) | Main Menu/Refactor/Rename... | `option + command + R` | `Alt + Shift + R`
+复制行 (Eclipse) | Editor Actions/Duplicate Entire Lines | `control + command + down` | `Ctrl + Alt + ↓`
+删除行 (Eclipse) | Editor Actions/Delete Line | `command + D` | `Ctrl + D`
+跳转定义 (Eclipse) | Main Menu/Navigate/Go to Declaration or Usages | `command + click` | `Ctrl + Click`
+大小写互转 (Eclipse) | Editor Actions/Toggle Case | `shift + command + U` | `Ctrl + Shift + U`
+行注释 (Eclipse) | Main Menu/Code/Comment Actions/Comment with Line Comment | `command + /` | `Ctrl + /`
+开始新行 | Editor Actions/Start New Line | `shift + enter` | `Shift + Enter`
 
 ### 启用代码兼容性检查
 > Editor | Inspections -> Code is incompatible with specific Python versions
