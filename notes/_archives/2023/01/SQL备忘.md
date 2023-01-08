@@ -2,7 +2,7 @@ SQL 备忘
 ===
 <!--START_SECTION:badge-->
 
-![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2023-01-07%2016%3A39%3A01&color=yellowgreen&style=flat-square)
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2023-01-04%2000%3A08%3A14&color=yellowgreen&style=flat-square)
 
 <!--END_SECTION:badge-->
 <!--info
@@ -19,8 +19,10 @@ hidden: false
     - [容器类型](#容器类型)
 - [常用 DDL](#常用-ddl)
     - [建表 (`CREATE`)](#建表-create)
-        - [临时表 (`CREATE TEMPORARY TABLE/CACHE TABLE`)](#临时表-create-temporary-tablecache-table)
-    - [修改 ()](#修改-)
+        - [临时表](#临时表)
+    - [修改 (`ALTER`)](#修改-alter)
+        - [修改列](#修改列)
+        - [增加列](#增加列)
 - [常用 DQL](#常用-dql)
     - [聚合操作 (`GROUP BY`)](#聚合操作-group-by)
         - [排序 `sort_array(collect_list(...))`](#排序-sort_arraycollect_list)
@@ -126,7 +128,8 @@ SORT BY new_key, key_value_pair  --
 ;
 ```
 
-#### 临时表 (`CREATE TEMPORARY TABLE/CACHE TABLE`)
+#### 临时表
+- 注意: Hive 和 Spark 中的临时表语法不同; 
 ```sql
 -- Hive
 CREATE TEMPORARY TABLE IF NOT EXISTS tmp_table AS
@@ -134,17 +137,53 @@ SELECT ...
 ;
 
 -- Spark
-CACHE TABLE tmp_table_name AS
+CACHE TABLE tmp_table AS
 SELECT ...
 ;
 
--- 物理临时表, 一些脚本中使用, 易于调试, 可在不同的提交中重复使用;
-DROP TABLE IF EXISTS dbname.tmp_tabel_name;
-CREATE TABLE dbname.tmp_tabel_name AS  
+-- Hive/Spark 都适用 (如果公司支持自动删除临时表, 推荐这种写法)
+-- 物理临时表, 一些脚本中使用, 易于调试, 可重复使用;
+DROP TABLE IF EXISTS db.tmp_tabel;
+CREATE TABLE db.tmp_tabel AS
 SELECT  ...
 ```
 
-### 修改 ()
+### 修改 (`ALTER`)
+> [Alter Table/Partition/Column - Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Column)
+
+#### 修改列
+> [Change Column Name/Type/Position/Comment - Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-ChangeColumnName/Type/Position/Comment)
+
+- 一条 `ALTER` 语句一次只能修改一列;
+```sql
+-- 语法
+ALTER TABLE table_name [PARTITION partition_spec] CHANGE [COLUMN] col_old_name col_new_name column_type
+  [COMMENT col_comment] [FIRST|AFTER column_name] [CASCADE|RESTRICT];
+
+-- 基础示例
+ALTER TABLE db.table CHANGE a x BIGINT COMMENT 'column x';  -- 修改列名
+ALTER TABLE db.table CHANGE b b STRING COMMENT 'column b';  -- 修改类型 (名字不变)
+```
+
+#### 增加列
+> [Add/Replace Columns - Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Add/ReplaceColumns)
+
+- 一条 `ALTER` 语句一次只能修改一列, 但是能增加多列;
+```sql
+-- 语法
+ALTER TABLE table_name 
+  [PARTITION partition_spec]                 -- (Note: Hive 0.14.0 and later)
+  ADD|REPLACE COLUMNS (col_name data_type [COMMENT col_comment], ...)
+  [CASCADE|RESTRICT]                         -- (Note: Hive 1.1.0 and later)
+
+-- 基础示例
+ALTER TABLE db.table
+ADD COLUMNS (
+    a BIGINT    COMMENT 'column a'
+    , b STRING  COMMENT 'column b'
+)
+```
+
 
 
 ## 常用 DQL
