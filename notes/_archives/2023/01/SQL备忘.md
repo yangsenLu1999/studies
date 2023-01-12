@@ -30,12 +30,13 @@ hidden: false
         - [侧视图 for presto](#侧视图-for-presto)
     - [窗口函数](#窗口函数)
         - [排序 (`ROW_NUMBER/RANK/DENSE_RANK`)](#排序-row_numberrankdense_rank)
-        - [切片 (`NTILE`)](#切片-ntile)
+        - [切片 (`NTILE`) TODO](#切片-ntile-todo)
+        - [去重 (基于 `ROW_NUMBER`)](#去重-基于-row_number)
     - [子查询 (`WITH t AS (...)`)](#子查询-with-t-as-)
     - [数组操作](#数组操作)
     - [分页](#分页)
 - [易错记录](#易错记录)
-    - [修改 `GROUP BY` 的对象](#修改-group-by-的对象)
+    - [`GROUP BY` 的列被修改时](#group-by-的列被修改时)
     - [日期加减](#日期加减)
 <!-- TOC -->
 
@@ -143,10 +144,12 @@ SELECT ...
 
 -- Hive/Spark 都适用 (如果公司支持自动删除临时表, 推荐这种写法)
 -- 物理临时表, 一些脚本中使用, 易于调试, 可重复使用;
-DROP TABLE IF EXISTS db.tmp_tabel;
+DROP TABLE IF EXISTS db.tmp_task_tabel;
 CREATE TABLE db.tmp_tabel AS
 SELECT  ...
 ```
+> ***物理临时表使用注意事项 :*** 
+> *1) 使用物理临时表时, 一定要添加任务相关的标识, 如 `db.tmp_taskname_tablename`, 否则可能导致在不用任务间依赖相同的临时表, 当临时表在其中一个任务中被删除时, 另一个任务执行失败; 2) 系统支持自动删除 `tmp` 表, 或者在脚本末尾手动删除;*
 
 ### 修改 (`ALTER`)
 > [Alter Table/Partition/Column - Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Column)
@@ -267,9 +270,9 @@ SELECT * FROM src LATERAL VIEW OUTER explode(array()) C AS a limit 10;  -- 有�
 ```sql
 SELECT 
     cookieid, pt, pv,
-    ROW_NUMBER() OVER(PARTITION BY cookieid ORDER BY pv desc) AS rn1,   -- 形如 1,2,3,4,5 (最常用)
-    RANK() OVER(PARTITION BY cookieid ORDER BY pv desc) AS rn2,         -- 形如 1,1,3,3,5
-    DENSE_RANK() OVER(PARTITION BY cookieid ORDER BY pv desc) AS rn3    -- 形如 1,1,2,2,3
+    ROW_NUMBER() OVER(PARTITION BY cookieid ORDER BY pv DESC) AS rn1,   -- 形如 1,2,3,4,5 (最常用)
+    RANK() OVER(PARTITION BY cookieid ORDER BY pv DESC) AS rn2,         -- 形如 1,1,3,3,5
+    DENSE_RANK() OVER(PARTITION BY cookieid ORDER BY pv DESC) AS rn3    -- 形如 1,1,2,2,3
 FROM (
     -- 测试数据
     SELECT cookieid, T.col2[idx] AS pt, T.col3[idx] AS pv
@@ -304,9 +307,28 @@ FROM (
 -- cookie1   2015-04-10  1   7   7   6
 ```
 
-#### 切片 (`NTILE`)
+#### 切片 (`NTILE`) TODO
 
 
+#### 去重 (基于 `ROW_NUMBER`)
+- 去重最常用的方法是使用 `GROUP BY`, 但有时不适用, 比如线上存在多个模型的结果, 我们需要最近出现次数最多的一个, 这时使用 `ROW_NUMBER` 更方便;
+
+```sql
+-- 场景: 对每个 query, 线上存在多个改写的结果, 现在需要取出最近最多的一个
+SELECT *
+FROM (
+    SELECT *,
+        ,  ROW_NUMBER() OVER(PARTITION BY query ORDER BY dt DESC, cnt DESC) AS rn
+        -- 注意这里是 PARTITION BY query 而不是 PARTITION BY query, rewrite
+    FROM (
+        SELECT query, rewrite, dt, count(1) AS cnt
+        FROM db.table
+        WHERE dt > DATA_SUB('${env.today}', $DAYS)
+        GROUP BY 1, 2, 3
+    ) A
+) A
+WHERE rn = 1
+```
 
 ### 子查询 (`WITH t AS (...)`)
 > [Common Table Expression (CTE) - Spark Documentation](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select-cte.html)
@@ -443,16 +465,19 @@ WHERE rn > (page_id - 1) * page_sz AND rn <= (page_id * page_sz)
 
 ## 易错记录
 
-### 修改 `GROUP BY` 的对象
+### `GROUP BY` 的列被修改时
 ```sql
-SELECT lower(query) AS query, count(1) AS cnt
-FROM ...
+SELECT lower(color) AS color, count(1) AS cnt
+FROM (
+    SELECT explode(ARRAY('red', 'red', 'RED', 'Red', 'Blue', 'blue')) AS color
+) A
 GROUP BY lower(query)   -- OK
 -- GROUP BY query       -- err
+-- GROUP BY 1           -- OK, 但是有的系统会关闭这个选项
 ```
 
 ### 日期加减
 ```sql
-pt >  DATE_SUB('${YYYY-MM-DD}', 7)  -- 7 天
-pt >= DATE_SUB('${YYYY-MM-DD}', 7)  -- 8 天
+pt >  DATE_SUB('${env.today}', 7)  -- 7 天
+pt >= DATE_SUB('${env.today}', 7)  -- 8 天
 ```
