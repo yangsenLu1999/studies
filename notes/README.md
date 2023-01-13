@@ -35,7 +35,7 @@ Notes
 - [`2023-01-08` 数仓基础概念](_archives/2023/01/数仓基础.md)
 - [`2023-01-06` PySpark 笔记](_archives/2023/01/PySpark笔记.md)
 - [`2023-01-05` Windows 使用备忘](_archives/2023/01/Windows备忘.md)
-- [`2023-01-04` SQL 备忘](_archives/2023/01/SQL备忘.md)
+- [`2023-01-04` Hive/Spark/Presto SQL 备忘](_archives/2023/01/大数据SQL备忘.md)
 - [`2022-12-22` 电商领域的 NER](_archives/2022/12/电商NER.md)
 - [`2022-12-22` query 理解参考资料](_archives/2022/12/query理解相关阅读.md)
 - [`2022-12-16` Label Studio 使用记录](_archives/2022/12/label-studio使用记录.md)
