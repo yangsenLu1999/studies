@@ -124,7 +124,7 @@ H<sub>2</sub>O
 H<sub>2</sub>O
 
 ### 上标 (Superscript)
-
+> GitHub 暂不支持
 ```markdown
 X^2^
 ```
