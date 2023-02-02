@@ -30,7 +30,7 @@ Notes
 ## Recently 📖
 <!--START_SECTION:recent-->
 
-- [`2022-07-27` Transformer 常见面试问题 📌](_archives/2022/05/Transformer常见面试问题.md)
+- [`2022-07-27` Transformer 常见问题 📌](_archives/2022/05/Transformer常见问题.md)
 - [`2023-01-13` 基于 SQL 计算信息熵与信息增益](_archives/2023/01/sql-计算信息熵与信息增益.md)
 - [`2023-01-08` 低资源训练](_archives/2022/12/低资源训练.md)
 - [`2023-01-08` 数仓基础概念](_archives/2023/01/数仓基础.md)
@@ -169,6 +169,8 @@ Notes
 
 
 ## WIKI
+- [C](999-WIKI.md#c)
+    - [C++](999-WIKI.md#c-1)
 - [D](999-WIKI.md#d)
     - [Docker](999-WIKI.md#docker)
 - [G](999-WIKI.md#g)
@@ -201,9 +203,13 @@ Notes
 - [P](999-WIKI.md#p)
     - [PyCharm](999-WIKI.md#pycharm)
     - [PySpark](999-WIKI.md#pyspark)
+- [Q](999-WIKI.md#q)
+    - [Query 理解](999-WIKI.md#query-理解)
 - [S](999-WIKI.md#s)
     - [SQL](999-WIKI.md#sql)
     - [STAR 法则](999-WIKI.md#star-法则)
+- [T](999-WIKI.md#t)
+    - [Transformer 模型](999-WIKI.md#transformer-模型)
 - [W](999-WIKI.md#w)
     - [Windows](999-WIKI.md#windows)
     - [WSL](999-WIKI.md#wsl)
