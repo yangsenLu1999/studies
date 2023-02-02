@@ -5,6 +5,8 @@ toc_id: wiki
 -->
 
 <!-- TOC -->
+- [C](#c)
+    - [C++](#c-1)
 - [D](#d)
     - [Docker](#docker)
 - [G](#g)
@@ -37,9 +39,13 @@ toc_id: wiki
 - [P](#p)
     - [PyCharm](#pycharm)
     - [PySpark](#pyspark)
+- [Q](#q)
+    - [Query 理解](#query-理解)
 - [S](#s)
     - [SQL](#sql)
     - [STAR 法则](#star-法则)
+- [T](#t)
+    - [Transformer 模型](#transformer-模型)
 - [W](#w)
     - [Windows](#windows)
     - [WSL](#wsl)
@@ -48,6 +54,13 @@ toc_id: wiki
     - [语言模型](#语言模型)
 <!-- TOC -->
 
+
+## C
+
+### C++
+> C++ 是一种计算机高级程序设计语言
+
+- [C++]()
 
 ## D
 
@@ -158,7 +171,7 @@ toc_id: wiki
 > Node.js® is an open-source, cross-platform JavaScript runtime environment.
 >> [Node.js](https://nodejs.org/en/)
 
-- [Node.js 环境](./_archives/2022/12/nodejs环境.md)
+- [Node.js 环境搭建](./_archives/2022/12/nodejs环境.md)
 
 ## O
 
@@ -195,7 +208,7 @@ toc_id: wiki
 ### SQL
 > SQL (Structured Query Language) 是具有数据操纵和数据定义等多种功能的数据库语言;
 
-- [Hive/Spark/Presto SQL 备忘](./_archives/2023/01/SQL备忘.md)
+- [Hive/Spark/Presto SQL 备忘](./_archives/2023/01/大数据SQL备忘.md)
 
 ### STAR 法则
 > STAR 法则是一种用于描述事件的方式, STAR 分别表示情境 (Situation)、任务 (Task)、行动 (Action)、结果 (Result) 四项的缩写;
@@ -203,6 +216,18 @@ toc_id: wiki
 
 - [使用 STAR 法则描述简历](./_archives/2022/10/简历技巧.md#star-法则)
 
+
+## T
+
+### Transformer 模型
+> 一种流行的深度学习模型;
+
+> ***Keywords**: transformer, bert*
+
+- [Transformers Wiki](./_archives/2022/05/TransformerWiki.md)
+    - [Transformer 常见问题](./_archives/2022/05/Transformer常见问题.md)
+    - [Transformer 的优势与劣势](./_archives/2023/02/Transformer的优势与劣势.md)
+    - ...
 
 ## W
 

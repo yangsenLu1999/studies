@@ -102,7 +102,7 @@ Author:
 Subject:
     ${NAME}
 """
-from __future__ import annotations
+from __future__ import annotations  # python >= 3.7
 
 # import os
 # import sys

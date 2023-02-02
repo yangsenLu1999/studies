@@ -1,4 +1,4 @@
-Transformer 常见面试问题
+Transformer 常见问题
 ===
 <!--START_SECTION:badge-->
 
@@ -202,40 +202,30 @@ assert torch.allclose(model(x, mask), traced_model(x, mask))
     - 则未经过缩放的注意力权重 $A$ 的各分量 $\vec{a_i}$ 将服从均值为 $0$，方差为 $d$ 的正态分布；
     - $d$ 越大，意味着 $\vec{a_i}$ 中各分量的差越大，其结果就是经过 softmax 后，会出现数值非常小的分量；这样在反向传播时，就会导致**梯度消失**的问题；
     - 此时除以 $\sqrt{d}$ 会使 $\vec{a_i}$ 重新服从标准的正态分布，使 softmax 后的 Attention 矩阵尽量平滑，从而缓解梯度消失的问题；
-
-    <details><summary><b>数学推导与代码验证</b></summary> 
-
-    - 数学推导：
+    - **数学推导**：
         > [Transformer 中的 attention 为什么要 scaled? - TniL的回答（已删除）](https://www.zhihu.com/question/339723385/answer/782509914)
-
         - 定义 $Q=[\vec{q_1}, \vec{q_2}, .., \vec{q_n}]^T$, $K=[\vec{k_1}, \vec{k_2}, .., \vec{k_n}]^T$，其中 $\vec{q_i}$ 和 $\vec{k_i}$ 都是 $d$ 维向量；
         - 假设 $\vec{q_i}$ 和 $\vec{k_i}$ 的各分量都是服从标准正态分布（均值为 0，方差为 1）的随机变量，且相互独立，记 $q_i$ 和 $k_i$，即 $E(q_i)=E(k_i)=0$, $D(q_i)=D(k_i)=1$；
         - 根据期望与方差的性质，有 $E(q_ik_i)=0$ 和 $D(q_ik_i)=1$，推导如下：
-
             $$\begin{align*}
                 E(q_ik_i) &= E(q_i)E(k_i) = 0 \times 0 = 0 \\
                 D(q_ik_i) &= E(q_i^2k_i^2) - E^2(q_ik_i) \\
                 &= E(q_i^2)E(k_i^2) - E^2(q_i)E^2(k_i) \\
-                &= [E(q_i^2) - E^2(q_i)] [E(k_i^2) - E^2(k_i)] - 0^2 \times 0^2 \\
+                &= \left [E(q_i^2) - E^2(q_i) \right ] \left [E(k_i^2) - E^2(k_i) \right ] - 0^2 \times 0^2 \\
                 &= D(q_i)D(k_i) - 0 \\
                 &= 1
             \end{align*}$$
-
         - 进一步，有 $E(\vec{q_i}\vec{k_i}^T)=0$ 和 $D(\vec{q_i}\vec{k_i}^T)=d$，推导如下：
-
             $$\begin{align*}
                 E(\vec{q_i}\vec{k_i}^T) &= E(\sum_{i=1}^d q_ik_i) = \sum_{i=1}^d E(q_ik_i) = 0 \\
                 D(\vec{q_i}\vec{k_i}^T) &= D(\sum_{i=1}^d q_ik_i) = \sum_{i=1}^d D(q_ik_i) = d
             \end{align*}$$
-
         - 根据 attention 的计算公式（softmax 前）, $A'=\frac{QK^T}{\sqrt{d}}=[\frac{\vec{q_1}\vec{k_1}^T}{\sqrt{d}}, \frac{\vec{q_2}\vec{k_2}^T}{\sqrt{d}}, .., \frac{\vec{q_n}\vec{k_n}^T}{\sqrt{d}}]=[\vec{a_1}, \vec{a_2}, .., \vec{a_n}]$，可知 $E(\vec{a_i})=0$, $D(\vec{a_i})=1$，推导如下：
-
             $$\begin{align*}
                 E(\vec{a_i}) &= E(\frac{\vec{q_i}\vec{k_i}^T}{\sqrt{d}}) = \frac{E(\vec{q_i}\vec{k_i}^T)}{\sqrt{d}} = \frac{0}{\sqrt{d}} = 0 \\
                 D(\vec{a_i}) &= D(\frac{\vec{q_i}\vec{k_i}^T}{\sqrt{d}}) = \frac{D(\vec{q_i}\vec{k_i}^T)}{(\sqrt{d})^2} = \frac{d}{d} = 1
             \end{align*}$$
-
-    - 代码验证
+    - **代码验证**
         ```python
         import torch
 
@@ -261,7 +251,7 @@ assert torch.allclose(model(x, mask), traced_model(x, mask))
         print(a.var(-1, keepdim=True))  # 各分量接近 1
         ```
 
-    </details>
+    <!-- </details> -->
 
 
 #### 在 Softmax 之前加上 Mask 的作用是什么？
