@@ -61,6 +61,7 @@ hidden: false
     > Windows 选 Eclipse, 非 Eclipse (macOS)
 
 **常用快捷键**
+> 标注 `*` 的表示继承自 Eclipse Keymap, 不需要修改;
 
 操作 | Keyword | 快捷键（Mac） | 快捷键（Win）
 ------|----------|----------|------------ 
@@ -71,13 +72,15 @@ hidden: false
 文件中查找 (与"代码格式化互换") | Main Menu/Edit/Find/Find in Files... | `control + F` | `Ctrl + Shift + F` / `Ctrl + H`
 运行 (替代"跳转文件") | Main Menu/Run/Run | `shift + control + R` | `Shift + Ctrl + R`
 跳转文件 | Main Menu/Navigate/Goto by Name Actions/Go to File... | `shift + command + J` | `Alt + Shift + J`
-重命名 (Eclipse) | Main Menu/Refactor/Rename... | `option + command + R` | `Alt + Shift + R`
-复制行 (Eclipse) | Editor Actions/Duplicate Entire Lines | `control + command + down` | `Ctrl + Alt + ↓`
-删除行 (Eclipse) | Editor Actions/Delete Line | `command + D` | `Ctrl + D`
-跳转定义 (Eclipse) | Main Menu/Navigate/Go to Declaration or Usages | `command + click` | `Ctrl + Click`
-大小写互转 (Eclipse) | Editor Actions/Toggle Case | `shift + command + U` | `Ctrl + Shift + U`
-行注释 (Eclipse) | Main Menu/Code/Comment Actions/Comment with Line Comment | `command + /` | `Ctrl + /`
-开始新行 | Editor Actions/Start New Line | `shift + enter` | `Shift + Enter`
+关闭当前文件 | Main Menu/Window/Editor Tabs/Editor Close Actions/Close Tab | `control + W` | `Ctrl + W`
+*关闭当前Tab | Main Menu/Window/Active Tool Window/Close Active Tab | `control + W` | `Ctrl + W`
+*重命名 | Main Menu/Refactor/Rename... | `option + command + R` | `Alt + Shift + R`
+*复制行 | Editor Actions/Duplicate Entire Lines | `control + command + down` | `Ctrl + Alt + ↓`
+*删除行 | Editor Actions/Delete Line | `command + D` | `Ctrl + D`
+*跳转定义 | Main Menu/Navigate/Go to Declaration or Usages | `command + click` | `Ctrl + Click`
+*大小写互转 | Editor Actions/Toggle Case | `shift + command + U` | `Ctrl + Shift + U`
+*行注释 | Main Menu/Code/Comment Actions/Comment with Line Comment | `command + /` | `Ctrl + /`
+*开始新行 | Editor Actions/Start New Line | `shift + enter` | `Shift + Enter`
 
 ### 启用代码兼容性检查
 > Editor | Inspections -> Code is incompatible with specific Python versions
