@@ -37,6 +37,7 @@ hidden: false
 - [常用函数/UDF](#常用函数udf)
     - [字符串](#字符串)
     - [数学](#数学)
+    - [聚合函数](#聚合函数)
     - [条件函数](#条件函数)
         - [`CASE WHEN`](#case-when)
     - [表生成函数 (UDTF)](#表生成函数-udtf)
@@ -49,12 +50,15 @@ hidden: false
 - [配置属性](#配置属性)
     - [Hive](#hive)
 - [其他](#其他)
+    - [`DISTINCT` 和 `GROUP BY` 在去重时有区别吗?](#distinct-和-group-by-在去重时有区别吗)
     - [web 模板变量](#web-模板变量)
     - [从 Hive 迁移到 Presto](#从-hive-迁移到-presto)
-- [易错记录](#易错记录)
+- [异常记录](#异常记录)
     - [对 `f(col)` 分组或排序](#对-fcol-分组或排序)
     - [日期加减](#日期加减)
     - [`AS` 多个别名时要不要括号?](#as-多个别名时要不要括号)
+    - [自动类型转换](#自动类型转换)
+    - [规避暴力扫描警告](#规避暴力扫描警告)
 <!--END_SECTION:toc-->
 
 
@@ -83,24 +87,29 @@ hidden: false
     - `STRUCT<col_name : data_type [COMMENT col_comment], ...>`
     - `UNIONTYPE<data_type, data_type, ...>` (一般不使用)
 
+**基本构造函数**
+> [Complex Type Constructors - Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-ComplexTypeConstructors)
 ```sql
 -- ARRAY
-SELECT ARRAY(1,2,3)  -- [1,2,3]
-SELECT ARRAY('a','b','c')[0]  -- "a"
+SELECT array(1,2,3);  -- [1,2,3]
+SELECT array('a','b','c')[0];  -- "a"
 
 -- MAP
-SELECT MAP('a', 1), MAP('b', '2', 'c', 3)
+SELECT map('a', 1), map('b', '2', 'c', 3);
 -- {"a":1}  {"b":"2","c":"3"}  -- 注意, 整数 3 转成了字符串 3
-SELECT MAP('a', 1)['a']  -- 1
+SELECT map('a', 1)['a'];  -- 1
 
--- STRUCT
-SELECT STRUCT('a', 1, ARRAY(1,2,3))
--- {"col1":"a","col2":1,"col3":[1,2,3]}
-SELECT STRUCT('a', 1, ARRAY(1,2,3)).col2  -- 1
+-- struct
+SELECT struct('a', 1, ARRAY(1,2,3));  -- {"col1":"a","col2":1,"col3":[1,2,3]}
+SELECT struct('a', 1, ARRAY(1,2,3)).col2;  -- 1
+-- named_struct
+SELECT named_struct('c1', 'a', 'c2', 1, 'c3', ARRAY(1,2,3));  -- {"c1":"a","c2":1,"c3":[1,2,3]}
+SELECT named_struct('c1', 'a', 'c2', 1, 'c3', ARRAY(1,2,3)).c2;  -- 1
 
--- ARRAY + STRUCT
-SELECT ARRAY(STRUCT('a', 1), STRUCT('b', 2), STRUCT('c', 3)).col1
--- ["a","b","c"]
+-- ARRAY + struct
+SELECT array(struct('a', 1), struct('b', 2), struct('c', 3)).col1;  -- ["a","b","c"]
+-- ARRAY + named_struct
+SELECT array(named_struct('c1', 'a', 'c2', 1), named_struct('c1', 'b', 'c2', 2), named_struct('c1', 'c', 'c2', 3)).c1;  -- ["a","b","c"]
 ```
 
 ## 常用 DDL
@@ -498,6 +507,13 @@ SELECT least(3, 1, -1);  -- -1
 SELECT least(3, 1, -1);  -- 3
 ```
 
+### 聚合函数
+**函数细节**
+- `collect_set / collect_list` 不会收集 `NULL` 值
+
+```sql
+```
+
 ### 条件函数
 > [Conditional Functions - Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-ConditionalFunctions)
 
@@ -656,6 +672,43 @@ FROM (
 WHERE rn = 1
 ```
 
+#### 排序分位值
+```sql
+-- 场景：计算 query 的 pv 分位值
+SELECT query
+    , rn
+    , 1.0 * acc_pv / sum_pv AS pr
+    , pv
+    , acc_pv
+    , sum_pv
+FROM (
+    SELECT query
+        , pv
+        , ROW_NUMBER() OVER(ORDER BY pv desc) AS rn
+        , SUM(pv) OVER() AS sum_pv
+        , SUM(pv) OVER(ORDER BY pv desc ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) as acc_pv
+    FROM (
+        SELECT stack(5,
+            'A', 100,
+            'B', 40,
+            'C', 30,
+            'D', 20,
+            'E', 10
+        ) AS (query, pv)
+    ) A
+) A
+ORDER BY rn
+;
+--- result ---
+query rn  pr    pv   acc_pv sum_pv
+A     1   0.5   100  100    200
+B     2   0.7   40   140    200
+C     3   0.85  30   170    200
+D     4   0.95  20   190    200
+E     5   1.0   10   200    200
+-- pr 列的含义: query A 占了 50% 的流量, A、B 占了 70% 的流量, ...
+```
+
 
 ## 配置属性
 
@@ -671,6 +724,12 @@ SET hive.orderby.position.alias=true;  -- Added In: Hive 2.2.0, 默认开启
 
 
 ## 其他
+
+### `DISTINCT` 和 `GROUP BY` 在去重时有区别吗?
+- 一些旧的经验会告诉你 `GROUP BY` 效率更高;
+- 但是实际上两者的效率应该是一样的 (基于比较新的版本), 因为两者执行的步骤相同;
+    > [sql - `distinct` vs `group by` which is better - Stack Overflow](https://stackoverflow.com/questions/31876137/distinct-vs-group-by-which-is-better/69929454#69929454) (来自2021年的回答)
+
 
 ### web 模板变量
 - 如果公司提供了一个基于 Web 的 Hive 脚本编写平台, 那么一般都会支持这个功能;
@@ -696,7 +755,7 @@ SET hive.orderby.position.alias=true;  -- Added In: Hive 2.2.0, 默认开启
 - Presto 中构造数组的语法 `array[1,2,3]`, Hive 中为 `array(1,2,3)`
 
 
-## 易错记录
+## 异常记录
 
 ### 对 `f(col)` 分组或排序
 > [GROUPing and SORTing on `f(column)` - Apache Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-GROUPingandSORTingonf(column))
@@ -719,12 +778,40 @@ pt >= DATE_SUB('${env.today}', 7)  -- 8 天
 
 ### `AS` 多个别名时要不要括号?
 ```sql
--- 必须要有括号
-select explode(map('A',10,'B',20,'C',30)) as (key,value);
+select explode(map('A',10,'B',20,'C',30)) as (key,value);  -- 必须要有括号
                                              ^^^^^^^^^^^
-
--- 必须没有括号
 select tf.* from (select 0) t 
-    lateral view explode(map('A',10,'B',20,'C',30)) tf as key,value;
+    lateral view explode(map('A',10,'B',20,'C',30)) tf as key,value;  -- 必须没有括号
                                                           ^^^^^^^^^
 ```
+
+### 自动类型转换
+- Hive 支持自动类型转换, 但是自动类型转换不一定会在所有你认为会发生的地方发生;
+- 比如不支持将 `map<string, bigint>` 自动转换为 `map<string, double>`;
+    ```sql
+    INSERT ...
+    SELECT map('a', 1, 
+               'b', 2.0)  -- OK, 因为 2.0 的存在, 1 在插入时被自动转换为 double, 所以这是一个 map<string, double> 类型的值, 可以正常插入 map<string, double> 字段
+        ...
+    ;
+    INSERT ...
+    SELECT map('a', 1, 
+               'b', 2)    -- err, 因为所有值都是 int, 所以这是一个 map<string, bigint> 类型的值, 把它插入到 map<string, double> 会报错;
+    ``` 
+- 解决方法: 使用 `CAST` 显式转换;
+
+
+### 规避暴力扫描警告
+- 在公共环境, 一般会限制单个查询扫描的数据量;
+- 规避方法: 使用 `UNION ALL`
+  ```sql
+  SELECT ...
+  FROM ...
+  WHERE pt > ... AND pt <= ...
+
+  UNION ALL
+
+  SELECT ...
+  FROM ...
+  WHERE pt > ... AND pt <= ...
+  ```
