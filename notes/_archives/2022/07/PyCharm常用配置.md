@@ -69,10 +69,10 @@ hidden: false
 行下移 (替代"语句下移") | Main Menu/Code/Move Line Down | `command + down` | `Alt + ↓`
 跳转到源代码 (同跳转定义) | Main Menu/View/Jump to Source | `command + click` | `Ctrl + Click`
 代码格式化 (与"文件中查找"互换) | Main Menu/Code/Code Formatting Actions/Reformat Code | `shift + command + F` | `Alt + Shift + F`
-文件中查找 (与"代码格式化互换") | Main Menu/Edit/Find/Find in Files... | `control + F` | `Ctrl + Shift + F` / `Ctrl + H`
 运行 (替代"跳转文件") | Main Menu/Run/Run | `shift + control + R` | `Shift + Ctrl + R`
 跳转文件 | Main Menu/Navigate/Goto by Name Actions/Go to File... | `shift + command + J` | `Alt + Shift + J`
 关闭当前文件 | Main Menu/Window/Editor Tabs/Editor Close Actions/Close Tab | `control + W` | `Ctrl + W`
+*文件中查找 | Main Menu/Edit/Find/Find in Files... | `control + H` | `Ctrl + H`
 *关闭当前Tab | Main Menu/Window/Active Tool Window/Close Active Tab | `control + W` | `Ctrl + W`
 *重命名 | Main Menu/Refactor/Rename... | `option + command + R` | `Alt + Shift + R`
 *复制行 | Editor Actions/Duplicate Entire Lines | `control + command + down` | `Ctrl + Alt + ↓`
