@@ -53,6 +53,7 @@
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见问题 📌](notes/_archives/2022/05/Transformer常见问题.md)
+- [`2023-04-04` Hive 常用 SQL 备忘](notes/_archives/2023/03/Hive常用SQL备忘.md)
 - [`2023-02-05` SQL优化之暴力扫描](notes/_archives/2023/02/SQL优化之暴力扫描.md)
 - [`2023-01-13` 基于 SQL 计算信息熵与信息增益](notes/_archives/2023/01/sql-计算信息熵与信息增益.md)
 - [`2023-01-08` 低资源训练](notes/_archives/2022/12/低资源训练.md)
@@ -63,7 +64,6 @@
 - [`2022-12-22` 电商领域的 NER](notes/_archives/2022/12/电商NER.md)
 - [`2022-12-22` query 理解参考资料](notes/_archives/2022/12/query理解相关阅读.md)
 - [`2022-12-16` Label Studio 使用记录](notes/_archives/2022/12/label-studio使用记录.md)
-- [`2022-12-15` Node.js 环境搭建](notes/_archives/2022/12/nodejs环境.md)
 
 
 <!--END_SECTION:recent-->
