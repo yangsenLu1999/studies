@@ -77,11 +77,9 @@
 <!--START_SECTION:waka-->
 
 ```text
-Total Time: 2 hrs 10 mins
+Total Time: 3 hrs 20 mins
 
-Python   1 hr 59 mins    >>>>>>>>>>>>>>>>>>>>>>>--   91.72 %
-CSV      8 mins          >>-----------------------   06.73 %
-Other    2 mins          -------------------------   01.55 %
+Python   3 hrs 20 mins   >>>>>>>>>>>>>>>>>>>>>>>>>   100.00 %
 ```
 
 <!--END_SECTION:waka-->
