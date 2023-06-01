@@ -106,6 +106,7 @@ toc_id: wiki
 ### Hive
 > 一款基于 Hadoop 的数据仓库工具，Hive 能够将结构化的数据文件映射为一张数据库表，并提供 SQL 查询功能；
 - [Hive SQL 常用操作](./_archives/2022/04/HiveSQL常用操作.md)
+- [Hive 常用 SQL 备忘](./_archives/2023/03/Hive常用SQL备忘.md)
 
 
 ## J
