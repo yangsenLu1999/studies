@@ -76,14 +76,14 @@
 
 <!--START_SECTION:waka-->
 
-```text
-Total Time: 6 hrs 22 mins
+```txt
+Total Time: 6 hrs 58 mins
 
-Markdown   3 hrs 46 mins   >>>>>>>>>>>>>>>----------   59.21 %
-GitHub     1 hr 7 mins     >>>>---------------------   17.50 %
-Other      1 hr 4 mins     >>>>---------------------   16.87 %
-Python     22 mins         >------------------------   05.77 %
-jsonc      1 min           -------------------------   00.35 %
+Markdown   3 hrs 46 mins   >>>>>>>>>>>>>>-----------   54.17 %
+GitHub     1 hr 38 mins    >>>>>>-------------------   23.42 %
+Other      1 hr 4 mins     >>>>---------------------   15.43 %
+Python     27 mins         >>-----------------------   06.59 %
+jsonc      1 min           -------------------------   00.32 %
 ```
 
 <!--END_SECTION:waka-->
