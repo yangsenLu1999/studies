@@ -1,55 +1,45 @@
-Python 国内镜像源
+python 国内镜像源
 ===
 <!--START_SECTION:badge-->
-
-![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-12-09%2023%3A07%3A48&color=yellowgreen&style=flat-square)
-
 <!--END_SECTION:badge-->
+<!--info
+top: false
+hidden: false
+-->
 
+> ***Keywords**: python*
+
+<!--START_SECTION:toc-->
 - [pip](#pip)
-    - [生效方法](#生效方法)
-    - [国内源](#国内源)
 - [conda](#conda)
-    - [生效方法](#生效方法-1)
-    - [清华源](#清华源)
-    - [其他源](#其他源)
+<!--END_SECTION:toc-->
 
----
+
 
 ## pip
 
-### 生效方法
 ```shell
 # 安装时指定
-pip install $pkg -i http://pypi.douban.com/simple
+pip install $pkg -i https://mirrors.aliyun.com/pypi/simple
 
 # 设置源
-pip config set global.index-url http://pypi.douban.com/simple
-pip config set install.trusted-host pypi.douban.com
+pip config set global.index-url https://mirrors.aliyun.com/pypi/simple
+pip config set install.trusted-host mirrors.aliyun.com
 
 # 删除源
 pip config unset global.index-url
 pip config unset install.trusted-host
 ```
 
-### 国内源
-```shell
-# 清华源
-https://pypi.tuna.tsinghua.edu.cn/simple
+**国内源**
+- 清华源: `https://pypi.tuna.tsinghua.edu.cn/simple`
+- 阿里: `https://mirrors.aliyun.com/pypi/simple`
+- 豆瓣: `http://pypi.douban.com/simple`
+- pypi 源列表（校园网联合镜像站）：https://mirrors.cernet.edu.cn/list/pypi
 
-# 阿里云
-https://mirrors.aliyun.com/pypi/simple
-
-# 中国科学技术大学 
-https://pypi.mirrors.ustc.edu.cn/simple
-
-#豆瓣
-http://pypi.douban.com/simple
-```
 
 ## conda
 
-### 生效方法
 ```shell
 # 安装时指定（推荐）
 conda install $pkg -c $channel
@@ -62,19 +52,14 @@ conda config --add channels $channel
 conda config --remove channels $channel
 ```
 
-### 清华源
+**国内源**
 ```shell
+# 清华源
 # main
 https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
-
 # special
 https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
 https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
 https://mirrors.tuna.tsinghua.edu.cn/tensorflow/linux/cpu/
 ```
-
-### 其他源
-- 豆瓣源
-- 阿里源
-- ...
