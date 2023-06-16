@@ -27,7 +27,7 @@ test_data = [
     'a\tb\tc\n',
 ]
 
-_DEFAULT_LOCAL_NODE_NAME = 'jiwangyou'
+_DEFAULT_LOCAL_NODE_NAME = 'xxx'
 _MODE_MAP = 'map'
 _MODE_REDUCE = 'reduce'
 
