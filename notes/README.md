@@ -31,6 +31,9 @@ Notes
 <!--START_SECTION:recent-->
 
 - [`2022-07-27` Transformer 常见问题 📌](_archives/2022/05/Transformer常见问题.md)
+- [`2023-06-25` huggingface 套件使用备忘](_archives/2023/06/huggingface套件使用备忘.md)
+- [`2023-06-25` LLM 训练方案整理](_archives/2023/06/llm训练方案整理.md)
+- [`2023-06-25` LLM 应用收集](_archives/2023/06/llm应用收集.md)
 - [`2023-04-04` Hive 常用 SQL 备忘](_archives/2023/03/Hive常用SQL备忘.md)
 - [`2023-02-05` SQL优化之暴力扫描](_archives/2023/02/SQL优化之暴力扫描.md)
 - [`2023-01-13` 基于 SQL 计算信息熵与信息增益](_archives/2023/01/sql-计算信息熵与信息增益.md)
@@ -39,9 +42,6 @@ Notes
 - [`2023-01-06` PySpark 笔记](_archives/2023/01/PySpark笔记.md)
 - [`2023-01-05` Windows 使用备忘](_archives/2023/01/Windows备忘.md)
 - [`2023-01-04` Hive/Spark/Presto SQL 备忘](_archives/2023/01/大数据SQL备忘.md)
-- [`2022-12-22` 电商领域的 NER](_archives/2022/12/电商NER.md)
-- [`2022-12-22` query 理解参考资料](_archives/2022/12/query理解相关阅读.md)
-- [`2022-12-16` Label Studio 使用记录](_archives/2022/12/label-studio使用记录.md)
 
 
 <!--END_SECTION:recent-->
@@ -182,6 +182,7 @@ Notes
     - [glob](999-WIKI.md#glob)
 - [H](999-WIKI.md#h)
     - [Hive](999-WIKI.md#hive)
+    - [HuggingFace](999-WIKI.md#huggingface)
 - [J](999-WIKI.md#j)
     - [Jupyter](999-WIKI.md#jupyter)
         - [Jupyter Lab](999-WIKI.md#jupyter-lab)
@@ -192,6 +193,7 @@ Notes
         - [深度学习](999-WIKI.md#深度学习)
 - [L](999-WIKI.md#l)
     - [LaTeX](999-WIKI.md#latex)
+    - [LLM](999-WIKI.md#llm)
     - [领域短语挖掘](999-WIKI.md#领域短语挖掘)
 - [M](999-WIKI.md#m)
     - [Markdown](999-WIKI.md#markdown)
@@ -203,6 +205,7 @@ Notes
 - [P](999-WIKI.md#p)
     - [PyCharm](999-WIKI.md#pycharm)
     - [PySpark](999-WIKI.md#pyspark)
+    - [Python](999-WIKI.md#python)
 - [Q](999-WIKI.md#q)
     - [Query 理解](999-WIKI.md#query-理解)
 - [S](999-WIKI.md#s)
