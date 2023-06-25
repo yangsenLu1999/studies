@@ -18,6 +18,7 @@ toc_id: wiki
     - [glob](#glob)
 - [H](#h)
     - [Hive](#hive)
+    - [HuggingFace](#huggingface)
 - [J](#j)
     - [Jupyter](#jupyter)
         - [Jupyter Lab](#jupyter-lab)
@@ -28,6 +29,7 @@ toc_id: wiki
         - [深度学习](#深度学习)
 - [L](#l)
     - [LaTeX](#latex)
+    - [LLM](#llm)
     - [领域短语挖掘](#领域短语挖掘)
 - [M](#m)
     - [Markdown](#markdown)
@@ -39,6 +41,7 @@ toc_id: wiki
 - [P](#p)
     - [PyCharm](#pycharm)
     - [PySpark](#pyspark)
+    - [Python](#python)
 - [Q](#q)
     - [Query 理解](#query-理解)
 - [S](#s)
@@ -108,12 +111,16 @@ toc_id: wiki
 - [Hive SQL 常用操作](./_archives/2022/04/HiveSQL常用操作.md)
 - [Hive 常用 SQL 备忘](./_archives/2023/03/Hive常用SQL备忘.md)
 
+### HuggingFace
+> 一家 AI 创业公司, 创建了目前最流行的预训练模型库 [transformers](https://github.com/huggingface/transformers);
+
+- [huggingface 套件使用备忘](./_archives/2023/06/huggingface套件使用备忘.md)
+
 
 ## J
 
 ### Jupyter
 > 一款支持交互式编程的笔记软件, 此前被称为 IPython notebook; 目前除了支持 Python 外, 也开始支持其他语言;
->> 
 
 #### Jupyter Lab
 > Jupyter 开发的新一代 notebook 界面, 支持目录, 插件等更多高级功能; 
@@ -139,6 +146,11 @@ toc_id: wiki
 ### LaTeX
 > 一种可以处理排版和渲染的标记语言，常用于论文编辑；
 - [LaTeX 常用编辑格式](./_archives/2022/04/LaTeX备忘.md)；
+
+### LLM
+> 大型语言模型 (Large Language Model, LLM)
+- [LLM 训练方案整理](./_archives/2023/06/llm训练方案整理.md)
+- [LLM 应用收集](./_archives/2023/06/llm应用收集.md)
 
 ### 领域短语挖掘
 > 同义：短语挖掘（Phrase Mining）<br/>
@@ -192,6 +204,12 @@ toc_id: wiki
 > Spark 为 Python 开发者提供的 API;
 
 - [PySpark 笔记 & 备忘](./_archives/2023/01/PySpark笔记.md)
+
+### Python
+> 流行的编程语言
+
+- [python 国内镜像源](./_archives/2022/06/python国内镜像源.md)
+
 
 ## Q
 
