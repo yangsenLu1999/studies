@@ -24,10 +24,6 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s - %(message)s
                     datefmt='%Y.%m.%d %H:%M:%S',
                     level=logging.WARNING)
 
-__all__ = [
-    'SparkUtils'
-]
-
 
 class SparkUtils:
     """"""
@@ -269,59 +265,59 @@ class SparkUtils:
         return SparkUtils.get_spark(spark).conf.get('spark.submit.deployMode')
 
 
-class __DoctestWrapper:
-    """"""
+# class __DoctestWrapper:
+#     """"""
 
-    def __init__(self):
-        """"""
-        import doctest
-        doctest.testmod()
-        spark = SparkUtils.get_spark()
-        print()
-        print(spark.conf.get("spark.submit.deployMode"))
+#     def __init__(self):
+#         """"""
+#         import doctest
+#         doctest.testmod()
+#         spark = SparkUtils.get_spark()
+#         print()
+#         print(spark.conf.get("spark.submit.deployMode"))
 
-        # self.demo_load_csv()
-        for k, v in self.__class__.__dict__.items():
-            if k.startswith('demo') and isinstance(v, Callable):
-                v(self)
+#         # self.demo_load_csv()
+#         for k, v in self.__class__.__dict__.items():
+#             if k.startswith('demo') and isinstance(v, Callable):
+#                 v(self)
 
-    def demo_load_and_save_csv(self):  # noqa
-        """"""
-        # load
-        fp = r'./_demo/data.csv'
-        schema = 'name STRING, age INT'
-        df = SparkUtils.load_csv(fp, header=True, schema=schema, infer_schema=False)
-        print(df.schema)
-        df.show()
+#     def demo_load_and_save_csv(self):  # noqa
+#         """"""
+#         # load
+#         fp = r'./_demo/data.csv'
+#         schema = 'name STRING, age INT'
+#         df = SparkUtils.load_csv(fp, header=True, schema=schema, infer_schema=False)
+#         print(df.schema)
+#         df.show()
 
-        # process
-        rdd = df.rdd.map(lambda row: row.name) \
-            .flatMap(lambda name: name.split()) \
-            .map(lambda word: [word, 1])
+#         # process
+#         rdd = df.rdd.map(lambda row: row.name) \
+#             .flatMap(lambda name: name.split()) \
+#             .map(lambda word: [word, 1])
 
-        # save
-        fw = r'./_demo/out'
-        schema = "word STRING, cnt INT"
-        SparkUtils.save_to_csv(rdd, fw, schema=schema, save_to_one_file=True)
+#         # save
+#         fw = r'./_demo/out'
+#         schema = "word STRING, cnt INT"
+#         SparkUtils.save_to_csv(rdd, fw, schema=schema, save_to_one_file=True)
 
-    def demo_load_and_save_txt(self):  # noqa
-        """"""
-        # load
-        fp = r'./_demo/data.txt'
-        df = SparkUtils.load_txt(fp)
-        print(df.schema)
-        df.show()
+#     def demo_load_and_save_txt(self):  # noqa
+#         """"""
+#         # load
+#         fp = r'./_demo/data.txt'
+#         df = SparkUtils.load_txt(fp)
+#         print(df.schema)
+#         df.show()
 
-        # process
-        rdd = df.rdd.map(lambda row: row.value) \
-            .flatMap(lambda name: name.split()) \
-            .map(lambda word: [f'{word} 1'])
+#         # process
+#         rdd = df.rdd.map(lambda row: row.value) \
+#             .flatMap(lambda name: name.split()) \
+#             .map(lambda word: [f'{word} 1'])
 
-        # save
-        fw = r'./_demo/out'
-        SparkUtils.save_to_txt(rdd, fw, save_to_one_file=True)
+#         # save
+#         fw = r'./_demo/out'
+#         SparkUtils.save_to_txt(rdd, fw, save_to_one_file=True)
 
 
-if __name__ == '__main__':
-    """"""
-    __DoctestWrapper()
+# if __name__ == '__main__':
+#     """"""
+#     __DoctestWrapper()
